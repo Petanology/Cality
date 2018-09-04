@@ -27,28 +27,41 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
     <!-- Titulo -->
-    <title>Iniciar Sesión | Cality</title>
+    <title>Iniciar Sesión | Cality</title> 
+    
+    <!-- Java Script -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/carga-pagina.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-        </nav>
-    </header>
-    
+    <div class="fondo-loader">
+        <div class="loader"></div>
+    </div>    
+        <div class="fig-2"></div>
+        <div class="fig-1"></div>
     <div class="main">
+        <!-- figura 1 -->
+        
         <div class="contenedor-1">
-            
+            <img src="img/faviconx512-2.png" alt="favicon de Cality">
+            <p>¡Bienvenido al aplicativo <strong>Cality</strong>! <span class="parrafo-extendido">El aplicativo web para la gestión de calidad en llamadas de GF Cobranzas</span></p>
         </div>
         
         <div class="contenedor-2">
+            <div class="imagen-encabezado">
+                <img src="img/lock.png" alt="Icono candado">
+            </div>
+           
             <form action="../controlador/loginControlador.php" method="post" required>
             
+                <div class="presentacion-opcional"><img src="img/faviconx30-2.png" alt="icono principal cality"><p>¡Bienvenido a Cality!</p></div>
                 <h1>Login</h1>
-
+                
                 <!-- Rol -->
                 <label for="rol">Rol Correspondiente</label>
                 <select name="rol" id="rol" required>
-                <option value="">Seleccione su rol</option>
+                <option value="" disabled>Seleccione su rol</option>
                 <option value="administrador" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="administrador"){echo "selected";} ?>>Administrador</option>
                 <option value="analista" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="analista"){echo "selected";} ?>>Analista</option>
                 <option value="lider" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="lider"){echo "selected";} ?>>Líder</option>
@@ -70,18 +83,18 @@
                 </div>
 
                 <!-- submit -->
-                <input type="submit" value="INICIAR SESIÓN" class="boton">
+                <button type="submit" class="boton">INICIAR SESIÓN</button>
             </form>    
         </div>
     </div>
        
         <?php
             if(!empty($_GET['m'])){
-                echo "<p class='alert alert-danger alert-dimissible fade show'> ". $_GET['m'] . 
-                        "<span aria-hidden='true' class='close' data-dismiss='alert' aria-label='Colse'>&times;</span>
-                      </p>";
+                echo "<div class='alerta'>
+                        <p>".$_GET['m']."</p>
+                        <span class='cerrar-alerta'>&times;</span>
+                      </div>";
             }
         ?>
-
 </body>
 </html>

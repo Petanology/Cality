@@ -1,9 +1,11 @@
+/*
+     Copyright GF Cobranzas Juridicas 2018
+*/
+
+
 @import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu');
 
-/* plantilla bootstrap  
 
-https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
-*/
 * {
 	margin: 0;
 	padding: 0;
@@ -14,10 +16,189 @@ https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
 }
 
 
+body {
+    background: url("../img/1.jpg") no-repeat fixed center;
+    background-size: cover;
+    background-color: #F4F4F4;
+    overflow: hidden;
+}
+
+
+.main {
+    overflow: auto;
+}
+
+
+.fondo-loader {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.82);
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+}
+
+
+.loader {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.83);
+    border-top-color: #2761d0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto; 
+    animation-name: loaderGiro;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loaderGiro {    
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+} 
+
+
+.desvanecer-loader {
+    opacity: 0 !important;
+    z-index: -2;
+}
+
+
+
+
+/* alerta */
+
+
+.alerta {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: rgba(231, 76, 60, 0.95);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+
+.desvanecer-alerta {
+    right: 100%;
+    opacity: 0.5;
+}
+
+
+.alerta p {
+    padding: 0px 15px;
+    line-height: 50px;
+    width: calc(100% - 50px);
+    color: #FFF;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+}
+
+
+.alerta span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    color: #FFF;
+    font-size: 23px;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    overflow: hidden;
+}
+
+
+.alerta span:hover {
+    text-shadow: 1px 1px 10px rgba(0,0,0,.5);
+}
+
+
+/********************* */
+/* figura 1 */
+
+
+.fig-1 {
+    position: absolute;
+    background-color: rgba(28, 76, 185, 0.6);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    left: 50%;
+    bottom: 10vh;
+    transform: rotate(35deg);
+}
+
+
+.fig-2 {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 0px 5px rgba(0,0,0,.1);
+    width: 70%;
+    height: 150vh;
+    left: 40%;
+    bottom: -50%;
+    transform: rotate(35deg);
+}
+
+
+/* ******************* */
+
+
 .main {
     position: absolute;
 	width:100%;
 	height: 100vh;
+}
+
+
+.contenedor-1 {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contenedor-1 img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 25px;
+}
+
+.contenedor-1 p {
+    color: #FFF;
+    font-size: 50px;
+    font-weight: bolder;
+    text-shadow: 0px 0px 8px rgba(0,0,0,.4);
+    padding: 0px 50px;
+    text-align: center;
 }
 
 
@@ -26,22 +207,97 @@ https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
     height: 100%;
     position: absolute;
     right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contenedor-2 .imagen-encabezado {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: #FFF;
+}
+
+
+.contenedor-2 .imagen-encabezado img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFF;
+    margin: 12px 10px 8px 10px;
 }
 
 
 .contenedor-2 form {
+    position: relative;
     width: 90%;
     max-width: 350px;
-    height: 370px;
+    font-family: 'Poppins';
+    height: auto;
     background-color: #FFF;
+    padding: 28px 23px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.3);
+}
+
+
+.presentacion-opcional {
     position: absolute;
     top: 0;
     left: 0;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #2a2727;
+    display: none;
+    width: 100%;
+}
+
+
+.presentacion-opcional img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
     right: 0;
-    bottom: 0;
-    margin: auto;
-    padding: 28px 23px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,.2);
+    top: 0;
+    padding: 10px;
+    margin-right: 11px;
+}
+
+
+.presentacion-opcional p {
+    color: #FFF;
+    font-weight: bold;
+    padding: 0px 23px;
+    font-size: 16px;
+    line-height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 50px);
+    padding-right: 0px 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.contenedor-2 form::before {
+    display: inline-block;
+    width: 100%; 
+    content: "Copyright © GF Cobranzas Jurídicas 2018";
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    bottom: -30px;
+    font-size: 14px;
+    text-align: center;
+    left: 0px;
+    color: #FFF;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 }
 
 
@@ -50,35 +306,42 @@ https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
     font-size: 18px;
 }
 
+
 .contenedor-2 form label {
     display: inline-block;
     width: 100%;
     line-height: 25px;
     font-weight: bold;
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 7px 0px;
 }
 
 
 .contenedor-2 form input.text, .contenedor-2 select {
     padding: 10px 10px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.15);
     box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
     border-radius: 3px;
     width: 100%;
     font-size: 14px;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
 }
 
 
 .contenedor-2 form input.text:focus, .contenedor-2 select:focus {
     outline: none;
-    box-shadow: 0px 0px 5px rgba(40, 44, 64, 0.67);
+    box-shadow: 0px 0px 8px rgba(40, 44, 64, 0.4);
 }
 
 
 .boton {
     position: relative;
-    background-color: #ff6200;
+    background-color: #3498DB;
     border-radius: 3px;
     border: none;
     padding: 10px;
@@ -86,7 +349,7 @@ https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
     color: #fff;
     font-size: 14px;
     font-family: 'Poppins';
-    margin-top: 10px;
+    margin-top: 12px;
     cursor: pointer;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -95,22 +358,71 @@ https://themequarry.com/theme/my-login-bootstrap-4-login-page-snippet-ASFEDAB1
 
 
 .boton:hover {
-    background-color: #ff7d2c;
+    background-color: #44a5e5;
 }
 
 
-.boton:before{
-    content: "sasasa";
-    padding: 10px;
-    display: inline-block;
-    height: 2px;
-    width: calc(100% - 4px);
+.boton:focus {
+    background-color: #252e34;
+}
+
+
+.boton::before{
+    content: "";
     position: absolute;
-    left: 2px;
-    bottom: 0px;
-    background-color: red;
-    
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: rgba(239, 240, 239, 0.87);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
 }
+
+
+.boton:hover::before , .boton:focus::before{
+    left: 0%;
+    width: 100%;
+}
+
+@media screen and (max-width: 720px){
+    
+    .contenedor-1 {
+        display: none;
+    }
+    
+    
+    form {
+        padding-top: 68px !important;    
+    }
+    
+    
+    .presentacion-opcional {
+        display: block;
+    }
+    
+    
+    .contenedor-2 {
+        width: 100%;
+    }  
+}
+
+
+@media screen and (max-width: 900px){
+    
+    .parrafo-extendido {
+        display: none;
+    }
+    
+    .contenedor-1 p {
+        font-size: 40px;
+    }
+}
+
+
+
+
 
 
 
