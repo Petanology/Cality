@@ -74,12 +74,6 @@
             </form>    
         </div>
     </div>
-
-
-
-    
-
-
        
         <?php
             if(!empty($_GET['m'])){
