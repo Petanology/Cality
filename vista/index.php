@@ -18,6 +18,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     
     <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/carga_pagina.css">
     <link rel="stylesheet" href="css/index.css">
     
     <!-- Favicon -->
@@ -35,17 +37,30 @@
     <script src="js/index.js"></script>
 </head>
 <body>
-    <div class="fondo-loader">
-        <div class="loader"></div>
-    </div>    
+       
+    <!-- Contenedor loader -->
+    <div class="contenedor-loader">   
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+    </div> 
+    
+    
+    <!-- Formas -->
+    <div class="formas">
         <div class="fig-2"></div>
         <div class="fig-1"></div>
+    </div>        
+    
+    
     <div class="main">
-        <!-- figura 1 -->
-        
+       
+        <!-- Figura 1 -->
         <div class="contenedor-1">
             <img src="img/faviconx512-2.png" alt="favicon de Cality">
-            <p>¡Bienvenido al aplicativo <strong>Cality</strong>! <span class="parrafo-extendido">El aplicativo web para la gestión de calidad en llamadas de GF Cobranzas</span></p>
+            <p>¡Bienvenido al aplicativo <strong>Cality</strong>! <span class="parrafo-extendido">Una plataforma web para la gestión de calidad en llamadas de GF Cobranzas</span></p>
         </div>
         
         <div class="contenedor-2">
@@ -77,13 +92,16 @@
                 ?> type="text" name="usuario" class="text" id="usuario" placeholder="Digite su nombre de usuario" required>
 
                 <!-- contraseña -->
-                <div class="form-group">
-                <label for="contrasena">Contraseña</label>
-                <input type="password" class="text" name="contrasena" id="contrasena" placeholder="Digite su contraseña" required>
+                <div class="contenedor-contrasena">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="password" class="text" name="contrasena" id="contrasena" placeholder="Digite su contraseña" required>
+                    <div class="ojo cerrar" title="Mostrar contraseña"></div>
+                    
                 </div>
 
                 <!-- submit -->
                 <button type="submit" class="boton">INICIAR SESIÓN</button>
+                <a href="#" class="link">¿Olvidó su contraseña?</a>
             </form>    
         </div>
     </div>

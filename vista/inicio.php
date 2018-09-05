@@ -17,7 +17,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/inicio.css">
     
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="img/faviconx32.png">
@@ -28,28 +29,66 @@
     <title>Página de inicio | Cality</title>
 </head>
 <body>
-    <?php
-        echo $_SESSION['usuario'] . " | ";
-        echo $_SESSION['idpersona'] . " | ";
-        echo $_SESSION['nombres'] . " | ";
-        echo $_SESSION['genero'] . " | ";
-        echo $_SESSION['correo'] . " | ";
-        echo $_SESSION['rol'];
-    ?>
     
-    <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quisquam quas amet itaque voluptates. Ut architecto maiores est dicta laborum nam repellendus sed eaque, recusandae, quisquam, voluptate impedit cupiditate explicabo debitis exercitationem dolore magni consectetur molestias rerum labore cumque odit. Laboriosam, ab nostrum vero eveniet dicta, aspernatur quod, itaque distinctio numquam culpa voluptates quas ipsum excepturi mollitia. Nihil totam, quasi necessitatibus repudiandae, nemo nostrum corrupti vero veritatis consectetur accusamus eveniet quod fugit molestiae odit sunt reprehenderit omnis voluptate incidunt, ullam sint suscipit numquam ratione nam? Reprehenderit quae, obcaecati aspernatur rerum odit dolorum nostrum eveniet veritatis recusandae adipisci ratione quis corporis!
-
-            <div class="embed-responsive">
-                <iframe class="embed-responsive-item" src="tipoDoc.php"></iframe>
+    <div class="main">
+        <!-- menu de navegación -->
+        <nav class="menu">
+            <!-- Menu -->
+            <?php
+                echo $_SESSION['usuario'] . " | ";
+                echo $_SESSION['idpersona'] . " | ";
+                echo $_SESSION['nombres'] . " | ";
+                echo $_SESSION['genero'] . " | ";
+                echo $_SESSION['correo'] . " | ";
+                echo $_SESSION['rol'];
+            ?>
+            <div class="icono-menu">
+                <div class="primero">-</div>
+                <div class="segundo">-</div>
+                <div class="tercero">-</div>
+            </div>
+            
+            <!-- Links Principales -->
+            <ul>
+                <li><a href="#">inicio</a></li>
+                <li><a href="#">registros</a></li>
+                <li><a href="#">reportes</a></li>
+                <li><a href="tipoDoc.php" class="btn btn-primary">Tipo Documento</a></li>
+                <li><a href="#">ayuda</a></li>
+                <li><a href="#">gestión</a></li>
+            </ul>
+            
+            <!-- Links Perfil -->
+            <ul>
+                <li><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
+            </ul> 
+        </nav>
+        
+        <div class="encabezado">
+            <div class="calendario">
+                <img src="" alt="">
             </div>
         </div>
+        
+        <div class="contenido-principal">
+            <iframe class="iframe" src="tipoDoc.php"></iframe>
+        </div>
     </div>
-
-    <a href="../controlador/logoutControlador.php">Cerrar sesión</a>
     
-    <a href="tipoDoc.php" class="btn btn-primary">Tipo Documento</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
     
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.2.1.slim.min.js"></script>

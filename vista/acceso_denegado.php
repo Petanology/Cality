@@ -27,7 +27,7 @@
                 <div class="col-md-12 text-center">
                     <h1 class="display-4 d-block">Acceso Denegado</h1>
                     <div class="mb-4 lead">
-                        No puede acceder a ésta página, recuerde que para poder hacerlo debe haber iniciado sesión previamente, si ya lo está es porque no tiene los privilegios.
+                        No puede acceder a ésta página, recuerde que para poder hacerlo debe haber iniciado sesión previamente, si ya lo está es porque no tiene los privilegios  o porque se presentan problemas de navegación.
                     </div>
                     <a href="index.php" class="btn btn-outline-primary "><i class="fas fa-arrow-left"></i> Volver al inicio</a>
                 </div>

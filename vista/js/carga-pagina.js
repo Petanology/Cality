@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $(".fondo-loader").addClass("desvanecer-loader");
+    $(".contenedor-loader").addClass("desvanecer-loader");
 });

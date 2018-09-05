@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     
     <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
     <!-- Favicon -->
@@ -20,7 +21,7 @@
     <!-- Título -->
     <title>Registrar Tipo de Documento | Cality</title>
 </head>
-<body>
+<body style="background: #DDD;" class="scroll_modificado">
     <!-- Contenido -->  
     <div class="container-fluid">
         
