@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $(".contenedor-loader").addClass("desvanecer-loader");
+    $(".contenedor-loader").fadeOut(600);
 });

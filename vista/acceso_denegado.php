@@ -27,28 +27,12 @@
                 <div class="col-md-12 text-center">
                     <h1 class="display-4 d-block">Acceso Denegado</h1>
                     <div class="mb-4 lead">
-                        No puede acceder a ésta página, recuerde que para poder hacerlo debe haber iniciado sesión previamente, si ya lo está es porque no tiene los privilegios  o porque se presentan problemas de navegación.
+                        No puede acceder a ésta página, recuerde que para poder hacerlo <strong class="font-weight-bold">debe haber iniciado sesión previamente</strong>, si ya lo está significa que no tiene los privilegios  o que hay problemas de navegación.
                     </div>
-                    <a href="index.php" class="btn btn-outline-primary "><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+                    <a href="index.php" class="btn btn-outline-primary "><i class="fas fa-arrow-left"></i> Entendido, volver al inicio</a>
                 </div>
             </div>
         </div>
     </div>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    <!-- Javascript Bootstrap -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

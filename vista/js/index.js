@@ -1,23 +1,26 @@
 $(document).ready(function(){
     /* Cerrar ventana de sesión fallida */
     $(".cerrar-alerta").click(function(){
-       $(".alerta").addClass("desvanecer-alerta");
+        $(".alerta").fadeOut();
     });
     
     
     /* Mostrar / Ocultar contraseña */
+    var click = true;
     
-    $(".ojo").mousedown(function(){
-        $("#password").attr("type" , "text");
-        $(this).removeClass("cerrar");
-        $(this).addClass("abrir");
-    });
-    
-    $(".ojo").mouseup(function(){
-       
-        $("#password").attr("type" , "password");
-        $(this).removeClass("abrir");
-        $(this).addClass("cerrar");
+    $(".ojo").click(function(){        
+                
+        if(click){
+            $("#password").attr("type" , "text");
+            click = false;
+            $(".ojo").removeClass("cerrar");
+            $(".ojo").addClass("abrir");
+        }else{
+            $("#password").attr("type" , "password");
+            click = true;
+            $(".ojo").removeClass("abrir");
+            $(".ojo").addClass("cerrar");
+        }
         
     });
     

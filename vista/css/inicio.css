@@ -2,16 +2,17 @@ body {
     overflow: hidden;
 }
 
-
 .main {
+    overflow: auto;
     position: absolute;
     width: 100%;
+    min-width: 340px;
     height: 100vh;
     min-height: 500px;
 }
 
 
-    .menu {
+    nav.menu {
         position: absolute;
         width: 65px;
         height: 100%; 
@@ -21,8 +22,100 @@ body {
     }
 
 
-    .encabezado {
+    .primero , .segundo , .tercero {
+         -webkit-transition: 0.3s;
+         -o-transition: 0.3s;
+         transition: 0.3s;
+    }
+
+
+    nav.menu .icono-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 65px;
+        height: 65px;
+        cursor: pointer;
+    }
+
+
+    nav.menu .icono-menu .primero {
+        background-color: #ffffff;
+        position: absolute;
+        top: 25px;
+        left: 22px;
+        width: 21px;
+        height: 3px;
+    }
+
+    /* activado */
+    nav.menu .icono-menu .primero-activado {
+        top: 31px !important;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+
+    nav.menu .icono-menu .segundo {
+        background-color: #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 21px;
+        height: 3px;
+    }
+
+
+    /* segundo activado */
+    nav.menu .icono-menu .segundo-activado {
+        opacity: 0;
+    }
+
+
+    nav.menu .icono-menu .tercero {
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 25px;
+        left: 22px;
+        width: 21px;
+        height: 3px;
+    }
+
+
+    /* tercero activado */
+    nav.menu .icono-menu .tercero-activado {
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        bottom: 31px !important;
+    }
+
+
+    .contenido-menu {
+        width: 65px;
+        height: calc(100% - 65px);
+        position: absolute;
+        top: 65px;
+        left: 0;
+    }
+
+    .contenedor-derecha {
         width: calc(100% - 65px);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+
+    .encabezado {
+        width: 100%;
         height: 55px;
         position: absolute;
         right: 0;
@@ -31,10 +124,87 @@ body {
         z-index: 2;
     }
 
+    
+    .encabezado .calendario {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+    }
+
+
+    .encabezado .logotipo {
+        width:50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
+
+
+    .logotipo h1 {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 62px;
+        font-size: 18px;
+        letter-spacing: 2px;
+        display: inline-block;
+        height: 100%;
+        line-height: 55px;
+    }
+
+
+    .logotipo h1 span {
+        text-transform: capitalize;
+        color: rgba(0,0,0,0.7);
+        margin-left: 5px;
+        padding-left: 5px;
+        font-size: 15px;
+        border-left: 1px solid #000000;
+    }
+
+
+    .logotipo img {
+        width:31px;
+        height: 31px;
+        position: absolute;
+        top: 12px;
+        right: 17px;
+    }
+
+    .encabezado .calendario img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        margin-left: 0px;
+        padding: 17px;
+    }
+
+
+    .encabezado .calendario span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        line-height: 55px;
+        height: 100%;
+        width: calc( 100% - 55px);
+        font-weight: bold;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 20px;
+    }
 
     .contenido-principal {
-        width: calc(100% - 65px);
-        height: calc(100vh - 55px);
+        width: 100%;
+        height: calc(100% - 55px);
         position: absolute;
         right: 0;
         top: 55px;
@@ -42,16 +212,21 @@ body {
     }
 
 .iframe {
-    height: 100%;
-    border: none;
     width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
     overflow: scroll;
 }
 
 
+@media screen and (max-width : 555px){
+    .calendario {
+        display: none;
+    }
+}
 
-
-
-
-
-
+    
+    
+    
+    

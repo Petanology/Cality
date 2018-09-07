@@ -1,6 +1,7 @@
 <?php
     // importaciones necesarias 
     require_once ("../controlador/sesiones.php");
+    require_once ("../controlador/fecha.php");
     $sss = new sesiones();
     $sss->iniciar();
 
@@ -18,6 +19,7 @@
     
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/ondas.css">
     <link rel="stylesheet" href="css/inicio.css">
     
     <!-- Favicon -->
@@ -27,72 +29,75 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
     <title>Página de inicio | Cality</title>
+    
+    <!-- Jquery con ondas -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Ondas -->
+    <script src="js/wave.js"></script>
 </head>
 <body>
     
-    <div class="main">
+    <div class="main scroll_modificado">
         <!-- menu de navegación -->
         <nav class="menu">
-            <!-- Menu -->
-            <?php
-                echo $_SESSION['usuario'] . " | ";
-                echo $_SESSION['idpersona'] . " | ";
-                echo $_SESSION['nombres'] . " | ";
-                echo $_SESSION['genero'] . " | ";
-                echo $_SESSION['correo'] . " | ";
-                echo $_SESSION['rol'];
-            ?>
+            <!-- Icono menú -->
             <div class="icono-menu">
-                <div class="primero">-</div>
-                <div class="segundo">-</div>
-                <div class="tercero">-</div>
+                <div class="primero"></div>
+                <div class="segundo"></div>
+                <div class="tercero"></div>
             </div>
             
-            <!-- Links Principales -->
-            <ul>
-                <li><a href="#">inicio</a></li>
-                <li><a href="#">registros</a></li>
-                <li><a href="#">reportes</a></li>
-                <li><a href="tipoDoc.php" class="btn btn-primary">Tipo Documento</a></li>
-                <li><a href="#">ayuda</a></li>
-                <li><a href="#">gestión</a></li>
-            </ul>
-            
-            <!-- Links Perfil -->
-            <ul>
-                <li><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
-            </ul> 
+            <!-- Contenedor -->
+            <div class="contenido-menu">
+                <?php
+                    /*echo $_SESSION['usuario'] . " | ";
+                    echo $_SESSION['idpersona'] . " | ";
+                    echo $_SESSION['nombres'] . " | ";
+                    echo $_SESSION['genero'] . " | ";
+                    echo $_SESSION['correo'] . " | ";*/
+                ?>
+                
+                <!-- Links Principales -->
+                <ul>
+                    <li><a href="#">inicio</a></li>
+                    <!--
+                    <li><a href="#">registros</a></li>
+                    <li><a href="#">reportes</a></li>
+                    <li><a href="tipoDoc.php" class="btn btn-primary">Tipo Documento</a></li>
+                    <li><a href="#">ayuda</a></li>
+                    <li><a href="#">gestión</a></li>-->
+                </ul>
+
+                <!-- Links Perfil -->
+                <ul>
+                    <li><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
+                </ul> 
+            </div>
         </nav>
         
-        <div class="encabezado">
-            <div class="calendario">
-                <img src="" alt="">
+        <div class="contenedor-derecha">
+            <div class="encabezado">    
+                <!-- Calendario y fecha -->        
+                <div class="calendario">
+                    <img src="img/wall-calendar.png" alt="Icono calendario">
+                    <span class="fecha"><?php $fecha = new fecha(); echo $fecha->traerFecha() ?></span>
+                </div>
+                
+                <!-- logotipo -->
+                <div class="logotipo">
+                    <h1>CALITY<span><?php echo $_SESSION['rol']; ?></span></h1>
+                    <img src="img/faviconx512-3.png" alt="Icono de cality">
+                </div>
             </div>
-        </div>
-        
-        <div class="contenido-principal">
-            <iframe class="iframe" src="tipoDoc.php"></iframe>
+            
+
+            <div class="contenido-principal">
+                <iframe class="iframe" src="tipoDoc.php"></iframe>
+            </div>
         </div>
     </div>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    <!-- Javascript Bootstrap -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Jquery -->
+    <script src="js/inicio.js"></script>
 </body>
 </html>

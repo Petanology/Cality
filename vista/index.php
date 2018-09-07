@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/carga_pagina.css">
+    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/index.css">
     
     <!-- Favicon -->
@@ -30,14 +30,9 @@
     
     <!-- Titulo -->
     <title>Iniciar Sesión | Cality</title> 
-    
-    <!-- Java Script -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/carga-pagina.js"></script>
-    <script src="js/index.js"></script>
 </head>
-<body>
-       
+
+<body> 
     <!-- Contenedor loader -->
     <div class="contenedor-loader">   
         <div class="loader">
@@ -46,7 +41,6 @@
             </svg>
         </div>
     </div> 
-    
     
     <!-- Formas -->
     <div class="formas">
@@ -114,5 +108,10 @@
                       </div>";
             }
         ?>
+        
+    <!-- scripts -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/carga-pagina.js"></script>
+    <script src="js/index.js"></script>    
 </body>
 </html>
