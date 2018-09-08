@@ -6,7 +6,7 @@ body {
     overflow: auto;
     position: absolute;
     width: 100%;
-    min-width: 340px;
+    min-width: 500px;
     height: 100vh;
     min-height: 500px;
 }
@@ -104,6 +104,7 @@ body {
         top: 65px;
         left: 0;
     }
+
 
     .contenedor-derecha {
         width: calc(100% - 65px);
@@ -218,6 +219,103 @@ body {
     border: none;
     overflow: scroll;
 }
+
+
+/* ************************************************* */
+/* ********************* MENÚ ********************** */
+
+
+ul {
+    list-style-type: none;
+}
+
+
+.lista-menu {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+
+.item-lista-menu {
+    background-color: red;
+    width: 65px;
+    height: 50px;
+}
+
+
+.item-lista-menu a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+}
+
+.cont-img {
+    position: relative;
+    width: 65px;
+    height: 100%;
+}
+
+
+.item-lista-menu img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 13px;
+    left: 20px;
+}
+
+.item-lista-menu ul {
+    position: absolute;
+    top: 8px;
+    left: 65px;
+    /*
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;*/
+}
+
+
+ul.modo-tooltip a{
+    overflow: hidden;    
+}
+
+
+ul.modo-tooltip li a:hover ul li{
+    opacity: 1;
+}
+
+
+ul.modo-tooltip li a ul li {
+    opacity: 0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.89);
+    font-weight: bold;
+    margin-left: 5px; 
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+} 
+
+
+
+/* AQUI ASASDSDSAS
+.item-lista-menu a tooltip {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 17px;
+    left: 19px;
+    background-color: red;
+}*/
+
+
+/* ************************************************* */
 
 
 @media screen and (max-width : 555px){

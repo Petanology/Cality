@@ -58,8 +58,50 @@
                 ?>
                 
                 <!-- Links Principales -->
-                <ul>
-                    <li><a href="#">inicio</a></li>
+                <ul class="lista-menu modo-tooltip">
+                    <li class="item-lista-menu">
+                        <a href="inicio.php">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/home-button.png" alt="icono de inicio">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <ul>
+                                <li>Inicio</li>
+                            </ul>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="item-lista-menu">
+                        <a href="inicio.php">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/forms%20(1).png" alt="icono de documentos">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <ul>
+                                <li>Registros</li>
+                            </ul>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="item-lista-menu">
+                        <a href="inicio.php">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/question.png" alt="icono de ayuda">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <ul>
+                                <li>Ayuda</li>
+                            </ul>
+                        </a>
+                    </li>
                     <!--
                     <li><a href="#">registros</a></li>
                     <li><a href="#">reportes</a></li>
