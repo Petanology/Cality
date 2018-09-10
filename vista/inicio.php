@@ -160,7 +160,7 @@
             
 
             <div class="contenido-principal">
-                <iframe name="contenido" class="iframe" src="tipoDoc.php"></iframe>
+                <iframe name="contenido" class="iframe" src="bienvenido.php"></iframe>
             </div>
         </div>
     </div>

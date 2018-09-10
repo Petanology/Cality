@@ -414,6 +414,8 @@ ul.menu-normal > li > a:hover {
 /* *************** Media Query ******************* */
 /* *********************************************** */
 
+
+/* Pantalla Pequeña */
 @media screen and (max-width: 559px){
     
     nav.menu-activado {
@@ -426,6 +428,7 @@ ul.menu-normal > li > a:hover {
 }
 
 
+/* Pantalla amplia */
 @media screen and (min-width: 1200px){    
     
     .fondo-toggle-activado {
@@ -437,6 +440,5 @@ ul.menu-normal > li > a:hover {
     .contenedor-derecha-activado {
         width: calc(100% - 300px);
     }
-    
-    
+
 }
