@@ -1,12 +1,8 @@
-body {
-    overflow: hidden;
-}
-
 .main {
     overflow: auto;
     position: absolute;
     width: 100%;
-    min-width: 500px;
+    min-width: 560px;
     height: 100vh;
     min-height: 500px;
 }
@@ -22,10 +18,35 @@ body {
     }
 
 
+    div.fondo-toggle {
+        position: absolute;
+        width:100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.3);
+        -webkit-transition-duration: 0.3s;
+        -o-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2;
+    }
+
+
+    div.fondo-toggle-activado {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    nav.menu-activado {
+        width: 300px !important;
+    }
+
+
     .primero , .segundo , .tercero {
-         -webkit-transition: 0.3s;
-         -o-transition: 0.3s;
-         transition: 0.3s;
+         -webkit-transition-duration: 0.3s;
+         -o-transition-duration: 0.3s;
+         transition-duration: 0.3s;
     }
 
 
@@ -112,6 +133,7 @@ body {
         position: absolute;
         top: 0;
         right: 0;
+        z-index: 1;
     }
 
 
@@ -122,7 +144,6 @@ body {
         right: 0;
         top: 0;
         background-color: #FFF;
-        z-index: 2;
     }
 
     
@@ -209,7 +230,6 @@ body {
         position: absolute;
         right: 0;
         top: 55px;
-        z-index: 1;
     }
 
 .iframe {
@@ -220,111 +240,203 @@ body {
     overflow: scroll;
 }
 
-
-/* ************************************************* */
-/* ********************* MENÚ ********************** */
-
-
 ul {
     list-style-type: none;
 }
 
+/* ************************************************* */
+/* ********************* MENÚ ********************** */
 
-.lista-menu {
-    position: relative;
-    width: 100%;
+/* ******* Modo Tooltip ******* */
+/* **************************** */
+
+
+ul.menu-tooltip {
+    width: 65px;
     height: auto;
 }
 
 
-.item-lista-menu {
-    background-color: red;
+ul.menu-tooltip > li {
     width: 65px;
-    height: 50px;
+    height: 45px;
 }
 
 
-.item-lista-menu a {
+ul.menu-tooltip > li > a {
+    position: relative;
     display: inline-block;
-    width: 100%;
-    height: 100%;
-    color: #FFF;
-    text-decoration: none;
+    width: 65px;
+    height: 45px;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+
+ul.menu-tooltip > li > a > div.cont-img {
+    width: 65px;
+    height: 45px;
     position: relative;
 }
 
-.cont-img {
-    position: relative;
-    width: 65px;
-    height: 100%;
-}
 
-
-.item-lista-menu img {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 13px;
-    left: 20px;
-}
-
-.item-lista-menu ul {
-    position: absolute;
-    top: 8px;
-    left: 65px;
-    /*
-    display: inline-block;
+ul.menu-tooltip > li > a > div.cont-img > img {
+    width: 22px;
+    height: 22px;
     position: absolute;
     top: 0;
-    right: 0;*/
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 
-ul.modo-tooltip a{
-    overflow: hidden;    
-}
-
-
-ul.modo-tooltip li a:hover ul li{
-    opacity: 1;
-}
-
-
-ul.modo-tooltip li a ul li {
-    opacity: 0;
+ul.menu-tooltip > li > a > div.texto {
+    width: auto;
     padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.89);
-    font-weight: bold;
-    margin-left: 5px; 
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-} 
-
-
-
-/* AQUI ASASDSDSAS
-.item-lista-menu a tooltip {
-    width: 27px;
-    height: 27px;
+    height: auto;
     position: absolute;
-    top: 17px;
-    left: 19px;
-    background-color: red;
-}*/
+    left: 75px;
+    top: 6px;
+    background-color: rgba(0,0,0,0.9);
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap;
+    /* Oculto */
+    opacity: 0;
+    visibility: hidden;
+}
 
 
-/* ************************************************* */
+ul.menu-tooltip > li > a:hover div.texto {
+    opacity: 1;
+    visibility: visible;
+}
 
 
-@media screen and (max-width : 555px){
-    .calendario {
-        display: none;
+ul.menu-tooltip > li > a:hover::before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3269fd;
+}
+
+
+ul.menu-tooltip > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ************************************* */
+/* ************ Modo Normal ************ */
+/* ************************************* */
+
+ul.menu-normal {
+    width: 300px;
+    height: auto;
+}
+
+
+ul.menu-normal > li {
+    width: 100%;
+    height: 45px;
+}
+
+
+ul.menu-normal > li > a {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+
+ul.menu-normal > li > a > div.cont-img {
+    width: 65px;
+    height: 45px;
+    position: relative;
+}
+
+
+ul.menu-normal > li > a > div.cont-img > img {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+ul.menu-normal > li > a > div.texto {
+    width: calc(100% - 65px);
+    line-height: 45px;
+    position: absolute;
+    left: 65px;
+    top: 0px;
+    color: #FFF;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+
+ul.menu-normal > li > a:hover::before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3269fd;
+}
+
+
+ul.menu-normal > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* *********************************************** */
+/* *************** Media Query ******************* */
+/* *********************************************** */
+
+@media screen and (max-width: 559px){
+    
+    nav.menu-activado {
+        width: 90vw !important;
+    }
+    
+    ul.menu-normal {
+        width: 90vw;
     }
 }
 
+
+@media screen and (min-width: 1200px){    
+    
+    .fondo-toggle-activado {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
     
     
+    .contenedor-derecha-activado {
+        width: calc(100% - 300px);
+    }
     
     
+}

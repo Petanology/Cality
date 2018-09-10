@@ -35,11 +35,12 @@
     <!-- Ondas -->
     <script src="js/wave.js"></script>
 </head>
-<body>
+<body class="scroll_modificado">
     
     <div class="main scroll_modificado">
+        
         <!-- menu de navegación -->
-        <nav class="menu">
+        <nav id="menu" class="menu">
             <!-- Icono menú -->
             <div class="icono-menu">
                 <div class="primero"></div>
@@ -58,48 +59,69 @@
                 ?>
                 
                 <!-- Links Principales -->
-                <ul class="lista-menu modo-tooltip">
-                    <li class="item-lista-menu">
-                        <a href="inicio.php">
+                <ul id="ul-menu" class="menu-tooltip"><!-- menu-normal -->
+                    <!-- Link Inicio -->
+                    <li>
+                        <a href="index.php">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/home-button.png" alt="icono de inicio">
                             </div>
                             
                             <!-- Texto -->
-                            <ul>
-                                <li>Inicio</li>
-                            </ul>
+                            <div class="texto">Inicio</div>
                         </a>
                     </li>
                     
-                    
-                    <li class="item-lista-menu">
-                        <a href="inicio.php">
-                            <!-- Icono -->
-                            <div class="cont-img">
-                                <img src="img/forms%20(1).png" alt="icono de documentos">
-                            </div>
-                            
-                            <!-- Texto -->
-                            <ul>
-                                <li>Registros</li>
-                            </ul>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="item-lista-menu">
-                        <a href="inicio.php">
+                    <!-- Link Ayuda -->
+                    <li>
+                        <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/question.png" alt="icono de ayuda">
                             </div>
                             
                             <!-- Texto -->
-                            <ul>
-                                <li>Ayuda</li>
-                            </ul>
+                            <div class="texto">Ayuda</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Base de Datos -->
+                    <li>
+                        <a href="acceso_denegado.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/forms%20(1).png" alt="icono de tablas">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Gestión de Tablas</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Informes -->
+                    <li>
+                        <a href="acceso_denegado.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/pie-chart.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Informes</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Gestion de Calidad -->
+                    <li>
+                        <a href="acceso_denegado.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/telephone.png" alt="icono de gestión de calidad">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Gestión de Calidad</div>
                         </a>
                     </li>
                     <!--
@@ -111,11 +133,15 @@
                 </ul>
 
                 <!-- Links Perfil -->
+                <!--
                 <ul>
                     <li><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
-                </ul> 
+                </ul>
+                --> 
             </div>
         </nav>
+        
+        <div id="fondo-toggle" class="fondo-toggle"></div>
         
         <div class="contenedor-derecha">
             <div class="encabezado">    
@@ -134,7 +160,7 @@
             
 
             <div class="contenido-principal">
-                <iframe class="iframe" src="tipoDoc.php"></iframe>
+                <iframe name="contenido" class="iframe" src="tipoDoc.php"></iframe>
             </div>
         </div>
     </div>
