@@ -1,6 +1,7 @@
 /* funcion menú */
 $(document).ready(function(){
     
+    // funcion general de  menú
     function funcionMenu(){
         // animación icono
         $(".primero").toggleClass("primero-activado");
@@ -11,29 +12,20 @@ $(document).ready(function(){
         $("#ul-menu").toggleClass("menu-tooltip");
         $("#ul-menu").toggleClass("menu-normal");
         $("#menu").toggleClass("menu-activado");    
-        $(".fondo-toggle").toggleClass("fondo-toggle-activado");    
+        $(".fondo-toggle").toggleClass("fondo-toggle-activado");  
+        $("#contenedor-derecha").toggleClass("contenedor-derecha-activado");
     }
     
-    // tocar el icono de menú
-    /*$(".icono-menu").click(function(){
-        funcionMenu();
-    });*/
     
-    // tocatr el fondo oscuro
+    // clic en fondo oscuro
     $("#fondo-toggle").click(function(){
         funcionMenu();
     });
     
-    // forma diferente en pantalla grande
-    //$(window).resize(function(){
-        $(".icono-menu").click(function(){
-            if($(window).width() > 1200){
-                $(".contenedor-derecha").toggleClass("contenedor-derecha-activado");
-            }
-            
-            funcionMenu();
-        });
-    //});
+    // click en icono de menú
+    $(".icono-menu").click(function(){
+        funcionMenu();
+    });
 });
 
 

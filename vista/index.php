@@ -59,7 +59,7 @@
         
         <div class="contenedor-2">
             <div class="imagen-encabezado">
-                <img src="img/lock.png" alt="Icono candado">
+                <img src="img/candado.png" alt="Icono candado">
             </div>
            
             <form action="../controlador/loginControlador.php" method="post" required>

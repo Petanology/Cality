@@ -51,21 +51,21 @@
             <!-- Contenedor -->
             <div class="contenido-menu">
                 <?php
-                    /*echo $_SESSION['usuario'] . " | ";
+                    /*echo $_SESSION[ io'] . " | ";
                     echo $_SESSION['idpersona'] . " | ";
-                    echo $_SESSION['nombres'] . " | ";
+                    echo $_SESSION['n ] . " | ";
                     echo $_SESSION['genero'] . " | ";
                     echo $_SESSION['correo'] . " | ";*/
                 ?>
                 
                 <!-- Links Principales -->
-                <ul id="ul-menu" class="menu-tooltip"><!-- menu-normal -->
+                <ul id="ul-menu" class="menu-tooltip scroll_modificado"><!-- hay dos opciones que sea tooltip o normal -->
                     <!-- Link Inicio -->
                     <li>
                         <a href="index.php">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/home-button.png" alt="icono de inicio">
+                                <img src="img/incio.png" alt="icono de inicio">
                             </div>
                             
                             <!-- Texto -->
@@ -78,7 +78,7 @@
                         <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/question.png" alt="icono de ayuda">
+                                <img src="img/ayuda.png" alt="icono de ayuda">
                             </div>
                             
                             <!-- Texto -->
@@ -91,7 +91,7 @@
                         <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/forms%20(1).png" alt="icono de tablas">
+                                <img src="img/documento.png" alt="icono de tablas">
                             </div>
                             
                             <!-- Texto -->
@@ -104,7 +104,7 @@
                         <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/pie-chart.png" alt="icono de informe">
+                                <img src="img/estadistica.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -117,7 +117,7 @@
                         <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/telephone.png" alt="icono de gestión de calidad">
+                                <img src="img/telefono.png" alt="icono de gestión de calidad">
                             </div>
                             
                             <!-- Texto -->
@@ -133,21 +133,22 @@
                 </ul>
 
                 <!-- Links Perfil -->
-                <!--
-                <ul>
-                    <li><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
+                <ul class="menu-sesion">
+                    <li class="mi-cuenta">Mi cuenta</li>
+                    <li class="img-perfil"><img src="img/girl%20(2).png" alt="Icono foto de perfil"></li>
+                    <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
                 </ul>
-                --> 
+                
             </div>
         </nav>
         
         <div id="fondo-toggle" class="fondo-toggle"></div>
         
-        <div class="contenedor-derecha">
+        <div id="contenedor-derecha" class="contenedor-derecha">
             <div class="encabezado">    
                 <!-- Calendario y fecha -->        
                 <div class="calendario">
-                    <img src="img/wall-calendar.png" alt="Icono calendario">
+                    <img src="img/calendario.png" alt="Icono calendario">
                     <span class="fecha"><?php $fecha = new fecha(); echo $fecha->traerFecha() ?></span>
                 </div>
                 

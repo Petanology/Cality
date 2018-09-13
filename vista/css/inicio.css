@@ -250,6 +250,10 @@ ul {
 /* ******* Modo Tooltip ******* */
 /* **************************** */
 
+ul.menu-tooltip , ul.menu-normal{
+    background-color: transparent;
+}
+
 
 ul.menu-tooltip {
     width: 65px;
@@ -407,6 +411,56 @@ ul.menu-normal > li > a:hover::before {
 
 ul.menu-normal > li > a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ****** Menu de la sesión ****** */
+
+ul.menu-sesion {
+    position: absolute;
+    bottom: 20px;
+    width: 65px;
+    height: auto;
+}
+
+
+ul.menu-sesion li.mi-cuenta {
+    margin-top: 10px;
+    padding: 10px 0px;
+    margin: auto;
+    width: 45px;
+    border-top: 1px solid rgba(255,255,255,.3);
+    text-align: center;
+    color:#FFF;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+ul.menu-sesion li.img-perfil{
+    position: relative;
+    width: 65px;
+    height: 65px;
+}
+
+
+ul.menu-sesion li.img-perfil img{
+    padding: 5px;
+    border-radius: 50%;
+    width: 70%;
+    height: auto;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #FFF;
+}
+
+
+ul.menu-sesion li.cerrar-sesion {
+    display: none;
 }
 
 

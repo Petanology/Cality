@@ -34,3 +34,12 @@ body {
 .scroll_modificado::-webkit-scrollbar-thumb{
     background-color: rgba(38, 38, 38, 0.86);
 }
+
+
+.fondo-formulario {
+    background-image: url("../img/fondo-10.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
