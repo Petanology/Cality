@@ -4,8 +4,8 @@
 
     class generoControlador{
 
-        private $mensajeP = "Felicidades, el registro / actualización fue un éxito";
-        private $mensajeN = "Lo sentimos, algo salió mal";
+        private $mensajeP = "¡Felicidades, el registro/modificación fue todo un éxito!";
+        private $mensajeN = "Lo sentimos, algo salió mal... intente nuevamente por favor";
 
         public function __construct(){
             

@@ -1,32 +1,11 @@
 <!-- importaciones requeridas -->
 <?php require_once ("../modelo/tipoDocDao.php"); ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Etiquetas Meta --> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
-    <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/faviconx32.png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-    <!-- Título -->
-    <title>Registrar Tipo de Documento | Cality</title>
-</head>
-<body style="background: #DDD;" class="scroll_modificado">
+        
+    <!-- Mensaje de Registro / Actualización -->
+    <?php include ("encabezado.php"); ?>
+   
     <!-- Contenido -->  
     <div class="container-fluid">
-        
-        <!-- Mensaje de Registro / Actualización -->
-        <?php include ("encabezado.php"); ?>
 
         <!-- botón registrar -->
         <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_doc1"><i class="fas fa-plus"></i> REGISTRAR</button>
@@ -144,7 +123,8 @@
     
 
     <!-- Javascript Bootstrap -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/carga-pagina.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 

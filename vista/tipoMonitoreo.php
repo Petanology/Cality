@@ -1,16 +1,16 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/generoDao.php"); ?>
+<?php require_once ("../modelo/tipoMonitoreoDao.php"); ?>
 
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
-    
+   
+    <!-- Contenido -->  
     <div class="container-fluid">
-        
 
         <!-- botón registrar -->
-        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_genero_doc1"><i class="fas fa-plus"></i> REGISTRAR</button>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_monitoreo1"><i class="fas fa-plus"></i> REGISTRAR</button>
         
-        <!-- Lista de Generos -->
+        <!-- Lista de Tipos de Monitoreo -->
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
@@ -24,7 +24,7 @@
             <tbody class="table-light">
                 <form action="" method="post">
                     <?php
-                        $consultaLT = generoDao::listarTabla();
+                        $consultaLT = tipoMonitoreoDao::listarTabla();
                         foreach($consultaLT as $rowLT):
                     ?>
                     <tr>
@@ -32,7 +32,7 @@
                         <td><?php echo $rowLT[1] ?></td>
                         <td class="text-center"><?php if($rowLT[2]): echo "<h5><span class='badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
-                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_genero_doc2"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_tipo_monitoreo2"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -42,18 +42,18 @@
         
         
         <!-- Modal Registrar-->
-        <div class="modal fade" id="form_genero_doc1" role="dialog">
+        <div class="modal fade" id="form_tipo_monitoreo1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Registrar Genero</h5>
+                        <h5 class="modal-title">Registrar Tipo Monitoreo</h5>
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../controlador/generoControlador.php" method="post">
+                        <form action="../controlador/tipoMonitoreoControlador.php" method="post">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite el nuevo genero">
+                                <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite el nuevo tipo de monitoreo">
                                 <button type="submit" value="REGISTRAR" name="boton" class="btn btn-success">REGISTRAR</button>
                             </div>
                         </form>
@@ -67,20 +67,20 @@
         <?php
             if(isset($_POST['botonModificar'])){
                 $IdbotonModificar = $_POST['botonModificar'];
-                $consultaLI = generoDao::listarItem($IdbotonModificar);
+                $consultaLI = tipoMonitoreoDao::listarItem($IdbotonModificar);
                 foreach($consultaLI as $rowLI):
         ?>
         
 
         <!-- Modal Modificar -->
-        <div class="modal fade" id="form_genero_doc2" role="dialog">
+        <div class="modal fade" id="form_tipo_monitoreo2" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modificar Genero</h5>
+                        <h5 class="modal-title">Modificar Tipo Monitoreo</h5>
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                     </div>
-                    <form action="../controlador/generoControlador.php" method="post">
+                    <form action="../controlador/tipoMonitoreoControlador.php" method="post">
                     <div class="modal-body">
                             <div class="form-group">
 
@@ -94,7 +94,7 @@
                                 <!-- Nombre -->
                                 <div class="form-group">
                                     <label for="nombre2">Nombre</label>
-                                    <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo genero">
+                                    <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo tipo de monitoreo">
                                 </div>
 
                                 <!-- Estado -->
@@ -129,7 +129,7 @@
     <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 
         if(isset($_POST['botonModificar'])){
-            echo "<script>$('#form_genero_doc2').modal('show');</script>";
+            echo "<script>$('#form_tipo_monitoreo2').modal('show');</script>";
         };
     ?>
 </body>

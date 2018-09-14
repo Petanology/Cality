@@ -102,10 +102,12 @@
        
         <?php
             if(!empty($_GET['m'])){
-                echo "<div class='alerta'>
-                        <p>".$_GET['m']."</p>
-                        <span class='cerrar-alerta'>&times;</span>
-                      </div>";
+                echo "
+                    <div class='alerta'>
+                    <p>".$_GET['m']."</p>
+                    <span class='cerrar-alerta'>&times;</span>
+                    </div>
+                    ";
             }
         ?>
         

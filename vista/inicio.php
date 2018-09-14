@@ -19,7 +19,6 @@
     
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/ondas.css">
     <link rel="stylesheet" href="css/inicio.css">
     
     <!-- Favicon -->
@@ -88,7 +87,7 @@
                     
                     <!-- Base de Datos -->
                     <li>
-                        <a href="acceso_denegado.php" target="contenido">
+                        <a href="links.html" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/documento.png" alt="icono de tablas">
