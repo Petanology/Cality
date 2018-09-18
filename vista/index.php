@@ -43,14 +43,15 @@
     </div> 
     
     <!-- Formas -->
-    <div class="formas">
-        <div class="fig-2"></div>
-        <div class="fig-1"></div>
-    </div>        
     
     
     <div class="main">
        
+        <div class="formas">
+            <div class="fig-2"></div>
+            <div class="fig-1"></div>
+        </div>  
+              
         <!-- Figura 1 -->
         <div class="contenedor-1">
             <img src="img/faviconx512-2.png" alt="favicon de Cality">

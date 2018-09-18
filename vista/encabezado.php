@@ -31,14 +31,13 @@
 
 <?php 
     if(isset($_GET['m'])){
-        $mPositivo = "¡Felicidades, el registro/modificación fue todo un éxito!";
         $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
         $mensaje = $_GET["m"];
         
-        if($mensaje == $mPositivo){
-            echo "<div class='alert alert-primary fade show rounded-0'>";
-        }else {
+        if($mensaje == $mNegativo){
             echo "<div class='alert alert-danger fade show rounded-0'>";
+        }else {
+            echo "<div class='alert alert-primary fade show rounded-0'>";
         }    
             
         echo "$mensaje</div>";

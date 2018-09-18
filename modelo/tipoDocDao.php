@@ -3,86 +3,63 @@
 
     class tipoDocDao{ 
         
+        private $conexion;
         private $registro = true;
+        private $modificacion = true;
+        
+        
+        public function __construct(){
+            $objetoConexion = new Conexion();
+            $this->conexion = $objetoConexion->conn;
+        }
+        
         
         public function registrar($pRegistrar){
-            
-            $conn = Conexion::getConexion();
-            
             try{
-                
-                $query = $conn->prepare("CALL registrarTipoDoc('$pRegistrar');");
+                $query = $this->conexion->prepare("CALL registrarTipoDoc('$pRegistrar');");
                 $query->execute();
-                $query = null;
-                
             }catch(Exception $e){
-                
                 echo "Error: " . $e->getMessage();
                 $this->registro = false;
-            
             }
-            
             return $this->registro;
         }
         
         
         // Listar Tabla
-        public static function listarTabla(){
-            
-            $conn = Conexion::getConexion();
-            
+        public function listarTabla(){
             try{
-                
-                $query = $conn->prepare("CALL listarTablaTipoDoc();");
+                $query = $this->conexion->prepare("CALL listarTablaTipoDoc();");
                 $query->execute();
-                return $query;
-                $query = null;
-                
             }catch(Exception $e){
-                
                 echo "Error: " . $e->getMessage();
             }
-            
-            return $this->registro;
+            return $query;
         }
         
-        
-        
+
         // listar item tipo documento
-        public static function listarItem($pItem){
-            
-            $conn = Conexion::getConexion();
-            
+        public function listarItem($pItem){
             try{
-                $query = $conn->prepare("call listarItemTipoDoc($pItem)"); 
+                $query = $this->conexion->prepare("call listarItemTipoDoc($pItem)"); 
                 $query->execute();
-                return $query;
-                $query = null;
-                
             }catch(Exception $e){
-
                 echo "Error: " . $e->getMessage();
-
             }
+            return $query;
         }
         
         
         // Actualizar tipo documento
-        public static function actualizarItem($pId,$pNombre,$pEstado){
-            
-            $conn = Conexion::getConexion();
-            
+        public function actualizarItem($pId,$pNombre,$pEstado){
             try{
-                $query = $conn->prepare("call actualizarTipoDoc($pId,'$pNombre',$pEstado)"); 
+                $query = $this->conexion->prepare("call actualizarTipoDoc($pId,'$pNombre',$pEstado)"); 
                 $query->execute();
-                return $query;
-                $query = null;
             }catch(Exception $e){
-                
                 echo "Error: " . $e->getMessage();
-                    
+                $this->modificacion = false;
             }
+            return $this->modificacion;
         }
-
     }
 ?>

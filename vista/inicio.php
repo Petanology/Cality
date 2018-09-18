@@ -131,11 +131,11 @@
                     <li><a href="#">gestión</a></li>-->
                 </ul>
 
+                <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
                 <!-- Links Perfil -->
                 <ul class="menu-sesion">
                     <li class="mi-cuenta">Mi cuenta</li>
                     <li class="img-perfil"><img src="img/girl%20(2).png" alt="Icono foto de perfil"></li>
-                    <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
                 </ul>
                 
             </div>

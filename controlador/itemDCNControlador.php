@@ -1,8 +1,8 @@
 <?php
 
-    require_once ("../modelo/tipoDocDao.php");
+    require_once ("../modelo/itemDCNDao.php");
 
-    class tipoDocControlador{
+    class itemDCNControlador{
 
         public function __construct(){
             
@@ -12,16 +12,16 @@
             $boton =$_POST['boton'];
             
             // instancia al Dao
-            $tipoDocDao = new tipoDocDao();
+            $itemDCNDao = new itemDCNDao();
             
             switch($boton){
                 case "REGISTRAR":
                     
                     $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['nombre'] . "' </strong> fue todo un éxito!";
                     
-                    $nomTipoDoc = $_POST['nombre'];
+                    $nomitemDCN = $_POST['nombre'];
                     
-                    if($tipoDocDao->registrar($nomTipoDoc)) {
+                    if($itemDCNDao->registrar($nomitemDCN)) {
                         $this->redireccion($mRPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -35,7 +35,7 @@
                     
                     $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($tipoDocDao->actualizarItem($id2,$nombre2,$estado2)) {
+                    if($itemDCNDao->actualizarItem($id2,$nombre2,$estado2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -48,9 +48,9 @@
         
         // redirección
         public function redireccion($pMensaje){
-            header("location: ../vista/tipoDoc.php?m=$pMensaje");
+            header("location: ../vista/itemDCN.php?m=$pMensaje");
         }
     }
 
-    $tipoDocC = new tipoDocControlador(); 
+    $itemDCNC = new itemDCNControlador(); 
 ?>

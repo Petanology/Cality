@@ -3,42 +3,52 @@
     require_once ("../modelo/errorCriticoDao.php");
 
     class errorCriticoControlador{
-        
-        private $mensajeP = "¡Felicidades, el registro/modificación fue todo un éxito!";
-        private $mensajeN = "Lo sentimos, algo salió mal... intente nuevamente por favor";
-
 
         public function __construct(){
             
-            $boton = $_POST['boton'];
+            $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
+        
+            // botón general
+            $boton =$_POST['boton'];
+            
+            // instancia al Dao
+            $errorCriticoDao = new errorCriticoDao();
             
             switch($boton){
                 case "REGISTRAR":
+                    
+                    $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['nombre'] . "' </strong> fue todo un éxito!";
+                    
                     $nomErrorCritico = $_POST['nombre'];
-                    $errorCriticoDao = new errorCriticoDao();    
                     
                     if($errorCriticoDao->registrar($nomErrorCritico)) {
-                        header("location: ../vista/errorCritico.php?m=$this->mensajeP");
+                        $this->redireccion($mRPositivo);
                     }else{
-                        header("location: ../vista/errorCritico.php?m=$this->mensajeN");
+                        $this->redireccion($mNegativo);
                     }
                     break;
                 
                 case "MODIFICAR":
-                    $id2 = $_POST['id2'];
-                    $nombre2 = $_POST['nombre2'];
+                    $id2 = $_POST['id2']; 
+                    $nombre2 = $_POST['nombre2']; 
                     $estado2 = $_POST['estado2'];
-                
-                    $errorCriticoDao2 = new errorCriticoDao();
                     
-                    if($errorCriticoDao2->actualizarItem($id2,$nombre2,$estado2)) {
-                        header("location: ../vista/errorCritico.php?m=$this->mensajeP");
+                    $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
+                                    
+                    if($errorCriticoDao->actualizarItem($id2,$nombre2,$estado2)) {
+                        $this->redireccion($mMPositivo);
                     }else{
-                        header("location: ../vista/errorCritico.php?m=$this->mensajeN");
+                        $this->redireccion($mNegativo);
                     }
                     
                     break;
             }
+        }
+        
+        
+        // redirección
+        public function redireccion($pMensaje){
+            header("location: ../vista/errorCritico.php?m=$pMensaje");
         }
     }
 

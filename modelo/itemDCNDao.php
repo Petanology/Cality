@@ -1,7 +1,7 @@
 <?php
     require_once ("util/conexion.php");
 
-    class generoDao{ 
+    class ItemDCNDao{ 
         
         private $conexion;
         private $registro = true;
@@ -16,7 +16,7 @@
         
         public function registrar($pRegistrar){
             try{
-                $query = $this->conexion->prepare("CALL registrarGenero('$pRegistrar');");
+                $query = $this->conexion->prepare("CALL registrarItemDCN('$pRegistrar');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -29,7 +29,7 @@
         // Listar Tabla
         public function listarTabla(){
             try{
-                $query = $this->conexion->prepare("CALL listarTablaGenero();");
+                $query = $this->conexion->prepare("CALL listarTablaItemDCN();");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -38,10 +38,10 @@
         }
         
 
-        // listar item Genero
+        // listar item ItemDCN
         public function listarItem($pItem){
             try{
-                $query = $this->conexion->prepare("call listarItemGenero($pItem)"); 
+                $query = $this->conexion->prepare("call listarItemItemDCN($pItem)"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -50,10 +50,10 @@
         }
         
         
-        // Actualizar Genero
+        // Actualizar ItemDCN
         public function actualizarItem($pId,$pNombre,$pEstado){
             try{
-                $query = $this->conexion->prepare("call actualizarGenero($pId,'$pNombre',$pEstado)"); 
+                $query = $this->conexion->prepare("call actualizarItemDCN($pId,'$pNombre',$pEstado)"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

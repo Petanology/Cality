@@ -4,40 +4,51 @@
 
     class generoControlador{
 
-        private $mensajeP = "¡Felicidades, el registro/modificación fue todo un éxito!";
-        private $mensajeN = "Lo sentimos, algo salió mal... intente nuevamente por favor";
-
         public function __construct(){
             
-            $boton = $_POST['boton'];
+            $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
+        
+            // botón general
+            $boton =$_POST['boton'];
+            
+            // instancia al Dao
+            $generoDao = new generoDao();
             
             switch($boton){
                 case "REGISTRAR":
+                    
+                    $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['nombre'] . "' </strong> fue todo un éxito!";
+                    
                     $nomGenero = $_POST['nombre'];
-                    $generoDao = new generoDao();    
                     
                     if($generoDao->registrar($nomGenero)) {
-                        header("location: ../vista/genero.php?m=$this->mensajeP");
+                        $this->redireccion($mRPositivo);
                     }else{
-                        header("location: ../vista/genero.php?m=$this->mensajeN");
+                        $this->redireccion($mNegativo);
                     }
                     break;
                 
                 case "MODIFICAR":
-                    $id2 = $_POST['id2'];
-                    $nombre2 = $_POST['nombre2'];
+                    $id2 = $_POST['id2']; 
+                    $nombre2 = $_POST['nombre2']; 
                     $estado2 = $_POST['estado2'];
-                
-                    $generoDao2 = new generoDao();
                     
-                    if($generoDao2->actualizarItem($id2,$nombre2,$estado2)) {
-                        header("location: ../vista/genero.php?m=$this->mensajeP");
+                    $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
+                                    
+                    if($generoDao->actualizarItem($id2,$nombre2,$estado2)) {
+                        $this->redireccion($mMPositivo);
                     }else{
-                        header("location: ../vista/genero.php?m=$this->mensajeN");
+                        $this->redireccion($mNegativo);
                     }
                     
                     break;
             }
+        }
+        
+        
+        // redirección
+        public function redireccion($pMensaje){
+            header("location: ../vista/genero.php?m=$pMensaje");
         }
     }
 

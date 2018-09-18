@@ -1,36 +1,5 @@
 <!-- importaciones requeridas -->
 <?php require_once ("../modelo/errorCriticoDao.php"); ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Etiquetas Meta --> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
-    <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/carga_pagina.css">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/faviconx32.png">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-    <!-- Título -->
-    <title>Registrar Error Crítico | Cality</title>
-</head>
-<body class="scroll_modificado fondo-formulario">
-    <!-- Contenedor loader -->
-    <div class="contenedor-loader">   
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-        </div>
-    </div>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -39,9 +8,9 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_error_critico1"><i class="fas fa-plus"></i> REGISTRAR</button>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_error_critico1"><i class="fas fa-plus"></i> REGISTRAR ERROR CRITICO</button>
         
-        <!-- Lista de Errores Criticos -->
+        <!-- Lista de error critico -->
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
@@ -55,8 +24,11 @@
             <tbody class="table-light">
                 <form action="" method="post">
                     <?php
-                        $consultaLT = errorCriticoDao::listarTabla();
-                        foreach($consultaLT as $rowLT):
+                        // se crea una instancia hacia el DAO
+                        $objetoTDD = new errorCriticoDao();
+                    
+                        $ListarTabla = $objetoTDD->listarTabla();
+                        foreach($ListarTabla as $rowLT):
                     ?>
                     <tr>
                         <td class="text-center font-weight-bold"><?php echo $rowLT[0] ?></td>
@@ -66,103 +38,36 @@
                             <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_error_critico2"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                     </tr>
-                    <?php endforeach ?>
+                    <?php endforeach; ?>
                 </form>
             </tbody>
         </table> 
         
         
-        <!-- Modal Registrar-->
-        <div class="modal fade" id="form_error_critico1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Registrar Error Critico</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="../controlador/errorCriticoControlador.php" method="post">
-                            <div class="form-group">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite el nuevo error critico">
-                                <button type="submit" value="REGISTRAR" name="boton" class="btn btn-success">REGISTRAR</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>    
-
-
-        <!-- traer informacón de item seleccionado -->    
         <?php
-            if(isset($_POST['botonModificar'])){
+            include("modal/mRegistrarErrorCritico.php"); // Modal Registrar
+
+            if(isset($_POST['botonModificar'])){ // traer informacón de item seleccionado
                 $IdbotonModificar = $_POST['botonModificar'];
-                $consultaLI = errorCriticoDao::listarItem($IdbotonModificar);
-                foreach($consultaLI as $rowLI):
+                $objetoTDD2 = new errorCriticoDao(); 
+                $listarItem = $objetoTDD2->listarItem($IdbotonModificar);
+                
+                foreach($listarItem as $rowLI):
+                    include("modal/mModificarErrorCritico.php"); // Modal Modificar 
+                endforeach;}      
         ?>
-        
-
-        <!-- Modal Modificar -->
-        <div class="modal fade" id="form_error_critico2" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modificar Error Crítico</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <form action="../controlador/errorCriticoControlador.php" method="post">
-                    <div class="modal-body">
-                            <div class="form-group">
-
-                                <!-- Identificación -->
-                                <div class="form-group">
-                                    <label for="id2">Identificación</label>
-                                    <input type="text" value="<?php echo $rowLI[0]; ?>" class="form-control" id="id2" name="id2" placeholder="Aquí debe visualizar la identificación" readonly>
-                                    <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la identificación no se puede modificar</small>
-                                </div>
-
-                                <!-- Nombre -->
-                                <div class="form-group">
-                                    <label for="nombre2">Nombre</label>
-                                    <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo error critico">
-                                </div>
-
-                                <!-- Estado -->
-                                <div class="form-group">
-                                    <label for="estado2">Estado</label>
-                                    <select name="estado2" id="estado2" class="form-control">
-                                        <option value="" disabled>Seleccione el estado</option>
-                                        <option value="1" <?php if($rowLI[2]==1){ echo "selected"; } ?>>Activo</option>
-                                        <option value="0" <?php if($rowLI[2]==0){ echo "selected"; } ?>>Inactivo</option>
-                                    </select>
-                                </div>
-                            </div>
-                    </div>
-                        <div class="modal-footer">
-                            <button type="submit" value="MODIFICAR" name="boton" class="btn btn-success">MODIFICAR</button>
-                            <button type="button" name="boton" data-dismiss="modal" class="btn btn-secondary">CANCELAR</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> 
-        
-        <?php endforeach;} ?>
-
     </div>
     
 
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
-    <script></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_error_critico2').modal('show');</script>";
-        };
+        }
     ?>
-</body>
+</body> 
 </html>

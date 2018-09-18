@@ -1,5 +1,5 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/tipoMonitoreoDao.php"); ?>
+<?php require_once ("../modelo/unidadDao.php"); ?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -8,9 +8,9 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_monitoreo1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE MONITOREO</button>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_unidad1"><i class="fas fa-plus"></i> REGISTRAR UNIDAD</button>
         
-        <!-- Lista de Tipos de Monitoreos -->
+        <!-- Lista de unidades -->
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
@@ -25,7 +25,7 @@
                 <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
-                        $objetoTDD = new tipoMonitoreoDao();
+                        $objetoTDD = new unidadDao();
                     
                         $ListarTabla = $objetoTDD->listarTabla();
                         foreach($ListarTabla as $rowLT):
@@ -35,7 +35,7 @@
                         <td><?php echo $rowLT[1] ?></td>
                         <td class="text-center"><?php if($rowLT[2]): echo "<h5><span class='badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
-                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_tipo_monitoreo2"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_unidad2"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -45,15 +45,15 @@
         
         
         <?php
-            include("modal/mRegistrarTipoMonitoreo.php"); // Modal Registrar
+            include("modal/mRegistrarUnidad.php"); // Modal Registrar
 
             if(isset($_POST['botonModificar'])){ // traer informacón de item seleccionado
                 $IdbotonModificar = $_POST['botonModificar'];
-                $objetoTDD2 = new tipoMonitoreoDao(); 
+                $objetoTDD2 = new unidadDao(); 
                 $listarItem = $objetoTDD2->listarItem($IdbotonModificar);
                 
                 foreach($listarItem as $rowLI):
-                    include("modal/mModificarTipoMonitoreo.php"); // Modal Modificar 
+                    include("modal/mModificarUnidad.php"); // Modal Modificar 
                 endforeach;}      
         ?>
     </div>
@@ -66,7 +66,7 @@
     <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 
         if(isset($_POST['botonModificar'])){
-            echo "<script>$('#form_tipo_monitoreo2').modal('show');</script>";
+            echo "<script>$('#form_unidad2').modal('show');</script>";
         }
     ?>
 </body> 

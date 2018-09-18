@@ -1,8 +1,8 @@
 <?php
 
-    require_once ("../modelo/tipoDocDao.php");
+    require_once ("../modelo/unidadDao.php");
 
-    class tipoDocControlador{
+    class unidadControlador{
 
         public function __construct(){
             
@@ -12,16 +12,16 @@
             $boton =$_POST['boton'];
             
             // instancia al Dao
-            $tipoDocDao = new tipoDocDao();
+            $unidadDao = new unidadDao();
             
             switch($boton){
                 case "REGISTRAR":
                     
                     $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['nombre'] . "' </strong> fue todo un éxito!";
                     
-                    $nomTipoDoc = $_POST['nombre'];
+                    $nomUnidad = $_POST['nombre'];
                     
-                    if($tipoDocDao->registrar($nomTipoDoc)) {
+                    if($unidadDao->registrar($nomUnidad)) {
                         $this->redireccion($mRPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -35,7 +35,7 @@
                     
                     $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($tipoDocDao->actualizarItem($id2,$nombre2,$estado2)) {
+                    if($unidadDao->actualizarItem($id2,$nombre2,$estado2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -48,9 +48,9 @@
         
         // redirección
         public function redireccion($pMensaje){
-            header("location: ../vista/tipoDoc.php?m=$pMensaje");
+            header("location: ../vista/unidad.php?m=$pMensaje");
         }
     }
 
-    $tipoDocC = new tipoDocControlador(); 
+    $unidadC = new unidadControlador(); 
 ?>
