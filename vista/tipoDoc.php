@@ -33,7 +33,7 @@
                     <tr>
                         <td class="text-center font-weight-bold"><?php echo $rowLT[0] ?></td>
                         <td><?php echo $rowLT[1] ?></td>
-                        <td class="text-center"><?php if($rowLT[2]): echo "<h5><span class='badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
+                        <td class="text-center"><?php if($rowLT[2]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
                             <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_tipo_doc2"><i class="fas fa-pencil-alt"></i></button>
                         </td>

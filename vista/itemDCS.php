@@ -1,7 +1,7 @@
 <?php 
     require_once ("../modelo/itemDao.php"); 
     include ("encabezado.php");
-    $nomTabla = "dcn";
-    $enunciado = "item negociación - comercial venta directa";
+    $nomTabla = "dcs";
+    $enunciado = "item servicio y etiqueta telefonica - comercial venta directa";
     include("itemGeneral.php");
 ?>

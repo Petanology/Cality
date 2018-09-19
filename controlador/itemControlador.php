@@ -1,27 +1,26 @@
 <?php
 
-    require_once ("../modelo/itemDCNDao.php");
+    require_once ("../modelo/itemDao.php");
 
-    class itemDCNControlador{
+    class itemControlador{
 
         public function __construct(){
             
             $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
         
-            // botón general
-            $boton =$_POST['boton'];
+            $boton =$_POST['boton']; // botón general
             
-            // instancia al Dao
-            $itemDCNDao = new itemDCNDao();
+            $itemDao = new itemDao($_POST['tabla']); // instancia al Dao
             
             switch($boton){
                 case "REGISTRAR":
                     
-                    $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['nombre'] . "' </strong> fue todo un éxito!";
+                    $mRPositivo = "¡Felicidades, el registro <strong> '" . $_POST['titulo'] . "' </strong> fue todo un éxito!";
+
+                    $titulo = $_POST['titulo'];
+                    $descripcion = $_POST['descripcion'];
                     
-                    $nomitemDCN = $_POST['nombre'];
-                    
-                    if($itemDCNDao->registrar($nomitemDCN)) {
+                    if($itemDao->registrar($titulo,$descripcion)) {
                         $this->redireccion($mRPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -29,13 +28,14 @@
                     break;
                 
                 case "MODIFICAR":
-                    $id2 = $_POST['id2']; 
-                    $nombre2 = $_POST['nombre2']; 
+                    $id2 = $_POST['id2'];
+                    $titulo2 = $_POST['titulo2']; 
+                    $descripcion2 = $_POST['descripcion2'];
                     $estado2 = $_POST['estado2'];
                     
-                    $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
+                    $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['titulo2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($itemDCNDao->actualizarItem($id2,$nombre2,$estado2)) {
+                    if($itemDao->actualizarItem($id2,$titulo2,$descripcion2,$estado2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -52,5 +52,5 @@
         }
     }
 
-    $itemDCNC = new itemDCNControlador(); 
+    $itemC = new itemControlador(); 
 ?>
