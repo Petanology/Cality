@@ -24,9 +24,7 @@
             <tbody class="table-light">
                 <form action="" method="post">
                     <?php
-                        // se crea una instancia hacia el DAO
                         $objetoTDD = new tipoDocDao();
-                    
                         $ListarTabla = $objetoTDD->listarTabla();
                         foreach($ListarTabla as $rowLT):
                     ?>

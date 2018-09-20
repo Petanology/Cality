@@ -1,7 +1,7 @@
 <?php
     require_once ("util/conexion.php");
 
-    class generoDao{ 
+    class asesorDao{ 
         
         private $conexion;
         private $registro = true;
@@ -14,13 +14,13 @@
         }
         
         
-        public function registrar($pRegistrar){
+        public function registrarAsesor($pIdPersona,$pLiderAsesor,$pUsuarioAsesor,$pContrasenaAsesor) {
             try{
-                $query = $this->conexion->prepare("CALL registrarGenero('$pRegistrar');");
+                $query = $this->conexion->prepare("CALL registrarAsesor($pIdPersona,$pLiderAsesor,'$pUsuarioAsesor','$pContrasenaAsesor');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
-                $this->registro = false;
+                $this->registro = false; 
             }
             return $this->registro;
         }
@@ -29,19 +29,7 @@
         // Listar Tabla
         public function listarTabla(){
             try{
-                $query = $this->conexion->prepare("CALL listarTablaGenero();");
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
-            return $query;
-        }
-
-        
-        // Listar Tabla
-        public function formGenero(){
-            try{
-                $query = $this->conexion->prepare("CALL formGenero();");
+                $query = $this->conexion->prepare("CALL listarTablaAsesor();");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -50,10 +38,10 @@
         }
         
 
-        // listar item Genero
+        // listar item asesor
         public function listarItem($pItem){
             try{
-                $query = $this->conexion->prepare("call listarItemGenero($pItem)"); 
+                $query = $this->conexion->prepare("call listarItemAsesor($pItem)"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -62,7 +50,8 @@
         }
         
         
-        // Actualizar Genero
+        // Actualizar asesor
+        // Actualizar asesor
         public function actualizarItem($pId,$pNombre,$pEstado){
             try{
                 $query = $this->conexion->prepare("call actualizarGenero($pId,'$pNombre',$pEstado)"); 

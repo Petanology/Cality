@@ -37,6 +37,17 @@
             return $query;
         }
         
+        
+        public function formTipoDoc(){
+            try{
+                $query = $this->conexion->prepare("CALL formTipoDoc();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
 
         // listar item tipo documento
         public function listarItem($pItem){
