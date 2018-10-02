@@ -51,10 +51,9 @@
         
         
         // Actualizar asesor
-        // Actualizar asesor
-        public function actualizarItem($pId,$pNombre,$pEstado){
+        public function actualizarItem($pIdPersona2,$pGeneroAsesor2,$pTipoDocAsesor2,$pNomsAsesor2,$pApesAsesor2,$pCorreoAsesor2,$pLiderAsesor2,$pUsuarioAsesor2,$pEstadoAsesor2){
             try{
-                $query = $this->conexion->prepare("call actualizarGenero($pId,'$pNombre',$pEstado)"); 
+                $query = $this->conexion->prepare("call actualizarAsesor($pIdPersona2,$pGeneroAsesor2,$pTipoDocAsesor2,'$pNomsAsesor2','$pApesAsesor2','$pCorreoAsesor2',$pLiderAsesor2,'$pUsuarioAsesor2',$pEstadoAsesor2)"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

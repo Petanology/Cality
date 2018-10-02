@@ -14,10 +14,22 @@
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th class="text-center">#</th>
-                    <th>Nombre</th>
-                    <th class="text-center">Estado</th>
-                    <th class="text-center">Modificar</th>
+                    <th class="text-center">
+                        <img width="30" height="30" src="img/numeral.png" alt="icono de numeral">
+                        <div class="mt-2">Número</div>
+                    </th>                    
+                    <th class="text-center">
+                        <img width="26" height="26" src="img/tipoMonitoreo.png" alt="icono de nombre">
+                        <div class="mt-2">Tipo monitoreo</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="24" height="24" src="img/interruptor.png" alt="icono swicth">
+                        <div class="mt-2">Estado</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="25" height="25" src="img/actualizar.png" alt="icono de actualizar">
+                        <div class="mt-2">Modificar</div>
+                    </th>
                 </tr>
             </thead>
                
@@ -32,7 +44,7 @@
                     ?>
                     <tr>
                         <td class="text-center font-weight-bold"><?php echo $rowLT[0] ?></td>
-                        <td><?php echo $rowLT[1] ?></td>
+                        <td class="text-center"><?php echo $rowLT[1] ?></td>
                         <td class="text-center"><?php if($rowLT[2]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
                             <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowLT[0]?>" data-toggle="modal" data-target="#form_tipo_monitoreo2"><i class="fas fa-pencil-alt"></i></button>

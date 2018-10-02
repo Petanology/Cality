@@ -113,7 +113,7 @@
                     
                     <!-- Gestion de Calidad -->
                     <li>
-                        <a href="acceso_denegado.php" target="contenido">
+                        <a href="gestion.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/telefono.png" alt="icono de gestión de calidad">

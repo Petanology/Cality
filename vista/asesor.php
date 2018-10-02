@@ -14,15 +14,42 @@
         <table class="table table-striped table-responsive-xl scroll_modificado">
             <thead class="table-dark">
                 <tr>
-                    <th class="text-center">#</th>
-                    <th class="text-center">Genero</th>
-                    <th class="text-center">Clase</th>
-                    <th class="text-center">Nombre</th>
-                    <th class="text-center">Correo</th>
-                    <th class="text-center">Líder</th>
-                    <th class="text-center">Usuario</th>
-                    <th class="text-center">Estado</th>
-                    <th class="text-center">Modificar</th>
+                    <th class="text-center">
+                        <img width="30" height="30" src="img/numeral.png" alt="icono de numeral">
+                        <div class="mt-2">Número</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="27" height="27" src="img/genero.png" alt="icono genero">
+                        <div class="mt-2">Genero</div>
+                    </th>                    
+                    <th class="text-center">
+                        <img width="32" height="32" src="img/cedula.png" alt="icono tipo documento">
+                        <div class="mt-2">Tipo</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="29" height="29" src="img/personas.png" alt="icono personas">
+                        <div class="mt-2">Nombre</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="25" height="25" src="img/correo.png" alt="icono genero">
+                        <div class="mt-2">Correo</div>
+                    </th>       
+                    <th class="text-center">
+                        <img width="27" height="27" src="img/lider.png" alt="icono líder">
+                        <div class="mt-2">Líder</div>
+                    </th>             
+                    <th class="text-center">
+                        <img width="25" height="25" src="img/usuario.png" alt="icono usuario">
+                        <div class="mt-2">Usuario</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="24" height="24" src="img/interruptor.png" alt="icono swicth">
+                        <div class="mt-2">Estado</div>
+                    </th>
+                    <th class="text-center">
+                        <img width="25" height="25" src="img/actualizar.png" alt="icono de actualizar">
+                        <div class="mt-2">Modificar</div>
+                    </th>
                 </tr>
             </thead>
                
@@ -54,15 +81,15 @@
         
         <?php
             include("modal/mRegistrarAsesor.php"); // Modal Registrar
-
-            if(isset($_POST['botonModificar'])){ // traer informacón de item seleccionado
+            if(isset($_POST['botonModificar'])): // traer informacón de item seleccionado
                 $IdbotonModificar = $_POST['botonModificar'];
                 $objetoA = new asesorDao(); 
                 $listarAsesor = $objetoA->listarItem($IdbotonModificar);
                 
                 foreach($listarAsesor as $rowA):
                     include("modal/mModificarAsesor.php"); // Modal Modificar 
-                endforeach;}      
+                endforeach;
+            endif;
         ?>
     </div>
     
@@ -71,8 +98,8 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 
+        // Abrir modal Modificar si se dió clic en boton modificar
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_asesor2').modal('show');</script>";
         }

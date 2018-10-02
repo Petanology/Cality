@@ -49,22 +49,30 @@
                     break;
                     
                     
-                /*
+                
                 case "MODIFICAR":
-                    $id2 = $_POST['id2']; 
-                    $nombre2 = $_POST['nombre2']; 
-                    $estado2 = $_POST['estado2'];
+                    // variables para tabla persona
+                    $idPersona2 = $_POST['identificacion2'];
+                    $generoAsesor2 = $_POST['genero2'];
+                    $tipoDocAsesor2 = $_POST['tipoDocumento2'];
+                    $nomsAsesor2 = $_POST['nombres2'];
+                    $apesAsesor2 = $_POST['apellidos2'];
+                    $correoAsesor2 = $_POST['correo2'];
                     
-                    $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['nombre2'] . "' </strong> fue todo un éxito!";
+                    // variables para asesor
+                    $liderAsesor2 = $_POST['lider2'];
+                    $usuarioAsesor2 = $_POST['usuario2'];
+                    $estadoAsesor2 = $_POST['estado2'];
+                    
+                    $mMPositivo = "¡Felicidades, la modificación con la identificación <strong> '" . $_POST['identificacion2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($errorCriticoDao->actualizarItem($id2,$nombre2,$estado2)) {
+                    if($asesorDao->actualizarItem($idPersona2,$generoAsesor2,$tipoDocAsesor2,$nomsAsesor2,$apesAsesor2,$correoAsesor2,$liderAsesor2,$usuarioAsesor2,$estadoAsesor2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);
                     }
                     
                     break;
-                */
             }
         }
         

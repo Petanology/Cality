@@ -11,9 +11,25 @@
 }
 
 
+.fondo-formulario {
+    background-image: url("../img/fondo-10.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
 body {
     background-color: #f1f1f1;
+    font-size: 14px !important;
 }
+
+
+/* ----------------- */
+/* Scroll Modificado */
+/* ----------------- */
+
 
 .scroll_modificado {
     background-color: #f1f1f1;
@@ -33,13 +49,4 @@ body {
 
 .scroll_modificado::-webkit-scrollbar-thumb{
     background-color: rgba(38, 38, 38, 0.86);
-}
-
-
-.fondo-formulario {
-    background-image: url("../img/fondo-10.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
 }
