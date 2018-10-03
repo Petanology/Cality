@@ -25,6 +25,18 @@
             return $query;
         }
         
+        
+        // Ver porcentaje seccion
+        public function verPorcentajeSeccion($pNomSecc){
+            try{
+                $query = $this->conexion->prepare("CALL verPorcentajeSeccion('$pNomSecc');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
 
         // listar Item
         public function listarItem($pItem){

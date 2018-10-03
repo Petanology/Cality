@@ -48,7 +48,7 @@
         
         // redirección
         public function redireccion($pMensaje){
-            header("location: ../vista/itemDCN.php?m=$pMensaje");
+            header("location: ../vista/item" . $_POST['tabla'] . ".php?m=$pMensaje");
         }
     }
 

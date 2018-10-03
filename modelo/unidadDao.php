@@ -37,6 +37,18 @@
             return $query;
         }
         
+        
+        // Listar Unidades Activas
+        public function listarUnidadesActivas(){
+            try{
+                $query = $this->conexion->prepare("CALL listarUnidadesActivas();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
 
         // listar item Unidad
         public function listarItem($pItem){

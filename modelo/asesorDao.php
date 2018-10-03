@@ -37,11 +37,35 @@
             return $query;
         }
         
+        
+        // Listar Asesor Gestion
+        public function listarAsesorGestion($pUsuarioAsesor){
+            try{
+                $query = $this->conexion->prepare("CALL listarAsesorGestion('$pUsuarioAsesor');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
 
         // listar item asesor
         public function listarItem($pItem){
             try{
                 $query = $this->conexion->prepare("call listarItemAsesor($pItem)"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // listar asesores Activos
+        public function listarAsesoresActivos(){
+            try{
+                $query = $this->conexion->prepare("call listarAsesoresActivos()"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

@@ -60,5 +60,16 @@
             }
             return $query;
         }
+        
+        
+        public function listarItemsActivos(){
+            try{
+                $query = $this->conexion->prepare("call listarItemsActivos('$this->tabla')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>

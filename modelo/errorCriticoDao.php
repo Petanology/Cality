@@ -49,6 +49,17 @@
             return $query;
         }
         
+        // listar errores criticos activos
+        public function listarErroresCriticosActivos(){
+            try{
+                $query = $this->conexion->prepare("call listarErroresCriticosActivos()"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
         
         // Actualizar error Critico
         public function actualizarItem($pId,$pNombre,$pEstado){

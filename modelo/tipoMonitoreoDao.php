@@ -37,6 +37,19 @@
             return $query;
         }
         
+        
+        
+        // Listar Tipos Monitoreos Activos
+        public function tiposMonitoreosActivos(){
+            try{
+                $query = $this->conexion->prepare("CALL tiposMonitoreosActivos();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
 
         // listar item tipo monitoreo
         public function listarItem($pItem){
