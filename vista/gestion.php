@@ -41,7 +41,7 @@
         </div>
         
         
-        <?php if(isset($_POST['boton-consultar'])): ?>
+        <?php if(isset($_POST['boton-consultar'])){ ?>
         <!-- SEGUNDA SECCION -->
         <div class="rounded bg-white shadow-lg">
             <form action="../controlador/gestionControlador.php" method="post">
@@ -138,7 +138,7 @@
 
                     <!-- Error crítico -->
                     <div class="row align-items-center pt-1 pb-1">
-                        <div class="font-weight-bold col-4"><label for="unidad">Error crítico</label></div>
+                        <div class="font-weight-bold col-4"><label for="error-critico">Error crítico</label></div>
                         <div class="col-8">
                             <select name="error-critico" id="error-critico" class="form-control form-control-sm">
                             <?php
@@ -180,7 +180,9 @@
                         <?php
                             $objetoItemDCS = new itemDao("dcs");
                             $resultadoDCS = $objetoItemDCS->listarItemsActivos();
+                            $acum1 = 0;
                             foreach($resultadoDCS as $rowDCSA){
+                            $acum1++;
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowDCSA[1]; ?>
@@ -202,6 +204,7 @@
                         <?php
                             }
                         ?>
+                        <input type="hidden" name="totalItemsDCS" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
@@ -296,6 +299,11 @@
                             }
                         ?>
                     </table>
+                    <hr>
+                    <div>
+                        <label for="observacion" class="font-weight-bold">Observaciones</label>
+                        <textarea name="observacion" placeholder="Ingrese una observación o comentario para indexarlo a la gestión..."  id="observacion" rows="4" class="form-control form-control-sm"></textarea>
+                    </div>
                     <div>
                     <hr>
                         <small class="text-danger font-weight-bold">Es importante que todos los campos estén diligenciados antes de registrar &nbsp; <i class="far fa-question-circle"></i></small>
@@ -305,7 +313,15 @@
                 </div>
             </form>
         </div>
-        <?php endif; ?>
+        <?php } else {?>
+        
+        <div class="container-fluid d-flex rounded bg-white p-5">
+            <div class="rounded-circle bg-light">
+                <img src="img/busqueda.png" alt="icono de busqueda">
+            </div>
+        </div>
+        
+        <?php } ?>
         
     </div> 
 

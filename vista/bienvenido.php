@@ -1,10 +1,8 @@
 <?php
     // importaciones requeridas
     require_once ("../controlador/sesiones.php");
-
     $sss = new sesiones();
     $sss->iniciar();
-
 ?>
 
 <!DOCTYPE html>
