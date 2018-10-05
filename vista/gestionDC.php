@@ -16,10 +16,10 @@
         <!-- PRIMERA SECCION -->
         <div class="container-fluid rounded bg-white">
             <form action="" method="post">
-                <h6 class="pt-3 font-weight-bold">Búsqueda de Usuario</h6> 
+                <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
-                        <input list="asesores-consulta" class="form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea gestionar">
+                        <input list="asesores-consulta" class="pl-3 pt-3 pb-3 form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea gestionar">
                             <datalist id="asesores-consulta">
                                 <?php
                                     $objetoAsesorListaActivos = new asesorDao();
@@ -32,23 +32,31 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search"></i> CONSULTAR</button>
+                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
-                    <small class="pb-2 form-text text-muted font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
+                    <small class="pt-2 pb-3 form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
                 </div>
             </form>
         </div>
         
         
         <?php if(isset($_POST['boton-consultar'])){ ?>
-        <!-- SEGUNDA SECCION -->
-        <div class="rounded bg-white shadow-lg">
-            <form action="../controlador/gestionControlador.php" method="post">
+            <!-- PRIMERA SECCION -->
+            <?php 
+                $aIngresado = $_POST['asesorConsulta'];
+                $objetoAsesorDao1 = new asesorDao();
+                $siHayUsuario = $objetoAsesorDao1->saberExistenciaUsuario($aIngresado);
+                $ejemplo1 = null;
+                foreach($siHayUsuario as $rowSEU){
+                    $ejemplo1 = $rowSEU;
+                }
+                if(isset($ejemplo1)){
+            ?>
+                <div class="rounded bg-white shadow-lg">
+                <form action="../controlador/gestionDCControlador.php" method="post">
                 <p class="bg-primary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
-                
-                <div class="container pb-5">
-                   
+                <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
                         $objetoAD = new asesorDao();
@@ -153,10 +161,10 @@
                             </select>
                         </div>
                     </div>
-                    
-                    
+                  </div>  
+                <div class="container-fluid">    
                     <!-- servicio y etiqueta telefonica -->
-                    <table class="table table-borderless table-striped mt-3 shadow-sm">
+                    <table class="table table-borderless table-striped mt-3 border">
                         <tr>
                             <th class="text-white bg-primary text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
                             <?php 
@@ -230,7 +238,9 @@
                         <?php
                             $objetoItemDCN = new itemDao("dcn");
                             $resultadoDCN = $objetoItemDCN->listarItemsActivos();
+                            $acum2 = 0;
                             foreach($resultadoDCN as $rowDCNA){
+                            $acum2++;   
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowDCNA[1]; ?>
@@ -252,7 +262,7 @@
                         <?php
                             }
                         ?>
-                        
+                        <input type="hidden" name="totalItemsDCN" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
                             <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
@@ -276,7 +286,9 @@
                         <?php
                             $objetoItemDCR = new itemDao("dcr");
                             $resultadoDCR = $objetoItemDCR->listarItemsActivos();
+                            $acum3 = 0;
                             foreach($resultadoDCR as $rowDCRA){
+                            $acum3++;
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowDCRA[1]; ?>
@@ -298,11 +310,15 @@
                         <?php
                             }
                         ?>
+                        <input type="hidden" name="totalItemsDCR" value="<?php echo $acum3; ?>">
+                        
+                        
+                        
                     </table>
                     <hr>
                     <div>
                         <label for="observacion" class="font-weight-bold">Observaciones</label>
-                        <textarea name="observacion" placeholder="Ingrese una observación o comentario para indexarlo a la gestión..."  id="observacion" rows="4" class="form-control form-control-sm"></textarea>
+                        <textarea name="observacion" placeholder="Ingrese un comentario u observación para indexarlo a la gestión..."  id="observacion" rows="4" class="form-control form-control-sm"></textarea>
                     </div>
                     <div>
                     <hr>
@@ -312,15 +328,24 @@
                     <button type="submit" class="shadow btn btn-primary font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
-        </div>
-        <?php } else {?>
-        
-        <div class="container-fluid d-flex rounded bg-white p-5">
-            <div class="rounded-circle bg-light">
-                <img src="img/busqueda.png" alt="icono de busqueda">
             </div>
-        </div>
-        
+            <?php        
+                }else{
+            ?>
+                <!-- SI NO HAY RESULTADOS -->
+                <div class="container-fluid w-75 text-center">
+                    <img src="img/busqueda-error.png" width="350" class="mt-2 mb-0" alt="icono de búsqueda">
+                    <h2 class="h3 text-white mt-0">lo sentimos... <kbd class="h3">no</kbd> hay resultados para el usuario ingresado</h2>
+                </div>
+            <?php    
+                }
+            ?>
+        <?php } else {?>
+            <!-- SI NO SE HA BUSCADO NADA -->
+            <div class="container-fluid w-75 text-center">
+                <img src="img/busqueda.png" width="250" class="border border-primary rounded-circle m-5 p-2" style="background-color:#1976D2;" alt="icono de búsqueda">
+                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>directa comecial</kbd></h2>
+            </div>
         <?php } ?>
         
     </div> 

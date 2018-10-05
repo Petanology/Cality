@@ -12,11 +12,9 @@
 
 
 .fondo-formulario {
-    background-image: url("../img/fondo-10.jpg");
-    background-repeat: no-repeat;
+/*    background-image: url("../img/fondo-10.jpg");*/
+    background-image: url("../img/patron-minimalista-1.jpg");
     background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
 }
 
 

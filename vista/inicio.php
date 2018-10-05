@@ -111,9 +111,23 @@
                         </a>
                     </li>
                     
+                    
                     <!-- Gestion de Calidad -->
                     <li>
-                        <a href="gestion.php" target="contenido">
+                        <a href="gestionDC.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/telefono.png" alt="icono de gestión de calidad">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Gestión de Calidad</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Gestion de Calidad -->
+                    <li>
+                        <a href="gestionDC.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/telefono.png" alt="icono de gestión de calidad">
@@ -131,7 +145,7 @@
                     <li><a href="#">gestión</a></li>-->
                 </ul>
 
-                <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Cerrar sesión</a></li>
+                <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Salir</a></li>
                 <!-- Links Perfil -->
                 <ul class="menu-sesion">
                     <li class="mi-cuenta">Mi cuenta</li>

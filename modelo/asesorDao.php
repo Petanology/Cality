@@ -7,7 +7,6 @@
         private $registro = true;
         private $modificacion = true;
         
-        
         public function __construct(){
             $objetoConexion = new Conexion();
             $this->conexion = $objetoConexion->conn;
@@ -26,7 +25,6 @@
         }
         
         
-        // Listar Tabla
         public function listarTabla(){
             try{
                 $query = $this->conexion->prepare("CALL listarTablaAsesor();");
@@ -37,8 +35,18 @@
             return $query;
         }
         
+
+        public function saberExistenciaUsuario($nom_usuario){
+            try{
+                $query = $this->conexion->prepare("CALL saberExistenciaUsuario('$nom_usuario');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
         
-        // Listar Asesor Gestion
+        
         public function listarAsesorGestion($pUsuarioAsesor){
             try{
                 $query = $this->conexion->prepare("CALL listarAsesorGestion('$pUsuarioAsesor');");
@@ -50,7 +58,6 @@
         }
         
 
-        // listar item asesor
         public function listarItem($pItem){
             try{
                 $query = $this->conexion->prepare("call listarItemAsesor($pItem)"); 
@@ -62,7 +69,6 @@
         }
         
         
-        // listar asesores Activos
         public function listarAsesoresActivos(){
             try{
                 $query = $this->conexion->prepare("call listarAsesoresActivos()"); 
@@ -74,7 +80,6 @@
         }
         
         
-        // Actualizar asesor
         public function actualizarItem($pIdPersona2,$pGeneroAsesor2,$pTipoDocAsesor2,$pNomsAsesor2,$pApesAsesor2,$pCorreoAsesor2,$pLiderAsesor2,$pUsuarioAsesor2,$pEstadoAsesor2){
             try{
                 $query = $this->conexion->prepare("call actualizarAsesor($pIdPersona2,$pGeneroAsesor2,$pTipoDocAsesor2,'$pNomsAsesor2','$pApesAsesor2','$pCorreoAsesor2',$pLiderAsesor2,'$pUsuarioAsesor2',$pEstadoAsesor2)"); 
