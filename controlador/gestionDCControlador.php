@@ -78,8 +78,8 @@
             $f3 = 1; // repeticiones bucle
             
             while($f3 <= $totalItemsDCR){
-                if(isset($_POST["dcn_".$i3])){
-                    $seccion3[$i3][0] = $_POST["dcn_".$i3];
+                if(isset($_POST["dcr_".$i3])){
+                    $seccion3[$i3][0] = $_POST["dcr_".$i3];
                     $seccion3[$i3][1] = $i3;
                     $f3++;
                 }else{
