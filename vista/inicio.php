@@ -61,7 +61,7 @@
                 <ul id="ul-menu" class="menu-tooltip scroll_modificado"><!-- hay dos opciones que sea tooltip o normal -->
                     <!-- Link Inicio -->
                     <li>
-                        <a href="index.php">
+                        <a href="bienvenido.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/incio.png" alt="icono de inicio">
@@ -74,7 +74,7 @@
                     
                     <!-- Link Ayuda -->
                     <li>
-                        <a href="acceso_denegado.php" target="contenido">
+                        <a href="http://192.168.10.70/Helpdesk/upload/open.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/ayuda.png" alt="icono de ayuda">
@@ -111,30 +111,71 @@
                         </a>
                     </li>
                     
+                    <hr class="divisor-menu">
                     
                     <!-- Gestion de Calidad -->
                     <li>
                         <a href="gestionDC.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/telefono.png" alt="icono de gestión de calidad">
+                                <img src="img/directo-comercial.png" alt="icono de gestión de calidad">
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Gestión de Calidad</div>
+                            <div class="texto">Gestión Directa Comercial</div>
                         </a>
                     </li>
                     
                     <!-- Gestion de Calidad -->
                     <li>
-                        <a href="gestionDC.php" target="contenido">
+                        <a href="gestionDP.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/telefono.png" alt="icono de gestión de calidad">
+                                <img src="img/directo-prejuridica.png" alt="icono de gestión de calidad">
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Gestión de Calidad</div>
+                            <div class="texto">Gestión Directa Prejurídica</div>
+                        </a>
+                    </li>
+            
+                    <!-- Gestion de Calidad -->
+                    <li>
+                        <a href="gestionIE.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/indirecto-estandar.png" alt="icono de gestión de calidad">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Gestión In-directa Estándar</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Gestion de Calidad -->
+                    <li>
+                        <a href="gestionIB.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/in-bound.png" alt="icono de gestión de calidad">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Gestión In-Bound</div>
+                        </a>
+                    </li>
+                    
+                    <hr class="divisor-menu">
+                    
+                    <li>
+                        <a href="../controlador/logoutControlador.php">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/cerrar-sesion.png" alt="icono de cerrar sesión">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Cerrar Sesión</div>
                         </a>
                     </li>
                     <!--
@@ -144,14 +185,15 @@
                     <li><a href="#">ayuda</a></li>
                     <li><a href="#">gestión</a></li>-->
                 </ul>
-
+                
+                <!--
                 <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Salir</a></li>
-                <!-- Links Perfil -->
+                -->
+                
                 <ul class="menu-sesion">
                     <li class="mi-cuenta">Mi cuenta</li>
                     <li class="img-perfil"><img src="img/girl%20(2).png" alt="Icono foto de perfil"></li>
                 </ul>
-                
             </div>
         </nav>
         

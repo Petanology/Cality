@@ -7,6 +7,7 @@ $(document).ready(function(){
         $(".primero").toggleClass("primero-activado");
         $(".segundo").toggleClass("segundo-activado");
         $(".tercero").toggleClass("tercero-activado");
+        $(".divisor-menu").toggleClass("divisor-activado");
         
         // Agrandar / empequeñecer menú
         $("#ul-menu").toggleClass("menu-tooltip");

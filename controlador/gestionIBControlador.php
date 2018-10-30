@@ -6,7 +6,7 @@
     $sss = new sesiones();
     $sss->iniciar();
 
-    class gestionDCControlador{
+    class gestionIBControlador{
 
         public function __construct(){
             
@@ -25,15 +25,15 @@
             $asesor = $_POST["identificacion"];
             $analista = $_SESSION["idpersona"];
             $observacion = $_POST["observacion"];
-            $totalItemsDCS = $_POST["totalItemsDCS"];
-            $totalItemsDCN = $_POST["totalItemsDCN"]; 
-            $totalItemsDCR = $_POST["totalItemsDCR"];
-            $primerCampo = "dcs";
-            $segundoCampo = "dcn";
-            $tercerCampo = "dcr";
-            $primeraTabla = "dir_com_set";
-            $segundaTabla = "dir_com_n";
-            $terceraTabla = "dir_com_rs";
+            $totalItemsIBS = $_POST["totalItemsIBS"];
+            $totalItemsIBO = $_POST["totalItemsIBO"]; 
+            $totalItemsIBR = $_POST["totalItemsIBR"];
+            $primerCampo = "ibs";
+            $segundoCampo = "ibo";
+            $tercerCampo = "ibr";
+            $primeraTabla = "in_bound_set";
+            $segundaTabla = "in_bound_oll";
+            $terceraTabla = "in_bound_rs";
             
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
@@ -45,9 +45,9 @@
             $i = 1; // numero items
             $f = 1; // repeticiones bucle
             
-            while($f <= $totalItemsDCS){
-                if(isset($_POST["dcs_".$i])){
-                    $seccion1[$i][0] = $_POST["dcs_".$i];
+            while($f <= $totalItemsIBS){
+                if(isset($_POST["ibs_".$i])){
+                    $seccion1[$i][0] = $_POST["ibs_".$i];
                     $seccion1[$i][1] = $i;
                     $f++;
                 }else{
@@ -61,9 +61,9 @@
             $i2 = 1; // numero items
             $f2 = 1; // repeticiones bucle
             
-            while($f2 <= $totalItemsDCN){
-                if(isset($_POST["dcn_".$i2])){
-                    $seccion2[$i2][0] = $_POST["dcn_".$i2];
+            while($f2 <= $totalItemsIBO){
+                if(isset($_POST["ibo_".$i2])){
+                    $seccion2[$i2][0] = $_POST["ibo_".$i2];
                     $seccion2[$i2][1] = $i2;
                     $f2++;
                 }else{
@@ -77,9 +77,9 @@
             $i3 = 1; // numero items
             $f3 = 1; // repeticiones bucle
             
-            while($f3 <= $totalItemsDCR){
-                if(isset($_POST["dcr_".$i3])){
-                    $seccion3[$i3][0] = $_POST["dcr_".$i3];
+            while($f3 <= $totalItemsIBR){
+                if(isset($_POST["ibr_".$i3])){
+                    $seccion3[$i3][0] = $_POST["ibr_".$i3];
                     $seccion3[$i3][1] = $i3;
                     $f3++;
                 }else{
@@ -121,11 +121,11 @@
         
         // redirección
         public function redireccion($pMensaje){
-            header("location: ../vista/gestionDC.php?m=$pMensaje");
+            header("location: ../vista/gestionIB.php?m=$pMensaje");
         }
     }
 
-    $gestionDCC = new gestionDCControlador(); 
+    $gestionIBC = new gestionIBControlador(); 
 ?>
 
 

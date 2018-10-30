@@ -79,7 +79,7 @@
                     <div class="mb-4 lead texto2">
                         Que bueno que estás de nuevo, aprovecha al máximo todas las herramientas que te ofrece Cality: El sistema para la gestión de Calidad en llamadas de <strong>GF Cobranzas Jurídicas</strong>.
                     </div>
-                    <a href="links.html" class="btn btn-primary "> ¡Empezar a Gestionar!</a>
+                    <a href="gestionDC.php" class="btn btn-primary "> ¡Empezar a Gestionar!</a>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
     <!-- Contenido -->
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
-        <div class="container-fluid rounded bg-dark border-primary text-white">
+        <div class="container-fluid rounded bg-dark text-white">
             <form action="" method="post">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
@@ -32,7 +32,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-secondary"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
@@ -54,8 +54,8 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form action="../controlador/gestionDCControlador.php" method="post">
-                <p class="bg-primary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
+                <form action="../controlador/gestionIBControlador.php" method="post">
+                <p class="bg-secondary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Estándar In Bound</p>
                 <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
@@ -166,10 +166,10 @@
                     <!-- servicio y etiqueta telefonica -->
                     <table class="table table-borderless table-striped table-secondary mt-3">
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
+                            <th class="text-white bg-secondary text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
                             <?php 
                                 $objetoPorcentajeSeccion1 = new ValSeccDao();
-                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("dir_com_set");
+                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("in_bound_set");
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
@@ -186,41 +186,41 @@
                         </tr>
                         <!-- PRIMER ITEM --> 
                         <?php
-                            $objetoItemDCS = new itemDao("dcs");
-                            $resultadoDCS = $objetoItemDCS->listarItemsActivos();
+                            $objetoItemIBS = new itemDao("ibs");
+                            $resultadoIBS = $objetoItemIBS->listarItemsActivos();
                             $acum1 = 0;
-                            foreach($resultadoDCS as $rowDCSA){
+                            foreach($resultadoIBS as $rowIBSA){
                             $acum1++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCSA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCSA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBSA[1]; ?>
+                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBSA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibs_<?php echo $rowIBSA[0]; ?>1" name="ibs_<?php echo $rowIBSA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibs_<?php echo $rowIBSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibs_<?php echo $rowIBSA[0]; ?>2" name="ibs_<?php echo $rowIBSA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibs_<?php echo $rowIBSA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCS" value="<?php echo $acum1; ?>">
+                        <input type="hidden" name="totalItemsIBS" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN
+                            <th class="text-white bg-secondary text-center" colspan="3">NEGOCIACIÓN
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
-                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("dir_com_n");
+                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("in_bound_oll");
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
@@ -236,39 +236,39 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemDCN = new itemDao("dcn");
-                            $resultadoDCN = $objetoItemDCN->listarItemsActivos();
+                            $objetoItemIBO = new itemDao("ibo");
+                            $resultadoIBO = $objetoItemIBO->listarItemsActivos();
                             $acum2 = 0;
-                            foreach($resultadoDCN as $rowDCNA){
+                            foreach($resultadoIBO as $rowIBOA){
                             $acum2++;   
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCNA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCNA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBOA[1]; ?>
+                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBOA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcn_<?php echo $rowDCNA[0]; ?>1" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibo_<?php echo $rowIBOA[0]; ?>1" name="ibo_<?php echo $rowIBOA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibo_<?php echo $rowIBOA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcn_<?php echo $rowDCNA[0]; ?>2" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibo_<?php echo $rowIBOA[0]; ?>2" name="ibo_<?php echo $rowIBOA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibo_<?php echo $rowIBOA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCN" value="<?php echo $acum2; ?>">
+                        <input type="hidden" name="totalItemsIBO" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white bg-secondary text-center" colspan="3">REGISTRO EN EL SISTEMA
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
-                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_rs");
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("in_bound_rs");
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
@@ -284,33 +284,34 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemDCR = new itemDao("dcr");
-                            $resultadoDCR = $objetoItemDCR->listarItemsActivos();
+                            $objetoItemIBR = new itemDao("ibr");
+                            $resultadoIBR = $objetoItemIBR->listarItemsActivos();
                             $acum3 = 0;
-                            foreach($resultadoDCR as $rowDCRA){
+                            foreach($resultadoIBR as $rowIBRA){
                             $acum3++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCRA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCRA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBRA[1]; ?>
+                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBRA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcr_<?php echo $rowDCRA[0]; ?>1" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibr_<?php echo $rowIBRA[0]; ?>1" name="ibr_<?php echo $rowIBRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibr_<?php echo $rowIBRA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcr_<?php echo $rowDCRA[0]; ?>2" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibr_<?php echo $rowIBRA[0]; ?>2" name="ibr_<?php echo $rowIBRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibr_<?php echo $rowIBRA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" name="totalItemsIBR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" name="totalItemsIBR" value="<?php echo $acum3; ?>">
                         
                         
                         
@@ -344,7 +345,7 @@
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
                 <img src="img/busqueda.png" width="250" class="border border-primary rounded-circle m-5 p-2" style="background-color:#1976D2;" alt="icono de búsqueda">
-                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>directa comercial</kbd></h2>
+                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>estándar in bound</kbd></h2>
             </div>
         <?php } ?>
         

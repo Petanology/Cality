@@ -1,3 +1,21 @@
+.divisor-menu {
+    width:50%;
+    position: relative;
+    left: 25%;
+    border: 0px;;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.54);
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+.divisor-activado {
+    width:calc(100% - 130px);
+    position: relative;
+    left: 65px;
+}
+
+
 .main {
     overflow: auto;
     position: absolute;
@@ -336,6 +354,21 @@ ul.menu-tooltip > li > a:hover::before {
 
 ul.menu-tooltip > li > a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+ul.menu-tooltip > li > a img {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;    
+}
+
+
+ul.menu-tooltip > li > a:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
