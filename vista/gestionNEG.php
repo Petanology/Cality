@@ -14,7 +14,7 @@
     <!-- Contenido -->
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
-        <div class="container-fluid rounded bg-dark border-primary text-white">
+        <div class="container-fluid rounded bg-dark border-info text-white">
             <form action="" method="post">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
@@ -32,7 +32,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-info"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
@@ -54,8 +54,8 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form action="../controlador/gestionDCControlador.php" method="post">
-                <p class="bg-primary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
+                <form action="../controlador/gestionNEGControlador.php" method="post">
+                <p class="bg-info rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Negociación</p>
                 <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
@@ -166,10 +166,10 @@
                     <!-- servicio y etiqueta telefonica -->
                     <table class="table table-borderless table-striped table-secondary mt-3">
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
+                            <th class="text-white bg-info text-center" colspan="3">PROTOCOLO Y ETIQUETA PROFESIONAL 
                             <?php 
                                 $objetoPorcentajeSeccion1 = new ValSeccDao();
-                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("dir_com_set");
+                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("neg_pep");
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
@@ -186,41 +186,41 @@
                         </tr>
                         <!-- PRIMER ITEM --> 
                         <?php
-                            $objetoItemDCS = new itemDao("dcs");
-                            $resultadoDCS = $objetoItemDCS->listarItemsActivos();
+                            $objetoItemNPEP = new itemDao("npep");
+                            $resultadoNPEP = $objetoItemNPEP->listarItemsActivos();
                             $acum1 = 0;
-                            foreach($resultadoDCS as $rowDCSA){
+                            foreach($resultadoNPEP as $rowNPEPA){
                             $acum1++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCSA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCSA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowNPEPA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowNPEPA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="npep_<?php echo $rowNPEPA[0]; ?>1" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="npep_<?php echo $rowNPEPA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="npep_<?php echo $rowNPEPA[0]; ?>2" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="npep_<?php echo $rowNPEPA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCS" value="<?php echo $acum1; ?>">
+                        <input type="hidden" name="totalItemsNPEP" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN
+                            <th class="text-white bg-info text-center" colspan="3">SERVICIO AL CLIENTE
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
-                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("dir_com_n");
+                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("neg_sc");
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
@@ -236,39 +236,39 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemDCN = new itemDao("dcn");
-                            $resultadoDCN = $objetoItemDCN->listarItemsActivos();
+                            $objetoItemNSC = new itemDao("nsc");
+                            $resultadoNSC = $objetoItemNSC->listarItemsActivos();
                             $acum2 = 0;
-                            foreach($resultadoDCN as $rowDCNA){
+                            foreach($resultadoNSC as $rowNSCA){
                             $acum2++;   
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCNA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCNA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowNSCA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowNSCA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcn_<?php echo $rowDCNA[0]; ?>1" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="nsc_<?php echo $rowNSCA[0]; ?>1" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nsc_<?php echo $rowNSCA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcn_<?php echo $rowDCNA[0]; ?>2" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="nsc_<?php echo $rowNSCA[0]; ?>2" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nsc_<?php echo $rowNSCA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCN" value="<?php echo $acum2; ?>">
+                        <input type="hidden" name="totalItemsNSC" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white bg-info text-center" colspan="3">NEGOCIACIÓN
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
-                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_rs");
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("neg_n");
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
@@ -284,36 +284,131 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemDCR = new itemDao("dcr");
-                            $resultadoDCR = $objetoItemDCR->listarItemsActivos();
+                            $objetoItemNN = new itemDao("nn");
+                            $resultadoNN = $objetoItemNN->listarItemsActivos();
                             $acum3 = 0;
-                            foreach($resultadoDCR as $rowDCRA){
+                            foreach($resultadoNN as $rowNNA){
                             $acum3++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowDCRA[1]; ?>
-                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCRA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowNNA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowNNA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcr_<?php echo $rowDCRA[0]; ?>1" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="nn_<?php echo $rowNNA[0]; ?>1" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nn_<?php echo $rowNNA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcr_<?php echo $rowDCRA[0]; ?>2" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="nn_<?php echo $rowNNA[0]; ?>2" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nn_<?php echo $rowNNA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" name="totalItemsNN" value="<?php echo $acum3; ?>">
                         
-                        
-                        
+                        <!-- CUARTO ITEM -->
+                        <tr>
+                            <th class="text-white bg-info text-center" colspan="3">ACTUALIZACIÓN DE DATOS
+                            <?php 
+                                $objetoPorcentajeSeccion3 = new ValSeccDao();
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("neg_ad");
+                                foreach($porc3 as $rowPorc3){
+                            ?>
+                            <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
+                            <input type="hidden" name="valorSeccionTabla4" value="<?php echo $rowPorc3[0]; ?>">
+                            <?php
+                                }        
+                            ?>                            
+                            </th>
+                        </tr>
+                        <tr class="bg-dark text-white">
+                            <th>Enunciado</th>
+                            <th class="pl-0">SI</th>
+                            <th class="pl-0">NO</th>
+                        </tr>
+                        <?php
+                            $objetoItemAD = new itemDao("na");
+                            $resultadoAD = $objetoItemAD->listarItemsActivos();
+                            $acum4 = 0;
+                            foreach($resultadoAD as $rowADA){
+                            $acum4++;
+                        ?>
+                        <tr>
+                            <td class="font-weight-bold"><?php echo $rowADA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowADA[2]; ?>"></i></small>
+                            </td>
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="nad_<?php echo $rowADA[0]; ?>1" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nad_<?php echo $rowADA[0]; ?>1"></label>
+                                </div>
+                            </td>                            
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="nad_<?php echo $rowADA[0]; ?>2" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nad_<?php echo $rowADA[0]; ?>2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        <input type="hidden" name="totalItemsNAD" value="<?php echo $acum4; ?>">
+            
+                        <!-- QUINTO ITEM -->
+                        <tr>
+                            <th class="text-white bg-info text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <?php 
+                                $objetoPorcentajeSeccion3 = new ValSeccDao();
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("neg_rs");
+                                foreach($porc3 as $rowPorc3){
+                            ?>
+                            <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
+                            <input type="hidden" name="valorSeccionTabla5" value="<?php echo $rowPorc3[0]; ?>">
+                            <?php
+                                }        
+                            ?>                            
+                            </th>
+                        </tr>
+                        <tr class="bg-dark text-white">
+                            <th>Enunciado</th>
+                            <th class="pl-0">SI</th>
+                            <th class="pl-0">NO</th>
+                        </tr>
+                        <?php
+                            $objetoItemNR = new itemDao("nr");
+                            $resultadoNR = $objetoItemNR->listarItemsActivos();
+                            $acum5 = 0;
+                            foreach($resultadoNR as $rowNRA){
+                            $acum5++;
+                        ?>
+                        <tr>
+                            <td class="font-weight-bold"><?php echo $rowNRA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowNRA[2]; ?>"></i></small>
+                            </td>
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="nrs_<?php echo $rowNRA[0]; ?>1" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nrs_<?php echo $rowNRA[0]; ?>1"></label>
+                                </div>
+                            </td>                            
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="nrs_<?php echo $rowNRA[0]; ?>2" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="nrs_<?php echo $rowNRA[0]; ?>2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        <input type="hidden" name="totalItemsNRS" value="<?php echo $acum5; ?>">
                     </table>
                     <hr>
                     <div>
@@ -325,7 +420,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button type="submit" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button type="submit" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -343,8 +438,8 @@
         <?php } else {?>
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
-                <img src="img/busqueda.png" width="250" class="border border-primary rounded-circle m-5 p-2" style="background-color:#1976D2;" alt="icono de búsqueda">
-                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>directa comercial</kbd></h2>
+                <img src="img/busqueda.png" width="250" class="border border-info rounded-circle m-5 p-2" style="background-color:#12a6ad;" alt="icono de búsqueda">
+                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd class="bg-info">negociación</kbd></h2>
             </div>
         <?php } ?>
         
