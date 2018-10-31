@@ -54,8 +54,8 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form action="../controlador/gestionMENControlador.php" method="post">
-                <p class="bg-info rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Mensaje</p>
+                <form action="../controlador/gestionIBFControlador.php" method="post">
+                <p class="bg-info rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad In Bound</p>
                 <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
@@ -166,10 +166,10 @@
                     <!-- servicio y etiqueta telefonica -->
                     <table class="table table-borderless table-striped table-secondary mt-3">
                         <tr>
-                            <th class="text-white bg-info text-center" colspan="3">SERVICIO Y ETIQUETA TELEFONICA 
+                            <th class="text-white bg-info text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
                             <?php 
                                 $objetoPorcentajeSeccion1 = new ValSeccDao();
-                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("men_set");
+                                $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("in_bound_fin_set");
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
@@ -186,41 +186,41 @@
                         </tr>
                         <!-- PRIMER ITEM --> 
                         <?php
-                            $objetoItemMSET = new itemDao("ms");
-                            $resultadoMSET = $objetoItemMSET->listarItemsActivos();
+                            $objetoItemIBFS = new itemDao("ibfs");
+                            $resultadoIBFS = $objetoItemIBFS->listarItemsActivos();
                             $acum1 = 0;
-                            foreach($resultadoMSET as $rowMSETA){
+                            foreach($resultadoIBFS as $rowIBFSA){
                             $acum1++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowMSETA[1]; ?>
-                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowMSETA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBFSA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBFSA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="mset_<?php echo $rowMSETA[0]; ?>1" name="mset_<?php echo $rowMSETA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mset_<?php echo $rowMSETA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibfs_<?php echo $rowIBFSA[0]; ?>1" name="ibfs_<?php echo $rowIBFSA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfs_<?php echo $rowIBFSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="mset_<?php echo $rowMSETA[0]; ?>2" name="mset_<?php echo $rowMSETA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mset_<?php echo $rowMSETA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibfs_<?php echo $rowIBFSA[0]; ?>2" name="ibfs_<?php echo $rowIBFSA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfs_<?php echo $rowIBFSA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsMSET" value="<?php echo $acum1; ?>">
+                        <input type="hidden" name="totalItemsIBFS" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-info text-center" colspan="3">INFORMACIÓN A TERCEROS
+                            <th class="text-white bg-info text-center" colspan="3">OBJETO DE LA LLAMADA
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
-                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("men_it");
+                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("in_bound_fin_ol");
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
@@ -236,39 +236,39 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemMIT = new itemDao("mi");
-                            $resultadoMIT = $objetoItemMIT->listarItemsActivos();
+                            $objetoItemIBFO = new itemDao("ibfo");
+                            $resultadoIBFO = $objetoItemIBFO->listarItemsActivos();
                             $acum2 = 0;
-                            foreach($resultadoMIT as $rowMITA){
+                            foreach($resultadoIBFO as $rowIBFOA){
                             $acum2++;   
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowMITA[1]; ?>
-                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowMITA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBFOA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBFOA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="mit_<?php echo $rowMITA[0]; ?>1" name="mit_<?php echo $rowMITA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mit_<?php echo $rowMITA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibfo_<?php echo $rowIBFOA[0]; ?>1" name="ibfo_<?php echo $rowIBFOA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfo_<?php echo $rowIBFOA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="mit_<?php echo $rowMITA[0]; ?>2" name="mit_<?php echo $rowMITA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mit_<?php echo $rowMITA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibfo_<?php echo $rowIBFOA[0]; ?>2" name="ibfo_<?php echo $rowIBFOA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfo_<?php echo $rowIBFOA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsMIT" value="<?php echo $acum2; ?>">
+                        <input type="hidden" name="totalItemsIBFO" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
                             <th class="text-white bg-info text-center" colspan="3">REGISTRO EN EL SISTEMA
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
-                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("men_rs");
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("in_bound_fin_rs");
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
@@ -284,33 +284,33 @@
                             <th class="pl-0">NO</th>
                         </tr>
                         <?php
-                            $objetoItemMRS = new itemDao("mr");
-                            $resultadoMRS = $objetoItemMRS->listarItemsActivos();
+                            $objetoItemIBFR = new itemDao("ibfr");
+                            $resultadoIBFR = $objetoItemIBFR->listarItemsActivos();
                             $acum3 = 0;
-                            foreach($resultadoMRS as $rowMRSA){
+                            foreach($resultadoIBFR as $rowIBFRA){
                             $acum3++;
                         ?>
                         <tr>
-                            <td class="font-weight-bold"><?php echo $rowMRSA[1]; ?>
-                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowMRSA[2]; ?>"></i></small>
+                            <td class="font-weight-bold"><?php echo $rowIBFRA[1]; ?>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIBFRA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="mrs_<?php echo $rowMRSA[0]; ?>1" name="mrs_<?php echo $rowMRSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mrs_<?php echo $rowMRSA[0]; ?>1"></label>
+                                    <input type="radio" value="1" id="ibfr_<?php echo $rowIBFRA[0]; ?>1" name="ibfr_<?php echo $rowIBFRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfr_<?php echo $rowIBFRA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="mrs_<?php echo $rowMRSA[0]; ?>2" name="mrs_<?php echo $rowMRSA[0]; ?>" class="custom-control-input">
-                                    <label class="custom-control-label" for="mrs_<?php echo $rowMRSA[0]; ?>2"></label>
+                                    <input type="radio" value="0" id="ibfr_<?php echo $rowIBFRA[0]; ?>2" name="ibfr_<?php echo $rowIBFRA[0]; ?>" class="custom-control-input">
+                                    <label class="custom-control-label" for="ibfr_<?php echo $rowIBFRA[0]; ?>2"></label>
                                 </div>
                             </td>
                         </tr>
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsMRS" value="<?php echo $acum3; ?>">
+                        <input type="hidden" name="totalItemsIBFR" value="<?php echo $acum3; ?>">
                     </table>
                     <hr>
                     <div>
@@ -341,7 +341,7 @@
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
                 <img src="img/busqueda.png" width="250" class="border border-info rounded-circle m-5 p-2" style="background-color:#12a6ad;" alt="icono de búsqueda">
-                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd class="bg-info">mensaje financiero</kbd></h2>
+                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd class="bg-info">in bound financiero</kbd></h2>
             </div>
         <?php } ?>
         

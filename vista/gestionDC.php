@@ -173,10 +173,11 @@
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
+                            <input type="hidden" id="valorSeccionTabla1" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
                             <?php
                                 }        
                             ?>
+                            <span id="acumSET" class="badge badge-light ml-1">25.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -198,13 +199,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular()">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular()">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -212,7 +213,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCS" value="<?php echo $acum1; ?>">
+                        <input type="hidden" id="totalItemsDCS" name="totalItemsDCS" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
@@ -227,7 +228,8 @@
                             <input type="hidden" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
                             <?php
                                 }        
-                            ?>                           
+                            ?>
+                            <span class="badge badge-light ml-1">40.0%</span>                           
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -275,7 +277,8 @@
                             <input type="hidden" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
-                            ?>                            
+                            ?>   
+                            <span class="badge badge-light ml-1">20.0%</span>                         
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -311,9 +314,11 @@
                             }
                         ?>
                         <input type="hidden" name="totalItemsDCR" value="<?php echo $acum3; ?>">
-                        
-                        
-                        
+                        <tr>
+                            <th class="text-white bg-dark text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <span id="total" class="badge badge-light ml-1">85%</span>
+                            </th>
+                        </tr>
                     </table>
                     <hr>
                     <div>
@@ -353,6 +358,7 @@
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
+    <script src="js/calculo-en-tiempo-real.js"></script>
     
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

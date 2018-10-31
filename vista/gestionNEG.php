@@ -439,7 +439,7 @@
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
                 <img src="img/busqueda.png" width="250" class="border border-info rounded-circle m-5 p-2" style="background-color:#12a6ad;" alt="icono de búsqueda">
-                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd class="bg-info">negociación</kbd></h2>
+                <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd class="bg-info">negociación financiera</kbd></h2>
             </div>
         <?php } ?>
         

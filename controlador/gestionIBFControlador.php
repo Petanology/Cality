@@ -6,7 +6,7 @@
     $sss = new sesiones();
     $sss->iniciar();
 
-    class gestionNEGControlador{
+    class gestionIBFControlador{
 
         public function __construct(){
             
@@ -26,29 +26,21 @@
             $analista = $_SESSION["idpersona"];
             $observacion = $_POST["observacion"];
             
-            $totalItemsNPEP = $_POST["totalItemsNPEP"];
-            $totalItemsNSC = $_POST["totalItemsNSC"];
-            $totalItemsNN = $_POST["totalItemsNN"];
-            $totalItemsNAD = $_POST["totalItemsNAD"];
-            $totalItemsNRS = $_POST["totalItemsNRS"];
+            $totalItemsIBFS = $_POST["totalItemsIBFS"];
+            $totalItemsIBFO = $_POST["totalItemsIBFO"];
+            $totalItemsIBFR = $_POST["totalItemsIBFR"];
             
-            $primerCampo = "npep";
-            $segundoCampo= "nsc";
-            $tercerCampo = "nn";
-            $cuartoCampo = "na";
-            $quintoCampo = "nr";
+            $primerCampo = "ibfs";
+            $segundoCampo= "ibfo";
+            $tercerCampo = "ibfr";
             
-            $primeraTabla = "neg_pep";
-            $segundaTabla = "neg_sc";
-            $terceraTabla = "neg_n";
-            $cuartaTabla = "neg_ad";
-            $quintaTabla = "neg_rs";
+            $primeraTabla = "in_bound_fin_set";
+            $segundaTabla = "in_bound_fin_ol";
+            $terceraTabla = "in_bound_fin_rs";
             
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
-            $valor[4] = $_POST["valorSeccionTabla4"];
-            $valor[5] = $_POST["valorSeccionTabla5"];
 
             /* ************************** */
             
@@ -56,9 +48,9 @@
             $i = 1; // numero items
             $f = 1; // repeticiones bucle
             
-            while($f <= $totalItemsNPEP){
-                if(isset($_POST["npep_".$i])){
-                    $seccion1[$i][0] = $_POST["npep_".$i];
+            while($f <= $totalItemsIBFS){
+                if(isset($_POST["ibfs_".$i])){
+                    $seccion1[$i][0] = $_POST["ibfs_".$i];
                     $seccion1[$i][1] = $i;
                     $f++;
                 }else{
@@ -72,9 +64,9 @@
             $i2 = 1; // numero items
             $f2 = 1; // repeticiones bucle
             
-            while($f2 <= $totalItemsNSC){
-                if(isset($_POST["nsc_".$i2])){
-                    $seccion2[$i2][0] = $_POST["nsc_".$i2];
+            while($f2 <= $totalItemsIBFO){
+                if(isset($_POST["ibfo_".$i2])){
+                    $seccion2[$i2][0] = $_POST["ibfo_".$i2];
                     $seccion2[$i2][1] = $i2;
                     $f2++;
                 }else{
@@ -88,9 +80,9 @@
             $i3 = 1; // numero items
             $f3 = 1; // repeticiones bucle
             
-            while($f3 <= $totalItemsNN){
-                if(isset($_POST["nn_".$i3])){
-                    $seccion3[$i3][0] = $_POST["nn_".$i3];
+            while($f3 <= $totalItemsIBFR){
+                if(isset($_POST["ibfr_".$i3])){
+                    $seccion3[$i3][0] = $_POST["ibfr_".$i3];
                     $seccion3[$i3][1] = $i3;
                     $f3++;
                 }else{
@@ -100,44 +92,11 @@
             
             /* ************************** */
             
-            $seccion4 = array();
-            $i4 = 1; // numero items
-            $f4 = 1; // repeticiones bucle
-            
-            while($f4 <= $totalItemsNAD){
-                if(isset($_POST["nad_".$i4])){
-                    $seccion4[$i4][0] = $_POST["nad_".$i4];
-                    $seccion4[$i4][1] = $i4;
-                    $f4++;
-                }else{
-                }
-                $i4++;
-            }
-            
-            
-            /* ************************** */
-            
-            $seccion5 = array();
-            $i5 = 1; // numero items
-            $f5 = 1; // repeticiones bucle
-            
-            while($f5 <= $totalItemsNRS){
-                if(isset($_POST["nrs_".$i5])){
-                    $seccion5[$i5][0] = $_POST["nrs_".$i5];
-                    $seccion5[$i5][1] = $i5;
-                    $f5++;
-                }else{
-                }
-                $i5++;
-            }
-            
-            /* ************************** */
-            
             $mRPositivo = "¡Felicidades, el registro <strong> '" . $idGestion . "' </strong> fue todo un éxito!";
             
             if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion)) {
                 
-                for($i = 1; $i < 6; $i++){
+                for($i = 1; $i < 4; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
 
@@ -154,30 +113,20 @@
                     $gestionGeneralDao->registrarCalificacion($terceraTabla,$tercerCampo,$idGestion,$aprobadoItem3[1],$aprobadoItem3[0]);
                 }
                 
-                
-                foreach($seccion4 as $aprobadoItem4){
-                    $gestionGeneralDao->registrarCalificacion($cuartaTabla,$cuartoCampo,$idGestion,$aprobadoItem4[1],$aprobadoItem4[0]);
-                }
-                
-
-                foreach($seccion5 as $aprobadoItem5){
-                    $gestionGeneralDao->registrarCalificacion($quintaTabla,$quintoCampo,$idGestion,$aprobadoItem5[1],$aprobadoItem5[0]);
-                }
-                
-                $this->redireccion($mRPositivo);
+                //$this->redireccion($mRPositivo);
                 
             }else{
                 
-                $this->redireccion($mNegativo);
+                //$this->redireccion($mNegativo);
                 
             }
         }
         
         // redirección
         public function redireccion($pMensaje){
-            header("location: ../vista/gestionNEG.php?m=$pMensaje");
+            header("location: ../vista/gestionIBF.php?m=$pMensaje");
         }
     }
 
-    $gestionNEGC = new gestionNEGControlador(); 
+    $gestionIBFC = new gestionIBFControlador(); 
 ?>
