@@ -1,56 +1,46 @@
 var totalItemsSeccion1 = document.getElementById("totalItemsDCS").value;
 var porcentajeSeccion1 = document.getElementById("valorSeccionTabla1").value;
 
-var x = document.getElementsByName("dcs_1");
-
 function calcular(){
-    alert(x[0].value);
-    alert(x[1].value);
-}
+    
+    var i = 1 , f = 1 , itemPrueba, nAprobadosSeccion1=0, totalSeccion1;
+    
+    while(i <= totalItemsSeccion1){
+        
+        itemPrueba = document.getElementsByName("dcs_"+f);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    for(i=0 ; i<x.length ; i++){
-        if(x[i].checked){
-            alert(x[i].value);
-           }
+        if(itemPrueba[0].value == 1){
+            
+            i++;
+            
+            if(itemPrueba[0].checked){
+                nAprobadosSeccion1++;
+            }
+        }
+        
+        f++;
     }
-}*/
+    
+    totalSeccion1 = nAprobadosSeccion1*porcentajeSeccion1/totalItemsSeccion1;
+    document.getElementById("acumSET").innerHTML = totalSeccion1; 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
-var totalAprobadosDCS = 0;
-var totalDesaprobadosDCS = 0;
-
-function sumarAprobados(){
-    totalAprobadosDCS++;
-    alert(totalAprobadosDCS);
-}
-
-function sumarDesaprobados(){
-    totalDesaprobadosDCS--;
-    alert(totalDesaprobadosDCS);
-}
-
-
-var i;
-var resultadoItemDCS = new Array();
-
-
-
 document.getElementById("total").innerHTML = 1+2+1 . "%";
 */
