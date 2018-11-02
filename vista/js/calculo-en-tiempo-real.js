@@ -1,29 +1,28 @@
-var totalItemsSeccion1 = document.getElementById("totalItemsDCS").value;
-var porcentajeSeccion1 = document.getElementById("valorSeccionTabla1").value;
-
-function calcular(){
+function calcular(sector){
     
-    var i = 1 , f = 1 , itemPrueba, nAprobadosSeccion1=0, totalSeccion1;
+    var totalItemsSeccion = document.getElementById("totalItems" + sector.toUpperCase()).value;
+    var porcentajeSeccion = document.getElementById("valorSeccion" + sector.toUpperCase()).value;
     
-    while(i <= totalItemsSeccion1){
+    var i = 1 , f = 1 , itemPrueba, nAprobadosSeccion=0, totalSeccion, cadena;
+    
+    while(i <= totalItemsSeccion){
         
-        itemPrueba = document.getElementsByName("dcs_"+f);
+        itemPrueba = document.getElementsByName(sector + "_" + f);
 
         if(itemPrueba[0].value == 1){
             
             i++;
             
             if(itemPrueba[0].checked){
-                nAprobadosSeccion1++;
+                nAprobadosSeccion++;
             }
         }
         
         f++;
     }
-    
-    totalSeccion1 = nAprobadosSeccion1*porcentajeSeccion1/totalItemsSeccion1;
-    document.getElementById("acumSET").innerHTML = totalSeccion1; 
-    
+    var operacion = nAprobadosSeccion*porcentajeSeccion/totalItemsSeccion; 
+    totalSeccion = operacion.toFixed(1);
+    document.getElementById("acum_" + sector).innerHTML = totalSeccion + "%";
 }
 
 
@@ -41,6 +40,14 @@ function calcular(){
 
 
 
-/*
-document.getElementById("total").innerHTML = 1+2+1 . "%";
-*/
+
+
+
+
+
+
+
+
+
+
+

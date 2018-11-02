@@ -173,11 +173,11 @@
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
-                            <input type="hidden" id="valorSeccionTabla1" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
+                            <input type="hidden" id="valorSeccionDCS" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
                             <?php
                                 }        
                             ?>
-                            <span id="acumSET" class="badge badge-light ml-1">25.0%</span>
+                            <span id="acum_dcs" class="badge badge-light ml-1">0.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -199,13 +199,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular()">
+                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular()">
+                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -225,11 +225,11 @@
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
+                            <input type="hidden" id="valorSeccionDCN" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
                             <?php
                                 }        
                             ?>
-                            <span class="badge badge-light ml-1">40.0%</span>                           
+                            <span id="acum_dcn" class="badge badge-light ml-1">0.0%</span>                           
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -250,13 +250,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcn_<?php echo $rowDCNA[0]; ?>1" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dcn_<?php echo $rowDCNA[0]; ?>1" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input" onclick="calcular('dcn')">
                                     <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcn_<?php echo $rowDCNA[0]; ?>2" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dcn_<?php echo $rowDCNA[0]; ?>2" name="dcn_<?php echo $rowDCNA[0]; ?>" class="custom-control-input" onclick="calcular('dcn')">
                                     <label class="custom-control-label" for="dcn_<?php echo $rowDCNA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -264,7 +264,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCN" value="<?php echo $acum2; ?>">
+                        <input type="hidden" id="totalItemsDCN" name="totalItemsDCN" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
                             <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
@@ -274,11 +274,11 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionDCR" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
                             ?>   
-                            <span class="badge badge-light ml-1">20.0%</span>                         
+                            <span id="acum_dcr" class="badge badge-light ml-1">0.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -299,13 +299,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcr_<?php echo $rowDCRA[0]; ?>1" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dcr_<?php echo $rowDCRA[0]; ?>1" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input" onclick="calcular('dcr')">
                                     <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcr_<?php echo $rowDCRA[0]; ?>2" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dcr_<?php echo $rowDCRA[0]; ?>2" name="dcr_<?php echo $rowDCRA[0]; ?>" class="custom-control-input" onclick="calcular('dcr')">
                                     <label class="custom-control-label" for="dcr_<?php echo $rowDCRA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -313,7 +313,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDCR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" id="totalItemsDCR" name="totalItemsDCR" value="<?php echo $acum3; ?>">
                         <tr>
                             <th class="text-white bg-dark text-center" colspan="3">REGISTRO EN EL SISTEMA
                             <span id="total" class="badge badge-light ml-1">85%</span>
