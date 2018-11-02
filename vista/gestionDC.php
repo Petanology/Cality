@@ -177,7 +177,7 @@
                             <?php
                                 }        
                             ?>
-                            <span id="acum_dcs" class="badge badge-light ml-1">0.0%</span>
+                            <span id="acum_dcs" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -229,7 +229,7 @@
                             <?php
                                 }        
                             ?>
-                            <span id="acum_dcn" class="badge badge-light ml-1">0.0%</span>                           
+                            <span id="acum_dcn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                           
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -278,7 +278,7 @@
                             <?php
                                 }        
                             ?>   
-                            <span id="acum_dcr" class="badge badge-light ml-1">0.0%</span>
+                            <span id="acum_dcr" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -314,9 +314,11 @@
                             }
                         ?>
                         <input type="hidden" id="totalItemsDCR" name="totalItemsDCR" value="<?php echo $acum3; ?>">
-                        <tr>
-                            <th class="text-white bg-dark text-center" colspan="3">REGISTRO EN EL SISTEMA
-                            <span id="total" class="badge badge-light ml-1">85%</span>
+                        <tr class="bg-dark text-white text-right">
+                            <th colspan="3">
+                                <h6>
+                                    <span style="background-color:#E74C3C;" id="contenedorAcumTotal" class="badge badge-light p-2 m-0">ACUMULADO TOTAL: <span id="acumTotal">0.0%</span></span>
+                                </h6>
                             </th>
                         </tr>
                     </table>
