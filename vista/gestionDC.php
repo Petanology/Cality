@@ -54,7 +54,7 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form action="../controlador/gestionDCControlador.php" method="post">
+                <form name="formGeneral" action="../controlador/gestionDCControlador.php" method="post">
                 <p class="bg-primary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
                 <div class="container pb-2">
                     <?php
@@ -69,7 +69,7 @@
                     <div class="row align-items-center pt-1 pb-1">
                         <div class="font-weight-bold col-4">Usuario</div>
                         <div class="col-8">
-                            <input type="text" id="usuario" name="usuario" class="form-control form-control-sm" value="<?php echo $rowIA[0]; ?>" disabled>
+                            <input type="text" id="usuario" name="usuario" class="form-control form-control-sm" value="<?php echo $rowIA[0]; ?>" readonly>
                         </div>
                     </div>
                     
@@ -85,7 +85,7 @@
                     <div class="row align-items-center pt-1 pb-1">
                         <div class="font-weight-bold col-4">Nombres</div>
                         <div class="col-8">
-                            <input type="text" id="nombres" name="nombres" class="form-control form-control-sm" value="<?php echo $rowIA[2]; ?>" disabled>
+                            <input type="text" id="nombres" name="nombres" class="form-control form-control-sm" value="<?php echo $rowIA[2]; ?>" readonly>
                         </div>
                     </div>
                     
@@ -93,7 +93,7 @@
                     <div class="row align-items-center pt-1 pb-1">
                         <div class="font-weight-bold col-4">Apellidos</div>
                         <div class="col-8">
-                            <input type="text" id="apellidos" name="apellidos" class="form-control form-control-sm" value="<?php echo $rowIA[3]; ?>" disabled>
+                            <input type="text" id="apellidos" name="apellidos" class="form-control form-control-sm" value="<?php echo $rowIA[3]; ?>" readonly>
                         </div>
                     </div>  
                     
@@ -149,6 +149,7 @@
                         <div class="font-weight-bold col-4"><label for="error-critico">Error crítico</label></div>
                         <div class="col-8">
                             <select name="error-critico" id="error-critico" class="form-control form-control-sm">
+                                <option value="" selected>Seleccione el error crítico...</option>
                             <?php
                                 $objetoErrorCritico = new errorCriticoDao();
                                 $resultadoECA = $objetoErrorCritico->listarErroresCriticosActivos();
@@ -199,13 +200,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
+                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')" required>
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
+                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')" required>
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -332,7 +333,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button type="submit" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button type="button" onclick="validarFormatoDC()" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -365,5 +366,9 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/habilitar-tooltip.js"></script>
+    
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
+    <script src="js/validacionFormatoDC.js"></script>
 </body> 
 </html>
