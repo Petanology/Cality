@@ -10,12 +10,12 @@
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
-   
+    
     <!-- Contenido -->
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
         <div class="container-fluid rounded bg-dark border-primary text-white">
-            <form action="" method="post">
+            <form action="" method="post" name="formBusqueda">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
@@ -370,5 +370,6 @@
     <!-- sweet alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
     <script src="js/validacionFormatoDC.js"></script>
+    <script src="js/validarItems.js"></script>
 </body> 
 </html>
