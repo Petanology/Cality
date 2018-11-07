@@ -54,7 +54,7 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form action="../controlador/gestionNEGControlador.php" method="post">
+                <form name="formGeneral" action="../controlador/gestionNEGControlador.php" method="post">
                 <p class="bg-info rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Negociación</p>
                 <div class="container pb-2">
                     <?php
@@ -149,6 +149,7 @@
                         <div class="font-weight-bold col-4"><label for="error-critico">Error crítico</label></div>
                         <div class="col-8">
                             <select name="error-critico" id="error-critico" class="form-control form-control-sm">
+                            <option value="" selected>Seleccione el error crítico...</option>
                             <?php
                                 $objetoErrorCritico = new errorCriticoDao();
                                 $resultadoECA = $objetoErrorCritico->listarErroresCriticosActivos();
@@ -173,10 +174,11 @@
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
+                            <input type="hidden" id="valorSeccionNPEP" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
                             <?php
                                 }        
                             ?>
+                            <span id="acum_npep" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -198,13 +200,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="npep_<?php echo $rowNPEPA[0]; ?>1" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="npep_<?php echo $rowNPEPA[0]; ?>1" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input" onclick="calcular('npep')">
                                     <label class="custom-control-label" for="npep_<?php echo $rowNPEPA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="npep_<?php echo $rowNPEPA[0]; ?>2" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="npep_<?php echo $rowNPEPA[0]; ?>2" name="npep_<?php echo $rowNPEPA[0]; ?>" class="custom-control-input" onclick="calcular('npep')">
                                     <label class="custom-control-label" for="npep_<?php echo $rowNPEPA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -212,7 +214,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsNPEP" value="<?php echo $acum1; ?>">
+                        <input type="hidden" id="totalItemsNPEP" name="totalItemsNPEP" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
@@ -224,10 +226,11 @@
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
+                            <input type="hidden" id="valorSeccionNSC" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
                             <?php
                                 }        
-                            ?>                           
+                            ?>    
+                            <span id="acum_nsc" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                       
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -248,13 +251,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="nsc_<?php echo $rowNSCA[0]; ?>1" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="nsc_<?php echo $rowNSCA[0]; ?>1" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input" onclick="calcular('nsc')">
                                     <label class="custom-control-label" for="nsc_<?php echo $rowNSCA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="nsc_<?php echo $rowNSCA[0]; ?>2" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="nsc_<?php echo $rowNSCA[0]; ?>2" name="nsc_<?php echo $rowNSCA[0]; ?>" class="custom-control-input" onclick="calcular('nsc')">
                                     <label class="custom-control-label" for="nsc_<?php echo $rowNSCA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -262,7 +265,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsNSC" value="<?php echo $acum2; ?>">
+                        <input type="hidden" id="totalItemsNSC" name="totalItemsNSC" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
                             <th class="text-white bg-info text-center" colspan="3">NEGOCIACIÓN
@@ -272,10 +275,11 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionNN" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
-                            ?>                            
+                            ?>  
+                            <span id="acum_nn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                          
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -296,13 +300,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="nn_<?php echo $rowNNA[0]; ?>1" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="nn_<?php echo $rowNNA[0]; ?>1" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input" onclick="calcular('nn')">
                                     <label class="custom-control-label" for="nn_<?php echo $rowNNA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="nn_<?php echo $rowNNA[0]; ?>2" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="nn_<?php echo $rowNNA[0]; ?>2" name="nn_<?php echo $rowNNA[0]; ?>" class="custom-control-input" onclick="calcular('nn')">
                                     <label class="custom-control-label" for="nn_<?php echo $rowNNA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -310,7 +314,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsNN" value="<?php echo $acum3; ?>">
+                        <input type="hidden" id="totalItemsNN" name="totalItemsNN" value="<?php echo $acum3; ?>">
                         
                         <!-- CUARTO ITEM -->
                         <tr>
@@ -321,10 +325,11 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla4" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionNAD" name="valorSeccionTabla4" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
-                            ?>                            
+                            ?>    
+                            <span id="acum_nad" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                        
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -345,13 +350,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="nad_<?php echo $rowADA[0]; ?>1" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="nad_<?php echo $rowADA[0]; ?>1" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input" onclick="calcular('nad')">
                                     <label class="custom-control-label" for="nad_<?php echo $rowADA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="nad_<?php echo $rowADA[0]; ?>2" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="nad_<?php echo $rowADA[0]; ?>2" name="nad_<?php echo $rowADA[0]; ?>" class="custom-control-input" onclick="calcular('nad')">
                                     <label class="custom-control-label" for="nad_<?php echo $rowADA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -359,7 +364,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsNAD" value="<?php echo $acum4; ?>">
+                        <input type="hidden" id="totalItemsNAD" name="totalItemsNAD" value="<?php echo $acum4; ?>">
             
                         <!-- QUINTO ITEM -->
                         <tr>
@@ -370,10 +375,11 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla5" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionNRS" name="valorSeccionTabla5" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
-                            ?>                            
+                            ?>   
+                            <span id="acum_nrs" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                         
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -394,13 +400,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="nrs_<?php echo $rowNRA[0]; ?>1" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="nrs_<?php echo $rowNRA[0]; ?>1" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input" onclick="calcular('nrs')">
                                     <label class="custom-control-label" for="nrs_<?php echo $rowNRA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="nrs_<?php echo $rowNRA[0]; ?>2" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="nrs_<?php echo $rowNRA[0]; ?>2" name="nrs_<?php echo $rowNRA[0]; ?>" class="custom-control-input" onclick="calcular('nrs')">
                                     <label class="custom-control-label" for="nrs_<?php echo $rowNRA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -408,7 +414,14 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsNRS" value="<?php echo $acum5; ?>">
+                        <input type="hidden" id="totalItemsNRS" name="totalItemsNRS" value="<?php echo $acum5; ?>">
+                        <tr class="bg-dark text-white text-right">
+                            <th colspan="3">
+                                <h6>
+                                    <span style="background-color:#E74C3C;" id="contenedorAcumTotal" class="badge badge-light p-2 m-0">ACUMULADO TOTAL: <span id="acumTotal">0.0%</span></span>
+                                </h6>
+                            </th>
+                        </tr>
                     </table>
                     <hr>
                     <div>
@@ -420,7 +433,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button type="submit" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button type="button" onclick="validarFormatoNEG()" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -448,9 +461,15 @@
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
+    <script src="js/calculo-en-tiempo-real.js"></script>
     
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/habilitar-tooltip.js"></script>
+    
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
+    <script src="js/validacionFormatoNEG.js"></script>
+    <script src="js/validarItems.js"></script>
 </body> 
 </html>

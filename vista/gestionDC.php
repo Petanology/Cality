@@ -200,13 +200,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')" required>
+                                    <input type="radio" value="1" id="dcs_<?php echo $rowDCSA[0]; ?>1" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')" required>
+                                    <input type="radio" value="0" id="dcs_<?php echo $rowDCSA[0]; ?>2" name="dcs_<?php echo $rowDCSA[0]; ?>" class="custom-control-input" onclick="calcular('dcs')">
                                     <label class="custom-control-label" for="dcs_<?php echo $rowDCSA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -369,7 +369,7 @@
     
     <!-- sweet alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
-    <script src="js/validacionFormatoDC.js"></script>
+    <script src="js/validacionFormatoDP.js"></script>
     <script src="js/validarItems.js"></script>
 </body> 
 </html>

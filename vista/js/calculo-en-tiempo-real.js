@@ -41,7 +41,7 @@ function calculoAcumTotal(){
 
     
     if(acum>=0 && acum<=68){
-        document.getElementById("contenedorAcumTotal").style.background="#E74C3C";    
+        document.getElementById("contenedorAcumTotal").style.background="#E74C3C";
     }else 
     if(acum>=69 && acum<=84){
         document.getElementById("contenedorAcumTotal").style.background="#F4D03F";

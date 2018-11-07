@@ -10,6 +10,8 @@
         <form action="" method="post">
         
         <!-- DIRECTO COMERCIAL -->
+        <div class="p-2 bg-dark border border-secondary">
+        <h1 class="pt-1 h6 text-center text-white font-weight-bold pb-2">GRUPO VENTA DIRECTA</h1>
         <table class="table table-primary table-striped table-borderless scroll_modificado">
             <thead class="bg-primary">
                 <tr>
@@ -35,7 +37,7 @@
                         <td><?php echo $rowA[1]; ?></td>
                         <td><?php echo $rowA[2]; ?> %</td>
                         <td>
-                        <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]; ?>" data-toggle="modal" data-target="#form_valSecc2"><i class="fas fa-pencil-alt"></i>
+                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]; ?>" data-toggle="modal" data-target="#form_valSecc2"><i class="fas fa-pencil-alt"></i>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -111,7 +113,6 @@
                     <?php endforeach; ?>
             </tbody>
         </table> 
-        </form>
         
         <hr>
         
@@ -119,7 +120,7 @@
         <table class="table table-secondary table-striped table-borderless scroll_modificado">
             <thead class="bg-secondary">
                 <tr>
-                    <td colspan="4" class="font-weight-bold text-center">FORMATO ESTÁNDAR IN BOUND</td>
+                    <td colspan="4" class="font-weight-bold text-center">FORMATO ESTÁNDAR INBOUND</td>
                 </tr>
                 <tr>
                     <th class="text-center">#</th>
@@ -130,7 +131,6 @@
             </thead>
                
             <tbody>
-                <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
@@ -146,9 +146,117 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                </form>
             </tbody>
         </table>
+        </div>
+        <hr>
+        
+        <!-- NEGOCIACIÓN -->
+        <div class="p-2 bg-dark border border-secondary">
+        <h1 class="pt-1 h6 text-center text-white font-weight-bold pb-2">GRUPO FINANCIERO</h1>
+        <table class="table table-secondary table-striped table-borderless scroll_modificado">
+            <thead class="bg-info">
+                <tr>
+                    <td colspan="4" class="font-weight-bold text-center">FORMATO NEGOCIACIÓN</td>
+                </tr>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Valor</th>
+                    <th>Porcentaje</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+               
+            <tbody>
+                    <?php
+                        // se crea una instancia hacia el DAO
+                        $objetoAD = new valSeccDao();
+                        $ListarTabla = $objetoAD->listarTabla(13,17);
+                        foreach($ListarTabla as $rowA):
+                    ?>
+                    <tr>
+                        <td class="text-center font-weight-bold"><?php echo $rowA[0]; ?></td>
+                        <td><?php echo $rowA[1]; ?></td>
+                        <td><?php echo $rowA[2]; ?> %</td>
+                        <td>
+                        <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]; ?>" data-toggle="modal" data-target="#form_valSecc2"><i class="fas fa-pencil-alt"></i>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+        <hr>
+        
+        <!-- MENSAJE -->
+        <table class="table table-secondary table-striped table-borderless scroll_modificado">
+            <thead class="bg-info">
+                <tr>
+                    <td colspan="4" class="font-weight-bold text-center">FORMATO MENSAJE</td>
+                </tr>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Valor</th>
+                    <th>Porcentaje</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+               
+            <tbody>
+                    <?php
+                        // se crea una instancia hacia el DAO
+                        $objetoAD = new valSeccDao();
+                        $ListarTabla = $objetoAD->listarTabla(18,20);
+                        foreach($ListarTabla as $rowA):
+                    ?>
+                    <tr>
+                        <td class="text-center font-weight-bold"><?php echo $rowA[0]; ?></td>
+                        <td><?php echo $rowA[1]; ?></td>
+                        <td><?php echo $rowA[2]; ?> %</td>
+                        <td>
+                        <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]; ?>" data-toggle="modal" data-target="#form_valSecc2"><i class="fas fa-pencil-alt"></i>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+        <hr>
+        
+        <!-- FINANCIERO IN BOUND -->
+        <table class="table table-secondary table-striped table-borderless scroll_modificado">
+            <thead class="bg-info">
+                <tr>
+                    <td colspan="4" class="font-weight-bold text-center">FORMATO INBOUND</td>
+                </tr>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Valor</th>
+                    <th>Porcentaje</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+               
+            <tbody>
+                    <?php
+                        // se crea una instancia hacia el DAO
+                        $objetoAD = new valSeccDao();
+                        $ListarTabla = $objetoAD->listarTabla(21,23);
+                        foreach($ListarTabla as $rowA):
+                    ?>
+                    <tr>
+                        <td class="text-center font-weight-bold"><?php echo $rowA[0]; ?></td>
+                        <td><?php echo $rowA[1]; ?></td>
+                        <td><?php echo $rowA[2]; ?> %</td>
+                        <td>
+                        <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]; ?>" data-toggle="modal" data-target="#form_valSecc2"><i class="fas fa-pencil-alt"></i>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+        </div>
+        </form>
         
         
         <?php

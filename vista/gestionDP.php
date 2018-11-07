@@ -54,7 +54,7 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded bg-white shadow-lg">
-                <form action="../controlador/gestionDPControlador.php" method="post">
+                <form name="formGeneral" action="../controlador/gestionDPControlador.php" method="post">
                 <p class="bg-danger rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Prejurídicas Venta Directa</p>
                 <div class="container pb-2">
                     <?php
@@ -149,6 +149,7 @@
                         <div class="font-weight-bold col-4"><label for="error-critico">Error crítico</label></div>
                         <div class="col-8">
                             <select name="error-critico" id="error-critico" class="form-control form-control-sm">
+                                <option value="" selected>Seleccione el error crítico...</option>
                             <?php
                                 $objetoErrorCritico = new errorCriticoDao();
                                 $resultadoECA = $objetoErrorCritico->listarErroresCriticosActivos();
@@ -173,7 +174,8 @@
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
+                            <span id="acum_dps" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="valorSeccionDPS" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
                             <?php
                                 }        
                             ?>
@@ -198,13 +200,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dps_<?php echo $rowDPSA[0]; ?>1" name="dps_<?php echo $rowDPSA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dps_<?php echo $rowDPSA[0]; ?>1" name="dps_<?php echo $rowDPSA[0]; ?>" class="custom-control-input" onclick="calcular('dps')">
                                     <label class="custom-control-label" for="dps_<?php echo $rowDPSA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dps_<?php echo $rowDPSA[0]; ?>2" name="dps_<?php echo $rowDPSA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dps_<?php echo $rowDPSA[0]; ?>2" name="dps_<?php echo $rowDPSA[0]; ?>" class="custom-control-input" onclick="calcular('dps')">
                                     <label class="custom-control-label" for="dps_<?php echo $rowDPSA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -212,7 +214,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDPS" value="<?php echo $acum1; ?>">
+                        <input type="hidden" id="totalItemsDPS" name="totalItemsDPS" value="<?php echo $acum1; ?>">
 
 
                         <!-- SEGUNDO ITEM -->
@@ -224,7 +226,8 @@
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
+                            <span id="acum_dpn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="valorSeccionDPN" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
                             <?php
                                 }        
                             ?>                           
@@ -248,13 +251,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dpn_<?php echo $rowDPNA[0]; ?>1" name="dpn_<?php echo $rowDPNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dpn_<?php echo $rowDPNA[0]; ?>1" name="dpn_<?php echo $rowDPNA[0]; ?>" class="custom-control-input" onclick="calcular('dpn')">
                                     <label class="custom-control-label" for="dpn_<?php echo $rowDPNA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dpn_<?php echo $rowDPNA[0]; ?>2" name="dpn_<?php echo $rowDPNA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dpn_<?php echo $rowDPNA[0]; ?>2" name="dpn_<?php echo $rowDPNA[0]; ?>" class="custom-control-input" onclick="calcular('dpn')">
                                     <label class="custom-control-label" for="dpn_<?php echo $rowDPNA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -262,7 +265,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDPN" value="<?php echo $acum2; ?>">
+                        <input type="hidden" id="totalItemsDPN" name="totalItemsDPN" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
                             <th class="text-white bg-danger text-center" colspan="3">REGISTRO EN EL SISTEMA
@@ -272,7 +275,8 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <span id="acum_dpr" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="valorSeccionDPR" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
                             ?>                            
@@ -296,13 +300,13 @@
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="dpr_<?php echo $rowDPRA[0]; ?>1" name="dpr_<?php echo $rowDPRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="1" id="dpr_<?php echo $rowDPRA[0]; ?>1" name="dpr_<?php echo $rowDPRA[0]; ?>" class="custom-control-input" onclick="calcular('dpr')">
                                     <label class="custom-control-label" for="dpr_<?php echo $rowDPRA[0]; ?>1"></label>
                                 </div>
                             </td>                            
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="dpr_<?php echo $rowDPRA[0]; ?>2" name="dpr_<?php echo $rowDPRA[0]; ?>" class="custom-control-input">
+                                    <input type="radio" value="0" id="dpr_<?php echo $rowDPRA[0]; ?>2" name="dpr_<?php echo $rowDPRA[0]; ?>" class="custom-control-input" onclick="calcular('dpr')">
                                     <label class="custom-control-label" for="dpr_<?php echo $rowDPRA[0]; ?>2"></label>
                                 </div>
                             </td>
@@ -310,9 +314,15 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" name="totalItemsDPR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" id="totalItemsDPR" name="totalItemsDPR" value="<?php echo $acum3; ?>">
                         
-                        
+                        <tr class="bg-dark text-white text-right">
+                            <th colspan="3">
+                                <h6>
+                                    <span style="background-color:#E74C3C;" id="contenedorAcumTotal" class="badge badge-light p-2 m-0">ACUMULADO TOTAL: <span id="acumTotal">0.0%</span></span>
+                                </h6>
+                            </th>
+                        </tr>
                         
                     </table>
                     <hr>
@@ -325,7 +335,7 @@
                         <small class="text-danger font-weight-bold">Es importante que todos los campos estén diligenciados antes de registrar &nbsp; <i class="far fa-question-circle"></i></small>
                     </div>
                     <hr>
-                    <button type="submit" class="shadow btn btn-danger mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button type="button" onclick="validarFormatoDP()" class="shadow btn btn-danger mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -353,9 +363,16 @@
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
+    <script src="js/calculo-en-tiempo-real.js"></script>
     
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/habilitar-tooltip.js"></script>
+    
+    
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
+    <script src="js/validacionFormatoDP.js"></script>
+    <script src="js/validarItems.js"></script>
 </body> 
 </html>
