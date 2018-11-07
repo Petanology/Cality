@@ -19,7 +19,10 @@
                         <!-- Nombre -->
                         <div class="form-group">
                             <label for="nombre2">Nombre</label>
-                            <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo genero">
+                            <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo genero"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñ]{4,20}"
+                            title="Cadena de texto de máximo 20 carácteres"
+                            required>
                         </div>
 
                         <!-- Estado -->

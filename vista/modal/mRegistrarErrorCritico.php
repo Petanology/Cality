@@ -9,7 +9,10 @@
                 <div class="modal-body">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite el nuevo error critico">
+                            <input type="text" class="mb-3 form-control" id="nombre" name="nombre" 
+                            title="Tamaño máximo: 700 carácteres" placeholder="Digite el nuevo error critico"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñ]{4,700}"
+                            required>
                         </div>
                 </div>
                 <div class="modal-footer">
