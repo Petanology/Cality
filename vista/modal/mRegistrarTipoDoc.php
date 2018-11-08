@@ -12,8 +12,8 @@
                         <input type="text" class="mb-3 form-control" 
                         id="nombre" 
                         name="nombre" 
-                        title="Cadena de texto entre 4 y 40 carácteres" placeholder="Digite el nuevo error critico"
-                        pattern="[a-zA-Zñ]{4,40}"
+                        title="Cadena de texto entre 4 y 40 carácteres" 
+                        pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,40}"
                         placeholder="Digite el nuevo tipo de documento"
                         required>
                     </div>

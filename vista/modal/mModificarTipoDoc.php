@@ -21,7 +21,7 @@
                             <label for="nombre2">Nombre</label>
                             <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" 
                             title="Cadena de texto entre 4 y 40 carácteres"
-                            pattern="[a-zA-Zñ]{4,40}"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,40}"
                             placeholder="Digite el nuevo tipo de documento"
                             required>
                         </div>

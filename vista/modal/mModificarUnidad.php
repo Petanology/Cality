@@ -19,7 +19,17 @@
                         <!-- Nombre -->
                         <div class="form-group">
                             <label for="nombre2">Nombre</label>
-                            <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite la nuevo unidad">
+                            <input 
+                                type="text" 
+                                value="<?php echo $rowLI[1]; ?>" 
+                                class="form-control" 
+                                id="nombre2" 
+                                name="nombre2" 
+                                placeholder="Digite la nuevo unidad"
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ- ]{4,35}"
+                                required
+                                >
                         </div>
 
                         <!-- Estado -->

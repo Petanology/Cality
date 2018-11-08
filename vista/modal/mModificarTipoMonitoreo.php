@@ -19,7 +19,17 @@
                         <!-- Nombre -->
                         <div class="form-group">
                             <label for="nombre2">Nombre</label>
-                            <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2" placeholder="Digite el nuevo tipo de monitoreo">
+                            <input 
+                                type="text" 
+                                value="<?php echo $rowLI[1]; ?>" 
+                                class="form-control" 
+                                id="nombre2" 
+                                name="nombre2" 
+                                placeholder="Digite el nuevo tipo de monitoreo"
+                                title="Cadena de texto entre 4 y 20 carácteres"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,20}"
+                                required
+                                >
                         </div>
 
                         <!-- Estado -->

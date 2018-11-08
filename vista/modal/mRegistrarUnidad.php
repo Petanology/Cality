@@ -9,7 +9,16 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite la nueva unidad">
+                        <input 
+                            type="text" 
+                            class="mb-3 form-control" 
+                            id="nombre" 
+                            name="nombre" 
+                            placeholder="Digite la nueva unidad"
+                            title="Cadena de texto entre 4 y 35 carácteres"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ- ]{4,35}"
+                            required
+                            >
                     </div>
                 </div>
                 <div class="modal-footer">

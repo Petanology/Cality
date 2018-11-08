@@ -11,7 +11,7 @@
                             <label for="nombre">Nombre</label>
                             <input type="text" class="mb-3 form-control" id="nombre" name="nombre" 
                             title="Tamaño máximo: 700 carácteres" placeholder="Digite el nuevo error critico"
-                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñ]{4,700}"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,700}"
                             required>
                         </div>
                 </div>

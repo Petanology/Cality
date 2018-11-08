@@ -9,7 +9,15 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="mb-3 form-control" id="nombre" name="nombre" placeholder="Digite el nuevo tipo de monitoreo">
+                        <input 
+                            type="text" 
+                            class="mb-3 form-control" 
+                            id="nombre" 
+                            name="nombre" placeholder="Digite el nuevo tipo de monitoreo"
+                            title="Cadena de texto entre 4 y 20 carácteres"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,20}"
+                            required
+                            >
                     </div>
                 </div>
                 <div class="modal-footer">

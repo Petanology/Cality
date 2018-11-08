@@ -17,7 +17,7 @@
                         <!-- Tipo de Documento -->
                         <div class="form-group">
                             <label for="tipoDocumento">Tipo de documento</label>
-                            <select name="tipoDocumento" id="tipoDocumento" class="mb-3 form-control">
+                            <select name="tipoDocumento" id="tipoDocumento" class="mb-3 form-control" required>
                                 <option value="" selected disabled>Seleccione el tipo de documento...</option>
                                 <?php
                                     $objetoTDAdmin = new tipoDocDao();
@@ -33,21 +33,48 @@
                         <!-- Número de identificación -->
                         <div class="form-group">
                             <label for="identificacion">Identificación</label>
-                            <input type="text" class="mb-3 form-control" id="identificacion" name="identificacion" placeholder="Digite la identificación">
+                            <input 
+                                type="text" 
+                                class="mb-3 form-control" 
+                                id="identificacion" 
+                                name="identificacion"
+                                placeholder="Digite el número único de identificación" 
+                                title="Sólo números entre 7 y 15 carácteres"
+                                pattern="[1234567890]{7,15}"
+                                required
+                                >
                         </div>
 
 
                         <!-- Nombres -->                  
                         <div class="form-group">
                             <label for="nombres">Nombres</label>
-                            <input type="text" class="mb-3 form-control" id="nombres" name="nombres" placeholder="Digite el nombre">
+                            <input 
+                                type="text" 
+                                class="mb-3 form-control" 
+                                id="nombres" 
+                                name="nombres" 
+                                placeholder="Digite el nombre"
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}"
+                                required
+                            >
                         </div>
 
 
                         <!-- Apellidos -->
                         <div class="form-group">
                             <label for="apellidos">Apellidos</label>
-                            <input type="text" class="mb-3 form-control" id="apellidos" name="apellidos" placeholder="Digite los apellidos">
+                            <input 
+                                type="text" 
+                                class="mb-3 form-control" 
+                                id="apellidos" 
+                                name="apellidos" 
+                                placeholder="Digite los apellidos"
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}"
+                                required
+                            >
                         </div>
 
 
@@ -60,7 +87,14 @@
                                 foreach($formGeneroAdmin as $rowGAdmin):                
                             ?>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" name="genero" id="genero<?php echo $rowGAdmin[0]; ?>" value="<?php echo $rowGAdmin[0]; ?>" class="custom-control-input">
+                                    <input 
+                                        type="radio" 
+                                        name="genero" 
+                                        id="genero<?php echo $rowGAdmin[0]; ?>" 
+                                        value="<?php echo $rowGAdmin[0]; ?>" 
+                                        class="custom-control-input"
+                                        required
+                                    >
                                     <label class="custom-control-label" for="genero<?php echo $rowGAdmin[0]; ?>"><?php echo $rowGAdmin[1]; ?></label>
                                 </div>
                             <?php endforeach; ?>
@@ -70,19 +104,44 @@
                         <!-- Correo Electrónico -->
                         <div class="form-group">
                             <label for="correo">Correo electrónico</label>
-                            <input type="email" class="mb-3 form-control" id="correo" name="correo" placeholder="Digite el correo electrónico" required>
+                            <input 
+                                type="email" 
+                                class="mb-3 form-control"
+                                id="correo" 
+                                name="correo" 
+                                placeholder="Digite el correo electrónico" 
+                                required
+                            >
                         </div>
 
                         <!-- Usuario -->
                         <div class="form-group">
                             <label for="usuario">Usuario</label>
-                            <input type="text" class="mb-3 form-control" id="usuario" name="usuario" placeholder="Digite un usuario de sesión">
+                            <input 
+                                type="text" 
+                                class="mb-3 form-control" 
+                                id="usuario"
+                                name="usuario" 
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}"
+                                placeholder="Digite un usuario de sesión"
+                                required
+                            >
                         </div>
 
                         <!-- Contraseña -->
                         <div class="form-group">
                             <label for="contrasena">Contraseña</label>
-                            <input type="password" class="mb-3 form-control" id="contrasena" name="contrasena" placeholder="Digite la contraseña">
+                            <input 
+                                type="password" 
+                                class="mb-3 form-control" 
+                                id="contrasena" 
+                                name="contrasena" 
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern=".{4,35}"
+                                placeholder="Digite la contraseña"
+                                required
+                            >
                         </div>
                 </div>
                 <div class="modal-footer">

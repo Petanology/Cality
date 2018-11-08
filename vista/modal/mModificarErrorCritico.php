@@ -21,7 +21,7 @@
                             <label for="nombre2">Nombre</label>
                             <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="nombre2" name="nombre2"
                             title="Tamaño máximo: 700 carácteres"
-                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñ]{4,700}"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,700}"
                             placeholder="Digite el nuevo error critico"
                             required>
                         </div>

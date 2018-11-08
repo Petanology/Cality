@@ -14,7 +14,7 @@
                             class="mb-3 form-control" 
                             id="nombre" 
                             name="nombre" 
-                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñ]{4,20}"
+                            pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,20}"
                             title="Cadena de texto de máximo 20 carácteres"
                             placeholder="Digite el nuevo genero"
                             required

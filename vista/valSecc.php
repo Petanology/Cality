@@ -152,7 +152,7 @@
         <hr>
         
         <!-- NEGOCIACIÓN -->
-        <div class="p-2 bg-dark border border-secondary">
+        <div class="p-2 bg-dark border border-secondary mb-3">
         <h1 class="pt-1 h6 text-center text-white font-weight-bold pb-2">GRUPO FINANCIERO</h1>
         <table class="table table-secondary table-striped table-borderless scroll_modificado">
             <thead class="bg-info">
@@ -260,7 +260,6 @@
         
         
         <?php
-            include("modal/mRegistrarValSecc.php"); // Modal Registrar
             if(isset($_POST['botonModificar'])): // traer informacón de item seleccionado
                 $IdbotonModificar = $_POST['botonModificar'];
                 $objetoA = new valSeccDao(); 
