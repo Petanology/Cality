@@ -21,16 +21,37 @@
                         <!-- Título -->
                         <div class="form-group">
                             <label for="titulo">Título</label>
-                            <input type="text" value="<?php echo $rowLI[1]; ?>" class="form-control" id="titulo2" name="titulo2" placeholder="Digite el nuevo titulo">
+                            <input 
+                                type="text" 
+                                value="<?php echo $rowLI[1]; ?>" 
+                                class="form-control"
+                                id="titulo2" 
+                                name="titulo2" 
+                                placeholder="Digite el nuevo titulo"
+                                title="Texto (multicarácter) entre 10 y 150 carácteres"
+                                pattern=".{10,150}"
+                                required
+                            >
                         </div>
                         
                         
                         <!-- Descripción -->
                         <div class="form-group">
                             <label for="descripcion2">Descripción</label>
-                            <textarea placeholder="Digite la nueva descripcion" name="descripcion2" id="descripcion2" class="form-control" rows="3"><?php echo $rowLI[2]; ?></textarea>
-                        </div>
-
+                            <textarea 
+                                placeholder="Digite la nueva descripcion" 
+                                name="descripcion2" 
+                                id="descripcion2" 
+                                class="form-control" 
+                                rows="3"
+                                minlength="10"
+                                maxlength="1300"
+                                onfocus="contarCaracteresM()"
+                                onkeyup="contarCaracteresM()"
+                                required
+                            ><?php echo $rowLI[2]; ?></textarea>
+                            <small class="form-text text-muted mb-2"><i class="far fa-question-circle"></i>&nbsp; <b><span id="contenedorCaracteres2">0</span> carácteres actuales,</b> recuerde que la descripción tiene un límite de <b>1300 carácteres</b></small>
+                        </div>                        
                        
                         <!-- Estado -->
                         <div class="form-group">

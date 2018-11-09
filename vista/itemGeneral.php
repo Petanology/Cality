@@ -76,6 +76,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/contarCaracteres.js"></script>
     <!-- Abrir modal Modificar si se dió clic en boton modificar -->
     <?php 
         if(isset($_POST['botonModificar'])){

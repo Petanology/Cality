@@ -36,9 +36,9 @@
                     $mMPositivo = "¡Felicidades, la modificación con <strong> '" . $_POST['titulo2'] . "' </strong> fue todo un éxito!";
                                     
                     if($itemDao->actualizarItem($id2,$titulo2,$descripcion2,$estado2)) {
-                        $this->redireccion($mMPositivo);
+                        //$this->redireccion($mMPositivo);
                     }else{
-                        $this->redireccion($mNegativo);
+                        //$this->redireccion($mNegativo);
                     }
                     
                     break;
