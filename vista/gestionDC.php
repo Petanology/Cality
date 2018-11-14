@@ -369,7 +369,7 @@
     
     <!-- sweet alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.11/sweetalert2.all.js"></script>
-    <script src="js/validacionFormatoDP.js"></script>
+    <script src="js/validacionFormatoDC.js"></script>
     <script src="js/validarItems.js"></script>
 </body> 
 </html>

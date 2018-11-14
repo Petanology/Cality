@@ -81,7 +81,7 @@ function validarFormatoDC(){
         });
         
     }else{
-
+        
         document.formGeneral.submit();
         
     }

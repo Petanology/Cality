@@ -123,12 +123,13 @@
                     
                         <!-- Usuario -->
                         <div class="form-group">
-                            <label for="usuario">Usuario</label>
+                            <label for="usuario2" class="font-weight-bold">Usuario</label>
                             <input 
                                 type="text" 
                                 class="mb-3 form-control"
-                                id="usuario" 
-                                name="usuario" 
+                                id="usuario2" 
+                                name="usuario2" 
+                                value="<?php echo $rowA[8]; ?>"
                                 placeholder="Digite un usuario de sesión"
                                 pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}"
                                 required

@@ -2,12 +2,9 @@
     require_once ("../modelo/encabezadoDao.php");
     require_once ("../modelo/gestionGeneralDao.php");
     require_once ("../controlador/sesiones.php");
-
     $sss = new sesiones();
     $sss->iniciar();
-
     class gestionDCControlador{
-
         public function __construct(){
             
             $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
@@ -38,7 +35,6 @@
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
-
             /* ************************** */
             
             $seccion1 = array();
@@ -96,8 +92,6 @@
                 for($i = 1; $i < 4; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
-
-
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);
                 }
@@ -124,10 +118,5 @@
             header("location: ../vista/gestionDC.php?m=$pMensaje");
         }
     }
-
     $gestionDCC = new gestionDCControlador(); 
 ?>
-
-
-
-
