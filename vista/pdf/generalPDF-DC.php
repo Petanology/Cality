@@ -19,23 +19,25 @@
             $this->line(28,10,28,17);
             
             // Logo Cality
-            
             $this->Image('../img/faviconx512-4.png',31,7,12);
             
+            // Titulo principal
             $this->SetFillColor(52, 152, 219);
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
             $this->Cell(0,13,'INFORME VENTA DIRECTA AGOSTO 2018','LR',0,'C',1);
-
+            
+            // Salto de Línea para tabla
             $this->Ln(25);
         }
         
         
         function Footer(){
+            // 
             $this->SetY(-15);
-            $this->SetFont('Arial', 'B', 7);
-            $this->Cell(0 , 10, 'Página ' . $this->PageNo() . '/{nb}', 0 , 0 , 'C' );
+            $this->SetFont('Arial', '', 8);
+            $this->Cell(0 , 10, 'Página ' . $this->PageNo() . ' de {nb}', 0 , 0 , 'C' );
         }
     }
 ?>

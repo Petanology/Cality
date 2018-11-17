@@ -1,26 +1,29 @@
 <?php
     require_once("../../modelo/ejemploDao.php");
     require_once("generalPDF-DC.php");
-    
+
+    // Página vertical, tamaño carta, medición en Milímetros 
     $pdf = new PDF('P','mm','letter');
     $pdf->AliasNbPages();
     $pdf->AddPage();
 
-    $pdf->SetFillColor(52, 152, 219);
-    $pdf->SetDrawColor(155,155,155);
+    // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(20,6,'ID',1,0,'C',1);
+    $pdf->SetFillColor(52, 152, 219);
+    $pdf->SetDrawColor(52, 152, 219);
+    $pdf->Cell(0,6,'ID',1,0,'C',1);
+    
+    /*
     $pdf->Cell(70,6,'NOMBRE',1,0,'C',1);
     $pdf->Cell(70,6,'ESTADO',1,1,'C',1);
-
+    */
 
     $ejemploDao = new ejemploDao();
     $listar = $ejemploDao->ejemplo();
 
-    $pdf->SetFont('Arial','',12);
 
+    /*
     $filaTabla = 1;
-
     foreach($listar as $rowEJE){
         
         if($filaTabla % 2 == 0){
@@ -34,7 +37,7 @@
             
             
         $filaTabla++;
-    }
+    }*/
 
     /*
         $pdf->Cell(70,6,"ejemplo",0,0,'C',1);
