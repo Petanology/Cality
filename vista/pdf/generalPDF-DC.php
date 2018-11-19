@@ -9,7 +9,7 @@
             // Fondo Azul
             $this->SetFillColor(46,134,193);
             $this->SetXY(0,0);
-            $this->Cell(216,24,'',0,0,'C',1);
+            $this->Cell($this->GetPageWidth(),24,'',0,0,'C',1);
             
             // Logo GF
             $this->Image('../img/gf-logo.png',10,5,15);
