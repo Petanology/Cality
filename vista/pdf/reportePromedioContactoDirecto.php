@@ -2,12 +2,11 @@
     require_once("../../modelo/ejemploDao.php");
     require_once("generalPDF-DC.php");
 
-    // Página vertical, tamaño carta, medición en Milímetros 
-    $pdf = new PDF('P','mm','letter');
+    $pdf = new PDF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     $pdf->AliasNbPages();
     $pdf->AddPage();
 
-    // Color de Encabezado de Tabla
+    // Inicialización de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(46, 134, 193);
     $pdf->SetDrawColor(46, 134, 193);
