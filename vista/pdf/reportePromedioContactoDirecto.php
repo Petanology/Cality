@@ -1,6 +1,20 @@
 <?php
-    require_once("../../modelo/ejemploDao.php");
+
+    /*
+        COLORES:
+        ___________________________________________________
+        |  - - - - -  |  Claros         |  Oscuros         |
+        |  verde      |  130, 224, 170  |  88, 214, 141    |
+        |  amarillo   |  249, 231, 159  |  247, 220, 111   |
+        |  rojo       |  236, 112, 99   |  231, 76, 60     |
+        ---------------------------------------------------
+        
+    */
+
+    require_once("../../modelo/asesorDao.php");
+    require_once("../../modelo/liderDao.php");
     require_once("generalPDF-DC.php");
+
 
     $pdf = new PDF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     $pdf->AliasNbPages();
@@ -30,23 +44,53 @@
     $pdf->Cell(25,4,'50.0%',0,0,'C',1);
     $pdf->Cell(41,4,'20.0%',0,0,'C',1);
     $pdf->Cell(24,4,'100.0%',0,1,'C',1);
+    
+    $liderPDFDao = new liderDao();
+    $asesorPDFDao = new asesorDao();
+    $liderResultado = $liderPDFDao->listarPromedioLider();
+    $asesorResultado = $asesorPDFDao->listarPromedioAsesor();
 
-    for($x=0; $x<10; $x++){
-        $pdf->SetTextColor(255,255,255);
-        // Color de fondo y borde grisaseo
-        $pdf->SetFillColor(93, 109, 126);
+    foreach($liderResultado as $liderRow) {
         
         // Lideres de grupo
-        $pdf->Cell(51,6,'Alejandro Lozano',0,0,'C',1); 
-        $pdf->Cell(55,6,'27',0,0,'C',1); 
-        $pdf->Cell(25,6,'41',0,0,'C',1);
-        $pdf->Cell(41,6,'18',0,0,'C',1);
-        $pdf->Cell(24,6,'86',0,1,'C',1);    
-
+        $pdf->SetTextColor(255,255,255);
+        $pdf->SetFillColor(93, 109, 126);
+        $pdf->Cell(51,6,$liderRow[0],0,0,'C',1);
+        $pdf->Cell(55,6,$liderRow[1],0,0,'C',1); 
+        $pdf->Cell(25,6,$liderRow[2],0,0,'C',1);
+        $pdf->Cell(41,6,$liderRow[3],0,0,'C',1);
+        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3] . '%',0,1,'C',1);
+        
         // Color de fondo y borde claro
         $pdf->SetFillColor(214, 219, 223);
         $pdf->SetTextColor(28, 40, 51);
+                
+        foreach($asesorResultado as $asesorRow){
+            // Nombre
+            $pdf->SetFillColor(214, 219, 223);
+            $pdf->Cell(51,5,$asesorRow[0],0,0,'C',1);
+            
+            // Servicio y etiqueta telefónica
+            
+            $pdf->SetFillColor(130, 224, 170);            
+            $pdf->Cell(55,5,$asesorRow[1],0,0,'C',1); 
+            
+            $pdf->SetFillColor(249, 231, 159);
+            $pdf->Cell(25,5,$asesorRow[2],0,0,'C',1);
+            
+            $pdf->SetFillColor(236, 112, 99);
+            $pdf->Cell(41,5,$asesorRow[3],0,0,'C',1);
+            
+            $pdf->SetFillColor(231, 76, 60);
+            $pdf->Cell(24,5,$asesorRow[1]+$asesorRow[2]+$asesorRow[3],0,1,'C',1);
+        }
+        
+        $pdf->Ln(2);
+        
+    }
 
+
+    /*
         // Asesores
         for($is = 0; $is<12; $is++){
             // Nombre
@@ -68,9 +112,7 @@
             
         }
                 
-        // Separador de Líderes
-        //$pdf->Ln(2);
-    }
+    }*/
 
     $pdf->SetFillColor(52, 73, 94);
     $pdf->SetTextColor(255,255,255);

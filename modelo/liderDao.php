@@ -73,5 +73,39 @@
             }
             return $this->modificacion;
         }
+        
+        
+        // Listar promedio de líderes
+        public function listarPromedioLider(){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLider();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+
     }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

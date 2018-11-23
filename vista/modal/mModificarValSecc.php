@@ -31,6 +31,7 @@
                                 title='Se permiten solo puntos y números positivos coherentes, ejemplo: "40.0"'
                                 required
                                 >
+                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que los porcentajes de todas las gestiones del mes se basan en la primera gestión realizada. por lo que para evitar confusiones, se recomienda hacer un cambio de estos, <strong>un día antes de iniciar un nuevo mes.</strong></small>
                         </div>
             </div>
                 <div class="modal-footer">

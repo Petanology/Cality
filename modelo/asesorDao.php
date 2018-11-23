@@ -90,5 +90,16 @@
             }
             return $this->modificacion;
         }
+        
+        // Listar promedio de Asesor
+        public function listarPromedioAsesor(){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesor();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>

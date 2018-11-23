@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/carga_pagina.css">
     
+    
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="img/faviconx32.png">
     

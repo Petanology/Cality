@@ -11,7 +11,7 @@
         <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_doc1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE DOCUMENTO</button>
         
         <!-- Lista de Tipos de Documentos -->
-        <table class="table table-striped">
+        <table class="table table-striped" id="tabla">
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">
@@ -52,7 +52,7 @@
                     <?php endforeach; ?>
                 </form>
             </tbody>
-        </table> 
+        </table>
         
         
         <?php
@@ -63,11 +63,21 @@
                 $objetoTDD2 = new tipoDocDao(); 
                 $listarItem = $objetoTDD2->listarItem($IdbotonModificar);
                 
-                foreach($listarItem as $rowLI):
+                foreach($listarItem as $rowLI){
                     include("modal/mModificarTipoDoc.php"); // Modal Modificar 
-                endforeach;}      
+                }
+            }
         ?>
     </div>
+    
+    <!-- Tablas dinámicas -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+    <script>
+        $(document).ready(function(){
+            $('#tabla').DataTable();
+        });
+    </script>
     
 
     <!-- Javascript Bootstrap -->
