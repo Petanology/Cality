@@ -34,5 +34,16 @@
             }
             return $this->registro;
         }
+        
+        public function registrarPromedioDC($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedioDC('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
     }
 ?>

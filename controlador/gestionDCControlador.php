@@ -32,6 +32,11 @@
             $segundaTabla = "dir_com_n";
             $terceraTabla = "dir_com_rs";
             
+            // Totales de cada grupo
+            $acum_dcs_input = $_POST["acum_dcs_input"];
+            $acum_dcn_input = $_POST["acum_dcn_input"];
+            $acum_dcr_input = $_POST["acum_dcr_input"];
+            
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
@@ -90,8 +95,14 @@
             if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion)) {
                 
                 for($i = 1; $i < 4; $i++){
-                    $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
+                    // Registrar valor máximo posible por seccion
+                    $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);    
                 }
+                
+                // Registrar promedio alcanzado por seccion
+                $encabezadoDao->registrarPromedioDC($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcr_input);
+                
+                
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);
                 }

@@ -179,6 +179,7 @@
                                 }        
                             ?>
                             <span id="acum_dcs" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dcs_input" name="acum_dcs_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -230,7 +231,7 @@
                             <?php
                                 }        
                             ?>
-                            <span id="acum_dcn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                           
+                            <span id="acum_dcn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>             <input type="hidden" id="acum_dcn_input" name="acum_dcn_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -280,6 +281,7 @@
                                 }        
                             ?>   
                             <span id="acum_dcr" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dcr_input" name="acum_dcr_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">

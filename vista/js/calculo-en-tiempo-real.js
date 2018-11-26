@@ -21,7 +21,11 @@ function calcular(sector){
         f++;
     }
     var operacion = nAprobadosSeccion*porcentajeSeccion/totalItemsSeccion; 
+    
     totalSeccion = operacion.toFixed(1);
+    
+    document.getElementById("acum_" + sector + "_input").value = totalSeccion;
+    
     document.getElementById("acum_" + sector).innerHTML = totalSeccion + "%";
     calculoAcumTotal();
 }
