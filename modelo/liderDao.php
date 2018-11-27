@@ -76,9 +76,9 @@
         
         
         // Listar promedio de líderes
-        public function listarPromedioLider(){
+        public function listarPromedioLider($mes){
             try{
-                $query = $this->conexion->prepare("CALL listarPromedioLider();");
+                $query = $this->conexion->prepare("CALL listarPromedioLider('$mes%');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

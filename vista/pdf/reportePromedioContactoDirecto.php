@@ -1,26 +1,26 @@
 <?php
 
-    /*
-        COLORES:
+    /*  COLORES:
         ___________________________________________________
         |  - - - - -  |  Claros         |  Oscuros         |
         |  verde      |  130, 224, 170  |  88, 214, 141    |
         |  amarillo   |  249, 231, 159  |  247, 220, 111   |
         |  rojo       |  236, 112, 99   |  231, 76, 60     |
-        ---------------------------------------------------
-        
-    */
+        ---------------------------------------------------    */
 
     require_once("../../modelo/asesorDao.php");
     require_once("../../modelo/liderDao.php");
+    require_once("../../modelo/generarPDFDao.php");
     require_once("generalPDF-DC.php");
 
+    // Varaibles generales
+    $mes = $_POST["mesReporte"];
 
     $pdf = new PDF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     $pdf->AliasNbPages();
     $pdf->AddPage();
 
-    // Inicialización de promedio contacto directo
+    // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(46, 134, 193);
     $pdf->SetDrawColor(46, 134, 193);
@@ -40,15 +40,21 @@
 
     // Porcentajes titulos tabla
     $pdf->Cell(51,4,'- LÍDER -',0,0,'C',1); 
-    $pdf->Cell(55,4,'30.0%',0,0,'C',1); 
-    $pdf->Cell(25,4,'50.0%',0,0,'C',1);
-    $pdf->Cell(41,4,'20.0%',0,0,'C',1);
-    $pdf->Cell(24,4,'100.0%',0,1,'C',1);
+    
+    $objetoPDFDao = new generarPDFDao();
+    $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($mes);
+    foreach($rValorPDF as $rowRV){
+        $pdf->Cell(55,4,"$rowRV[0]%",0,0,'C',1); 
+        $pdf->Cell(25,4,"$rowRV[1]%",0,0,'C',1);
+        $pdf->Cell(41,4,"$rowRV[2]%",0,0,'C',1);
+        $pdf->Cell(24,4,$rowRV[0]+$rowRV[1]+$rowRV[2] ."%",0,1,'C',1);
+    }    
+    
     
     $liderPDFDao = new liderDao();
     $asesorPDFDao = new asesorDao();
-    $liderResultado = $liderPDFDao->listarPromedioLider();
-    $asesorResultado = $asesorPDFDao->listarPromedioAsesor();
+    $liderResultado = $liderPDFDao->listarPromedioLider($mes);
+    $asesorResultado = $asesorPDFDao->listarPromedioAsesor($mes);
 
     foreach($liderResultado as $liderRow) {
         
@@ -59,7 +65,7 @@
         $pdf->Cell(55,6,$liderRow[1],0,0,'C',1); 
         $pdf->Cell(25,6,$liderRow[2],0,0,'C',1);
         $pdf->Cell(41,6,$liderRow[3],0,0,'C',1);
-        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3] . '%',0,1,'C',1);
+        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3],0,1,'C',1);
         
         // Color de fondo y borde claro
         $pdf->SetFillColor(214, 219, 223);

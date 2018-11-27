@@ -92,9 +92,9 @@
         }
         
         // Listar promedio de Asesor
-        public function listarPromedioAsesor(){
+        public function listarPromedioAsesor($mes){
             try{
-                $query = $this->conexion->prepare("CALL listarPromedioAsesor();");
+                $query = $this->conexion->prepare("CALL listarPromedioAsesor('$mes%');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
