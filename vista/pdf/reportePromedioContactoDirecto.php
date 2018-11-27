@@ -10,6 +10,7 @@
 
     require_once("../../modelo/asesorDao.php");
     require_once("../../modelo/liderDao.php");
+    require_once("../../modelo/errorCriticoDao.php");
     require_once("../../modelo/generarPDFDao.php");
     require_once("generalPDF-DC.php");
 
@@ -57,19 +58,6 @@
     $asesorResultado = $asesorPDFDao->listarPromedioAsesor($mes);
 
     foreach($liderResultado as $liderRow) {
-        
-        // Lideres de grupo
-        $pdf->SetTextColor(255,255,255);
-        $pdf->SetFillColor(93, 109, 126);
-        $pdf->Cell(51,6,$liderRow[0],0,0,'C',1);
-        $pdf->Cell(55,6,$liderRow[1],0,0,'C',1); 
-        $pdf->Cell(25,6,$liderRow[2],0,0,'C',1);
-        $pdf->Cell(41,6,$liderRow[3],0,0,'C',1);
-        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3],0,1,'C',1);
-        
-        // Color de fondo y borde claro
-        $pdf->SetFillColor(214, 219, 223);
-        $pdf->SetTextColor(28, 40, 51);
                 
         foreach($asesorResultado as $asesorRow){
             // Nombre
@@ -90,6 +78,19 @@
             $pdf->SetFillColor(231, 76, 60);
             $pdf->Cell(24,5,$asesorRow[1]+$asesorRow[2]+$asesorRow[3],0,1,'C',1);
         }
+        
+        // Lideres de grupo
+        $pdf->SetTextColor(255,255,255);
+        $pdf->SetFillColor(93, 109, 126);
+        $pdf->Cell(51,6,$liderRow[0],0,0,'C',1);
+        $pdf->Cell(55,6,$liderRow[1],0,0,'C',1); 
+        $pdf->Cell(25,6,$liderRow[2],0,0,'C',1);
+        $pdf->Cell(41,6,$liderRow[3],0,0,'C',1);
+        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3],0,1,'C',1);
+        
+        // Color de fondo y borde claro
+        $pdf->SetFillColor(214, 219, 223);
+        $pdf->SetTextColor(28, 40, 51);
         
         $pdf->Ln(2);
         
@@ -307,14 +308,16 @@
     // UNIDADES
     $pdf->SetTextColor(28, 40, 51);
     $pdf->SetDrawColor(100,100,100);
+    
+    $erroresCriticosIDao = new errorCriticoDao();
+    $rErroresCI = $erroresCriticosIDao->listarErroresCriticosInfringidos($mes);
 
-    for($is = 0; $is<12; $is++){
+    foreach($rErroresCI as $rowRErroresCI){
             // Nombre
             $pdf->SetFillColor(255,255,255);
-            $pdf->Cell(75,5,'Lucía Rubiela Prieto Castañeda','T',0,'C',1); 
+            $pdf->Cell(75,5,$rowRErroresCI[0],'T',0,'C',1); 
             $pdf->SetFillColor(235, 237, 239);
-            $pdf->MultiCell(0,5,'Brinda buen trato y respeto al cliente ( Circular Ext  048 de 2008 SFC) Todo tipo de maltrato, insulto, terrorismo telefónico, juicio de valor,; sarcasmo o  que  agreda y que haga perder la calma del cliente.','T','J',1); 
-            
+            $pdf->MultiCell(0,5,$rowRErroresCI[1],'T','J',1); 
     } 
 
     $pdf->AddPage();
@@ -341,21 +344,25 @@
     $pdf->SetTextColor(28, 40, 51);
     $pdf->SetDrawColor(100,100,100);
 
-    for($is = 0; $is<8; $is++){
-            // Nombre
-            $pdf->SetFillColor(255,255,255);
-            $pdf->Cell(30,5,'1','T',0,'C',0); 
-            $pdf->SetFillColor(235, 237, 239);
-            $pdf->MultiCell(0,5,'Brinda buen trato y respeto al cliente ( Circular Ext  048 de 2008 SFC) Todo tipo de marespeto al cliente ( Circular Ext  048 de 2008 SFC) Todo tipo de marespeto al cliente ( Circular Ext  048 de 2008 SFC) Todo tipo de maltrato...','T','J',1); 
-            
-    } 
+    $objetoErrorCriticoDCDao = new errorCriticoDao();
+    $rErroresDC = $objetoErrorCriticoDCDao->listarErroresCriticosDC($mes);
+    
+    $acumErroresCriticos = 0;
+
+    foreach($rErroresDC as $rowRErroresDC){
+        $pdf->SetFillColor(255,255,255);
+        $pdf->Cell(30,5,$rowRErroresDC[0],'T',0,'C',0); 
+        $pdf->SetFillColor(235, 237, 239);
+        $pdf->MultiCell(0,5,$rowRErroresDC[1],'T','J',1);
+        $acumErroresCriticos += $rowRErroresDC[0];
+    }
 
     // Colores
     $pdf->SetFillColor(52, 73, 94);
     $pdf->SetTextColor(255, 255, 255);
 
     // Promedio
-    $pdf->Cell(30,8,'8',0,0,'C',1); 
+    $pdf->Cell(30,8,$acumErroresCriticos,0,0,'C',1); 
     $pdf->Cell(0,8,'TOTAL DE ERRORES CRÍTICOS',0,0,'L',1); 
 
 

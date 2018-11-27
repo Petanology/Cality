@@ -72,5 +72,29 @@
             }
             return $this->modificacion;
         }
+        
+
+        // listar errores criticos total
+        public function listarErroresCriticosDC($mes){
+            try{
+                $query = $this->conexion->prepare("call listarErroresCriticosDC('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+
+        // listar errores criticos infringidos por ciertas personas
+        public function listarErroresCriticosInfringidos($mes){
+            try{
+                $query = $this->conexion->prepare("call listarErroresCriticosInfringidos('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>
