@@ -73,20 +73,6 @@
             }
             return $this->modificacion;
         }
-        
-        
-        // Listar promedio de líderes
-        public function listarPromedioLider($mes){
-            try{
-                $query = $this->conexion->prepare("CALL listarPromedioLider('$mes%');");
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
-            return $query;
-        }
-        
-
     }
 ?>
 

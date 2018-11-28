@@ -62,6 +62,18 @@
         }
         
         
+        // listar item Unidad
+        public function listarRankingUnidad($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidad('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
         // Actualizar Unidad
         public function actualizarItem($pId,$pNombre,$pEstado){
             try{

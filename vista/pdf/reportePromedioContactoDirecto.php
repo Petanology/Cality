@@ -9,9 +9,9 @@
         ---------------------------------------------------    */
 
     require_once("../../modelo/asesorDao.php");
-    require_once("../../modelo/liderDao.php");
     require_once("../../modelo/errorCriticoDao.php");
     require_once("../../modelo/generarPDFDao.php");
+    require_once("../../modelo/unidadDao.php");
     require_once("generalPDF-DC.php");
 
     // Varaibles generales
@@ -51,49 +51,60 @@
         $pdf->Cell(24,4,$rowRV[0]+$rowRV[1]+$rowRV[2] ."%",0,1,'C',1);
     }    
     
+    $ojetoAsesorDao = new asesorDao();
+    $rAsesorDao = $ojetoAsesorDao->listarPromedioGeneral("2018");
     
-    $liderPDFDao = new liderDao();
-    $asesorPDFDao = new asesorDao();
-    $liderResultado = $liderPDFDao->listarPromedioLider($mes);
-    $asesorResultado = $asesorPDFDao->listarPromedioAsesor($mes);
+    $contadorLideres = 0;
+    
+    $imprimirLider = true;
+    $liderReferencia = "";
 
-    foreach($liderResultado as $liderRow) {
-                
-        foreach($asesorResultado as $asesorRow){
-            // Nombre
-            $pdf->SetFillColor(214, 219, 223);
-            $pdf->Cell(51,5,$asesorRow[0],0,0,'C',1);
-            
-            // Servicio y etiqueta telefónica
-            
-            $pdf->SetFillColor(130, 224, 170);            
-            $pdf->Cell(55,5,$asesorRow[1],0,0,'C',1); 
-            
-            $pdf->SetFillColor(249, 231, 159);
-            $pdf->Cell(25,5,$asesorRow[2],0,0,'C',1);
-            
-            $pdf->SetFillColor(236, 112, 99);
-            $pdf->Cell(41,5,$asesorRow[3],0,0,'C',1);
-            
-            $pdf->SetFillColor(231, 76, 60);
-            $pdf->Cell(24,5,$asesorRow[1]+$asesorRow[2]+$asesorRow[3],0,1,'C',1);
+    $acumTotalSET = 0;
+
+    foreach($rAsesorDao as $rowRAsesorDao) {
+        
+        if($liderReferencia == $rowRAsesorDao[0]){
+            $imprimirLider = false;
         }
         
-        // Lideres de grupo
-        $pdf->SetTextColor(255,255,255);
-        $pdf->SetFillColor(93, 109, 126);
-        $pdf->Cell(51,6,$liderRow[0],0,0,'C',1);
-        $pdf->Cell(55,6,$liderRow[1],0,0,'C',1); 
-        $pdf->Cell(25,6,$liderRow[2],0,0,'C',1);
-        $pdf->Cell(41,6,$liderRow[3],0,0,'C',1);
-        $pdf->Cell(24,6,$liderRow[1]+$liderRow[2]+$liderRow[3],0,1,'C',1);
-        
-        // Color de fondo y borde claro
+        if($ == ){
+            $pdf->Cell(24,6,$acumTotalSET,0,1,'C',1);
+        }
+            
+        if($imprimirLider){    
+            // Líderes de grupo
+            $pdf->SetTextColor(255,255,255);
+            $pdf->SetFillColor(93, 109, 126);
+            $pdf->Cell(51,6,$rowRAsesorDao[0],0,0,'C',1);
+            $pdf->Cell(55,6,$acumTotalSET,0,0,'C',1); 
+            $pdf->Cell(25,6,"0",0,0,'C',1);
+            $pdf->Cell(41,6,"0",0,0,'C',1);
+            $pdf->Cell(24,6,"0",0,1,'C',1);
+        }
+
+        // Nombre Asesor y Demás
         $pdf->SetFillColor(214, 219, 223);
         $pdf->SetTextColor(28, 40, 51);
+        $pdf->Cell(51,5,$rowRAsesorDao[1],0,0,'C',1);
         
-        $pdf->Ln(2);
+        // Acumulador total del servicio y etqueta telefónica
+        $acumTotalSET += $rowRAsesorDao[1];
+
+        // Servicio y Etiqueta Telefónica
+        $pdf->SetFillColor(130, 224, 170);          
+        $pdf->Cell(55,5,$rowRAsesorDao[2],0,0,'C',1); 
+
+        $pdf->SetFillColor(249, 231, 159);
+        $pdf->Cell(25,5,$rowRAsesorDao[3],0,0,'C',1);
+
+        $pdf->SetFillColor(236, 112, 99);
+        $pdf->Cell(41,5,$rowRAsesorDao[4],0,0,'C',1);
+
+        $pdf->SetFillColor(231, 76, 60);
+        $resultadoAsesor = $rowRAsesorDao[2]+$rowRAsesorDao[3]+$rowRAsesorDao[4];
+        $pdf->Cell(24,5,$resultadoAsesor,0,1,'C',1);
         
+        $liderReferencia = $rowRAsesorDao[0];  
     }
 
 
@@ -162,26 +173,55 @@
 
     // UNIDADES
     $pdf->SetTextColor(28, 40, 51);
+    
+    $oRankUnidad = new unidadDao();
+    $resulORankUnidad = $oRankUnidad->listarRankingUnidad("2018%");
+    
+    // PROMEDIO - SERVICIO Y ETIQUETA TELEFONICA 
+    $acumSETUnidades = 0;
+    $contSETUnidades = 0;
 
-    for($is = 0; $is<12; $is++){
+    // PROMEDIO - NEGOCIACION
+    $acumNEGUnidades = 0;
+    $contNEGUnidades = 0;
+
+    // PROMEDIO - REGISTRO EN EL SISTEMA
+    $acumRSUnidades = 0;
+    $contRSUnidades = 0;
+
+    foreach($resulORankUnidad as $rowResulORankUnidad){
             // Nombre
             $pdf->SetFillColor(214, 219, 223);
-            $pdf->Cell(51,5,'Lebon Comercial',0,0,'C',1); 
+            $pdf->Cell(51,5,$rowResulORankUnidad[0],0,0,'C',1); 
             
             // Servicio y etiqueta telefónica
             $pdf->SetFillColor(130, 224, 170);
-            $pdf->Cell(55,5,'27',0,0,'C',1); 
+            $pdf->Cell(55,5,$rowResulORankUnidad[1],0,0,'C',1); 
             
             $pdf->SetFillColor(249, 231, 159);
-            $pdf->Cell(25,5,'46',0,0,'C',1);
+            $pdf->Cell(25,5,$rowResulORankUnidad[2],0,0,'C',1);
             
             $pdf->SetFillColor(236, 112, 99);
-            $pdf->Cell(41,5,'20',0,0,'C',1);
-            
+            $pdf->Cell(41,5,$rowResulORankUnidad[3],0,0,'C',1);
+        
             $pdf->SetFillColor(231, 76, 60);
-            $pdf->Cell(24,5,'93',0,1,'C',1);
-            
+            $pdf->Cell(24,5,$rowResulORankUnidad[4],0,1,'C',1);
+        
+            $acumSETUnidades += $rowResulORankUnidad[1];
+            $contSETUnidades++;
+        
+            $acumNEGUnidades += $rowResulORankUnidad[2];
+            $contNEGUnidades++;
+                
+            $acumRSUnidades += $rowResulORankUnidad[3];
+            $contRSUnidades++;
+        
     } 
+
+    $promedioSET = $acumSETUnidades / $contSETUnidades;
+    $promedioNEG = $acumNEGUnidades / $contNEGUnidades;
+    $promedioRS = $acumRSUnidades / $contRSUnidades;
+    $totalGeneralDC = $promedioSET+$promedioNEG+$promedioRS;
 
     // Colores
     $pdf->SetFillColor(52, 73, 94);
@@ -189,18 +229,18 @@
 
     // Promedio
     $pdf->Cell(51,5,'Promedio actual',0,0,'C',1); 
-    $pdf->Cell(55,5,'26',0,0,'C',1); 
-    $pdf->Cell(25,5,'42',0,0,'C',1);
-    $pdf->Cell(41,5,'18',0,0,'C',1);
-    $pdf->Cell(24,5,'86',0,1,'C',1);
+    $pdf->Cell(55,5,round($promedioSET),0,0,'C',1); 
+    $pdf->Cell(25,5,round($promedioNEG),0,0,'C',1);
+    $pdf->Cell(41,5,round($promedioRS),0,0,'C',1);
+    $pdf->Cell(24,5,round($totalGeneralDC),0,1,'C',1);
 
 
     // Adherencia
     $pdf->Cell(51,5,'Adherencia',0,0,'C',1); 
-    $pdf->Cell(55,5,'86%',0,0,'C',1); 
-    $pdf->Cell(25,5,'84%',0,0,'C',1);
-    $pdf->Cell(41,5,'90%',0,0,'C',1);
-    $pdf->Cell(24,5,'- -',0,1,'C',1);
+    $pdf->Cell(55,5, round($promedioSET * 100 / 30) . '%',0,0,'C',1); 
+    $pdf->Cell(25,5, round($promedioNEG * 100 / 50) . '%',0,0,'C',1);
+    $pdf->Cell(41,5, round($promedioRS * 100 / 20) . '%',0,0,'C',1);
+    $pdf->Cell(24,5, '- -' ,0,1,'C',1);
 
     // Separador
     $pdf->AddPage();
