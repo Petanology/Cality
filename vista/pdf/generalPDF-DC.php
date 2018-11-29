@@ -5,6 +5,8 @@
 
     class PDF extends FPDF {
         
+        public $mes;
+        
         function Header(){
             // Fondo Azul
             $this->SetFillColor(46,134,193);
@@ -26,7 +28,7 @@
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
-            $this->Cell(0,13,'INFORME VENTA DIRECTA AGOSTO 2018','LR',0,'C',1);
+            $this->Cell(0,13,"INFORME VENTA DIRECTA " . $this->ImprimirMes($this->mes),'LR',0,'C',1);
             
             // Salto de Línea para tabla
             $this->Ln(25);
@@ -34,10 +36,64 @@
         
         
         function Footer(){
-            // 
+             
             $this->SetY(-15);
             $this->SetFont('Arial', '', 8);
             $this->Cell(0 , 10, 'Página ' . $this->PageNo() . ' de {nb}', 0 , 0 , 'C' );
         }
+        
+        
+        function ImprimirMes($mesACambiar){
+            $fecha = explode("-" , $mesACambiar);
+            $ano = $fecha[0]; // obtener el año, ejemplo : 2018
+            $mes = $fecha[1]; // obtener el mes, ejemplo : 11
+            
+            $nomMes = array();
+            $nomMes[1] = "ENERO";
+            $nomMes[2] = "FEBRERO";
+            $nomMes[3] = "MARZO";
+            $nomMes[4] = "ABRIL";
+            $nomMes[5] = "MAYO";
+            $nomMes[6] = "JUNIO";
+            $nomMes[7] = "JULIO";
+            $nomMes[8] = "AGOSTO";
+            $nomMes[9] = "SEPTIEMBRE";
+            $nomMes[10] = "OCTUBRE";
+            $nomMes[11] = "NOVIEMBRE";
+            $nomMes[12] = "DICIEMBRE";
+            
+            return "$nomMes[$mes] DEL $ano";
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

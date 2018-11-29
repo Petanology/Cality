@@ -24,5 +24,16 @@
             }
             return $this->registro;
         }
+        
+        
+        public function validarResultadosParaInforme($mes){
+            try{
+                $query = $this->conexion->prepare("CALL validarResultadosParaInforme('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>

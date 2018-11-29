@@ -28,3 +28,29 @@
             </svg>
         </div>
     </div>
+    
+    <?php
+        
+        
+        if(isset($_GET['mensaje'])){
+            $mensaje = $_GET['mensaje'];
+            
+            echo "<div class='alert alert-info fade show rounded-0'>$mensaje</div>";
+        }
+    
+    ?>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

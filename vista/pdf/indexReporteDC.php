@@ -10,7 +10,7 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm btn-block"
-                >GENERAR PDF</button>
+                ><i class="fas fa-plus-circle"></i> GENERAR ARCHIVO PDF</button>
                 <small class="form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, para así generar sus respectivos informes generales.</small>
             </div>
         </form>
