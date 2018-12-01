@@ -282,10 +282,11 @@
 
         
     // Instancia a unidad
-    $oRankUnidad = new unidadDao();
+    /*$oRankUnidad = new unidadDao();
     $resulORankUnidad = $oRankUnidad->listarRankingUnidad($pdf->mes);
 
     foreach($resulORankUnidad as $rowResulORankUnidad){
+    */
     
     // Asesores ranking
     $pdf->SetTextColor(28, 40, 51);
@@ -321,7 +322,6 @@
     $pdf->Cell(25,5,'84',0,0,'C',1);
     $pdf->Cell(41,5,'88',0,0,'C',1);
     $pdf->Cell(24,5,'86',0,1,'C',1);
-
 
     // Separador
     $pdf->AddPage();
@@ -420,7 +420,7 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-venta-directa_agosto-2018.pdf");
+    $pdf->Output("I","informe-venta-directa-$pdf->mes.pdf");
         
     }
     else{

@@ -6,7 +6,7 @@
         <form action="reportePromedioContactoDirecto.php" method="post">
             <div class="form-group input-group-sm">
                 <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">Mes</label>
-                <input type="month" name="mesReporte" id="mes" class="input-sm mb-3 form-control">
+                <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm btn-block"
