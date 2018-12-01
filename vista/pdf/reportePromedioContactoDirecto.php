@@ -278,37 +278,96 @@
     $pdf->Cell(25,6,'GESTIÓN 1',0,0,'C',1); 
     $pdf->Cell(25,6,'GESTIÓN 2',0,0,'C',1);
     $pdf->Cell(25,6,'GESTIÓN 3',0,0,'C',1);
-    $pdf->Cell(30,6,'TOTAL GENERAL',0,1,'C',1);
+    $pdf->Cell(30,6,'TOTAL',0,1,'C',1);
 
+    // Instancia a Asesor
+    $oRankAsesor = new asesorDao();
+    $rRankingAsesor = $oRankAsesor->listarRankingAsesor($pdf->mes);
         
-    // Instancia a unidad
-    /*$oRankUnidad = new unidadDao();
-    $resulORankUnidad = $oRankUnidad->listarRankingUnidad($pdf->mes);
-
-    foreach($resulORankUnidad as $rowResulORankUnidad){
-    */
+    $asesores = array();
     
     // Asesores ranking
     $pdf->SetTextColor(28, 40, 51);
+    foreach($rRankingAsesor as $ConsultaRA){
+            
+        $resultado = array_search($ConsultaRA[0] , array_column($asesores , 0));
+            
+        if(is_numeric($resultado)) {
+            
+            array_push(
+                $asesores[$resultado],
+                $ConsultaRA[1]
+            );
+                
+        } else {
+            
+            array_push(
+                $asesores,
+                [
+                    0 => $ConsultaRA[0],
+                    1 => $ConsultaRA[1],
+                ]
+            );
+            
+        }
+        
+    }
+        
+        
+    for($x=0; $x<count($asesores); $x++){
+        
+        $subtotal = 0;
+        
+        for($i=1; $i<count($asesores[$x]); $i++){
+            
+            $subtotal += $asesores[$x];
+                
+        }
+        
+        $asesores[$i][4] = $subtotal;
+        
+    }
+        
+    
 
-    for($is = 0; $is<100; $is++){
+    foreach($asesores as $rowAsesores){
             // Nombre
             $pdf->SetFillColor(214, 219, 223);
-            $pdf->Cell(91,5,'Diana Yubeli Sarmiento Perez',0,0,'C',1); 
+            $pdf->Cell(91,5,$rowAsesores[0],0,0,'C',1); 
             
             // Servicio y etiqueta telefónica
             $pdf->SetFillColor(130, 224, 170);
-            $pdf->Cell(25,5,'27',0,0,'C',1); 
             
+            if(isset($rowAsesores[1])){
+                $pdf->Cell(25,5,$rowAsesores[1],0,0,'C',1); 
+            }else{
+                $pdf->Cell(25,5,"",0,0,'C',1); 
+            }
+            
+        
             $pdf->SetFillColor(249, 231, 159);
-            $pdf->Cell(25,5,'46',0,0,'C',1);
+            
+            if(isset($rowAsesores[2])){
+                $pdf->Cell(25,5,$rowAsesores[2],0,0,'C',1);
+            }else{
+                $pdf->Cell(25,5,"",0,0,'C',1);
+            }
             
             $pdf->SetFillColor(236, 112, 99);
-            $pdf->Cell(25,5,'20',0,0,'C',1);
+            
+            if(isset($rowAsesores[3])){
+                $pdf->Cell(25,5,$rowAsesores[3],0,0,'C',1);
+            }else{
+                $pdf->Cell(25,5,"",0,0,'C',1);
+            }
             
             $pdf->SetFillColor(231, 76, 60);
-            $pdf->Cell(30,5,'93',0,1,'C',1);
-            
+        
+            if(isset($rowAsesores[4])){
+                $pdf->Cell(30,5,$rowAsesores[4],0,1,'C',1);
+            }else{
+                $pdf->Cell(30,5,"",0,1,'C',1);
+            }
     } 
 
 
@@ -317,11 +376,11 @@
     $pdf->SetTextColor(255, 255, 255);
 
     // Total General
-    $pdf->Cell(51,5,'Total General',0,0,'C',1); 
-    $pdf->Cell(55,5,'85',0,0,'C',1); 
-    $pdf->Cell(25,5,'84',0,0,'C',1);
-    $pdf->Cell(41,5,'88',0,0,'C',1);
-    $pdf->Cell(24,5,'86',0,1,'C',1);
+    $pdf->Cell(91,7,'ACUMULADO TOTAL',0,0,'C',1); 
+    $pdf->Cell(25,7,'85',0,0,'C',1); 
+    $pdf->Cell(25,7,'84',0,0,'C',1);
+    $pdf->Cell(25,7,'88',0,0,'C',1);
+    $pdf->Cell(30,7,'86',0,1,'C',1);
 
     // Separador
     $pdf->AddPage();

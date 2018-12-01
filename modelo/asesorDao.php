@@ -101,5 +101,17 @@
             }
             return $query;
         }
+        
+    
+        // Listar ranking de asesores
+        public function listarRankingAsesor($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesor('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>
