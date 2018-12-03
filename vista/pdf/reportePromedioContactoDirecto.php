@@ -289,18 +289,13 @@
     // Asesores ranking
     $pdf->SetTextColor(28, 40, 51);
     foreach($rRankingAsesor as $ConsultaRA){
-            
         $resultado = array_search($ConsultaRA[0] , array_column($asesores , 0));
-            
         if(is_numeric($resultado)) {
-            
             array_push(
                 $asesores[$resultado],
                 $ConsultaRA[1]
             );
-                
         } else {
-            
             array_push(
                 $asesores,
                 [
@@ -308,28 +303,28 @@
                     1 => $ConsultaRA[1],
                 ]
             );
-            
         }
-        
     }
         
         
+    // Recorrido para asignar total por asesor    
     for($x=0; $x<count($asesores); $x++){
         
         $subtotal = 0;
+        $totalGestiones = 0;
         
         for($i=1; $i<count($asesores[$x]); $i++){
             
-            $subtotal += $asesores[$x];
+            $subtotal += $asesores[$x][$i];
                 
         }
         
-        $asesores[$i][4] = $subtotal;
+        $asesores[$x][4] = $subtotal;
         
     }
-        
     
 
+    // Recorrido para impresion
     foreach($asesores as $rowAsesores){
             // Nombre
             $pdf->SetFillColor(214, 219, 223);
@@ -364,7 +359,7 @@
             $pdf->SetFillColor(231, 76, 60);
         
             if(isset($rowAsesores[4])){
-                $pdf->Cell(30,5,$rowAsesores[4],0,1,'C',1);
+                $pdf->Cell(30,5,round($rowAsesores[4] , 1),0,1,'C',1);
             }else{
                 $pdf->Cell(30,5,"",0,1,'C',1);
             }
