@@ -40,6 +40,11 @@
     // Declaración de contador
     $contNumeroAsesores = 0;
     $cTotalUnidades = 0;
+        
+    // Otras
+    $grupoSETValor = 0;
+    $grupoNEGValor = 0;
+    $grupoRSValor = 0;
 
     $pdf = new PDF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
@@ -47,6 +52,66 @@
     $pdf->mes = $_POST["mesReporte"];
     $pdf->AliasNbPages();
     $pdf->AddPage();
+        
+    function sort_by_orden($a, $b) {
+        return $b[4] - $a[4];
+    }
+    
+    
+    // Calcular Promedio C-Directo
+    function impresionColorOscuro($nResultado){
+        global $pdf;
+        if($nResultado >= 0 && $nResultado <= 68){
+            $pdf->SetFillColor(231, 76, 60);
+        } else if($nResultado >= 69 && $nResultado <= 84){
+            $pdf->SetFillColor(247, 220, 111);
+        } else if($nResultado >= 85 && $nResultado <= 100){
+            $pdf->SetFillColor(88, 214, 141);
+        } else {
+            $pdf->SetFillColor(142, 68, 173);
+        }
+    }
+
+        
+    // Calcular Totales Claros
+    function impresionColorRankingA($nResultado){
+        global $pdf;
+        if($nResultado >= 0 && $nResultado <= 68){
+            $pdf->SetFillColor(236, 112, 99);
+        } else if($nResultado >= 69 && $nResultado <= 84){
+            $pdf->SetFillColor(249, 231, 159);
+        } else if($nResultado >= 85 && $nResultado <= 100){
+            $pdf->SetFillColor(130, 224, 170);
+        } else {
+            $pdf->SetFillColor(142, 68, 173);
+        }
+    }
+        
+    // Calcular y aplciar color de fondo para grupo de items
+    function impresionColorClaro($maximo,$nResultado){
+        global $pdf;
+        
+        $indicadorMaximo = $maximo;
+        $indicadorRojo = 69 * $indicadorMaximo / 100;
+        $indicadorAmarillo = 85 * $indicadorMaximo / 100;
+        
+        if($nResultado >= 0 && $nResultado < $indicadorRojo){
+            
+            $pdf->SetFillColor(236, 112, 99);
+            
+        } else if($nResultado >= $indicadorRojo && $nResultado < $indicadorAmarillo){
+            
+            $pdf->SetFillColor(249, 231, 159);
+            
+        } else if($nResultado >= $indicadorAmarillo && $nResultado <= $indicadorMaximo){
+            
+            $pdf->SetFillColor(130, 224, 170);
+            
+        } else {
+            $pdf->SetFillColor(142, 68, 173);
+        }
+
+    }
 
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
@@ -77,15 +142,20 @@
     $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($pdf->mes);
 
     foreach($rValorPDF as $rowRV){
-        $pdf->Cell(51,4,'- LÍDER -',0,0,'C',1); 
-        $pdf->Cell(55,4,"$rowRV[0]%",0,0,'C',1); 
-        $pdf->Cell(25,4,"$rowRV[1]%",0,0,'C',1);
-        $pdf->Cell(41,4,"$rowRV[2]%",0,0,'C',1);
-        $pdf->Cell(24,4,$rowRV[0]+$rowRV[1]+$rowRV[2] ."%",0,1,'C',1);
+        global $grupoSETValor; 
+        global $grupoNEGValor; 
+        global $grupoRSValor; 
         
-        // Anulación de la consulta
-        $rValorPDF = null;
-    }   
+        $grupoSETValor = $rowRV[0];
+        $grupoNEGValor = $rowRV[1];
+        $grupoRSValor = $rowRV[2];
+    }
+    
+    $pdf->Cell(51,4,'- LÍDER -',0,0,'C',1); 
+    $pdf->Cell(55,4,"$grupoSETValor%",0,0,'C',1); 
+    $pdf->Cell(25,4,"$grupoNEGValor%",0,0,'C',1);
+    $pdf->Cell(41,4,"$grupoRSValor%",0,0,'C',1);
+    $pdf->Cell(24,4,$rowRV[0]+$rowRV[1]+$rowRV[2] ."%",0,1,'C',1);
 
 
     // Instancia a líder
@@ -100,7 +170,6 @@
         // Líderes de grupo
         $pdf->SetTextColor(255,255,255);
         $pdf->SetFillColor(93, 109, 126);
-        
         $pdf->Cell(51,6,$rowRLiderDao[0],0,0,'C',1);
         $pdf->Cell(55,6,$rowRLiderDao[1],0,0,'C',1); 
         $pdf->Cell(25,6,$rowRLiderDao[2],0,0,'C',1);
@@ -111,31 +180,27 @@
         $rAsesorDao = $ojetoAsesorDao->listarPromedioAsesor($pdf->mes,$rowRLiderDao[0]);
         
         foreach ($rAsesorDao as $rowRAsesorDao) {
-            
+           
             // Asesores
             $pdf->SetFillColor(214, 219, 223);
             $pdf->SetTextColor(28, 40, 51);
-            
             $pdf->Cell(51,5,$rowRAsesorDao[0],0,0,'C',1);
             
-            // Servicio y Etiqueta Telefónica
-            $pdf->SetFillColor(130, 224, 170);          
+            // Servicio y Etiqueta Telefónica        
+            impresionColorClaro($grupoSETValor,$rowRAsesorDao[1]);       
             $pdf->Cell(55,5,$rowRAsesorDao[1],0,0,'C',1); 
 
             // Negociación
-            $pdf->SetFillColor(249, 231, 159);
+            impresionColorClaro($grupoNEGValor,$rowRAsesorDao[2]);       
             $pdf->Cell(25,5,$rowRAsesorDao[2],0,0,'C',1);
 
             // Registro en el sistema
-            $pdf->SetFillColor(236, 112, 99);
+            impresionColorClaro($grupoRSValor,$rowRAsesorDao[3]);       
             $pdf->Cell(41,5,$rowRAsesorDao[3],0,0,'C',1);
 
-            // Calculo subtotal de asesor
-            $resultadoAsesor = $rowRAsesorDao[1]+$rowRAsesorDao[2]+$rowRAsesorDao[3];
-                
             // Calculo para acumulador total general
-            $pdf->SetFillColor(231, 76, 60);
-            $pdf->Cell(24,5,$resultadoAsesor,0,1,'C',1);
+            impresionColorOscuro($rowRAsesorDao[4]);       
+            $pdf->Cell(24,5,$rowRAsesorDao[4],0,1,'C',1);
             
             // Acumuladores
             $acumPromedioSET += $rowRAsesorDao[1];
@@ -202,16 +267,16 @@
             $pdf->Cell(51,5,$rowResulORankUnidad[0],0,0,'C',1); 
             
             // Servicio y etiqueta telefónica
-            $pdf->SetFillColor(130, 224, 170);
+            impresionColorClaro($grupoSETValor,$rowRAsesorDao[1]);
             $pdf->Cell(55,5,$rowResulORankUnidad[1],0,0,'C',1); 
             
-            $pdf->SetFillColor(249, 231, 159);
+            impresionColorClaro($grupoNEGValor,$rowRAsesorDao[2]);
             $pdf->Cell(25,5,$rowResulORankUnidad[2],0,0,'C',1);
             
-            $pdf->SetFillColor(236, 112, 99);
+            impresionColorClaro($grupoRSValor,$rowRAsesorDao[3]);
             $pdf->Cell(41,5,$rowResulORankUnidad[3],0,0,'C',1);
         
-            $pdf->SetFillColor(231, 76, 60);
+            impresionColorOscuro($rowRAsesorDao[4]);
             $pdf->Cell(24,5,$rowResulORankUnidad[4],0,1,'C',1);
         
             $acumSETUnidades += $rowResulORankUnidad[1];
@@ -237,20 +302,12 @@
     $pdf->Cell(41,7,round($pUnidadesRS, 1),0,0,'C',1);
     $pdf->Cell(24,7,round($tGeneralUnidades, 1),0,1,'C',1);
 
-
-    // Adherencia
-    $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($pdf->mes);
-
-    foreach($rValorPDF as $rowRV){
-        
-        $pdf->SetFillColor(82, 103, 123);
-        $pdf->Cell(51,7,'Adherencia',0,0,'C',1); 
-        $pdf->Cell(55,7, round($pUnidadesSET * 100 / $rowRV[0] , 1) . '%',0,0,'C',1); 
-        $pdf->Cell(25,7, round($pUnidadesNEG * 100 / $rowRV[1] , 1) . '%',0,0,'C',1);
-        $pdf->Cell(41,7, round($pUnidadesRS * 100 / $rowRV[2] , 1) . '%',0,0,'C',1);
-        $pdf->Cell(24,7, '- -' ,0,1,'C',1);
-        
-    }   
+    $pdf->SetFillColor(82, 103, 123);
+    $pdf->Cell(51,7,'Adherencia',0,0,'C',1); 
+    $pdf->Cell(55,7, round($pUnidadesSET * 100 / $grupoSETValor, 1) . '%',0,0,'C',1); 
+    $pdf->Cell(25,7, round($pUnidadesNEG * 100 / $grupoNEGValor, 1) . '%',0,0,'C',1);
+    $pdf->Cell(41,7, round($pUnidadesRS * 100 / $grupoRSValor, 1) . '%',0,0,'C',1);
+    $pdf->Cell(24,7, '- -' ,0,1,'C',1);
 
     // Separador
     $pdf->AddPage();
@@ -311,19 +368,21 @@
     for($x=0; $x<count($asesores); $x++){
         
         $subtotal = 0;
-        $totalGestiones = 0;
+        $totalGestiones = count($asesores[$x]) - 1;
         
         for($i=1; $i<count($asesores[$x]); $i++){
             
-            $subtotal += $asesores[$x][$i];
-                
+            $subtotal += $asesores[$x][$i];   
+            
         }
-        
-        $asesores[$x][4] = $subtotal;
+                 
+        $asesores[$x][4] = round($subtotal / $totalGestiones , 1);
         
     }
-    
-
+        
+         
+    uasort($asesores, 'sort_by_orden');
+            
     // Recorrido para impresion
     foreach($asesores as $rowAsesores){
             // Nombre
@@ -331,36 +390,39 @@
             $pdf->Cell(91,5,$rowAsesores[0],0,0,'C',1); 
             
             // Servicio y etiqueta telefónica
-            $pdf->SetFillColor(130, 224, 170);
-            
             if(isset($rowAsesores[1])){
+                impresionColorRankingA($rowAsesores[1]);
                 $pdf->Cell(25,5,$rowAsesores[1],0,0,'C',1); 
             }else{
+                $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1); 
             }
-            
         
-            $pdf->SetFillColor(249, 231, 159);
-            
+            // Negociación    
             if(isset($rowAsesores[2])){
+                impresionColorRankingA($rowAsesores[2]);
                 $pdf->Cell(25,5,$rowAsesores[2],0,0,'C',1);
             }else{
+                $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1);
             }
             
-            $pdf->SetFillColor(236, 112, 99);
-            
+        
+            // Registro en el sistema
             if(isset($rowAsesores[3])){
+                impresionColorRankingA($rowAsesores[3]);
                 $pdf->Cell(25,5,$rowAsesores[3],0,0,'C',1);
             }else{
+                $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1);
             }
-            
-            $pdf->SetFillColor(231, 76, 60);
         
+            // Total
             if(isset($rowAsesores[4])){
-                $pdf->Cell(30,5,round($rowAsesores[4] , 1),0,1,'C',1);
+                impresionColorOscuro($rowAsesores[4]);
+                $pdf->Cell(30,5,$rowAsesores[4] . "%",0,1,'C',1);
             }else{
+                $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(30,5,"",0,1,'C',1);
             }
     } 
