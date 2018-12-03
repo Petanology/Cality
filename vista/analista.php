@@ -8,7 +8,9 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_analista1"><i class="fas fa-plus"></i> REGISTRAR ANALISTA</button>
+        <form action="" method="post">
+            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_analista1"><i class="fas fa-plus"></i> REGISTRAR ANALISTA</button>
+        </form>
         
         <!-- Lista de analistas -->
         <table class="table table-striped table-responsive-xl scroll_modificado">
@@ -97,6 +99,11 @@
         // Abrir modal Modificar si se dió clic en boton modificar
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_analista2').modal('show');</script>";
+        }
+
+        // Abrir modal Registrar si se dió clic en boton registrar
+        if(isset($_POST['botonRegistrar'])){
+            echo "<script>$('#form_analista1').modal('show');</script>";
         }
     ?>
 </body> 

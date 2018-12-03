@@ -333,7 +333,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button type="button" onclick="validarFormatoMEN()" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button id="botonRegistrar" type="button" onclick="validarFormatoMEN()" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>

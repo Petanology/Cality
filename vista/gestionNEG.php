@@ -32,7 +32,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-info"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button id="botonRegistrar" type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-info"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>

@@ -81,7 +81,7 @@ function validarFormatoMEN(){
         });
         
     }else{
-
+        $('#botonRegistrar').attr("disabled" , true);
         document.formGeneral.submit();
         
     }

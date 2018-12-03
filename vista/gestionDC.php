@@ -32,7 +32,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button type="submit" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
@@ -335,7 +335,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button type="button" onclick="validarFormatoDC()" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button id="botonRegistrar" type="button" onclick="validarFormatoDC()" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>

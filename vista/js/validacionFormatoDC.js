@@ -7,7 +7,7 @@ window.onload = function() {
 
 
 function validarFormatoDC(){
-    
+        
     if($("#unidad").val().length == 0){
         
         swal({
@@ -81,7 +81,7 @@ function validarFormatoDC(){
         });
         
     }else{
-        
+        $('#botonRegistrar').attr("disabled" , true);
         document.formGeneral.submit();
         
     }

@@ -101,7 +101,7 @@ function validarFormatoNEG(){
         });
         
     }else{
-
+        $('#botonRegistrar').attr("disabled" , true);
         document.formGeneral.submit();
         
     }
