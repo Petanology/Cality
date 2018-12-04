@@ -31,11 +31,11 @@
     
     <!-- Jquery con ondas -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- Ondas -->
-    <script src="js/wave.js"></script>
+    
+    <!--<script src="js/wave.js"></script>-->
 </head>
 <body class="scroll_modificado">
-    
+   
     <div class="main scroll_modificado">
         
         <!-- menu de navegación -->
@@ -48,14 +48,7 @@
             </div>
             
             <!-- Contenedor -->
-            <div class="contenido-menu">
-                <?php
-                    /*echo $_SESSION[ io'] . " | ";
-                    echo $_SESSION['idpersona'] . " | ";
-                    echo $_SESSION['n ] . " | ";
-                    echo $_SESSION['genero'] . " | ";
-                    echo $_SESSION['correo'] . " | ";*/
-                ?>
+            <div class="contenido-menu scroll_menu">
                 
                 <!-- Links Principales -->
                 <ul id="ul-menu" class="menu-tooltip scroll_modificado"><!-- hay dos opciones que sea tooltip o normal -->

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/carga_pagina.css">
+    <link rel="stylesheet" href="css/gestionPointer.css">
     
     
     <!-- Favicon -->

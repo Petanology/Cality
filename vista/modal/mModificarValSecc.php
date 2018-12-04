@@ -29,13 +29,26 @@
                                 value="<?php echo $rowA[2]; ?>"
                                 pattern="[1234567890. ]{1,4}"
                                 title='Se permiten solo puntos y números positivos coherentes, ejemplo: "40.0"'
+                                <?php 
+                                    if(date("j") < 28){
+                                        echo "disabled";
+                                    }
+                                ?>
                                 required
                                 >
-                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que los porcentajes de todas las gestiones del mes se basan en la primera gestión realizada. por lo que para evitar confusiones, se recomienda hacer un cambio de estos, <strong>un día antes de iniciar un nuevo mes.</strong></small>
                         </div>
             </div>
                 <div class="modal-footer">
-                    <button type="submit" value="MODIFICAR" name="boton" class="btn btn-success">MODIFICAR</button>
+                    <small class="form-text text-muted border-right pr-2 mr-4"><i class="far fa-question-circle"></i>&nbsp; Recuerde que los porcentajes solo pueden ser modificados finalizando mes, <strong>después de éste cambio no registre ninguna gestión dentro del mismo mes. Cada formato tomará estos valores por defecto y con ellos hará calculos y promedios para los respectivos informes.</strong></small>
+                    <?php
+                        if(date("j") >= 28 AND date("j") <= 31){
+                    ?>
+                       
+                        <button type="submit" value="MODIFICAR" name="boton" class="btn btn-success">MODIFICAR</button>
+                        
+                    <?php
+                        }                    
+                    ?>
                     <button type="button" name="boton" data-dismiss="modal" class="btn btn-secondary">CANCELAR</button>
                 </div>
             </form>

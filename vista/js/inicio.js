@@ -27,6 +27,11 @@ $(document).ready(function(){
     $(".icono-menu").click(function(){
         funcionMenu();
     });
+    
+    // Funcionalidad menú
+    
+    
+    
 });
 
 
