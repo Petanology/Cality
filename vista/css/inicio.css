@@ -20,9 +20,7 @@
     overflow: auto;
     position: absolute;
     width: 100%;
-    min-width: 560px;
     height: 100vh;
-    min-height: 500px;
 }
 
 
@@ -75,7 +73,7 @@
         width: 65px;
         height: 65px;
         cursor: pointer;
-        background-color: rgba(255,255,255,0.09);
+        background-color: rgba(255,255,255,0.04);
     }
 
 
@@ -142,23 +140,7 @@
         height: calc(100% - 65px);
         position: absolute;
         top: 65px;
-        left: 0;
-        overflow-y: auto;
-    }
-
-
-    .scroll_menu::-webkit-scrollbar {
-        width: 5px;
-    }
-
-
-    .scroll_menu::-webkit-scrollbar-track{
-        background-color: #131527;
-    }
-
-
-    .scroll_menu::-webkit-scrollbar-thumb{
-        background-color: rgba(255, 255, 255, 0.15);
+        left: 0;        
     }
 
 
@@ -233,6 +215,7 @@
         right: 17px;
     }
 
+
     .encabezado .calendario img {
         position: absolute;
         top: 0;
@@ -261,6 +244,7 @@
         padding-right: 20px;
     }
 
+
     .contenido-principal {
         width: 100%;
         height: calc(100% - 55px);
@@ -268,6 +252,7 @@
         right: 0;
         top: 55px;
     }
+
 
 .iframe {
     width: 100%;
@@ -277,18 +262,50 @@
     overflow: scroll;
 }
 
+
+/* ****************************** */
+/* Generalidades del menú lateral */
+/* ****************************** */
+
+
 ul {
     list-style-type: none;
 }
 
-/* ************************************************* */
-/* ********************* MENÚ ********************** */
 
-/* ******* Modo Tooltip ******* */
-/* **************************** */
+.no-seleccionado {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+}
 
 ul.menu-tooltip , ul.menu-normal{
     background-color: transparent;
+}
+
+
+
+.submenu-item li .cont-img::before {
+    content: "";
+    background-color: #656e98;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: 19px;
+    left: 6px;
+}
+
+
+.submenu-item li .cont-img::after {
+    content: "";
+    background-color: #656e98;
+    width: 2px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 8px;
 }
 
 
@@ -300,13 +317,15 @@ ul.menu-tooltip {
 
 ul.menu-tooltip > li {
     width: 65px;
-    height: 45px;
+    height: auto;
 }
 
 
-ul.menu-tooltip > li > a {
+ul.menu-tooltip > li > a,
+ul.menu-tooltip .submenu-item li a
+{
     position: relative;
-    display: inline-block;
+    display: table;
     width: 65px;
     height: 45px;
     -webkit-transition-duration: 0.3s;
@@ -315,14 +334,18 @@ ul.menu-tooltip > li > a {
 }
 
 
-ul.menu-tooltip > li > a > div.cont-img {
+ul.menu-tooltip > li > a > div.cont-img ,
+ul.menu-tooltip .submenu-item li a div.cont-img
+{
     width: 65px;
     height: 45px;
     position: relative;
 }
 
 
-ul.menu-tooltip > li > a > div.cont-img > img {
+ul.menu-tooltip > li > a > div.cont-img > img,
+ul.menu-tooltip .submenu-item li a div.cont-img img
+{
     width: 22px;
     height: 22px;
     position: absolute;
@@ -334,7 +357,9 @@ ul.menu-tooltip > li > a > div.cont-img > img {
 }
 
 
-ul.menu-tooltip > li > a > div.texto {
+ul.menu-tooltip > li > a > div.texto,
+ul.menu-tooltip .submenu-item li a .texto
+{
     width: auto;
     padding: 10px;
     height: auto;
@@ -370,7 +395,11 @@ ul.menu-tooltip > li > a:hover::before {
 
 
 ul.menu-tooltip > li > a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(8, 10, 37, 0.73);
+}
+
+ul.menu-tooltip .submenu-item li a:hover {
+    background-color: rgba(5, 12, 39, 0.43);    
 }
 
 
@@ -388,6 +417,25 @@ ul.menu-tooltip > li > a:hover img {
     transform: scale(1.1);
 }
 
+/* sub-items del menú */
+
+.submenu-item{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+ul.menu-tooltip .submenu-item li{
+    display: table;
+    width: 65px;
+    width: 65px;
+    height: 45px;
+}
+
+ul.menu-tooltip .submenu-item li a:hover .texto {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 /* ************************************* */
 /* ************ Modo Normal ************ */
@@ -399,15 +447,17 @@ ul.menu-normal {
 }
 
 
+ul.menu-normal .submenu-item li,
 ul.menu-normal > li {
     width: 100%;
-    height: 45px;
+    height: auto;
 }
 
 
+ul.menu-normal .submenu-item li a,
 ul.menu-normal > li > a {
     position: relative;
-    display: inline-block;
+    display: table;
     width: 100%;
     height: 45px;
     -webkit-transition-duration: 0.3s;
@@ -416,6 +466,7 @@ ul.menu-normal > li > a {
 }
 
 
+ul.menu-normal .submenu-item li a .cont-img,
 ul.menu-normal > li > a > div.cont-img {
     width: 65px;
     height: 45px;
@@ -423,6 +474,7 @@ ul.menu-normal > li > a > div.cont-img {
 }
 
 
+ul.menu-normal .submenu-item li a .cont-img img,
 ul.menu-normal > li > a > div.cont-img > img {
     width: 22px;
     height: 22px;
@@ -435,6 +487,7 @@ ul.menu-normal > li > a > div.cont-img > img {
 }
 
 
+ul.menu-normal .submenu-item li a .texto,
 ul.menu-normal > li > a > div.texto {
     width: calc(100% - 65px);
     line-height: 45px;
@@ -461,58 +514,13 @@ ul.menu-normal > li > a:hover::before {
 }
 
 
+ul.menu-normal .submenu-item li a:hover {
+    background-color: rgba(5, 12, 39, 0.43);    
+}
+
+
 ul.menu-normal > li > a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-
-/* ****** Menu de la sesión ****** */
-
-ul.menu-sesion {
-    position: absolute;
-    bottom: 20px;
-    width: 65px;
-    height: auto;
-}
-
-
-ul.menu-sesion li.mi-cuenta {
-    margin-top: 10px;
-    padding: 10px 0px;
-    margin: auto;
-    width: 45px;
-    border-top: 1px solid rgba(255,255,255,.3);
-    text-align: center;
-    color:#FFF;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-
-ul.menu-sesion li.img-perfil{
-    position: relative;
-    width: 65px;
-    height: 65px;
-}
-
-
-ul.menu-sesion li.img-perfil img{
-    padding: 5px;
-    border-radius: 50%;
-    width: 70%;
-    height: auto;
-    position: absolute; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: #FFF;
-}
-
-
-ul.menu-sesion li.cerrar-sesion {
-    display: none;
+    background-color: rgba(8, 10, 37, 0.73);
 }
 
 

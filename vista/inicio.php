@@ -4,10 +4,10 @@
     require_once ("../controlador/fecha.php");
     $sss = new sesiones();
     $sss->iniciar();
-
+    /*
     if(empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
     <div class="main scroll_modificado">
         
         <!-- menu de navegación -->
-        <nav id="menu" class="menu">
+        <nav id="menu" class="menu no-seleccionado">
             <!-- Icono menú -->
             <div class="icono-menu">
                 <div class="primero"></div>
@@ -67,7 +67,7 @@
                     
                     <!-- Link Ayuda -->
                     <li>
-                        <a href="http://192.168.10.70/Helpdesk/upload/open.php" target="contenido">
+                        <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/ayuda.png" alt="icono de ayuda">
@@ -76,32 +76,135 @@
                             <!-- Texto -->
                             <div class="texto">Ayuda</div>
                         </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="http://192.168.10.70/Helpdesk/upload/open.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/tickets.png" alt="icono de ticket">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Sistema de tickets</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="manual/05manual_es.pdf" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/guide.png" alt="icono de manual">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Manual de ayuda</div>
+                                   </a>
+                               </li> 
+                            </ul>
+                        </div>
                     </li>
                     
-                    <!-- Base de Datos -->
+                    <!-- Perfiles -->
                     <li>
-                        <a href="links.html" target="contenido">
+                        <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/documento.png" alt="icono de tablas">
+                                <img src="img/team.png" alt="icono de tablas">
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Gestión de Tablas</div>
+                            <div class="texto">Perfiles</div>
                         </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="administrador.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de administrador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Administrador</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="analista.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de analista">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Analista</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="asesor.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de asesor">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Asesor</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="lider.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de líder">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Líder</div>
+                                   </a>
+                               </li>
+                            </ul>
+                        </div>
                     </li>
-                    
-                    <!-- Informes -->
+
+                   
+                    <!-- Gestión de Items -->
                     <li>
-                        <a href="acceso_denegado.php" target="contenido">
+                        <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/estadistica.png" alt="icono de informe">
+                                <img src="img/team.png" alt="icono de tablas">
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Informes</div>
+                            <div class="texto">Items venta directa</div>
                         </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemDCS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de servicio y etiqueta telefónica">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Contacto directo - servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="itemDCN.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="negociación">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Contacto directo - negociación</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="itemDCR.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user.png" alt="icono de asesor">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Contacto directo - registro en el sistema</div>
+                                   </a>
+                               </li>
+                            </ul>
+                        </div>
                     </li>
                     
                     <hr class="divisor-menu">
@@ -171,23 +274,8 @@
                             <div class="texto">Cerrar Sesión</div>
                         </a>
                     </li>
-                    <!--
-                    <li><a href="#">registros</a></li>
-                    <li><a href="#">reportes</a></li>
-                    <li><a href="tipoDoc.php" class="btn btn-primary">Tipo Documento</a></li>
-                    <li><a href="#">ayuda</a></li>
-                    <li><a href="#">gestión</a></li>-->
                 </ul>
-                
-                <!--
-                <li class="cerrar-sesion"><a href="../controlador/logoutControlador.php">Salir</a></li>
-                -->
-                
-                <ul class="menu-sesion">
-                    <li class="mi-cuenta">Mi cuenta</li>
-                    <li class="img-perfil"><img src="img/girl%20(2).png" alt="Icono foto de perfil"></li>
-                </ul>
-            </div>
+            </div>|
         </nav>
         
         <div id="fondo-toggle" class="fondo-toggle"></div>
