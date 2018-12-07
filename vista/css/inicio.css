@@ -3,6 +3,7 @@
     overflow-x: hidden;
 }
 
+
 .scroll_menu::-webkit-scrollbar {
     width: 3px;
     height: 3px;
@@ -20,24 +21,35 @@
 
 /* ********************** */
 
-.titulo-divisor-menu {
+.menu-normal .titulo-divisor-menu {
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: left;
+    color: #ffffff;
+    padding: 7px 0px 7px 22px;
+    margin: 10px 0px;
+    background-color: rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+
+
+.menu-tooltip .titulo-divisor-menu {
     font-size: 9px;
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;
-    margin-bottom: 10px;
-}
-
-
-.divisor-menu {
-    width:50%;
-    position: relative;
-    left: 25%;
-    border: 0px;;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.54);
-    margin: 10px 0;
-    transition: 0.3s;
+    padding: 7px 0px;
+    margin: 10px 0px;
+    background-color: rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
 }
 
 .divisor-activado {
@@ -104,7 +116,6 @@
         width: 65px;
         height: 65px;
         cursor: pointer;
-        background-color: rgba(255,255,255,0.04);
     }
 
 
@@ -298,13 +309,47 @@
 /* Generalidades del menú lateral */
 /* ****************************** */
 
-.submenu-item {
-    display: none;
-}
-
 
 ul {
     list-style-type: none;
+}
+
+
+.item_menu_activado {
+    position: relative;
+    background-color: rgba(8, 10, 37, 0.73);
+    box-shadow: 0px 0px 3px rgba(59, 58, 96, 0.6);
+}
+
+a.item-seleccionado-actual{
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+
+a.item-seleccionado-actual:hover {
+    background-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+
+.item-seleccionado-actual::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.78);
+}
+
+
+.item_menu_activado::before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3269fd;
 }
 
 
@@ -455,6 +500,7 @@ ul.menu-tooltip > li > a:hover img {
 /* sub-items del menú */
 
 .submenu-item{
+    display: none;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -535,6 +581,17 @@ ul.menu-normal > li > a > div.texto {
     overflow: hidden;
     text-overflow: ellipsis;
     padding-right: 10px;
+}
+
+
+ul.menu-normal > li > a:hover::before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3269fd;
 }
 
 

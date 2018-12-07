@@ -28,10 +28,20 @@ $(document).ready(function(){
         funcionMenu();
     });
     
-    // Funcionalidad menú
+    // Función de sub grupos desplegables
+    $("#ul-menu li a[href='#']").click(function(){
+        
+        $(this).toggleClass("item_menu_activado");
+        $(this).siblings(".submenu-item").slideToggle(300);
+        
+    });
     
     
-    
+    $(".submenu-item ul li a").click(function(){
+        $(".item-seleccionado-actual").removeClass("item-seleccionado-actual");
+        $(this).addClass("item-seleccionado-actual");
+
+    });
 });
 
 

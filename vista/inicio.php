@@ -84,7 +84,7 @@
                                            <img src="img/tickets.png" alt="icono de ticket">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Sistema de tickets</div>
+                                       <div class="texto">Ticket de soporte</div>
                                    </a>
                                </li>
                                <li>
@@ -102,6 +102,11 @@
                     </li>
                     
                     <!-- Perfiles -->
+                    
+                    <?php
+                    if($_SESSION['rol']=="administrador"){
+                    ?>
+                        
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -157,9 +162,15 @@
                             </ul>
                         </div>
                     </li>
-
-                   
+                    <?php
+                    }
+                    ?>
+                    
                     <!-- Gestión de datos complementarios -->
+                    
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){
+                    ?>
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -236,6 +247,61 @@
                             </ul>
                         </div>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    
+                    <!-- Retro - alimentación -->
+                    
+                    <?php
+                    if($_SESSION['rol']=="analista"){
+                    ?>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/writing.png" alt="icono de retro-alimentación">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Retroalimentación</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="acceso_denegado.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/gestion-vd.png" alt="icono de retroalimentación venta directa">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Venta directa</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="acceso_denegado.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/gestion-f.png" alt="icono de retroalimentación financiera">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Financiera</div>
+                                   </a>
+                               </li> 
+                            </ul>
+                        </div>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    
+                    
+                    <?php
+                    if($_SESSION['rol']=="analista"){
+                    ?>
+                    <!-- divisor menu -->
+                    <h3 class="titulo-divisor-menu">Gestion de calidad</h3>
+                    
                     <!-- Gestiones de Calidad Venta directa -->
                     <li>
                         <a href="#">
@@ -245,7 +311,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Gestión - venta directa</div>
+                            <div class="texto">Venta directa</div>
                         </a>
                         <div class="submenu-item">
                             <ul>
@@ -302,7 +368,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Gestión - financiera</div>
+                            <div class="texto">Financiera</div>
                         </a>
                         <div class="submenu-item">
                             <ul>
@@ -338,49 +404,13 @@
                                </li>
                             </ul>
                         </div>
-                    </li>
-                    
-                    
-                    <!-- Retro - alimentación -->
-                    <li>
-                        <a href="#">
-                            <!-- Icono -->
-                            <div class="cont-img">
-                                <img src="img/writing.png" alt="icono de retro-alimentación">
-                            </div>
-                            
-                            <!-- Texto -->
-                            <div class="texto">Retroalimentación</div>
-                        </a>
-                        <div class="submenu-item">
-                            <ul>
-                               <li>
-                                   <a href="acceso_denegado.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/gestion-vd.png" alt="icono de retroalimentación venta directa">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Venta directa</div>
-                                   </a>
-                               </li>
-                               <li>
-                                   <a href="acceso_denegado.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/gestion-f.png" alt="icono de retroalimentación financiera">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Financiera</div>
-                                   </a>
-                               </li> 
-                            </ul>
-                        </div>
-                    </li>
+                    </li> 
+                    <?php
+                    }
+                    ?>
                     
                     <!-- divisor menu -->
-                    <hr class="divisor-menu">
-                    <h3 class="titulo-divisor-menu">general</h3>
+                    <h3 class="titulo-divisor-menu">informe general</h3>
                     
                     <!-- Informe venta directa -->
                     <li>
@@ -487,8 +517,7 @@
                     </li> 
                     
                     <!-- divisor menu -->
-                    <hr class="divisor-menu">
-                    <h3 class="titulo-divisor-menu">Detallado</h3>
+                    <h3 class="titulo-divisor-menu">informe Detallado</h3>
                     
                     <!-- Informe venta directa -->
                     <li>
@@ -596,7 +625,6 @@
 
                     
                     <!-- divisor menu -->
-                    <hr class="divisor-menu">
                     <h3 class="titulo-divisor-menu">Mi sesión</h3>
                     
                     <li>
@@ -621,7 +649,7 @@
                             <div class="texto">Cerrar Sesión</div>
                         </a>
                     </li>
-                    <br><br><br>
+                    <br><br><br><br><br>
                 </ul>
             </div>
         </nav>
