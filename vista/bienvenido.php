@@ -15,6 +15,7 @@
         <!-- Estilos -->
         <!-- Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bienvenido.css">
         <!-- personalizados -->
         <link rel="stylesheet" href="css/acceso_denegado.css">
 
@@ -58,18 +59,7 @@
             }
         } 
     ?>
-    
-    <style>
-        .texto1, .texto2 {
-            font-weight: 400;
-            text-shadow: 0px 0px 1px rgba(0,0,0,0.5), 0px 0px 10px rgba(0,0,0,.3);
-        }
-        
-        
-        .texto2 {
-            font-size: 26px;
-        }
-    </style>
+
 
     <div class="page-wrap d-flex flex-row align-items-center">
         <div class="container">

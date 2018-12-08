@@ -6,8 +6,7 @@ var imagenes = new Array(
     "url('img/fondos-bienvenido/5.jpg')",
     "url('img/fondos-bienvenido/6.jpg')",
     "url('img/fondos-bienvenido/7.jpg')",
-    "url('img/fondos-bienvenido/8.jpg')",
-    "url('img/fondos-bienvenido/9.jpg')"
+    "url('img/fondos-bienvenido/8.jpg')"
 );
 
 var numAleatorio = Math.round(Math.floor((Math.random() * imagenes.length - 1) + 1));

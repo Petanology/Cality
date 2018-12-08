@@ -1,0 +1,9 @@
+.texto1, .texto2 {
+    font-weight: 400;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.73), 0px 0px 10px rgba(0, 0, 0, 0.39);
+}
+
+
+.texto2 {
+    font-size: 26px;
+}

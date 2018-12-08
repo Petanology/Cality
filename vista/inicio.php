@@ -272,7 +272,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-vd.png" alt="icono de retroalimentación venta directa">
+                                           <img src="img/writing-vd.png" alt="icono de retroalimentación venta directa">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Venta directa</div>
@@ -282,7 +282,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-f.png" alt="icono de retroalimentación financiera">
+                                           <img src="img/writing-f.png" alt="icono de retroalimentación financiera">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Financiera</div>
@@ -319,7 +319,7 @@
                                    <a href="gestionDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-vd-dc.png" alt="icono de gestión">
+                                           <img src="img/gestion-dc.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo comercial</div>
@@ -329,7 +329,7 @@
                                    <a href="gestionDP.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-vd-dp.png" alt="icono de gestión">
+                                           <img src="img/gestion-dp.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo prejurídico</div>
@@ -339,7 +339,7 @@
                                    <a href="gestionIE.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-vd-ie.png" alt="icono de gestión">
+                                           <img src="img/gestion-ie.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto in-directo estándar</div>
@@ -349,7 +349,7 @@
                                    <a href="gestionIB.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-vd-ib.png" alt="icono de gestión">
+                                           <img src="img/gestion-ib.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound estándar</div>
@@ -376,7 +376,7 @@
                                    <a href="gestionNEG.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-f-todos.png" alt="icono de gestión">
+                                           <img src="img/gestion-financiera.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
@@ -386,7 +386,7 @@
                                    <a href="gestionMEN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-f-todos.png" alt="icono de gestión">
+                                           <img src="img/gestion-financiera.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Mensaje</div>
@@ -396,7 +396,7 @@
                                    <a href="gestionIBF.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/gestion-f-todos.png" alt="icono de gestión">
+                                           <img src="img/gestion-financiera.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound</div>
@@ -417,7 +417,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/informe-vd.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -429,7 +429,7 @@
                                    <a href="pdf/indexReporteDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-dc.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo comercial</div>
@@ -439,7 +439,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-dp.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo prejurídico</div>
@@ -449,7 +449,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-ie.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto in-directo estándar</div>
@@ -459,7 +459,7 @@
                                    <a href="pdf/indexReporteDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe sub listado">
+                                           <img src="img/i-general-ib.png" alt="icono de informe sub listado">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound estándar</div>
@@ -474,7 +474,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/informe-f.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -486,7 +486,7 @@
                                    <a href="pdf/acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
@@ -496,7 +496,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Mensaje</div>
@@ -506,7 +506,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/i-general-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound</div>
@@ -524,7 +524,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/detallado-vd.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -533,10 +533,10 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteDetalladoDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-dc.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo comercial</div>
@@ -546,7 +546,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-dp.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto directo prejurídico</div>
@@ -556,7 +556,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-ie.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Contacto in-directo estándar</div>
@@ -566,7 +566,7 @@
                                    <a href="pdf/indexReporteDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe sub listado">
+                                           <img src="img/detallado-ib.png" alt="icono de informe sub listado">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound estándar</div>
@@ -581,7 +581,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/detallado-f.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -593,7 +593,7 @@
                                    <a href="pdf/acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
@@ -603,7 +603,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Mensaje</div>
@@ -613,7 +613,7 @@
                                    <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/detallado-financiera.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Inbound</div>
@@ -621,7 +621,358 @@
                                </li>                           
                             </ul>
                         </div>
-                    </li>                    
+                    </li>  
+
+                    <?php
+                    if($_SESSION["rol"] == "analista"){
+                    ?>
+                    <!-- divisor menu -->
+                    <h3 class="mega-titulo-divisor-menu">Items</h3>       
+                    <h3 class="titulo-divisor-menu">Venta directa</h3>       
+                    
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/item_dc" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Contacto directo comercial</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemDCS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_dp.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemDCN.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_ie.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Negociación</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemDCR.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_ib.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>                                
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Contacto directo prejurídico</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemDPS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemDPN.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Negociación</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemDPR.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>                                
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Indirecto estándar</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemIES.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemIEI.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Información a terceros</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemIER.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>                                
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Inbound</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemIBS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemIBO.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Objeto de la llamada</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemIBR.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>  
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- financiera --> 
+                    <h3 class="titulo-divisor-menu">Financiera</h3>       
+                    
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Negociación</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemNPEP.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Protocolo y etiqueta profesional</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemNSC.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio al cliente</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemNN.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Negociación</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemNAD.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Actualización de datos</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="itemNRS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Mensaje</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemMSET.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemMIT.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Información a terceros</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemMRS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>                                
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/statistics.png" alt="icono de informe">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Inbound</div>
+                        </a>
+                        <div class="submenu-item">
+                            <ul>
+                               <li>
+                                   <a href="itemIBFS.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Servicio y etiqueta telefónica</div>
+                                   </a>
+                               </li>       
+                               <li>
+                                   <a href="itemIBFO.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Objeto de la llamada</div>
+                                   </a>
+                               </li> 
+                               <li>
+                                   <a href="itemIBFR.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Registro en el sistema</div>
+                                   </a>
+                               </li>  
+                            </ul>
+                        </div>
+                    </li>
+                    <?php    
+                    }
+                    ?>
+                                       
 
                     
                     <!-- divisor menu -->
