@@ -3,6 +3,7 @@
     require_once ("../modelo/gestionGeneralDao.php");
     require_once ("../controlador/sesiones.php");
     $sss = new sesiones();
+
     $sss->iniciar();
     class gestionDCControlador{
         public function __construct(){
@@ -40,6 +41,7 @@
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
+            
             /* ************************** */
             
             $seccion1 = array();
@@ -100,7 +102,7 @@
                 }
                 
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedioDC($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcr_input);
+                $encabezadoDao->registrarPromedio_dc($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcr_input);
                 
                 
                 foreach($seccion1 as $aprobadoItem){

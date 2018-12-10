@@ -35,8 +35,12 @@
             $segundaTabla = "dir_pre_n";
             $terceraTabla = "dir_pre_rs";
             
+            $acum_dps_input = $_POST['acum_dps_input'];
+            $acum_dpn_input = $_POST['acum_dpn_input'];
+            $acum_dpr_input = $_POST['acum_dpr_input'];
+            
             $valor[1] = $_POST["valorSeccionTabla1"];
-            $valor[2] = $_POST["valorSeccionTabla2 "];
+            $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
 
             /* ************************** */
@@ -97,6 +101,9 @@
                 for($i = 1; $i < 4; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
+                
+                // Registrar promedio alcanzado por seccion
+                $encabezadoDao->registrarPromedio_dp($idGestion,$acum_dps_input,$acum_dpn_input,$acum_dpr_input);
 
 
                 foreach($seccion1 as $aprobadoItem){

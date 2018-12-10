@@ -35,9 +35,82 @@
             return $this->registro;
         }
         
-        public function registrarPromedioDC($idGestion,$valorG1,$valorG2,$valorG3){
+        
+        public function registrarPromedio_dc($idGestion,$valorG1,$valorG2,$valorG3){
             try{
-                $query = $this->conexion->prepare("CALL registrarPromedioDC('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query = $this->conexion->prepare("CALL registrarPromedio_dc('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+                
+        public function registrarPromedio_dp($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_dp('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+
+        public function registrarPromedio_ie($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_ie('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+        
+        public function registrarPromedio_ib($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_ib('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+        
+        public function registrarPromedio_neg($idGestion,$valorG1,$valorG2,$valorG3,$valorG4,$valorG5){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_neg('$idGestion',$valorG1,$valorG2,$valorG3,$valorG4,$valorG5);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+        
+        public function registrarPromedio_men($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_men('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->registro = false;
+            }
+            return $this->registro;
+        }
+        
+        
+        public function registrarPromedio_ibf($idGestion,$valorG1,$valorG2,$valorG3){
+            try{
+                $query = $this->conexion->prepare("CALL registrarPromedio_ibf('$idGestion',$valorG1,$valorG2,$valorG3);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

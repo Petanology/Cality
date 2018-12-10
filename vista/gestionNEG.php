@@ -186,6 +186,7 @@
                                 }        
                             ?>
                             <span id="acum_npep" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_npep_input" name="acum_npep_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -237,7 +238,8 @@
                             <?php
                                 }        
                             ?>    
-                            <span id="acum_nsc" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                       
+                            <span id="acum_nsc" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span> 
+                            <input type="hidden" id="acum_nsc_input" name="acum_nsc_input" value="">                      
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -286,7 +288,8 @@
                             <?php
                                 }        
                             ?>  
-                            <span id="acum_nn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                          
+                            <span id="acum_nn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span> 
+                            <input type="hidden" id="acum_nn_input" name="acum_nn_input" value="">                         
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -337,6 +340,7 @@
                                 }        
                             ?>    
                             <span id="acum_nad" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                        
+                            <input type="hidden" id="acum_nad_input" name="acum_nad_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -386,7 +390,8 @@
                             <?php
                                 }        
                             ?>   
-                            <span id="acum_nrs" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>                         
+                            <span id="acum_nrs" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span> 
+                            <input type="hidden" id="acum_nrs_input" name="acum_nrs_input" value="">                        
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">

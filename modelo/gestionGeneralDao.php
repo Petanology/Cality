@@ -26,14 +26,27 @@
         }
         
         
-        public function validarResultadosParaInforme($mes){
+        public function validacionParaInformeDC($mes){
             try{
-                $query = $this->conexion->prepare("CALL validarResultadosParaInforme('$mes%');");
+                $query = $this->conexion->prepare("CALL validacionParaInformeDC('$mes%');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
             }
             return $query;
         }
+        
+        
+        /*
+        public function validacionParaInformeDC($mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionParaInformeDC('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        */
     }
 ?>

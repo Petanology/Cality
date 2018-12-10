@@ -25,18 +25,20 @@
             $asesor = $_POST["identificacion"];
             $analista = $_SESSION["idpersona"];
             $observacion = $_POST["observacion"];
-            
             $totalItemsMSET = $_POST["totalItemsMSET"];
             $totalItemsMIT = $_POST["totalItemsMIT"];
             $totalItemsMRS = $_POST["totalItemsMRS"];
-            
             $primerCampo = "ms";
             $segundoCampo= "mi";
             $tercerCampo = "mr";
-            
             $primeraTabla = "men_set";
             $segundaTabla = "men_it";
             $terceraTabla = "men_rs";
+            
+            // Totales de cada grupo
+            $acum_mset_input = $_POST["acum_mset_input"];
+            $acum_mit_input = $_POST["acum_mit_input"];
+            $acum_mrs_input = $_POST["acum_mrs_input"];
             
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
@@ -100,6 +102,9 @@
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
 
+                
+                // Registrar promedio alcanzado por seccion
+                $encabezadoDao->registrarPromedio_men($idGestion,$acum_mset_input,$acum_mit_input,$acum_mrs_input);
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);

@@ -181,11 +181,12 @@
                                 foreach($porc1 as $rowPorc1){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc1[0]; ?>%</span>
-                            <span id="acum_dps" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             <input type="hidden" id="valorSeccionDPS" name="valorSeccionTabla1" value="<?php echo $rowPorc1[0]; ?>">
                             <?php
                                 }        
                             ?>
+                            <span id="acum_dps" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dps_input" name="acum_dps_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -233,11 +234,12 @@
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
-                            <span id="acum_dpn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             <input type="hidden" id="valorSeccionDPN" name="valorSeccionTabla2" value="<?php echo $rowPorc2[0]; ?>">
                             <?php
                                 }        
                             ?>                           
+                            <span id="acum_dpn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dpn_input" name="acum_dpn_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
@@ -282,11 +284,12 @@
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <span id="acum_dpr" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
                             <input type="hidden" id="valorSeccionDPR" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
                             <?php
                                 }        
                             ?>                            
+                            <span id="acum_dpr" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dpr_input" name="acum_dpr_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">

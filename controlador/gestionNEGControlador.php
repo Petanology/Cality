@@ -44,6 +44,13 @@
             $cuartaTabla = "neg_ad";
             $quintaTabla = "neg_rs";
             
+            // Totales de cada grupo
+            $acum_npep_input = $_POST["acum_npep_input"];
+            $acum_nsc_input = $_POST["acum_nsc_input"];
+            $acum_nn_input = $_POST["acum_nn_input"];
+            $acum_nad_input = $_POST["acum_nad_input"];
+            $acum_nrs_input = $_POST["acum_nrs_input"];
+            
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
@@ -140,7 +147,9 @@
                 for($i = 1; $i < 6; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
-
+    
+                // Registrar promedio alcanzado por seccion
+                $encabezadoDao->registrarPromedio_neg($idGestion,$acum_npep_input,$acum_nsc_input,$acum_nn_input,$acum_nad_input,$acum_nrs_input);
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);

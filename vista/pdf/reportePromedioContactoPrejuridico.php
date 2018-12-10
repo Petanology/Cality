@@ -5,7 +5,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionParaInformeDC($_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionParaInformeDP($_POST["mesReporte"]);
     
 
     foreach($sihayInforme as $rowSihayInforme){
@@ -13,21 +13,13 @@
     }
     
     if(isset($SHIR)){
-    /*  COLORES:
-        ___________________________________________________
-        |  - - - - -  |  Claros         |  Oscuros         |
-        |  verde      |  130, 224, 170  |  88, 214, 141    |
-        |  amarillo   |  249, 231, 159  |  247, 220, 111   |
-        |  rojo       |  236, 112, 99   |  231, 76, 60     |
-        ---------------------------------------------------    
-    */
 
     require_once("../../modelo/liderDao.php");
     require_once("../../modelo/asesorDao.php");
     require_once("../../modelo/errorCriticoDao.php");
     require_once("../../modelo/generarPDFDao.php");
     require_once("../../modelo/unidadDao.php");
-    require_once("generalPDF-DC.php");
+    require_once("generalPDF-DP.php");
 
     // Declaración de acumuladores
     $acumPromedioSET = 0;
@@ -540,7 +532,7 @@
         
     }
     else{
-        header("location: indexReporteDC.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: indexReporteDP.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>
 

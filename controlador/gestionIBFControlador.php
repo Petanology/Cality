@@ -29,14 +29,17 @@
             $totalItemsIBFS = $_POST["totalItemsIBFS"];
             $totalItemsIBFO = $_POST["totalItemsIBFO"];
             $totalItemsIBFR = $_POST["totalItemsIBFR"];
-            
             $primerCampo = "ibfs";
             $segundoCampo= "ibfo";
             $tercerCampo = "ibfr";
-            
             $primeraTabla = "in_bound_fin_set";
             $segundaTabla = "in_bound_fin_ol";
             $terceraTabla = "in_bound_fin_rs";
+            
+            // Totales de cada grupo
+            $acum_ibfs_input = $_POST["acum_ibfs_input"];
+            $acum_ibfo_input = $_POST["acum_ibfo_input"];
+            $acum_ibfr_input = $_POST["acum_ibfr_input"];
             
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
@@ -99,7 +102,10 @@
                 for($i = 1; $i < 4; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
                 }
-
+                
+                
+                // Registrar promedio alcanzado por seccion
+                $encabezadoDao->registrarPromedio_ibf($idGestion,$acum_ibfs_input,$acum_ibfo_input,$acum_ibfr_input);
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);

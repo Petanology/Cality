@@ -238,7 +238,8 @@
                             <?php
                                 }        
                             ?>
-                            <span id="acum_dcn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>             <input type="hidden" id="acum_dcn_input" name="acum_dcn_input" value="">
+                            <span id="acum_dcn" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>             
+                            <input type="hidden" id="acum_dcn_input" name="acum_dcn_input" value="">
                             </th>
                         </tr>
                         <tr class="bg-dark text-white">
