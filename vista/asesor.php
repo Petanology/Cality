@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/asesorDao.php"); ?>
+<?php 
+    require_once ("../modelo/asesorDao.php");
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] == "asesor" || $_SESSION['rol'] == "lider" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
+?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -11,9 +20,9 @@
         <form action="" method="post">
             <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_asesor1"><i class="fas fa-plus"></i> REGISTRAR ASESOR</button>
         </form>
-        
+        <form name="formularioModificar" action="" method="post">
         <!-- Lista de asesores -->
-        <table class="table table-striped table-responsive-xl scroll_modificado">
+        <table id="tablaDinamica" class="table table-striped table-responsive-xl scroll_modificado">
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">
@@ -56,7 +65,6 @@
             </thead>
                
             <tbody class="table-light">
-                <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new asesorDao();
@@ -73,13 +81,13 @@
                         <td><?php echo $rowA[6] ?></td>
                         <td class="text-center"><?php if($rowA[7]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
-                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]?>" data-toggle="modal" data-target="#form_asesor2"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]?>"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                </form>
             </tbody>
         </table> 
+        </form>
         
         <?php
             include("modal/mRegistrarAsesor.php"); // Modal Registrar
@@ -110,7 +118,9 @@
         if(isset($_POST['botonRegistrar'])){
             echo "<script>$('#form_asesor1').modal('show');</script>";
         }
-    ?>
+    ?>    
+    <script src="js/datatables.min.js"></script>
+    <script src="js/ejecutarDataTable.js"></script>
 </body> 
 </html>
 

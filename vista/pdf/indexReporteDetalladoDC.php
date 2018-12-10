@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("encabezadoReportes.php"); ?>
+<?php 
+    require_once ("encabezadoReportes.php"); 
+    require_once ("../../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION["rol"]=="asesor" || empty($_SESSION['autenticado'])){
+        header("location:../acceso_denegado.php");
+    }
+?>
 
     <!-- Contenido -->  
     <div class="container-fluid pt-3">

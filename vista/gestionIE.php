@@ -6,6 +6,13 @@
     require_once ("../modelo/errorCriticoDao.php");
     require_once ("../modelo/itemDao.php");
     require_once ("../modelo/ValSeccDao.php");
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] != "analista" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
 ?>
         
     <!-- Mensaje de Registro / Actualización -->

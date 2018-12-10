@@ -4,10 +4,10 @@
     require_once ("../controlador/fecha.php");
     $sss = new sesiones();
     $sss->iniciar();
-    /*
+    
     if(empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
-    }*/
+    }
 ?>
 
 <!DOCTYPE html>
@@ -100,13 +100,10 @@
                             </ul>
                         </div>
                     </li>
-                    
-                    <!-- Perfiles -->
-                    
                     <?php
-                    if($_SESSION['rol']=="administrador"){
-                    ?>
-                        
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){
+                    ?>                    
+                    <!-- Perfiles -->
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -119,6 +116,9 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
+                            <?php
+                            if($_SESSION['rol']=="administrador"){
+                            ?>
                                <li>
                                    <a href="administrador.php" target="contenido">
                                        <!-- Icono -->
@@ -129,6 +129,9 @@
                                        <div class="texto">Administrador</div>
                                    </a>
                                </li>
+                            <?php
+                            }
+                            ?>
                                <li>
                                    <a href="analista.php" target="contenido">
                                        <!-- Icono -->
@@ -166,11 +169,11 @@
                     }
                     ?>
                     
-                    <!-- Gestión de datos complementarios -->
                     
                     <?php
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){
                     ?>
+                    <!-- Gestión de datos complementarios -->
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -409,6 +412,10 @@
                     }
                     ?>
                     
+                    
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider"){
+                    ?>
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe general</h3>
                     
@@ -456,7 +463,7 @@
                                    </a>
                                </li> 
                                <li>
-                                   <a href="pdf/indexReporteDC.php" target="contenido">
+                                   <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-ib.png" alt="icono de informe sub listado">
@@ -468,8 +475,6 @@
                             </ul>
                         </div>
                     </li>              
-                    
-                    <!-- Informe detallado -->
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -483,7 +488,7 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="pdf/acceso_denegado.php" target="contenido">
+                                   <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-financiera.png" alt="icono de informe">
@@ -516,6 +521,7 @@
                         </div>
                     </li> 
                     
+                    <!-- informe detallado -->
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe Detallado</h3>
                     
@@ -563,7 +569,7 @@
                                    </a>
                                </li> 
                                <li>
-                                   <a href="pdf/indexReporteDC.php" target="contenido">
+                                   <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-ib.png" alt="icono de informe sub listado">
@@ -576,7 +582,6 @@
                         </div>
                     </li>              
                     
-                    <!-- Informe detallado -->
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -590,7 +595,7 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="pdf/acceso_denegado.php" target="contenido">
+                                   <a href="acceso_denegado.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-financiera.png" alt="icono de informe">
@@ -621,7 +626,10 @@
                                </li>                           
                             </ul>
                         </div>
-                    </li>  
+                    </li>
+                    <?php
+                    }
+                    ?> 
 
                     <?php
                     if($_SESSION["rol"] == "analista"){
@@ -646,7 +654,7 @@
                                    <a href="itemDCS.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_dp.png" alt="icono de informe">
+                                           <img src="img/item_dc_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
@@ -656,7 +664,7 @@
                                    <a href="itemDCN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_ie.png" alt="icono de informe">
+                                           <img src="img/item_dc_neg.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
@@ -666,7 +674,7 @@
                                    <a href="itemDCR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_ib.png" alt="icono de informe">
+                                           <img src="img/item_dc_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -679,7 +687,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_dp.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -691,7 +699,7 @@
                                    <a href="itemDPS.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                           <img src="img/item_dp_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
@@ -701,7 +709,7 @@
                                    <a href="itemDPN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                           <img src="img/item_dp_neg.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
@@ -711,7 +719,7 @@
                                    <a href="itemDPR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/item_financiera.png" alt="icono de informe">
+                                           <img src="img/item_dp_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -724,7 +732,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_ie.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -736,7 +744,7 @@
                                    <a href="itemIES.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ie_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
@@ -746,7 +754,7 @@
                                    <a href="itemIEI.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ie_it.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Información a terceros</div>
@@ -756,7 +764,7 @@
                                    <a href="itemIER.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ie_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -769,7 +777,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_ib.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -781,7 +789,7 @@
                                    <a href="itemIBS.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ib_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
@@ -791,7 +799,7 @@
                                    <a href="itemIBO.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ib_oll.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Objeto de la llamada</div>
@@ -801,7 +809,7 @@
                                    <a href="itemIBR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ib_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -818,7 +826,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_financiera.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -830,7 +838,7 @@
                                    <a href="itemNPEP.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_neg_pep.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Protocolo y etiqueta profesional</div>
@@ -840,7 +848,7 @@
                                    <a href="itemNSC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_neg_sc.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio al cliente</div>
@@ -850,27 +858,27 @@
                                    <a href="itemNN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_neg_n.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Negociación</div>
                                    </a>
                                </li> 
                                <li>
-                                   <a href="itemNAD.php" target="contenido">
+                                   <a href="itemNA.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_neg_ad.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Actualización de datos</div>
                                    </a>
                                </li>
                                <li>
-                                   <a href="itemNRS.php" target="contenido">
+                                   <a href="itemNR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_neg_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -883,7 +891,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_financiera.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -892,30 +900,30 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="itemMSET.php" target="contenido">
+                                   <a href="itemMS.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_men_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
                                    </a>
                                </li>       
                                <li>
-                                   <a href="itemMIT.php" target="contenido">
+                                   <a href="itemMI.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_men_it.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Información a terceros</div>
                                    </a>
                                </li> 
                                <li>
-                                   <a href="itemMRS.php" target="contenido">
+                                   <a href="itemMR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_men_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>
@@ -928,7 +936,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/statistics.png" alt="icono de informe">
+                                <img src="img/item_financiera.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->
@@ -940,7 +948,7 @@
                                    <a href="itemIBFS.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ibf_set.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Servicio y etiqueta telefónica</div>
@@ -950,7 +958,7 @@
                                    <a href="itemIBFO.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ibf_oll.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Objeto de la llamada</div>
@@ -960,7 +968,7 @@
                                    <a href="itemIBFR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/statistics-sub.png" alt="icono de informe">
+                                           <img src="img/item_ibf_rs.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Registro en el sistema</div>

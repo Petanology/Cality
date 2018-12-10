@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/administradorDao.php"); ?>
+<?php 
+    require_once ("../modelo/administradorDao.php"); 
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] != "administrador" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
+?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -11,7 +20,8 @@
         <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_administrador1"><i class="fas fa-plus"></i> REGISTRAR ADMINISTRADOR</button>
         
         <!-- Lista de administradores  -->
-        <table class="table table-striped table-responsive-xl scroll_modificado">
+        <form action="" method="post">
+        <table id="tablaDinamica" class="table table-striped table-responsive-xl scroll_modificado">
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">
@@ -50,7 +60,6 @@
             </thead>
                
             <tbody class="table-light">
-                <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new administradorDao();
@@ -70,9 +79,9 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                </form>
             </tbody>
         </table> 
+        </form>
         
         <?php
             include("modal/mRegistrarAdministrador.php"); // Modal Registrar
@@ -99,5 +108,7 @@
             echo "<script>$('#form_administrador2').modal('show');</script>";
         }
     ?>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/ejecutarDataTable.js"></script>
 </body> 
 </html>

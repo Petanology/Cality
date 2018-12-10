@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/tipoDocDao.php"); ?>
+<?php 
+    require_once ("../modelo/tipoDocDao.php"); 
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] == "asesor" || $_SESSION['rol'] == "lider" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
+?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>

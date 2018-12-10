@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/errorCriticoDao.php"); ?>
+<?php 
+    require_once ("../modelo/errorCriticoDao.php");
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] == "asesor" || $_SESSION['rol'] == "lider" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
+?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -13,7 +22,8 @@
         </form>
         
         <!-- Lista de error critico -->
-        <table class="table table-striped">
+        <form action="" method="post">
+        <table id="tablaDinamica" class="table table-striped">
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">
@@ -36,7 +46,6 @@
             </thead>
                
             <tbody class="table-light">
-                <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoTDD = new errorCriticoDao();
@@ -53,9 +62,9 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                </form>
             </tbody>
         </table> 
+        </form>
         
         
         <?php
@@ -88,5 +97,7 @@
             echo "<script>$('#form_error_critico1').modal('show');</script>";
         }
     ?>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/ejecutarDataTable.js"></script>
 </body> 
 </html>

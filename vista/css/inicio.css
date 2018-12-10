@@ -29,8 +29,7 @@
     padding: 7px 0px 7px 22px;
     margin: 10px 0px;
     background-color: rgba(255,255,255,0.05);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.12);
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
@@ -45,8 +44,7 @@
     padding: 7px 0px;
     margin: 10px 0px;
     background-color: rgba(255,255,255,0.05);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.12);
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
@@ -54,13 +52,14 @@
 
 
 .menu-normal .mega-titulo-divisor-menu {
-    font-size: 10px;
+    font-size: 12px;
     text-transform:uppercase;
-    color:#FFF;
+    color:#0c1121;
     text-align: left;
     margin-top: 10px;
-    padding-top: 10px;
-    padding-left: 22px;
+    margin-bottom: -10px;
+    padding: 8px 0 8px 22px;
+    background-color: rgba(255, 255, 255, 0.27);
     border-top: 1px solid rgba(255, 255, 255, 0.26);
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
@@ -71,10 +70,12 @@
 .menu-tooltip .mega-titulo-divisor-menu {
     font-size: 10px;
     text-transform:uppercase;
-    color:#FFF;
+    color:#0c1121;
     text-align: center;
     margin-top: 10px;
-    padding-top: 10px;
+    margin-bottom: -10px;
+    padding: 8px 0;
+    background-color: rgba(255, 255, 255, 0.27);
     border-top: 1px solid rgba(255, 255, 255, 0.26);
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;

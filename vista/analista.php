@@ -1,5 +1,14 @@
 <!-- importaciones requeridas -->
-<?php require_once ("../modelo/analistaDao.php"); ?>
+<?php 
+    require_once ("../modelo/analistaDao.php"); 
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
+    
+    if($_SESSION['rol'] == "asesor" || $_SESSION['rol'] == "lider" || empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
+?>
         
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
@@ -13,7 +22,8 @@
         </form>
         
         <!-- Lista de analistas -->
-        <table class="table table-striped table-responsive-xl scroll_modificado">
+        <form action="" method="post">
+        <table id="tablaDinamica" class="table table-striped table-responsive-xl scroll_modificado">
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">
@@ -52,7 +62,6 @@
             </thead>
                
             <tbody class="table-light">
-                <form action="" method="post">
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new analistaDao();
@@ -72,9 +81,9 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                </form>
             </tbody>
         </table> 
+        </form>
         
         <?php
             include("modal/mRegistrarAnalista.php"); // Modal Registrar
@@ -106,5 +115,7 @@
             echo "<script>$('#form_analista1').modal('show');</script>";
         }
     ?>
+    <script src="js/datatables.min.js"></script>
+    <script src="js/ejecutarDataTable.js"></script>
 </body> 
 </html>

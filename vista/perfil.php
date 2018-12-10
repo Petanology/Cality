@@ -4,6 +4,10 @@
     require_once ("../controlador/fecha.php");
     $sss = new sesiones();
     $sss->iniciar();
+    
+    if(empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -35,11 +39,40 @@
             </svg>
         </div>
     </div>
-    
-    <?php 
-        $_SESSION['autenticado'];
-    ?>
-    
+    <div class="container p-3">
+        <div class="card">
+            <div class="text-center">
+                <img src="img/girl%20(1).png" width="100" height="100" class="rounded-circle border border-primary shadow-sm m-2" alt="Imagen de perfil">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <?php
+                        echo "<strong>usuario: </strong>" . $_SESSION['usuario'];
+                    ?>
+                </li>
+                <li class="list-group-item">
+                    <?php
+                        echo "<strong>identificación: </strong>" . $_SESSION['idpersona'];
+                    ?>
+                </li>
+                <li class="list-group-item">
+                    <?php
+                        echo "<strong>nombres: </strong>" . $_SESSION['nombres'];
+                    ?>
+                </li>
+                <li class="list-group-item">
+                    <?php
+                        echo "<strong>genero: </strong>" . $_SESSION['genero'];
+                    ?>
+                </li>
+                <li class="list-group-item">
+                    <?php
+                        echo "<strong>correo electronico: </strong>" . $_SESSION['correo'];
+                    ?>
+                </li>
+            </ul>
+        </div>
+    </div>
     
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>

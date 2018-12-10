@@ -17,6 +17,10 @@
     background-attachment: fixed;
 }
 
+.container-fluid {
+    margin-bottom: 50px;
+}
+
 
 body {
     background-color: #f1f1f1;

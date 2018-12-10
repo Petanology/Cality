@@ -1,8 +1,11 @@
 <?php
-    // importaciones requeridas
     require_once ("../controlador/sesiones.php");
     $sss = new sesiones();
     $sss->iniciar();
+    
+    if(empty($_SESSION['autenticado'])){
+        header("location:acceso_denegado.php");
+    }
 ?>
 
 <!DOCTYPE html>
