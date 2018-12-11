@@ -13,14 +13,6 @@
     }
     
     if(isset($SHIR)){
-    /*  COLORES:
-        ___________________________________________________
-        |  - - - - -  |  Claros         |  Oscuros         |
-        |  verde      |  130, 224, 170  |  88, 214, 141    |
-        |  amarillo   |  249, 231, 159  |  247, 220, 111   |
-        |  rojo       |  236, 112, 99   |  231, 76, 60     |
-        ---------------------------------------------------    
-    */
 
     require_once("../../modelo/liderDao.php");
     require_once("../../modelo/asesorDao.php");
@@ -36,17 +28,25 @@
     $acumSETUnidades = 0;
     $acumNEGUnidades = 0;
     $acumRSUnidades = 0;
+    $acumTotalRankingG1 = 0;
+    $acumTotalRankingG2 = 0;
+    $acumTotalRankingG3 = 0;
+    $acumTotalRankingG4 = 0;
 
     // Declaración de contador
     $contNumeroAsesores = 0;
     $cTotalUnidades = 0;
+    $contTotalRankingG1 = 0;
+    $contTotalRankingG2 = 0;
+    $contTotalRankingG3 = 0;
+    $contTotalRankingG4 = 0;
         
     // Otras
     $grupoSETValor = 0;
     $grupoNEGValor = 0;
     $grupoRSValor = 0;
 
-    $pdf = new PDF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
+    $pdf = new PDFDC('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
     // Varaibles generales
     $pdf->mes = $_POST["mesReporte"];
@@ -56,69 +56,15 @@
     function sort_by_orden($a, $b) {
         return $b[4] - $a[4];
     }
-    
-    
-    // Calcular Promedio C-Directo
-    function impresionColorOscuro($nResultado){
-        global $pdf;
-        if($nResultado >= 0 && $nResultado <= 68){
-            $pdf->SetFillColor(231, 76, 60);
-        } else if($nResultado >= 69 && $nResultado <= 84){
-            $pdf->SetFillColor(247, 220, 111);
-        } else if($nResultado >= 85 && $nResultado <= 100){
-            $pdf->SetFillColor(88, 214, 141);
-        } else {
-            $pdf->SetFillColor(142, 68, 173);
-        }
-    }
-
         
-    // Calcular Totales Claros
-    function impresionColorRankingA($nResultado){
-        global $pdf;
-        if($nResultado >= 0 && $nResultado <= 68){
-            $pdf->SetFillColor(236, 112, 99);
-        } else if($nResultado >= 69 && $nResultado <= 84){
-            $pdf->SetFillColor(249, 231, 159);
-        } else if($nResultado >= 85 && $nResultado <= 100){
-            $pdf->SetFillColor(130, 224, 170);
-        } else {
-            $pdf->SetFillColor(142, 68, 173);
-        }
-    }
-        
-    // Calcular y aplciar color de fondo para grupo de items
-    function impresionColorClaro($maximo,$nResultado){
-        global $pdf;
-        
-        $indicadorMaximo = $maximo;
-        $indicadorRojo = 69 * $indicadorMaximo / 100;
-        $indicadorAmarillo = 85 * $indicadorMaximo / 100;
-        
-        if($nResultado >= 0 && $nResultado < $indicadorRojo){
-            
-            $pdf->SetFillColor(236, 112, 99);
-            
-        } else if($nResultado >= $indicadorRojo && $nResultado < $indicadorAmarillo){
-            
-            $pdf->SetFillColor(249, 231, 159);
-            
-        } else if($nResultado >= $indicadorAmarillo && $nResultado <= $indicadorMaximo){
-            
-            $pdf->SetFillColor(130, 224, 170);
-            
-        } else {
-            $pdf->SetFillColor(142, 68, 173);
-        }
-
-    }
+    require_once("funcionesColorFondo.php");
 
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(46, 134, 193);
     $pdf->SetDrawColor(46, 134, 193);
     $pdf->SetTextColor(255,255,255);
-    $pdf->Cell(0,8,'PROMEDIO CONTACTO DIRECTO',1,1,'C',1);
+    $pdf->Cell(0,8,'PROMEDIO GRUPAL',1,1,'C',1);
     
 
 
@@ -160,7 +106,7 @@
 
     // Instancia a líder
     $objetoLiderDao = new liderDao();
-    $rLiderDao = $objetoLiderDao->listarPromedioLider($pdf->mes);
+    $rLiderDao = $objetoLiderDao->listarPromedioLiderDC($pdf->mes);
 
     // Instancia a Asesor
     $ojetoAsesorDao = new asesorDao();
@@ -177,7 +123,7 @@
         $pdf->Cell(24,6,$rowRLiderDao[4],0,1,'C',1);
 
         
-        $rAsesorDao = $ojetoAsesorDao->listarPromedioAsesor($pdf->mes,$rowRLiderDao[0]);
+        $rAsesorDao = $ojetoAsesorDao->listarPromedioAsesorDC($pdf->mes,$rowRLiderDao[0]);
         
         foreach ($rAsesorDao as $rowRAsesorDao) {
            
@@ -259,7 +205,7 @@
 
     // Instancia a unidad
     $oRankUnidad = new unidadDao();
-    $resulORankUnidad = $oRankUnidad->listarRankingUnidad($pdf->mes);
+    $resulORankUnidad = $oRankUnidad->listarRankingUnidadDC($pdf->mes);
 
     foreach($resulORankUnidad as $rowResulORankUnidad){
             // Nombre
@@ -339,7 +285,7 @@
 
     // Instancia a Asesor
     $oRankAsesor = new asesorDao();
-    $rRankingAsesor = $oRankAsesor->listarRankingAsesor($pdf->mes);
+    $rRankingAsesor = $oRankAsesor->listarRankingAsesorDC($pdf->mes);
         
     $asesores = array();
     
@@ -393,6 +339,9 @@
             if(isset($rowAsesores[1])){
                 impresionColorRankingA($rowAsesores[1]);
                 $pdf->Cell(25,5,$rowAsesores[1],0,0,'C',1); 
+                
+                $acumTotalRankingG1 += $rowAsesores[1];
+                $contTotalRankingG1++;
             }else{
                 $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1); 
@@ -402,6 +351,9 @@
             if(isset($rowAsesores[2])){
                 impresionColorRankingA($rowAsesores[2]);
                 $pdf->Cell(25,5,$rowAsesores[2],0,0,'C',1);
+                
+                $acumTotalRankingG2 += $rowAsesores[2];
+                $contTotalRankingG2++;
             }else{
                 $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1);
@@ -412,6 +364,9 @@
             if(isset($rowAsesores[3])){
                 impresionColorRankingA($rowAsesores[3]);
                 $pdf->Cell(25,5,$rowAsesores[3],0,0,'C',1);
+                
+                $acumTotalRankingG3 += $rowAsesores[3];
+                $contTotalRankingG3++;
             }else{
                 $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(25,5,"",0,0,'C',1);
@@ -421,6 +376,9 @@
             if(isset($rowAsesores[4])){
                 impresionColorOscuro($rowAsesores[4]);
                 $pdf->Cell(30,5,$rowAsesores[4] . "%",0,1,'C',1);
+                
+                $acumTotalRankingG4 += $rowAsesores[4];
+                $contTotalRankingG4++;
             }else{
                 $pdf->SetFillColor(93, 109, 126);
                 $pdf->Cell(30,5,"",0,1,'C',1);
@@ -434,10 +392,10 @@
 
     // Total General
     $pdf->Cell(91,7,'ACUMULADO TOTAL',0,0,'C',1); 
-    $pdf->Cell(25,7,'85',0,0,'C',1); 
-    $pdf->Cell(25,7,'84',0,0,'C',1);
-    $pdf->Cell(25,7,'88',0,0,'C',1);
-    $pdf->Cell(30,7,'86',0,1,'C',1);
+    $pdf->Cell(25,7,round($acumTotalRankingG1/ $contTotalRankingG1,1),0,0,'C',1); 
+    $pdf->Cell(25,7,round($acumTotalRankingG2 / $contTotalRankingG2,1),0,0,'C',1);
+    $pdf->Cell(25,7,round($acumTotalRankingG3 / $contTotalRankingG3,1),0,0,'C',1);
+    $pdf->Cell(30,7,round($acumTotalRankingG4 / $contTotalRankingG4,1),0,1,'C',1);
 
     // Separador
     $pdf->AddPage();
@@ -479,7 +437,7 @@
     $pdf->SetDrawColor(100,100,100);
     
     $erroresCriticosIDao = new errorCriticoDao();
-    $rErroresCI = $erroresCriticosIDao->listarErroresCriticosInfringidos($pdf->mes);
+    $rErroresCI = $erroresCriticosIDao->listarErroresCriticosInfringidosDC($pdf->mes);
 
     foreach($rErroresCI as $rowRErroresCI){
             // Nombre

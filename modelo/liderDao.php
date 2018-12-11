@@ -74,10 +74,82 @@
             return $this->modificacion;
         }
         
-        // Listar promedio de Líder
-        public function listarPromedioLider($mes){
+        // Listar promedio de Líder DC
+        public function listarPromedioLiderDC($mes){
             try{
-                $query = $this->conexion->prepare("CALL listarPromedioLider('$mes%');");
+                $query = $this->conexion->prepare("CALL listarPromedioLiderDC('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder DP
+        public function listarPromedioLiderDP($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderDP('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder IE
+        public function listarPromedioLiderIE($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderIE('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder IB
+        public function listarPromedioLiderIB($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderIB('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder NEG
+        public function listarPromedioLiderNEG($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderNEG('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder MEN
+        public function listarPromedioLiderMEN($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderMEN('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Líder IBF
+        public function listarPromedioLiderIBF($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioLiderIBF('$mes%');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

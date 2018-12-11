@@ -31,8 +31,6 @@
     
     <!-- Jquery con ondas -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    
-    <!--<script src="js/wave.js"></script>-->
 </head>
 <body>
     <div>
@@ -443,7 +441,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteDP.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-dp.png" alt="icono de informe">

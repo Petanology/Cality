@@ -90,11 +90,60 @@
             }
             return $this->modificacion;
         }
+
         
-        // Listar promedio de Asesor
-        public function listarPromedioAsesor($mes,$lider){
+        // Listar promedio de Asesor DC
+        public function listarPromedioAsesorDC($mes,$lider){
             try{
-                $query = $this->conexion->prepare("CALL listarPromedioAsesor('$mes%','$lider');");
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorDC('$mes%','$lider');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Asesor DP
+        public function listarPromedioAsesorDP($mes,$lider){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorDP('$mes%','$lider');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Asesor IE
+        public function listarPromedioAsesorIE($mes,$lider){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorIE('$mes%','$lider');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Asesor IB
+        public function listarPromedioAsesorIB($mes,$lider){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorIB('$mes%','$lider');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar promedio de Asesor NEG
+        public function listarPromedioAsesorNEG($mes,$lider){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorNEG('$mes%','$lider');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -103,15 +152,112 @@
         }
         
     
-        // Listar ranking de asesores
-        public function listarRankingAsesor($mes){
+        // Listar promedio de Asesor MEN
+        public function listarPromedioAsesorMEN($mes,$lider){
             try{
-                $query = $this->conexion->prepare("CALL listarRankingAsesor('$mes%');");
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorMEN('$mes%','$lider');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
             }
             return $query;
         }
+        
+    
+        // Listar promedio de Asesor IBF
+        public function listarPromedioAsesorIBF($mes,$lider){
+            try{
+                $query = $this->conexion->prepare("CALL listarPromedioAsesorIBF('$mes%','$lider');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+    
+        // Listar ranking de asesores DC
+        public function listarRankingAsesorDC($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorDC('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar ranking de asesores DP
+        public function listarRankingAsesorDP($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorDP('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+
+        
+        // Listar ranking de asesores IE
+        public function listarRankingAsesorIE($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorIE('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar ranking de asesores IB
+        public function listarRankingAsesorIB($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorIB('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // Listar ranking de asesores NEG
+        public function listarRankingAsesorNEG($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorNEG('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+    
+        
+        // Listar ranking de asesores MEN
+        public function listarRankingAsesorMEN($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorMEN('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+
+        
+        // Listar ranking de asesores IBF
+        public function listarRankingAsesorIBF($mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarRankingAsesorIBF('$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+    
     }
 ?>

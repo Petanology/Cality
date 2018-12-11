@@ -62,10 +62,82 @@
         }
         
         
-        // listar item Unidad
-        public function listarRankingUnidad($mes){
+        // listar item Unidad DC
+        public function listarRankingUnidadDC($mes){
             try{
-                $query = $this->conexion->prepare("call listarRankingUnidad('$mes%')"); 
+                $query = $this->conexion->prepare("call listarRankingUnidadDC('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+
+        // listar item Unidad DP
+        public function listarRankingUnidadDP($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadDP('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+    
+        // listar item Unidad IE
+        public function listarRankingUnidadIE($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadIE('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // listar item Unidad IB
+        public function listarRankingUnidadIB($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadIB('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // listar item Unidad NEG
+        public function listarRankingUnidadNEG($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadNEG('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // listar item Unidad MEN
+        public function listarRankingUnidadMEN($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadMEN('$mes%')"); 
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // listar item Unidad IBF
+        public function listarRankingUnidadIBF($mes){
+            try{
+                $query = $this->conexion->prepare("call listarRankingUnidadIBF('$mes%')"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
