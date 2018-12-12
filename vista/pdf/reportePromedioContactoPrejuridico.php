@@ -393,26 +393,30 @@
 
     // Total General
     $pdf->Cell(91,7,'ACUMULADO TOTAL',0,0,'C',1); 
-    try{
-        
+    if($contTotalRankingG1 == 0){
+        $pdf->Cell(25,7,0,0,0,'C',1); 
+    }else{
         $pdf->Cell(25,7,round($acumTotalRankingG1 / $contTotalRankingG1, 1),0,0,'C',1); 
+    }
         
-    }catch(Exception $e){
-        
-        $pdf->Cell(25,7,"",0,0,'C',1); 
-        
+    if($contTotalRankingG2 == 0){
+        $pdf->Cell(25,7,0,0,0,'C',1); 
+    }else{
+        $pdf->Cell(25,7,round($acumTotalRankingG2 / $contTotalRankingG2, 1),0,0,'C',1);
     }
     
-        
-    try{
-    $pdf->Cell(25,7,round($acumTotalRankingG2 / $contTotalRankingG2, 1),0,0,'C',1);
-    }catch(Exception $e){
-        $pdf->Cell(25,7,"",0,0,'C',1); 
-        
+    if($contTotalRankingG3 == 0){
+        $pdf->Cell(25,7,0,0,0,'C',1); 
+    }else{
+        $pdf->Cell(25,7,round($acumTotalRankingG3 / $contTotalRankingG3, 1),0,0,'C',1);
     }
-    
-    $pdf->Cell(25,7,round($acumTotalRankingG3 / $contTotalRankingG3, 1),0,0,'C',1);
-    $pdf->Cell(30,7,round($acumTotalRankingG4 / $contTotalRankingG4, 1),0,1,'C',1);
+        
+        
+    if($contTotalRankingG4 == 0){
+        $pdf->Cell(30,7,0,0,1,'C',1); 
+    }else{
+        $pdf->Cell(30,7,round($acumTotalRankingG4 / $contTotalRankingG4, 1),0,1,'C',1);
+    }
 
     // Separador
     $pdf->AddPage();
@@ -511,7 +515,7 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-venta-directa-$pdf->mes.pdf");
+    $pdf->Output("I","informe-vd-directo-prejuridico-$pdf->mes.pdf");
         
     }
     else{

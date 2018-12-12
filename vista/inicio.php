@@ -451,7 +451,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteIE.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-ie.png" alt="icono de informe">
@@ -461,7 +461,7 @@
                                    </a>
                                </li> 
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteIB.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-ib.png" alt="icono de informe sub listado">
@@ -486,7 +486,7 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteNEG.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-financiera.png" alt="icono de informe">
@@ -496,7 +496,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexReporteMEN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-financiera.png" alt="icono de informe">
@@ -506,7 +506,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexPromedioIBF.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-financiera.png" alt="icono de informe">

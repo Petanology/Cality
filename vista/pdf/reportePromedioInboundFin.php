@@ -5,7 +5,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionParaInformeDC($_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionParaInformeIBF($_POST["mesReporte"]);
     
 
     foreach($sihayInforme as $rowSihayInforme){
@@ -19,14 +19,14 @@
     require_once("../../modelo/errorCriticoDao.php");
     require_once("../../modelo/generarPDFDao.php");
     require_once("../../modelo/unidadDao.php");
-    require_once("generalPDF-DC.php");
+    require_once("generalPDF-IBF.php");
 
     // Declaración de acumuladores
     $acumPromedioSET = 0;
-    $acumPromedioNEG = 0;
+    $acumPromedioOLL = 0;
     $acumPromedioRS = 0;
     $acumSETUnidades = 0;
-    $acumNEGUnidades = 0;
+    $acumOLLUnidades = 0;
     $acumRSUnidades = 0;
     $acumTotalRankingG1 = 0;
     $acumTotalRankingG2 = 0;
@@ -43,10 +43,10 @@
         
     // Otras
     $grupoSETValor = 0;
-    $grupoNEGValor = 0;
+    $grupoOLLValor = 0;
     $grupoRSValor = 0;
 
-    $pdf = new PDFDC('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
+    $pdf = new PDFIBF('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
     // Varaibles generales
     $pdf->mes = $_POST["mesReporte"];
@@ -61,8 +61,8 @@
 
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(46, 134, 193);
-    $pdf->SetDrawColor(46, 134, 193);
+    $pdf->SetFillColor(22, 160, 133);
+    $pdf->SetDrawColor(22, 160, 133);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'PROMEDIO GRUPAL',1,1,'C',1);
     
@@ -77,7 +77,7 @@
     // Titulos tabla
     $pdf->Cell(51,6,'ASESORES',0,0,'C',1); 
     $pdf->Cell(55,6,'SERVICIO Y ETIQUETA TELEFÓNICA',0,0,'C',1); 
-    $pdf->Cell(25,6,'NEGOCIACIÓN',0,0,'C',1);
+    $pdf->Cell(25,6,'OBJ. LLAMADA',0,0,'C',1);
     $pdf->Cell(41,6,'REGISTRO EN EL SISTEMA',0,0,'C',1);
     $pdf->Cell(24,6,'ACUMULADO',0,1,'C',1);    
 
@@ -85,28 +85,28 @@
 
     // Listar porcentajes del mes
     $objetoPDFDao = new generarPDFDao();
-    $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($pdf->mes);
+    $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoIBF($pdf->mes);
 
     foreach($rValorPDF as $rowRV){
         global $grupoSETValor; 
-        global $grupoNEGValor; 
+        global $grupoOLLValor; 
         global $grupoRSValor; 
         
         $grupoSETValor = $rowRV[0];
-        $grupoNEGValor = $rowRV[1];
+        $grupoOLLValor = $rowRV[1];
         $grupoRSValor = $rowRV[2];
     }
     
     $pdf->Cell(51,4,'- LÍDER -',0,0,'C',1); 
     $pdf->Cell(55,4,"$grupoSETValor%",0,0,'C',1); 
-    $pdf->Cell(25,4,"$grupoNEGValor%",0,0,'C',1);
+    $pdf->Cell(25,4,"$grupoOLLValor%",0,0,'C',1);
     $pdf->Cell(41,4,"$grupoRSValor%",0,0,'C',1);
     $pdf->Cell(24,4,$rowRV[0]+$rowRV[1]+$rowRV[2] ."%",0,1,'C',1);
 
 
     // Instancia a líder
     $objetoLiderDao = new liderDao();
-    $rLiderDao = $objetoLiderDao->listarPromedioLiderDC($pdf->mes);
+    $rLiderDao = $objetoLiderDao->listarPromedioLiderIBF($pdf->mes);
 
     // Instancia a Asesor
     $ojetoAsesorDao = new asesorDao();
@@ -123,7 +123,7 @@
         $pdf->Cell(24,6,$rowRLiderDao[4],0,1,'C',1);
 
         
-        $rAsesorDao = $ojetoAsesorDao->listarPromedioAsesorDC($pdf->mes,$rowRLiderDao[0]);
+        $rAsesorDao = $ojetoAsesorDao->listarPromedioAsesorIBF($pdf->mes,$rowRLiderDao[0]);
         
         foreach ($rAsesorDao as $rowRAsesorDao) {
            
@@ -136,8 +136,8 @@
             impresionColorClaro($grupoSETValor,$rowRAsesorDao[1]);       
             $pdf->Cell(55,5,$rowRAsesorDao[1],0,0,'C',1); 
 
-            // Negociación
-            impresionColorClaro($grupoNEGValor,$rowRAsesorDao[2]);       
+            // Objeto de la llamada
+            impresionColorClaro($grupoOLLValor,$rowRAsesorDao[2]);       
             $pdf->Cell(25,5,$rowRAsesorDao[2],0,0,'C',1);
 
             // Registro en el sistema
@@ -150,7 +150,7 @@
             
             // Acumuladores
             $acumPromedioSET += $rowRAsesorDao[1];
-            $acumPromedioNEG += $rowRAsesorDao[2];
+            $acumPromedioOLL += $rowRAsesorDao[2];
             $acumPromedioRS += $rowRAsesorDao[3];
             
             // Contadores
@@ -164,16 +164,16 @@
 
     // Cálculo de Seccion General
     $tGeneralSET = $acumPromedioSET / $contNumeroAsesores;
-    $tGeneralNEG = $acumPromedioNEG / $contNumeroAsesores ;
+    $tGeneralOLL = $acumPromedioOLL / $contNumeroAsesores ;
     $tGeneralRS = $acumPromedioRS / $contNumeroAsesores ;
-    $tGeneral =  $tGeneralSET + $tGeneralNEG + $tGeneralRS;
+    $tGeneral =  $tGeneralSET + $tGeneralOLL + $tGeneralRS;
 
     // Total General
     $pdf->SetFillColor(52, 73, 94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(51,8,'Total general',0,0,'C',1); 
     $pdf->Cell(55,8,round($tGeneralSET , 1),0,0,'C',1); 
-    $pdf->Cell(25,8,round($tGeneralNEG , 1),0,0,'C',1);
+    $pdf->Cell(25,8,round($tGeneralOLL , 1),0,0,'C',1);
     $pdf->Cell(41,8,round($tGeneralRS , 1),0,0,'C',1);
     $pdf->Cell(24,8,round($tGeneral , 1),0,1,'C',1);
 
@@ -188,7 +188,7 @@
 
     // Titulo encabezado Ranking unidades
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(46, 134, 193);
+    $pdf->SetFillColor(22, 160, 133);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE UNIDADES',1,1,'C',1);
 
@@ -197,7 +197,7 @@
     $pdf->SetFont('Arial','B',8);
     $pdf->Cell(51,6,'UNIDADES',0,0,'C',1); 
     $pdf->Cell(55,6,'SERVICIO Y ETIQUETA TELEFÓNICA',0,0,'C',1); 
-    $pdf->Cell(25,6,'NEGOCIACIÓN',0,0,'C',1);
+    $pdf->Cell(25,6,'OBJ. LLAMADA',0,0,'C',1);
     $pdf->Cell(41,6,'REGISTRO EN EL SISTEMA',0,0,'C',1);
     $pdf->Cell(24,6,'GENERAL',0,1,'C',1);
     $pdf->SetTextColor(28, 40, 51);
@@ -205,7 +205,7 @@
 
     // Instancia a unidad
     $oRankUnidad = new unidadDao();
-    $resulORankUnidad = $oRankUnidad->listarRankingUnidadDC($pdf->mes);
+    $resulORankUnidad = $oRankUnidad->listarRankingUnidadIBF($pdf->mes);
 
     foreach($resulORankUnidad as $rowResulORankUnidad){
             // Nombre
@@ -216,7 +216,7 @@
             impresionColorClaro($grupoSETValor,$rowRAsesorDao[1]);
             $pdf->Cell(55,5,$rowResulORankUnidad[1],0,0,'C',1); 
             
-            impresionColorClaro($grupoNEGValor,$rowRAsesorDao[2]);
+            impresionColorClaro($grupoOLLValor,$rowRAsesorDao[2]);
             $pdf->Cell(25,5,$rowResulORankUnidad[2],0,0,'C',1);
             
             impresionColorClaro($grupoRSValor,$rowRAsesorDao[3]);
@@ -226,16 +226,16 @@
             $pdf->Cell(24,5,$rowResulORankUnidad[4],0,1,'C',1);
         
             $acumSETUnidades += $rowResulORankUnidad[1];
-            $acumNEGUnidades += $rowResulORankUnidad[2];
+            $acumOLLUnidades += $rowResulORankUnidad[2];
             $acumRSUnidades += $rowResulORankUnidad[3];
             $cTotalUnidades++;
         
     } 
 
     $pUnidadesSET = $acumSETUnidades / $cTotalUnidades;
-    $pUnidadesNEG = $acumNEGUnidades / $cTotalUnidades;
+    $pUnidadesOLL = $acumOLLUnidades / $cTotalUnidades;
     $pUnidadesRS = $acumRSUnidades / $cTotalUnidades;
-    $tGeneralUnidades = $pUnidadesSET+$pUnidadesNEG+$pUnidadesRS;
+    $tGeneralUnidades = $pUnidadesSET+$pUnidadesOLL+$pUnidadesRS;
 
     // Colores
     $pdf->SetFillColor(52, 73, 94);
@@ -244,14 +244,14 @@
     // Promedio
     $pdf->Cell(51,7,'Promedio actual',0,0,'C',1); 
     $pdf->Cell(55,7,round($pUnidadesSET, 1),0,0,'C',1); 
-    $pdf->Cell(25,7,round($pUnidadesNEG, 1),0,0,'C',1);
+    $pdf->Cell(25,7,round($pUnidadesOLL, 1),0,0,'C',1);
     $pdf->Cell(41,7,round($pUnidadesRS, 1),0,0,'C',1);
     $pdf->Cell(24,7,round($tGeneralUnidades, 1),0,1,'C',1);
 
     $pdf->SetFillColor(82, 103, 123);
     $pdf->Cell(51,7,'Adherencia',0,0,'C',1); 
     $pdf->Cell(55,7, round($pUnidadesSET * 100 / $grupoSETValor, 1) . '%',0,0,'C',1); 
-    $pdf->Cell(25,7, round($pUnidadesNEG * 100 / $grupoNEGValor, 1) . '%',0,0,'C',1);
+    $pdf->Cell(25,7, round($pUnidadesOLL * 100 / $grupoOLLValor, 1) . '%',0,0,'C',1);
     $pdf->Cell(41,7, round($pUnidadesRS * 100 / $grupoRSValor, 1) . '%',0,0,'C',1);
     $pdf->Cell(24,7, '- -' ,0,1,'C',1);
 
@@ -268,7 +268,7 @@
 
     // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(46, 134, 193);
+    $pdf->SetFillColor(22, 160, 133);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE ASESORES',1,1,'C',1);
 
@@ -285,7 +285,7 @@
 
     // Instancia a Asesor
     $oRankAsesor = new asesorDao();
-    $rRankingAsesor = $oRankAsesor->listarRankingAsesorDC($pdf->mes);
+    $rRankingAsesor = $oRankAsesor->listarRankingAsesorIBF($pdf->mes);
         
     $asesores = array();
     
@@ -347,7 +347,7 @@
                 $pdf->Cell(25,5,"",0,0,'C',1); 
             }
         
-            // Negociación    
+            // Objeto de la llamada    
             if(isset($rowAsesores[2])){
                 impresionColorRankingA($rowAsesores[2]);
                 $pdf->Cell(25,5,$rowAsesores[2],0,0,'C',1);
@@ -458,7 +458,7 @@
     $pdf->SetDrawColor(100,100,100);
     
     $erroresCriticosIDao = new errorCriticoDao();
-    $rErroresCI = $erroresCriticosIDao->listarErroresCriticosInfringidosDC($pdf->mes);
+    $rErroresCI = $erroresCriticosIDao->listarErroresCriticosInfringidosIBF($pdf->mes);
 
     foreach($rErroresCI as $rowRErroresCI){
             // Nombre
@@ -492,17 +492,17 @@
     $pdf->SetTextColor(28, 40, 51);
     $pdf->SetDrawColor(100,100,100);
 
-    $objetoErrorCriticoDCDao = new errorCriticoDao();
-    $rErroresDC = $objetoErrorCriticoDCDao->listarErroresCriticosDC($pdf->mes);
+    $objetoErrorCriticoIBFDao = new errorCriticoDao();
+    $rErroresIBF = $objetoErrorCriticoIBFDao->listarErroresCriticosIBF($pdf->mes);
     
     $acumErroresCriticos = 0;
 
-    foreach($rErroresDC as $rowRErroresDC){
+    foreach($rErroresIBF as $rowRErroresIBF){
         $pdf->SetFillColor(255,255,255);
-        $pdf->Cell(30,5,$rowRErroresDC[0],'T',0,'C',0); 
+        $pdf->Cell(30,5,$rowRErroresIBF[0],'T',0,'C',0); 
         $pdf->SetFillColor(235, 237, 239);
-        $pdf->MultiCell(0,5,$rowRErroresDC[1],'T','J',1);
-        $acumErroresCriticos += $rowRErroresDC[0];
+        $pdf->MultiCell(0,5,$rowRErroresIBF[1],'T','J',1);
+        $acumErroresCriticos += $rowRErroresIBF[0];
     }
 
     // Colores
@@ -515,11 +515,11 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-vd-directo-comercial-$pdf->mes.pdf");
+    $pdf->Output("I","informe-f-inbound-$pdf->mes.pdf");
         
     }
     else{
-        header("location: indexReporteDC.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: indexPromedioIBF.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>
 
