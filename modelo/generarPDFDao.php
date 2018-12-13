@@ -88,5 +88,51 @@
             }
             return $query;
         }
+        
+        
+        public function listarPrimerValorGrupoIBF($fecha_mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarPrimerValorGrupoIBF('$fecha_mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        public function listarNotaDetalladoMENSET($asesor,$fecha_mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarNotaDetalladoMENSET('$asesor','$fecha_mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+    
+        public function listarNotaDetalladoMENIT($asesor,$fecha_mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarNotaDetalladoMENIT('$asesor','$fecha_mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        public function listarNotaDetalladoMENRS($asesor,$fecha_mes){
+            try{
+                $query = $this->conexion->prepare("CALL listarNotaDetalladoMENRS('$asesor','$fecha_mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+
+
     }
 ?>

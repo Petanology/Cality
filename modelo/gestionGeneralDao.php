@@ -108,5 +108,17 @@
             }
             return $query;
         }
+        
+        
+        // validacion para informe detallado MENSAJE
+        public function validacionDetalladoMEN($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoMEN('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     }
 ?>

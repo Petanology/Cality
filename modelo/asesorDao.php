@@ -258,6 +258,18 @@
             }
             return $query;
         }
+        
+        
+        
+        public function listarInfoAsesorDetalladoMEN($asesor){
+            try{
+                $query = $this->conexion->prepare("CALL listarInfoAsesorDetalladoMEN('$asesor');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
     
     }
 ?>
