@@ -213,16 +213,16 @@
             $pdf->Cell(51,5,$rowResulORankUnidad[0],0,0,'C',1); 
             
             // Servicio y etiqueta telefónica
-            impresionColorClaro($grupoSETValor,$rowRAsesorDao[1]);
+            impresionColorClaro($grupoSETValor,$rowResulORankUnidad[1]);
             $pdf->Cell(55,5,$rowResulORankUnidad[1],0,0,'C',1); 
             
-            impresionColorClaro($grupoITValor,$rowRAsesorDao[2]);
+            impresionColorClaro($grupoITValor,$rowResulORankUnidad[2]);
             $pdf->Cell(25,5,$rowResulORankUnidad[2],0,0,'C',1);
             
-            impresionColorClaro($grupoRSValor,$rowRAsesorDao[3]);
+            impresionColorClaro($grupoRSValor,$rowResulORankUnidad[3]);
             $pdf->Cell(41,5,$rowResulORankUnidad[3],0,0,'C',1);
         
-            impresionColorOscuro($rowRAsesorDao[4]);
+            impresionColorOscuro($rowResulORankUnidad[4]);
             $pdf->Cell(24,5,$rowResulORankUnidad[4],0,1,'C',1);
         
             $acumSETUnidades += $rowResulORankUnidad[1];

@@ -1,6 +1,7 @@
 <?php
     // importaciones necesarias 
     require_once ("../controlador/sesiones.php");
+    require_once ("../controlador/zonaHoraria.php");
     require_once ("../controlador/fecha.php");
     $sss = new sesiones();
     $sss->iniciar();
@@ -537,7 +538,7 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="pdf/indexReporteDetalladoDC.php" target="contenido">
+                                   <a href="pdf/indexDetalladoDC.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-dc.png" alt="icono de informe">
@@ -547,7 +548,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoDP.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-dp.png" alt="icono de informe">
@@ -557,7 +558,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoIE.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-ie.png" alt="icono de informe">
@@ -567,7 +568,7 @@
                                    </a>
                                </li> 
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoIB" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-ib.png" alt="icono de informe sub listado">
@@ -593,7 +594,7 @@
                         <div class="submenu-item">
                             <ul>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoNEG.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-financiera.png" alt="icono de informe">
@@ -603,7 +604,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoMEN.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-financiera.png" alt="icono de informe">
@@ -613,7 +614,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="acceso_denegado.php" target="contenido">
+                                   <a href="pdf/indexDetalladoIBF.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-financiera.png" alt="icono de informe">

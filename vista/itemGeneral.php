@@ -1,5 +1,7 @@
     <?php
         require_once ("../controlador/sesiones.php");
+        require_once ("../controlador/zonaHoraria.php");
+
         $sss = new sesiones();
         $sss->iniciar();
 

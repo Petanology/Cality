@@ -249,27 +249,27 @@
             $pdf->Cell(51,5,$rowResulORankUnidad[0],0,0,'C',1); 
             
             // PEP
-            impresionColorClaro($grupoPEPValor,$rowRAsesorDao[1]);
+            impresionColorClaro($grupoPEPValor,$rowResulORankUnidad[1]);
             $pdf->Cell(25,5,$rowResulORankUnidad[1],0,0,'C',1); 
             
             // SC
-            impresionColorClaro($grupoSCValor,$rowRAsesorDao[2]);
+            impresionColorClaro($grupoSCValor,$rowResulORankUnidad[2]);
             $pdf->Cell(24,5,$rowResulORankUnidad[2],0,0,'C',1);
         
             // N
-            impresionColorClaro($grupoNValor,$rowRAsesorDao[3]);
+            impresionColorClaro($grupoNValor,$rowResulORankUnidad[3]);
             $pdf->Cell(24,5,$rowResulORankUnidad[3],0,0,'C',1);        
         
             // AD
-            impresionColorClaro($grupoADValor,$rowRAsesorDao[4]);
+            impresionColorClaro($grupoADValor,$rowResulORankUnidad[4]);
             $pdf->Cell(24,5,$rowResulORankUnidad[4],0,0,'C',1);
         
             // RS
-            impresionColorClaro($grupoRSValor,$rowRAsesorDao[5]);
+            impresionColorClaro($grupoRSValor,$rowResulORankUnidad[5]);
             $pdf->Cell(24,5,$rowResulORankUnidad[5],0,0,'C',1);
         
             // TOTAL
-            impresionColorOscuro($rowRAsesorDao[6]);
+            impresionColorOscuro($rowResulORankUnidad[6]);
             $pdf->Cell(24,5,$rowResulORankUnidad[6],0,1,'C',1);
         
             $acumPEPUnidades += $rowResulORankUnidad[1];
