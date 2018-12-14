@@ -122,7 +122,7 @@
                                    <a href="administrador.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user.png" alt="icono de administrador">
+                                           <img src="img/user-administrador.png" alt="icono de administrador">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Administrador</div>
@@ -135,7 +135,7 @@
                                    <a href="analista.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user.png" alt="icono de analista">
+                                           <img src="img/user-analista.png" alt="icono de analista">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Analista</div>
@@ -145,7 +145,7 @@
                                    <a href="asesor.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user.png" alt="icono de asesor">
+                                           <img src="img/user-asesor.png" alt="icono de asesor">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Asesor</div>
@@ -155,7 +155,7 @@
                                    <a href="lider.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user.png" alt="icono de líder">
+                                           <img src="img/user-lider.png" alt="icono de líder">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Líder</div>
@@ -253,45 +253,21 @@
                     }
                     ?>
                     
-                    <!-- Retro - alimentación -->
+                    <!-- Visualización -->
                     
                     <?php
                     if($_SESSION['rol']=="analista"){
                     ?>
                     <li>
-                        <a href="#">
+                        <a href="acceso_denegado.php" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/writing.png" alt="icono de retro-alimentación">
+                                <img src="img/ojo.png" alt="icono de visualizacion">
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Retroalimentación</div>
+                            <div class="texto">Visualizar Gestión</div>
                         </a>
-                        <div class="submenu-item">
-                            <ul>
-                               <li>
-                                   <a href="acceso_denegado.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/writing-vd.png" alt="icono de retroalimentación venta directa">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Venta directa</div>
-                                   </a>
-                               </li>
-                               <li>
-                                   <a href="acceso_denegado.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/writing-f.png" alt="icono de retroalimentación financiera">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Financiera</div>
-                                   </a>
-                               </li> 
-                            </ul>
-                        </div>
                     </li>
                     <?php
                     }
@@ -302,7 +278,7 @@
                     if($_SESSION['rol']=="analista"){
                     ?>
                     <!-- divisor menu -->
-                    <h3 class="titulo-divisor-menu">Gestion de calidad</h3>
+                    <h3 class="titulo-divisor-menu">Gestión de calidad</h3>
                     
                     <!-- Gestiones de Calidad Venta directa -->
                     <li>
@@ -324,7 +300,7 @@
                                            <img src="img/gestion-dc.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo comercial</div>
+                                       <div class="texto">Negociación comercial</div>
                                    </a>
                                </li>
                                <li>
@@ -334,7 +310,7 @@
                                            <img src="img/gestion-dp.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo prejurídico</div>
+                                       <div class="texto">Negociación prejurídica</div>
                                    </a>
                                </li>
                                <li>
@@ -344,7 +320,7 @@
                                            <img src="img/gestion-ie.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto in-directo estándar</div>
+                                       <div class="texto">Mensaje</div>
                                    </a>
                                </li>
                                <li>
@@ -354,7 +330,7 @@
                                            <img src="img/gestion-ib.png" alt="icono de gestión">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Inbound estándar</div>
+                                       <div class="texto">Inbound</div>
                                    </a>
                                </li>
                             </ul>
@@ -438,7 +414,7 @@
                                            <img src="img/i-general-dc.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo comercial</div>
+                                       <div class="texto">Negociación comercial</div>
                                    </a>
                                </li>
                                <li>
@@ -448,7 +424,7 @@
                                            <img src="img/i-general-dp.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo prejurídico</div>
+                                       <div class="texto">Negociación prejurídica</div>
                                    </a>
                                </li>
                                <li>
@@ -458,7 +434,7 @@
                                            <img src="img/i-general-ie.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto in-directo estándar</div>
+                                       <div class="texto">Mensaje</div>
                                    </a>
                                </li> 
                                <li>
@@ -468,7 +444,7 @@
                                            <img src="img/i-general-ib.png" alt="icono de informe sub listado">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Inbound estándar</div>
+                                       <div class="texto">Inbound</div>
                                    </a>
                                </li>                           
                             </ul>
@@ -544,7 +520,7 @@
                                            <img src="img/detallado-dc.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo comercial</div>
+                                       <div class="texto">Negociación comercial</div>
                                    </a>
                                </li>
                                <li>
@@ -554,7 +530,7 @@
                                            <img src="img/detallado-dp.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto directo prejurídico</div>
+                                       <div class="texto">Negociación prejurídica</div>
                                    </a>
                                </li>
                                <li>
@@ -564,7 +540,7 @@
                                            <img src="img/detallado-ie.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Contacto in-directo estándar</div>
+                                       <div class="texto">Mensaje</div>
                                    </a>
                                </li> 
                                <li>
@@ -574,7 +550,7 @@
                                            <img src="img/detallado-ib.png" alt="icono de informe sub listado">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Inbound estándar</div>
+                                       <div class="texto">Inbound</div>
                                    </a>
                                </li>                           
                             </ul>
@@ -645,7 +621,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Contacto directo comercial</div>
+                            <div class="texto">Negociación comercial</div>
                         </a>
                         <div class="submenu-item">
                             <ul>
@@ -690,7 +666,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Contacto directo prejurídico</div>
+                            <div class="texto">Negociación prejurídica</div>
                         </a>
                         <div class="submenu-item">
                             <ul>
@@ -735,7 +711,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Indirecto estándar</div>
+                            <div class="texto">Mensaje</div>
                         </a>
                         <div class="submenu-item">
                             <ul>

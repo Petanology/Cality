@@ -28,7 +28,7 @@
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
-            $this->Cell(0,13,"INFORME INDIRECTO ESTANDAR " . $this->ImprimirMes($this->mes),'LR',0,'C',1);
+            $this->Cell(0,13,"INFORME MENSAJE VENTA DIRECTA " . $this->ImprimirMes($this->mes),'LR',0,'C',1);
             
             // Salto de Línea para tabla
             $this->Ln(25);
