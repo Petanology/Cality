@@ -227,7 +227,7 @@
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN
+                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN I
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
                                 $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("dir_com_n");
@@ -274,17 +274,125 @@
                         <?php
                             }
                         ?>
+                        
                         <input type="hidden" id="totalItemsDCN" name="totalItemsDCN" value="<?php echo $acum2; ?>">
+                        
+                        
+                        
                         <!-- TERCER ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN II
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
-                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_rs");
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_n2");
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" id="valorSeccionDCR" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionDCN2" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <?php
+                                }        
+                            ?>
+                            <span id="acum_dcn2" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>             
+                            <input type="hidden" id="acum_dcn2_input" name="acum_dcn2_input" value="">
+                            </th>
+                        </tr>
+                        <tr class="bg-dark text-white">
+                            <th>Enunciado</th>
+                            <th class="pl-0">SI</th>
+                            <th class="pl-0">NO</th>
+                        </tr>
+                        <?php
+                            $objetoItemDCN2 = new itemDao("dcn2");
+                            $resultadoDCN2 = $objetoItemDCN->listarItemsActivos();
+                            $acum3 = 0;
+                            foreach($resultadoDCN2 as $rowDCNA2){
+                            $acum3++;   
+                        ?>
+                        <tr>
+                            <td class="font-weight-bold"><?php echo $rowDCNA2[1]; ?>
+                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCNA2[2]; ?>"></i></small>
+                            </td>
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="dcn2_<?php echo $rowDCNA2[0]; ?>1" name="dcn2_<?php echo $rowDCNA2[0]; ?>" class="custom-control-input" onclick="calcular('dcn2')">
+                                    <label class="custom-control-label" for="dcn2_<?php echo $rowDCNA2[0]; ?>1"></label>
+                                </div>
+                            </td>                            
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="dcn2_<?php echo $rowDCNA2[0]; ?>2" name="dcn2_<?php echo $rowDCNA2[0]; ?>" class="custom-control-input" onclick="calcular('dcn2')">
+                                    <label class="custom-control-label" for="dcn2_<?php echo $rowDCNA2[0]; ?>2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        
+                        <input type="hidden" id="totalItemsDCN" name="totalItemsDCN" value="<?php echo $acum2; ?>">
+                        
+                        <!-- CUARTO ITEM -->
+                        <tr>
+                            <th class="text-white bg-primary text-center" colspan="3">CIERRE DE COMPROMISO
+                            <?php 
+                                $objetoPorcentajeSeccion3 = new ValSeccDao();
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_cc");
+                                foreach($porc3 as $rowPorc3){
+                            ?>
+                            <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
+                            <input type="hidden" id="valorSeccionDCC" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <?php
+                                }        
+                            ?>
+                            <span id="acum_dcc" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>             
+                            <input type="hidden" id="acum_dcc_input" name="acum_dcc_input" value="">
+                            </th>
+                        </tr>
+                        <tr class="bg-dark text-white">
+                            <th>Enunciado</th>
+                            <th class="pl-0">SI</th>
+                            <th class="pl-0">NO</th>
+                        </tr>
+                        <?php
+                            $objetoItemDCC = new itemDao("dcc");
+                            $resultadoDCC = $objetoItemDCC->listarItemsActivos();
+                            $acum3 = 0;
+                            foreach($resultadoDCC as $rowDCCA){
+                            $acum3++;   
+                        ?>
+                        <tr>
+                            <td class="font-weight-bold"><?php echo $rowDCCA[1]; ?>
+                                <small><i class="far fa-question-circle text-primary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDCCA[2]; ?>"></i></small>
+                            </td>
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="dcc_<?php echo $rowDCCA[0]; ?>1" name="dcc_<?php echo $rowDCCA[0]; ?>" class="custom-control-input" onclick="calcular('dcc')">
+                                    <label class="custom-control-label" for="dcc_<?php echo $rowDCCA[0]; ?>1"></label>
+                                </div>
+                            </td>                            
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="dcc_<?php echo $rowDCCA[0]; ?>2" name="dcc_<?php echo $rowDCCA[0]; ?>" class="custom-control-input" onclick="calcular('dcc')">
+                                    <label class="custom-control-label" for="dcc_<?php echo $rowDCCA[0]; ?>2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        
+                        <input type="hidden" id="totalItemsDCC" name="totalItemsDCC" value="<?php echo $acum3; ?>">
+                        
+                        <!-- CUARTO ITEM -->
+                        <tr>
+                            <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <?php 
+                                $objetoPorcentajeSeccion4 = new ValSeccDao();
+                                $porc4 = $objetoPorcentajeSeccion4->verPorcentajeSeccion("dir_com_rs");
+                                foreach($porc4 as $rowPorc4){
+                            ?>
+                            <span class="badge badge-light ml-1"><?php echo $rowPorc4[0]; ?>%</span>
+                            <input type="hidden" id="valorSeccionDCR" name="valorSeccionTabla4" value="<?php echo $rowPorc4[0]; ?>">
                             <?php
                                 }        
                             ?>   
@@ -300,9 +408,9 @@
                         <?php
                             $objetoItemDCR = new itemDao("dcr");
                             $resultadoDCR = $objetoItemDCR->listarItemsActivos();
-                            $acum3 = 0;
+                            $acum4 = 0;
                             foreach($resultadoDCR as $rowDCRA){
-                            $acum3++;
+                            $acum4++;
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowDCRA[1]; ?>
@@ -324,7 +432,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" id="totalItemsDCR" name="totalItemsDCR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" id="totalItemsDCR" name="totalItemsDCR" value="<?php echo $acum4; ?>">
                         <tr class="bg-dark text-white text-right">
                             <th colspan="3">
                                 <h6>

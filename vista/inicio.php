@@ -646,6 +646,16 @@
                                    </a>
                                </li> 
                                <li>
+                                   <a href="itemDCC.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_dc_cc.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Cierre de compromiso</div>
+                                   </a>
+                               </li>
+                               <li>
                                    <a href="itemDCR.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
@@ -687,9 +697,19 @@
                                            <img src="img/item_dp_neg.png" alt="icono de informe">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Negociación</div>
+                                       <div class="texto">Negociación I</div>
                                    </a>
                                </li> 
+                               <li>
+                                   <a href="itemDPN2.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/item_dp_neg2.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Negociación II</div>
+                                   </a>
+                               </li>
                                <li>
                                    <a href="itemDPR.php" target="contenido">
                                        <!-- Icono -->

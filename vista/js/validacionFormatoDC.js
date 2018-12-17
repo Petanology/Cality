@@ -1,6 +1,7 @@
 window.onload = function() {
     calcular("dcs");
     calcular("dcn");
+    calcular("dcc");
     calcular("dcr");
 };
 
@@ -58,6 +59,15 @@ function validarFormatoDC(){
         swal({
                 title: '¡Item(s) sin seleccionar!',
                 text: 'Es obligatorio seleccionar todos los items de NEGOCIACIÓN...',
+                type: 'info',
+                confirmButtonText: 'Entendido'
+        });
+        
+    }else if(validarItems("dcc")){
+        
+        swal({
+                title: '¡Item(s) sin seleccionar!',
+                text: 'Es obligatorio seleccionar todos los items de CIERRE DE COMPROMISO...',
                 type: 'info',
                 confirmButtonText: 'Entendido'
         });

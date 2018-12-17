@@ -39,7 +39,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(1,3);
+                        $ListarTabla = $objetoAD->listarTabla(1,4);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -74,7 +74,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(4,6);
+                        $ListarTabla = $objetoAD->listarTabla(5,8);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -109,7 +109,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(7,9);
+                        $ListarTabla = $objetoAD->listarTabla(9,11);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -144,7 +144,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(10,12);
+                        $ListarTabla = $objetoAD->listarTabla(12,14);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -181,7 +181,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(13,17);
+                        $ListarTabla = $objetoAD->listarTabla(15,19);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -216,7 +216,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(18,20);
+                        $ListarTabla = $objetoAD->listarTabla(20,22);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>
@@ -251,7 +251,7 @@
                     <?php
                         // se crea una instancia hacia el DAO
                         $objetoAD = new valSeccDao();
-                        $ListarTabla = $objetoAD->listarTabla(21,23);
+                        $ListarTabla = $objetoAD->listarTabla(23,25);
                         foreach($ListarTabla as $rowA):
                     ?>
                     <tr>

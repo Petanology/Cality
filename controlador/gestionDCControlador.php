@@ -23,24 +23,32 @@
             $asesor = $_POST["identificacion"];
             $analista = $_SESSION["idpersona"];
             $observacion = $_POST["observacion"];
+            
             $totalItemsDCS = $_POST["totalItemsDCS"];
-            $totalItemsDCN = $_POST["totalItemsDCN"]; 
+            $totalItemsDCN = $_POST["totalItemsDCN"];
+            $totalItemsDCC = $_POST["totalItemsDCC"];
             $totalItemsDCR = $_POST["totalItemsDCR"];
+            
             $primerCampo = "dcs";
             $segundoCampo = "dcn";
-            $tercerCampo = "dcr";
+            $tercerCampo = "dcc";
+            $cuartoCampo = "dcr";
+            
             $primeraTabla = "dir_com_set";
             $segundaTabla = "dir_com_n";
-            $terceraTabla = "dir_com_rs";
+            $terceraTabla = "dir_com_cc";
+            $cuartaTabla = "dir_com_rs";
             
             // Totales de cada grupo
             $acum_dcs_input = $_POST["acum_dcs_input"];
             $acum_dcn_input = $_POST["acum_dcn_input"];
+            $acum_dcc_input = $_POST["acum_dcc_input"];
             $acum_dcr_input = $_POST["acum_dcr_input"];
             
             $valor[1] = $_POST["valorSeccionTabla1"];
             $valor[2] = $_POST["valorSeccionTabla2"];
             $valor[3] = $_POST["valorSeccionTabla3"];
+            $valor[4] = $_POST["valorSeccionTabla4"];
             
             /* ************************** */
             
@@ -80,9 +88,9 @@
             $i3 = 1; // numero items
             $f3 = 1; // repeticiones bucle
             
-            while($f3 <= $totalItemsDCR){
-                if(isset($_POST["dcr_".$i3])){
-                    $seccion3[$i3][0] = $_POST["dcr_".$i3];
+            while($f3 <= $totalItemsDCC){
+                if(isset($_POST["dcc_".$i3])){
+                    $seccion3[$i3][0] = $_POST["dcc_".$i3];
                     $seccion3[$i3][1] = $i3;
                     $f3++;
                 }else{
@@ -92,17 +100,33 @@
             
             /* ************************** */
             
+            $seccion4 = array();
+            $i4 = 1; // numero items
+            $f4 = 1; // repeticiones bucle
+            
+            while($f4 <= $totalItemsDCR){
+                if(isset($_POST["dcr_".$i4])){
+                    $seccion4[$i4][0] = $_POST["dcr_".$i4];
+                    $seccion4[$i4][1] = $i4;
+                    $f4++;
+                }else{
+                }
+                $i4++;
+            }        
+    
+            /* ************************** */
+            
             $mRPositivo = "¡Felicidades, el registro <strong> '" . $idGestion . "' </strong> fue todo un éxito!";
             
             if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion)) {
                 
-                for($i = 1; $i < 4; $i++){
+                for($i = 1; $i < 5; $i++){
                     // Registrar valor máximo posible por seccion
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);    
                 }
                 
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedio_dc($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcr_input);
+                $encabezadoDao->registrarPromedio_dc($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcc_input,$acum_dcr_input);
                 
                 
                 foreach($seccion1 as $aprobadoItem){
@@ -117,11 +141,15 @@
                     $gestionGeneralDao->registrarCalificacion($terceraTabla,$tercerCampo,$idGestion,$aprobadoItem3[1],$aprobadoItem3[0]);
                 }
                 
-                $this->redireccion($mRPositivo);
+                foreach($seccion4 as $aprobadoItem4){
+                    $gestionGeneralDao->registrarCalificacion($cuartaTabla,$cuartoCampo,$idGestion,$aprobadoItem4[1],$aprobadoItem4[0]);
+                }
+                
+                // $this->redireccion($mRPositivo);
                 
             }else{
                 
-                $this->redireccion($mNegativo);
+                // $this->redireccion($mNegativo);
                 
             }
         }

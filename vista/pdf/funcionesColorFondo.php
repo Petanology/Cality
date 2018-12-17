@@ -28,13 +28,13 @@
     function impresionColorRankingA($nResultado){
         global $pdf;
         if($nResultado >= 0 && $nResultado <= 68){
-            $pdf->SetFillColor(236, 112, 99);
+            $pdf->SetTextColor(231, 76, 60);
         } else if($nResultado >= 69 && $nResultado <= 84){
-            $pdf->SetFillColor(249, 231, 159);
+            $pdf->SetTextColor(241, 196, 15);
         } else if($nResultado >= 85 && $nResultado <= 100){
-            $pdf->SetFillColor(130, 224, 170);
+            $pdf->SetTextColor(17, 122, 101);
         } else {
-            $pdf->SetFillColor(142, 68, 173);
+            $pdf->SetTextColor(142, 68, 173);
         }
     }
         
@@ -47,19 +47,19 @@
         $indicadorAmarillo = 85 * $indicadorMaximo / 100;
         
         if($nResultado >= 0 && $nResultado < $indicadorRojo){
-            
-            $pdf->SetFillColor(236, 112, 99);
+            // Rojo
+            $pdf->SetTextColor(231, 76, 60);
             
         } else if($nResultado >= $indicadorRojo && $nResultado < $indicadorAmarillo){
-            
-            $pdf->SetFillColor(249, 231, 159);
+            // Amarillo
+            $pdf->SetTextColor(241, 196, 15);
             
         } else if($nResultado >= $indicadorAmarillo && $nResultado <= $indicadorMaximo){
-            
-            $pdf->SetFillColor(130, 224, 170);
+            // Verde
+            $pdf->SetTextColor(17, 122, 101);
             
         } else {
-            $pdf->SetFillColor(142, 68, 173);
+            $pdf->SetTextColor(142, 68, 173);
         }
 
     }

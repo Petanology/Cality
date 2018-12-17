@@ -24,14 +24,19 @@
     // Declaración de acumuladores
     $acumPromedioSET = 0;
     $acumPromedioNEG = 0;
+    $acumPromedioNEG2 = 0;
     $acumPromedioRS = 0;
+        
     $acumSETUnidades = 0;
     $acumNEGUnidades = 0;
+    $acumNEG2Unidades = 0;
     $acumRSUnidades = 0;
+        
     $acumTotalRankingG1 = 0;
     $acumTotalRankingG2 = 0;
     $acumTotalRankingG3 = 0;
     $acumTotalRankingG4 = 0;
+    $acumTotalRankingG5 = 0;
 
     // Declaración de contador
     $contNumeroAsesores = 0;
@@ -44,6 +49,7 @@
     // Otras
     $grupoSETValor = 0;
     $grupoNEGValor = 0;
+    $grupoNEG2Valor = 0;
     $grupoRSValor = 0;
 
     $pdf = new PDFDP('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
@@ -75,11 +81,12 @@
 
 
     // Titulos tabla
-    $pdf->Cell(51,6,'ASESORES',0,0,'C',1); 
-    $pdf->Cell(55,6,'SERVICIO Y ETIQUETA TELEFÓNICA',0,0,'C',1); 
-    $pdf->Cell(25,6,'NEGOCIACIÓN',0,0,'C',1);
-    $pdf->Cell(41,6,'REGISTRO EN EL SISTEMA',0,0,'C',1);
-    $pdf->Cell(24,6,'ACUMULADO',0,1,'C',1);    
+    $pdf->Cell(70,6,'ASESORES',0,0,'C',1); 
+    $pdf->Cell(25,6,'SET',0,0,'C',1); 
+    $pdf->Cell(25,6,'NEG',0,0,'C',1);
+    $pdf->Cell(25,6,'NEG2',0,0,'C',1);
+    $pdf->Cell(25,6,'RS',0,0,'C',1);
+    $pdf->Cell(26,6,'ACUMULADO',0,1,'C',1);    
 
 
 
