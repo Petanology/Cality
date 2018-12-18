@@ -48,9 +48,9 @@
         }
         
                 
-        public function registrarPromedio_dp($idGestion,$valorG1,$valorG2,$valorG3){
+        public function registrarPromedio_dp($idGestion,$valorG1,$valorG2,$valorG3,$valorG4){
             try{
-                $query = $this->conexion->prepare("CALL registrarPromedio_dp('$idGestion',$valorG1,$valorG2,$valorG3);");
+                $query = $this->conexion->prepare("CALL registrarPromedio_dp('$idGestion',$valorG1,$valorG2,$valorG3,$valorG4);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

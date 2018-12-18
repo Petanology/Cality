@@ -66,7 +66,34 @@
     }
         
     require_once("funcionesColorFondo.php");
-
+    
+    // Convenciones
+    $pdf->SetFont('Arial','B',7);
+    $pdf->SetDrawColor(52, 73, 94);
+    
+    $pdf->SetFillColor(77,108,140);
+    $pdf->SetTextColor(255,255,255);
+        
+    $pdf->Cell(80,6,'CONVENCIONES',0,1,'C',1);
+    
+    $pdf->SetFillColor(214, 234, 248);
+    $pdf->SetTextColor(44, 62, 80);
+        
+    $pdf->Cell(15,4,'SET',0,0,'C',1);
+    $pdf->Cell(65,4,'  Servicio y etiqueta telefónica',0,1,'L',1);
+    
+    $pdf->Cell(15,4,'NEG',0,0,'C',1);
+    $pdf->Cell(65,4,'  Negociación',0,1,'L',1);
+        
+    $pdf->Cell(15,4,'CC',0,0,'C',1);
+    $pdf->Cell(65,4,'  Cierre de compromiso',0,1,'L',1);
+        
+    $pdf->Cell(15,4,'RS',0,0,'C',1);
+    $pdf->Cell(65,4,'  Registro en el sistema',0,1,'L',1);
+    
+    $pdf->Ln(7);
+        
+        
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(46, 134, 193);
@@ -160,7 +187,7 @@
             impresionColorClaro($grupoRSValor,$rowRAsesorDao[4]);       
             $pdf->Cell(25,5,$rowRAsesorDao[4],0,0,'C',1);
 
-            // Calculo para acumulador total general
+            // Total general
             $pdf->SetTextColor(28, 40, 51);
             impresionColorOscuro($rowRAsesorDao[5]);       
             $pdf->Cell(26,5,$rowRAsesorDao[5],0,1,'C',1);
@@ -278,7 +305,7 @@
     $pdf->Cell(25,7,round($pUnidadesNEG, 1),0,0,'C',1);
     $pdf->Cell(25,7,round($pUnidadesCC, 1),0,0,'C',1);
     $pdf->Cell(25,7,round($pUnidadesRS, 1),0,0,'C',1);
-    $pdf->Cell(26,7,round($tGeneralUnidades, 1),0,1,'C',1);
+    $pdf->Cell(26,7,round($tGeneralUnidades , 1),0,1,'C',1);
 
     $pdf->SetFillColor(82, 103, 123);
     $pdf->Cell(70,7,'Adherencia',0,0,'C',1); 

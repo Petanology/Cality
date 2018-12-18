@@ -227,7 +227,7 @@
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-danger text-center" colspan="3">NEGOCIACIÓN
+                            <th class="text-white bg-danger text-center" colspan="3">NEGOCIACIÓN I
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
                                 $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("dir_pre_n");
@@ -275,16 +275,68 @@
                             }
                         ?>
                         <input type="hidden" id="totalItemsDPN" name="totalItemsDPN" value="<?php echo $acum2; ?>">
+                        
                         <!-- TERCER ITEM -->
                         <tr>
-                            <th class="text-white bg-danger text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white bg-danger text-center" colspan="3">NEGOCIACIÓN II
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
-                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_pre_rs");
+                                $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_pre_n2");
                                 foreach($porc3 as $rowPorc3){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc3[0]; ?>%</span>
-                            <input type="hidden" id="valorSeccionDPR" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <input type="hidden" id="valorSeccionDPN2" name="valorSeccionTabla3" value="<?php echo $rowPorc3[0]; ?>">
+                            <?php
+                                }        
+                            ?>                           
+                            <span id="acum_dpn2" class="badge badge-dark ml-1 notaParcialGrupo">0.0%</span>
+                            <input type="hidden" id="acum_dpn2_input" name="acum_dpn2_input" value="">
+                            </th>
+                        </tr>
+                        <tr class="bg-dark text-white">
+                            <th>Enunciado</th>
+                            <th class="pl-0">SI</th>
+                            <th class="pl-0">NO</th>
+                        </tr>
+                        <?php
+                            $objetoItemDPN2 = new itemDao("dpn2");
+                            $resultadoDPN2 = $objetoItemDPN2->listarItemsActivos();
+                            $acum3 = 0;
+                            foreach($resultadoDPN2 as $rowDPN2A){
+                            $acum3++;   
+                        ?>
+                        <tr>
+                            <td class="font-weight-bold"><?php echo $rowDPN2A[1]; ?>
+                                <small><i class="far fa-question-circle text-secondary" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowDPN2A[2]; ?>"></i></small>
+                            </td>
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="dpn2_<?php echo $rowDPN2A[0]; ?>1" name="dpn2_<?php echo $rowDPN2A[0]; ?>" class="custom-control-input" onclick="calcular('dpn2')">
+                                    <label class="custom-control-label" for="dpn2_<?php echo $rowDPN2A[0]; ?>1"></label>
+                                </div>
+                            </td>                            
+                            <td class="pl-0">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="dpn2_<?php echo $rowDPN2A[0]; ?>2" name="dpn2_<?php echo $rowDPN2A[0]; ?>" class="custom-control-input" onclick="calcular('dpn2')">
+                                    <label class="custom-control-label" for="dpn2_<?php echo $rowDPN2A[0]; ?>2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                        <input type="hidden" id="totalItemsDPN2" name="totalItemsDPN2" value="<?php echo $acum3; ?>">
+                        
+                        <!-- CUARTO ITEM -->
+                        <tr>
+                            <th class="text-white bg-danger text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <?php 
+                                $objetoPorcentajeSeccion4 = new ValSeccDao();
+                                $porc4 = $objetoPorcentajeSeccion4->verPorcentajeSeccion("dir_pre_rs");
+                                foreach($porc4 as $rowPorc4){
+                            ?>
+                            <span class="badge badge-light ml-1"><?php echo $rowPorc4[0]; ?>%</span>
+                            <input type="hidden" id="valorSeccionDPR" name="valorSeccionTabla4" value="<?php echo $rowPorc4[0]; ?>">
                             <?php
                                 }        
                             ?>                            
@@ -300,9 +352,9 @@
                         <?php
                             $objetoItemDPR = new itemDao("dpr");
                             $resultadoDPR = $objetoItemDPR->listarItemsActivos();
-                            $acum3 = 0;
+                            $acum4 = 0;
                             foreach($resultadoDPR as $rowDPRA){
-                            $acum3++;
+                            $acum4++;
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowDPRA[1]; ?>
@@ -324,7 +376,7 @@
                         <?php
                             }
                         ?>
-                        <input type="hidden" id="totalItemsDPR" name="totalItemsDPR" value="<?php echo $acum3; ?>">
+                        <input type="hidden" id="totalItemsDPR" name="totalItemsDPR" value="<?php echo $acum4; ?>">
                         
                         <tr class="bg-dark text-white text-right">
                             <th colspan="3">

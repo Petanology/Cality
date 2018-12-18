@@ -93,6 +93,5 @@ function validarFormatoDC(){
     }else{
         $('#botonRegistrar').attr("disabled" , true);
         document.formGeneral.submit();
-        
     }
 }

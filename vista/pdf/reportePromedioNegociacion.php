@@ -39,6 +39,7 @@
     $acumTotalRankingG2 = 0;
     $acumTotalRankingG3 = 0;
     $acumTotalRankingG4 = 0;
+    $acumTotalRankingG5 = 0;
 
     // Declaración de contador
         
@@ -49,6 +50,7 @@
     $contTotalRankingG2 = 0;
     $contTotalRankingG3 = 0;
     $contTotalRankingG4 = 0;
+    $contTotalRankingG5 = 0;
         
     // Otras
         
@@ -71,6 +73,35 @@
         
     require_once("funcionesColorFondo.php");
 
+    // Convenciones
+    $pdf->SetFont('Arial','B',7);
+    $pdf->SetDrawColor(52, 73, 94);
+    
+    $pdf->SetFillColor(77,108,140);
+    $pdf->SetTextColor(255,255,255);
+        
+    $pdf->Cell(80,6,'CONVENCIONES',0,1,'C',1);
+    
+    $pdf->SetFillColor(214, 234, 248);
+    $pdf->SetTextColor(44, 62, 80);
+        
+    $pdf->Cell(15,4,'PEP',0,0,'C',1);
+    $pdf->Cell(65,4,'  Protocolo y etiqueta profesional',0,1,'L',1);
+    
+    $pdf->Cell(15,4,'SC',0,0,'C',1);
+    $pdf->Cell(65,4,'  Servicio al cliente',0,1,'L',1);
+        
+    $pdf->Cell(15,4,'NEG',0,0,'C',1);
+    $pdf->Cell(65,4,'  Negociación',0,1,'L',1);
+        
+    $pdf->Cell(15,4,'AD',0,0,'C',1);
+    $pdf->Cell(65,4,'  Actualizacion de datos',0,1,'L',1);
+
+    $pdf->Cell(15,4,'RS',0,0,'C',1);
+    $pdf->Cell(65,4,'  Registro en el sistema',0,1,'L',1);
+
+    $pdf->Ln(7);
+        
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(22, 160, 133);
@@ -88,11 +119,11 @@
 
     // Titulos tabla
     $pdf->Cell(51,6,'ASESORES',0,0,'C',1); 
-    $pdf->Cell(25,6,'P.E.P.',0,0,'C',1); 
-    $pdf->Cell(24,6,'S. CLIENTE',0,0,'C',1);
-    $pdf->Cell(24,6,'NEGOCIACION',0,0,'C',1);
-    $pdf->Cell(24,6,'A. DATOS',0,0,'C',1);
-    $pdf->Cell(24,6,'R. SISTEMA',0,0,'C',1);
+    $pdf->Cell(25,6,'PEP',0,0,'C',1); 
+    $pdf->Cell(24,6,'SC',0,0,'C',1);
+    $pdf->Cell(24,6,'NEG',0,0,'C',1);
+    $pdf->Cell(24,6,'AD',0,0,'C',1);
+    $pdf->Cell(24,6,'RS',0,0,'C',1);
     $pdf->Cell(24,6,'ACUMULADO',0,1,'C',1);
 
 
@@ -172,6 +203,7 @@
             impresionColorClaro($grupoRSValor,$rowRAsesorDao[5]);       
             $pdf->Cell(24,5,$rowRAsesorDao[5],0,0,'C',1);
 
+            $pdf->SetTextColor(28, 40, 51);
             // Calculo para acumulador total general
             impresionColorOscuro($rowRAsesorDao[6]);       
             $pdf->Cell(24,5,$rowRAsesorDao[6],0,1,'C',1);
@@ -232,7 +264,7 @@
     $pdf->Cell(51,6,'UNIDADES',0,0,'C',1); 
     $pdf->Cell(25,6,'PEP',0,0,'C',1); 
     $pdf->Cell(24,6,'SC',0,0,'C',1);
-    $pdf->Cell(24,6,'N',0,0,'C',1);
+    $pdf->Cell(24,6,'NEG',0,0,'C',1);
     $pdf->Cell(24,6,'AD',0,0,'C',1);
     $pdf->Cell(24,6,'RS',0,0,'C',1);
     $pdf->Cell(24,6,'GENERAL',0,1,'C',1);
@@ -269,6 +301,7 @@
             $pdf->Cell(24,5,$rowResulORankUnidad[5],0,0,'C',1);
         
             // TOTAL
+            $pdf->SetTextColor(28, 40, 51);
             impresionColorOscuro($rowResulORankUnidad[6]);
             $pdf->Cell(24,5,$rowResulORankUnidad[6],0,1,'C',1);
         
@@ -331,11 +364,12 @@
     $pdf->SetFont('Arial','B',8);
 
     // Titulos tabla
-    $pdf->Cell(91,6,'ASESORES',0,0,'C',1); 
+    $pdf->Cell(70,6,'ASESORES',0,0,'C',1); 
     $pdf->Cell(25,6,'GESTIÓN 1',0,0,'C',1); 
     $pdf->Cell(25,6,'GESTIÓN 2',0,0,'C',1);
     $pdf->Cell(25,6,'GESTIÓN 3',0,0,'C',1);
-    $pdf->Cell(30,6,'TOTAL',0,1,'C',1);
+    $pdf->Cell(25,6,'GESTIÓN 4',0,0,'C',1);
+    $pdf->Cell(26,6,'TOTAL',0,1,'C',1);
 
     // Instancia a Asesor
     $oRankAsesor = new asesorDao();
@@ -376,7 +410,7 @@
             
         }
                  
-        $asesores[$x][4] = round($subtotal / $totalGestiones , 1);
+        $asesores[$x][5] = round($subtotal / $totalGestiones , 1);
         
     }
         
@@ -387,7 +421,7 @@
     foreach($asesores as $rowAsesores){
             // Nombre
             $pdf->SetFillColor(214, 219, 223);
-            $pdf->Cell(91,5,$rowAsesores[0],0,0,'C',1); 
+            $pdf->Cell(70,5,$rowAsesores[0],0,0,'C',1); 
             
             if(isset($rowAsesores[1])){
                 impresionColorRankingA($rowAsesores[1]);
@@ -425,16 +459,31 @@
                 $pdf->Cell(25,5,"",0,0,'C',1);
             }
         
-            // Total
+        
+            // Registro en el sistema
             if(isset($rowAsesores[4])){
-                impresionColorOscuro($rowAsesores[4]);
-                $pdf->Cell(30,5,$rowAsesores[4] . "%",0,1,'C',1);
+                impresionColorRankingA($rowAsesores[4]);
+                $pdf->Cell(25,5,$rowAsesores[4],0,0,'C',1);
                 
                 $acumTotalRankingG4 += $rowAsesores[4];
                 $contTotalRankingG4++;
             }else{
                 $pdf->SetFillColor(93, 109, 126);
-                $pdf->Cell(30,5,"",0,1,'C',1);
+                $pdf->Cell(25,5,"",0,0,'C',1);
+            }
+        
+        
+            // Total
+        $pdf->SetTextColor(28, 40, 51);
+            if(isset($rowAsesores[5])){
+                impresionColorOscuro($rowAsesores[5]);
+                $pdf->Cell(26,5,$rowAsesores[5] . "%",0,1,'C',1);
+                
+                $acumTotalRankingG5 += $rowAsesores[5];
+                $contTotalRankingG5++;
+            }else{
+                $pdf->SetFillColor(93, 109, 126);
+                $pdf->Cell(26,5,"",0,1,'C',1);
             }
     } 
 
@@ -444,7 +493,7 @@
     $pdf->SetTextColor(255, 255, 255);
 
     // Total General
-    $pdf->Cell(91,7,'ACUMULADO TOTAL',0,0,'C',1); 
+    $pdf->Cell(70,7,'ACUMULADO TOTAL',0,0,'C',1); 
         
     if($contTotalRankingG1 == 0){
         $pdf->Cell(25,7,0,0,0,'C',1); 
@@ -462,13 +511,18 @@
         $pdf->Cell(25,7,0,0,0,'C',1); 
     }else{
         $pdf->Cell(25,7,round($acumTotalRankingG3 / $contTotalRankingG3,1),0,0,'C',1);
-    }   
-        
+    }  
         
     if($contTotalRankingG4 == 0){
-        $pdf->Cell(30,7,0,0,1,'C',1); 
+        $pdf->Cell(25,7,0,0,0,'C',1); 
     }else{
-        $pdf->Cell(30,7,round($acumTotalRankingG4 / $contTotalRankingG4,1),0,1,'C',1);
+        $pdf->Cell(25,7,round($acumTotalRankingG4 / $contTotalRankingG4,1),0,0,'C',1);
+    }         
+        
+    if($contTotalRankingG5 == 0){
+        $pdf->Cell(26,7,0,0,1,'C',1); 
+    }else{
+        $pdf->Cell(26,7,round($acumTotalRankingG5 / $contTotalRankingG5,1),0,1,'C',1);
     }
 
     // Separador

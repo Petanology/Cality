@@ -1,6 +1,7 @@
 window.onload = function() {
     calcular("dps");
     calcular("dpn");
+    calcular("dpn2");
     calcular("dpr");
 };
 
@@ -57,12 +58,21 @@ function validarFormatoDP(){
         
         swal({
                 title: '¡Item(s) sin seleccionar!',
-                text: 'Es obligatorio seleccionar todos los items de NEGOCIACIÓN...',
+                text: 'Es obligatorio seleccionar todos los items de NEGOCIACIÓN I...',
                 type: 'info',
                 confirmButtonText: 'Entendido'
         });
         
-    } else if(validarItems("dpr")){
+    } else if(validarItems("dpn2")){
+        
+        swal({
+                title: '¡Item(s) sin seleccionar!',
+                text: 'Es obligatorio seleccionar todos los items de NEGOCIACION II...',
+                type: 'info',
+                confirmButtonText: 'Entendido'
+        });
+        
+    }else if(validarItems("dpr")){
         
         swal({
                 title: '¡Item(s) sin seleccionar!',

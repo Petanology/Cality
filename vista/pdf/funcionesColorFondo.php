@@ -30,7 +30,7 @@
         if($nResultado >= 0 && $nResultado <= 68){
             $pdf->SetTextColor(231, 76, 60);
         } else if($nResultado >= 69 && $nResultado <= 84){
-            $pdf->SetTextColor(241, 196, 15);
+            $pdf->SetTextColor(202, 111, 30);
         } else if($nResultado >= 85 && $nResultado <= 100){
             $pdf->SetTextColor(17, 122, 101);
         } else {
@@ -52,7 +52,7 @@
             
         } else if($nResultado >= $indicadorRojo && $nResultado < $indicadorAmarillo){
             // Amarillo
-            $pdf->SetTextColor(241, 196, 15);
+            $pdf->SetTextColor(202, 111, 30);
             
         } else if($nResultado >= $indicadorAmarillo && $nResultado <= $indicadorMaximo){
             // Verde

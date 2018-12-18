@@ -145,11 +145,11 @@
                     $gestionGeneralDao->registrarCalificacion($cuartaTabla,$cuartoCampo,$idGestion,$aprobadoItem4[1],$aprobadoItem4[0]);
                 }
                 
-                // $this->redireccion($mRPositivo);
+                $this->redireccion($mRPositivo);
                 
             }else{
                 
-                // $this->redireccion($mNegativo);
+                $this->redireccion($mNegativo);
                 
             }
         }
