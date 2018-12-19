@@ -230,7 +230,7 @@
                             <th class="text-white bg-info text-center" colspan="3">OBJETO DE LA LLAMADA
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
-                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("in_bound_fin_ol");
+                                $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("in_bound_fin_oll");
                                 foreach($porc2 as $rowPorc2){
                             ?>
                             <span class="badge badge-light ml-1"><?php echo $rowPorc2[0]; ?>%</span>
