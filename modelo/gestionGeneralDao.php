@@ -109,11 +109,78 @@
             return $query;
         }
         
+        // validacion para informe detallado DC
+        public function validacionDetalladoDC($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoDC('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+    
+        // validacion para informe detallado DP
+        public function validacionDetalladoDP($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoDP('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
         
-        // validacion para informe detallado MENSAJE
+        // validacion para informe detallado IE
+        public function validacionDetalladoIE($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoIE('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        // validacion para informe detallado IB
+        public function validacionDetalladoIB($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoIB('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+
+        // validacion para informe detallado NEG
+        public function validacionDetalladoNEG($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoNEG('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // validacion para informe detallado MEN
         public function validacionDetalladoMEN($asesorId,$mes){
             try{
                 $query = $this->conexion->prepare("CALL validacionDetalladoMEN('$asesorId','$mes%');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        // validacion para informe detallado IBF
+        public function validacionDetalladoIBF($asesorId,$mes){
+            try{
+                $query = $this->conexion->prepare("CALL validacionDetalladoIBF('$asesorId','$mes%');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

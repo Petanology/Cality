@@ -563,7 +563,7 @@
         
     }
     else{
-        header("location: indexPromedioIBF.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: indexReporteIBF.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>
 

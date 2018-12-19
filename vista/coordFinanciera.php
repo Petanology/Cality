@@ -1,6 +1,6 @@
 <!-- importaciones requeridas -->
-<?php
-    require_once ("../modelo/liderDao.php"); 
+<?php 
+    require_once ("../modelo/coordFinancieraDao.php"); 
     require_once ("../controlador/sesiones.php");
     $sss = new sesiones();
     $sss->iniciar();
@@ -18,10 +18,10 @@
 
         <!-- botón registrar -->
         <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_lider1"><i class="fas fa-plus"></i> REGISTRAR LIDER</button>
+            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_coordFinanciera1"><i class="fas fa-plus"></i> REGISTRAR COORDINADOR FINANCIERA</button>
         </form>
         
-        <!-- Lista de lideres -->
+        <!-- Lista de coordinadores financieros -->
         <form action="" method="post">
         <table id="tablaDinamica" class="table table-striped table-responsive-xl scroll_modificado">
             <thead class="table-dark">
@@ -64,7 +64,7 @@
             <tbody class="table-light">
                     <?php
                         // se crea una instancia hacia el DAO
-                        $objetoAD = new liderDao();
+                        $objetoAD = new coordFinancieraDao();
                         $ListarTabla = $objetoAD->listarTabla();
                         foreach($ListarTabla as $rowA):
                     ?>
@@ -72,12 +72,12 @@
                         <td class="text-center font-weight-bold"><?php echo $rowA[0] ?></td>
                         <td><?php echo $rowA[1] ?></td>
                         <td><?php echo $rowA[2] ?></td>
-                        <td class="text-center"><?php echo $rowA[3] ?></td>
+                        <td><?php echo $rowA[3] ?></td>
                         <td><?php echo $rowA[4] ?></td>
                         <td><?php echo $rowA[5] ?></td>
                         <td class="text-center"><?php if($rowA[6]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
-                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]?>" data-toggle="modal" data-target="#form_lider2"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]?>" data-toggle="modal" data-target="#form_coordFinanciera2"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -86,14 +86,14 @@
         </form>
         
         <?php
-            include("modal/mRegistrarLider.php"); // Modal Registrar
+            include("modal/mRegistrarCoordFinanciera.php"); // Modal Registrar
             if(isset($_POST['botonModificar'])): // traer informacón de item seleccionado
                 $IdbotonModificar = $_POST['botonModificar'];
-                $objetoA = new liderDao(); 
-                $listarLider = $objetoA->listarItem($IdbotonModificar);
+                $objetoA = new coordFinancieraDao(); 
+                $listarCoordFinanciera = $objetoA->listarItem($IdbotonModificar);
                 
-                foreach($listarLider as $rowA):
-                    include("modal/mModificarLider.php"); // Modal Modificar 
+                foreach($listarCoordFinanciera as $rowAna):
+                    include("modal/mModificarCoordFinanciera.php"); // Modal Modificar 
                 endforeach;
             endif;
         ?>
@@ -107,12 +107,12 @@
     <?php 
         // Abrir modal Modificar si se dió clic en boton modificar
         if(isset($_POST['botonModificar'])){
-            echo "<script>$('#form_lider2').modal('show');</script>";
+            echo "<script>$('#form_coordFinanciera2').modal('show');</script>";
         }
 
         // Abrir modal Registrar si se dió clic en boton registrar
         if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_lider1').modal('show');</script>";
+            echo "<script>$('#form_coordFinanciera1').modal('show');</script>";
         }
     ?>
     <script src="js/datatables.min.js"></script>

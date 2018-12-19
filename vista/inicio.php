@@ -161,6 +161,26 @@
                                        <div class="texto">Líder</div>
                                    </a>
                                </li>
+                               <li>
+                                   <a href="coordVentaDirecta.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-analista.png" alt="icono de coordinador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Coordinador Venta Directa</div>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="coordFinanciera.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-analista.png" alt="icono de coordinador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Coordinador Financiero</div>
+                                   </a>
+                               </li>
                             </ul>
                         </div>
                     </li>
@@ -185,6 +205,9 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
+                               <?php
+                                   if($_SESSION['rol']=="analista"){
+                               ?>
                                <li>
                                    <a href="errorCritico.php" target="contenido">
                                        <!-- Icono -->
@@ -195,6 +218,9 @@
                                        <div class="texto">Error crítico</div>
                                    </a>
                                </li>
+                               <?php
+                                   }
+                               ?>
                                <li>
                                    <a href="genero.php" target="contenido">
                                        <!-- Icono -->
@@ -215,6 +241,9 @@
                                        <div class="texto">Tipo de documento</div>
                                    </a>
                                </li>
+                               <?php
+                                   if($_SESSION['rol']=="analista"){
+                               ?>
                                <li>
                                    <a href="tipoMonitoreo.php" target="contenido">
                                        <!-- Icono -->
@@ -245,7 +274,9 @@
                                        <div class="texto">Valor de la sección</div>
                                    </a>
                                </li>
-
+                               <?php
+                                   }
+                               ?> 
                             </ul>
                         </div>
                     </li>
@@ -389,11 +420,14 @@
                     
                     
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe general</h3>
                     
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa"){
+                    ?>
                     <!-- Informe venta directa -->
                     <li>
                         <a href="#">
@@ -449,7 +483,13 @@
                                </li>                           
                             </ul>
                         </div>
-                    </li>              
+                    </li> 
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_financiera"){
+                    ?>
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -483,7 +523,7 @@
                                    </a>
                                </li>
                                <li>
-                                   <a href="pdf/indexPromedioIBF.php" target="contenido">
+                                   <a href="pdf/indexReporteIBF.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/i-general-financiera.png" alt="icono de informe">
@@ -495,11 +535,16 @@
                             </ul>
                         </div>
                     </li> 
+                    <?php
+                    }
+                    ?>
                     
                     <!-- informe detallado -->
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe Detallado</h3>
-                    
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa"){
+                    ?>
                     <!-- Informe venta directa -->
                     <li>
                         <a href="#">
@@ -555,8 +600,13 @@
                                </li>                           
                             </ul>
                         </div>
-                    </li>              
-                    
+                    </li> 
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_financiera"){
+                    ?>
                     <li>
                         <a href="#">
                             <!-- Icono -->
@@ -603,7 +653,7 @@
                         </div>
                     </li>
                     <?php
-                    }
+                    }}
                     ?> 
 
                     <?php
@@ -1020,7 +1070,15 @@
                 
                 <!-- logotipo -->
                 <div class="logotipo">
-                    <h1>CALITY<span><?php echo $_SESSION['rol']; ?></span></h1>
+                    <h1>CALITY<span>
+                        <?php 
+                            if($_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "coord_financiera"){
+                                echo "coordinador";
+                            }else{
+                                echo $_SESSION['rol']; 
+                            }
+                        ?>
+                    </span></h1>
                     <img src="img/faviconx512-3.png" alt="Icono de cality">
                 </div>
             </div>

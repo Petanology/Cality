@@ -5,11 +5,11 @@
     $sss = new sesiones();
     $sss->iniciar();
     
-    if($_SESSION['rol'] == "asesor" || $_SESSION['rol'] == "lider" || empty($_SESSION['autenticado'])){
+    if($_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider" || $_SESSION['rol'] == "asesor" || empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
     }
 ?>
-        
+
     <!-- Mensaje de Registro / Actualización -->
     <?php include ("encabezado.php"); ?>
    

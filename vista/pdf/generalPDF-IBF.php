@@ -3,7 +3,7 @@
     // importación de la librería
     require_once("fpdf/fpdf.php");
 
-    class PDFIBF extends FPDF {
+    class PDFMEN extends FPDF {
         
         public $mes;
         
@@ -65,5 +65,6 @@
             return "$nomMes[$mes] DEL $ano";
         }
     }
+
 
 ?>
