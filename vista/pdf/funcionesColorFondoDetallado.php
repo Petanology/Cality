@@ -17,18 +17,18 @@
         
         if($nResultado == 0){
             
-            $pdf->SetFillColor(236, 112, 99); // rojo
+            $pdf->SetTextColor(231, 76, 60); // rojo
             
         } else if($nResultado > 0 && $nResultado <= 0.5){
             
-            $pdf->SetFillColor(235, 152, 78); // naranja
+            $pdf->SetTextColor(211, 84, 0); // naranja
             
         } else if($nResultado > 0.6 && $nResultado <= 0.9){
             
-            $pdf->SetFillColor(249, 231, 159); // amarillo
+            $pdf->SetTextColor(202, 111, 30); // amarillo
             
         } else if($nResultado == 1){
-            $pdf->SetFillColor(130, 224, 170); // verde
+            $pdf->SetTextColor(17, 122, 101); // verde
         }
     }  
 ?>

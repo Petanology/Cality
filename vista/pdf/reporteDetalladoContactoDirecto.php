@@ -6,7 +6,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionDetalladoIBF($_POST["asesorConsulta"] , $_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionDetalladoDC($_POST["asesorConsulta"] , $_POST["mesReporte"]);
     
     foreach($sihayInforme as $rowSihayInforme){
         $SHIR = $rowSihayInforme;
@@ -16,10 +16,10 @@
 
         require_once("../../modelo/asesorDao.php");
         require_once("../../modelo/generarPDFDao.php");
-        require_once("generalPDFDetallado-IBF.php");
+        require_once("generalPDFDetallado-DC.php");
         require_once("funcionesColorFondoDetallado.php");
 
-        $pdf = new PDFIBF_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
+        $pdf = new PDFDC_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
 
         // Varaibles generales
         $pdf->mesReporte = $_POST["mesReporte"]; 
@@ -30,7 +30,8 @@
         
         // Declaración de variables
         $grupoSETValor = 0;
-        $grupoOLLValor = 0;
+        $grupoNEGValor = 0;
+        $grupoCCValor = 0;
         $grupoRSValor = 0;
         
         // Listar informacion general del asesor
@@ -100,15 +101,17 @@
         // --------------------------------------------------
         
         $objetoPDFDao = new generarPDFDao();
-        $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoIBF($pdf->mesReporte);
+        $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($pdf->mesReporte);
 
         foreach($rValorPDF as $rowRV){
             global $grupoSETValor; 
-            global $grupoOLLValor; 
+            global $grupoNEGValor; 
+            global $grupoCCValor; 
             global $grupoRSValor; 
             $grupoSETValor = $rowRV[0];
-            $grupoOLLValor = $rowRV[1];
-            $grupoRSValor = $rowRV[2];        
+            $grupoNEGValor = $rowRV[1];
+            $grupoCCValor = $rowRV[2];        
+            $grupoRSValor = $rowRV[3];        
         }
         
         
@@ -128,8 +131,9 @@
         $objetoGenerarPDFD = new generarPDFDao();
 
         // Listar Resultados SET
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFSET($pdf->asesorConsulta,$pdf->mesReporte); 
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCSET($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
+
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
             $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
@@ -146,9 +150,9 @@
         $pdf->SetDrawColor(69, 179, 157);
         $pdf->SetTextColor(255,255,255); 
         $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"OBJETO DE LA LLAMADA [ $grupoOLLValor% ]",0,1,'C',1); 
-        // Listar Resultados OLL
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFOLL($pdf->asesorConsulta,$pdf->mesReporte); 
+        $pdf->Cell(0,7,"NEGOCIACION [ $grupoNEGValor% ]",0,1,'C',1); 
+        // Listar Resultados IT
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCNEG($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
@@ -160,6 +164,27 @@
         }
         $resultadoNota = null;
         $pdf->Ln(5); 
+        
+        $pdf->SetFillColor(69, 179, 157);
+        $pdf->SetDrawColor(69, 179, 157);
+        $pdf->SetTextColor(255,255,255); 
+        $pdf->SetFont('Arial','B',9);
+        $pdf->Cell(0,7,"CIERRE DE COMPROMISO [ $grupoCCValor% ]",0,1,'C',1); 
+        
+        // Listar Resultados RS
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCC($pdf->asesorConsulta,$pdf->mesReporte); 
+        foreach($resultadoNota as $rowResultadoNota){
+            $pdf->SetFillColor(235, 237, 239);
+            impresionAprobado($rowResultadoNota[0]);
+            $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
+            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(214, 219, 223);
+            $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
+
+        }
+        $resultadoNota = null;
+        $pdf->Ln(5); 
+        
         
         $pdf->SetFillColor(69, 179, 157);
         $pdf->SetDrawColor(69, 179, 157);
@@ -168,7 +193,7 @@
         $pdf->Cell(0,7,"REGISTRO EN EL SISTEMA [ $grupoRSValor% ]",0,1,'C',1); 
         
         // Listar Resultados RS
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFRS($pdf->asesorConsulta,$pdf->mesReporte); 
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCRS($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
@@ -182,10 +207,10 @@
 
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-f-detallado-inbound-financiero-$pdf->mesReporte.pdf");
+    $pdf->Output("I","informe-vd-detallado-negociacion-comercial-$pdf->mesReporte.pdf");
         
     }
     else{
-        header("location: indexDetalladoIBF.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: indexDetalladoDC.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>

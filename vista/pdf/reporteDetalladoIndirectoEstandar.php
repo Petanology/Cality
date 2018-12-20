@@ -6,7 +6,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionDetalladoIBF($_POST["asesorConsulta"] , $_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionDetalladoIE($_POST["asesorConsulta"] , $_POST["mesReporte"]);
     
     foreach($sihayInforme as $rowSihayInforme){
         $SHIR = $rowSihayInforme;
@@ -16,10 +16,10 @@
 
         require_once("../../modelo/asesorDao.php");
         require_once("../../modelo/generarPDFDao.php");
-        require_once("generalPDFDetallado-IBF.php");
+        require_once("generalPDFDetallado-IE.php");
         require_once("funcionesColorFondoDetallado.php");
 
-        $pdf = new PDFIBF_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
+        $pdf = new PDFIE_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
 
         // Varaibles generales
         $pdf->mesReporte = $_POST["mesReporte"]; 
@@ -30,7 +30,7 @@
         
         // Declaración de variables
         $grupoSETValor = 0;
-        $grupoOLLValor = 0;
+        $grupoITValor = 0;
         $grupoRSValor = 0;
         
         // Listar informacion general del asesor
@@ -100,14 +100,14 @@
         // --------------------------------------------------
         
         $objetoPDFDao = new generarPDFDao();
-        $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoIBF($pdf->mesReporte);
+        $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoIE($pdf->mesReporte);
 
         foreach($rValorPDF as $rowRV){
             global $grupoSETValor; 
-            global $grupoOLLValor; 
+            global $grupoITValor; 
             global $grupoRSValor; 
             $grupoSETValor = $rowRV[0];
-            $grupoOLLValor = $rowRV[1];
+            $grupoITValor = $rowRV[1];
             $grupoRSValor = $rowRV[2];        
         }
         
@@ -128,7 +128,7 @@
         $objetoGenerarPDFD = new generarPDFDao();
 
         // Listar Resultados SET
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFSET($pdf->asesorConsulta,$pdf->mesReporte); 
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIESET($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
@@ -146,9 +146,9 @@
         $pdf->SetDrawColor(69, 179, 157);
         $pdf->SetTextColor(255,255,255); 
         $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"OBJETO DE LA LLAMADA [ $grupoOLLValor% ]",0,1,'C',1); 
-        // Listar Resultados OLL
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFOLL($pdf->asesorConsulta,$pdf->mesReporte); 
+        $pdf->Cell(0,7,"INFORMACION A TERCEROS [ $grupoITValor% ]",0,1,'C',1); 
+        // Listar Resultados IT
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIEIT($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
@@ -168,7 +168,7 @@
         $pdf->Cell(0,7,"REGISTRO EN EL SISTEMA [ $grupoRSValor% ]",0,1,'C',1); 
         
         // Listar Resultados RS
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIBFRS($pdf->asesorConsulta,$pdf->mesReporte); 
+        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoIERS($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
             $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
@@ -182,10 +182,10 @@
 
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-f-detallado-inbound-financiero-$pdf->mesReporte.pdf");
+    $pdf->Output("I","informe-vd-detallado-mensaje-$pdf->mesReporte.pdf");
         
     }
     else{
-        header("location: indexDetalladoIBF.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: indexDetalladoIE.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>

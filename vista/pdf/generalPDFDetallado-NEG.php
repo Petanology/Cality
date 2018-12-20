@@ -3,7 +3,7 @@
     // importación de la librería
     require_once("fpdf/fpdf.php");
 
-    class PDFIBF_D extends FPDF {
+    class PDFNEG_D extends FPDF {
         
         public $mesReporte;
         public $asesorConsulta;
@@ -29,7 +29,7 @@
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
-            $this->Cell(0,13,"INFORME DETALLADO INBOUND FINANCIERO " . $this->ImprimirMes($this->mesReporte),'LR',0,'C',1);
+            $this->Cell(0,13,"INFORME DETALLADO NEGOCIACION " . $this->ImprimirMes($this->mesReporte),'LR',0,'C',1);
             
             // Salto de Línea para tabla
             $this->Ln(25);

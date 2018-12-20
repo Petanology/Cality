@@ -35,7 +35,7 @@
         
         // Listar informacion general del asesor
         $objetoAsesorD = new asesorDao();
-        $resultadoObjetoAsesorD = $objetoAsesorD->listarInfoAsesorDetalladoMEN($pdf->asesorConsulta); 
+        $resultadoObjetoAsesorD = $objetoAsesorD->listarInfoAsesorDetallado($pdf->asesorConsulta); 
 
 
         $pdf->SetFont('Arial','B',7);
@@ -130,11 +130,11 @@
         // Listar Resultados SET
         $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoMENSET($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
-
-            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
             $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetFillColor(213, 216, 220);
+            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(214, 219, 223);
             $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
 
         }
@@ -150,11 +150,11 @@
         // Listar Resultados IT
         $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoMENIT($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
-
-            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
             $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetFillColor(213, 216, 220);
+            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(214, 219, 223);
             $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
 
         }
@@ -170,11 +170,11 @@
         // Listar Resultados RS
         $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoMENRS($pdf->asesorConsulta,$pdf->mesReporte); 
         foreach($resultadoNota as $rowResultadoNota){
-
-            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(235, 237, 239);
             impresionAprobado($rowResultadoNota[0]);
             $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetFillColor(213, 216, 220);
+            $pdf->SetTextColor(39, 55, 70); 
+            $pdf->SetFillColor(214, 219, 223);
             $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
 
         }

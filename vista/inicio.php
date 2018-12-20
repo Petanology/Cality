@@ -165,7 +165,7 @@
                                    <a href="coordVentaDirecta.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user-analista.png" alt="icono de coordinador">
+                                           <img src="img/user-coordinador-vd.png" alt="icono de coordinador">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Coordinador Venta Directa</div>
@@ -175,7 +175,7 @@
                                    <a href="coordFinanciera.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
-                                           <img src="img/user-analista.png" alt="icono de coordinador">
+                                           <img src="img/user-coordinador-f.png" alt="icono de coordinador">
                                        </div>
                                        <!-- Texto -->
                                        <div class="texto">Coordinador Financiero</div>

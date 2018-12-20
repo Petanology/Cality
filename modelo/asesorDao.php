@@ -260,16 +260,16 @@
         }
         
         
+        // Validaciones
         
-        public function listarInfoAsesorDetalladoMEN($asesor){
+        public function listarInfoAsesorDetallado($asesor){
             try{
-                $query = $this->conexion->prepare("CALL listarInfoAsesorDetalladoMEN('$asesor');");
+                $query = $this->conexion->prepare("CALL listarInfoAsesorDetallado('$asesor');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
             }
             return $query;
         }
-    
     }
 ?>
