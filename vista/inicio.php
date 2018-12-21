@@ -52,7 +52,7 @@
                 <ul id="ul-menu" class="scroll_menu menu-tooltip"><!-- hay dos opciones que sea tooltip o normal -->
                     <!-- Link Inicio -->
                     <li>
-                        <a href="bienvenido.php" target="contenido">
+                        <a href="inicio">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/incio.png" alt="icono de inicio">
@@ -298,6 +298,17 @@
                             
                             <!-- Texto -->
                             <div class="texto">Visualizar Gestión</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pdf/retroalimentacion.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/retroalimentacion.png" alt="icono de retroalimentación">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Retroalimentación</div>
                         </a>
                     </li>
                     <?php
@@ -653,8 +664,9 @@
                         </div>
                     </li>
                     <?php
-                    }}
-                    ?> 
+                    }
+                    }
+                    ?>
 
                     <?php
                     if($_SESSION["rol"] == "analista"){
