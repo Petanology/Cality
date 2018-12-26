@@ -22,5 +22,16 @@
         }
         return $query;
     }
+        
+        
+    public function listarRetroalimentacion($tabla,$ultimosDias,$puntaje){
+        try{
+            $query = $this->conexion->prepare("CALL listarRetroalimentacion('$tabla',$ultimosDias,$puntaje);");
+            $query->execute();
+        }catch(Exception $e){
+            echo "Error: " . $e->getMessage();
+        }
+        return $query;
+    }
     }
 ?>

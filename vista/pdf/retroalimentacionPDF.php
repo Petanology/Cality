@@ -11,200 +11,69 @@
     }
 
     if(isset($SHIR)){
-        require_once("generalPDFDetallado-DC.php");
+        require_once("generalPDF-Retroalimentacion.php");
         require_once("funcionesColorFondoDetallado.php");
+        require_once("../../modelo/retroalimentacionDao.php");
 
-        $pdf = new PDFDC_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
+        $pdf = new PDFRETROALIMENTACION('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
 
         // Varaibles generales
-        $pdf->mesReporte = $_POST["mesReporte"]; 
-        $pdf->asesorConsulta = $_POST["asesorConsulta"];    
+        $pdf->tabla = $_POST["tabla"]; 
+        $pdf->ultimosDias = $_POST["ultimosDias"];    
+        $pdf->puntaje = $_POST["puntaje"];    
 
         $pdf->AliasNbPages();
         $pdf->AddPage();
+        
+        $oRetroDao = new retroalimentacionDao();
+        $resultadoORetroDao = $oRetroDao->listarRetroalimentacion($pdf->tabla,$pdf->ultimosDias,$pdf->puntaje);
+        
+        // $this->SetTextColor(45,50,38);
+        $pdf->SetFont('Arial','',8);
+        $pdf->SetTextColor(20,20,20);
+        $pdf->SetDrawColor(40,40,40);
+        
+        
+        foreach($resultadoORetroDao as $rowRORetroDao){
+            $pdf->SetFont('Arial','B',8);
 
-        // Declaración de variables
-        $grupoSETValor = 0;
-        $grupoNEGValor = 0;
-        $grupoCCValor = 0;
-        $grupoRSValor = 0;
+            $pdf->SetLeftMargin(10);
+            $pdf->Cell(98,5,"  FECHA:   $rowRORetroDao[0]",1,0,'L',0); 
+            $pdf->Cell(98,5,"  NOMBRE:   $rowRORetroDao[2]",1,1,'L',0);
+            $pdf->Cell(98,5,"  UNIDAD:   $rowRORetroDao[1]",1,0,'L',0);
+            $pdf->Cell(98,5,"  NOTA:   $rowRORetroDao[3]",1,0,'L',0);
+            
+            
+            $pdf->SetFont('Arial','',8);
+            $pdf->Ln(8);
+            
+            $pdf->WriteHTML('<p align="justify">Para  <b>GF COBRANZAS JURIDICAS</b> la calidad en la gestión  y el compromiso de la mejora continua  es pilar fundamental en nuestra labor diaria; Parte de esa labor diaria  es realizar  las gestiones bajo los parámetros  indicados, parámetros que queremos retroalimentar para su mejora continua.</p>');
+            
+            $pdf->ln(8);
 
-        // Listar informacion general del asesor
-        $objetoAsesorD = new asesorDao();
-        $resultadoObjetoAsesorD = $objetoAsesorD->listarInfoAsesorDetallado($pdf->asesorConsulta); 
-
-
-        $pdf->SetFont('Arial','B',7);
-        foreach($resultadoObjetoAsesorD as $rowResultadoObjetoAsesorD){
-            // Informacion Asesor
-            $pdf->SetFillColor(86, 101, 115);
-            $pdf->SetDrawColor(86, 101, 115);
-            $pdf->SetTextColor(255,255,255); 
-            $pdf->SetFont('Arial','B',9);
-            $pdf->Cell(0,6,"INFORMACION GENERAL DEL GESTOR",1,1,'C',1); 
-
-
-            $pdf->SetFillColor(128, 139, 150);
-            $pdf->SetDrawColor(128, 139, 150);
-            $pdf->SetTextColor(255,255,255); 
-            $pdf->Cell(80,5,"Nombres completos",1,0,'C',1); 
-
-            $pdf->SetFillColor(213, 216, 220);
-            $pdf->SetDrawColor(213, 216, 220);
-            $pdf->SetTextColor(39, 55, 70);
-            $pdf->Cell(0,5,$rowResultadoObjetoAsesorD[0],1,1,'C',1);
-
-
-            $pdf->SetFillColor(128, 139, 150);
-            $pdf->SetDrawColor(128, 139, 150);
-            $pdf->SetTextColor(255,255,255);
-            $pdf->Cell(80,5,"Número de identificación",1,0,'C',1); 
-
-            $pdf->SetFillColor(213, 216, 220);
-            $pdf->SetDrawColor(213, 216, 220);
-            $pdf->SetTextColor(39, 55, 70);
-            $pdf->Cell(0,5,$rowResultadoObjetoAsesorD[1],1,1,'C',1);
-
-
-            $pdf->SetFillColor(128, 139, 150);
-            $pdf->SetDrawColor(128, 139, 150);
-            $pdf->SetTextColor(255,255,255);
-            $pdf->Cell(80,5,"Nombre de usuario",1,0,'C',1); 
-
-            $pdf->SetFillColor(213, 216, 220);
-            $pdf->SetDrawColor(213, 216, 220);
-            $pdf->SetTextColor(39, 55, 70);
-            $pdf->Cell(0,5,$rowResultadoObjetoAsesorD[3],1,1,'C',1);
-
-            $pdf->Ln(5);
-
-            // Informacion Lider
-            $pdf->SetFillColor(86, 101, 115);
-            $pdf->SetDrawColor(86, 101, 115);
-            $pdf->SetTextColor(255,255,255);
-            $pdf->SetFont('Arial','B',9);
-            $pdf->Cell(0,6,"NOMBRE COMPLETO DEL LIDER",1,1,'C',1); 
-
-            $pdf->SetFillColor(213, 216, 220);
-            $pdf->SetDrawColor(213, 216, 220);
-            $pdf->SetTextColor(39, 55, 70);
-            $pdf->Cell(0,5,$rowResultadoObjetoAsesorD[2],1,1,'C',1);
+            $pdf->WriteHTML('<p align="justify"><b>OBSERVACION: </b>' . $rowRORetroDao[4] . '</p>');
+            
+            $pdf->ln(7);
+            
+            $pdf->Cell(0,5," ME COMPROMETO A: ","LTR",1,1);
+            $pdf->Cell(0,22,"","LBR",1,1);
+            
+            $pdf->Ln(10);
+            
+            $pdf->Cell(54,5,"FIRMA ASESOR","T",0,"C",0);
+            $pdf->SetLeftMargin(80);
+            $pdf->Cell(54,5,"FIRMA ANALISTA CALIDAD","T",0,"C",0);
+            $pdf->SetLeftMargin(150);
+            $pdf->Cell(54,5,"FIRMA ANALISTA DE CARTERA","T",0,"C",0);
+            $pdf->SetLeftMargin(0);
+            $pdf->Ln(20);
         }
-        $pdf->Ln(7); 
-
-
-        // --------------------------------------------------
-
-        $objetoPDFDao = new generarPDFDao();
-        $rValorPDF = $objetoPDFDao->listarPrimerValorGrupoDC($pdf->mesReporte);
-
-        foreach($rValorPDF as $rowRV){
-            global $grupoSETValor; 
-            global $grupoNEGValor; 
-            global $grupoCCValor; 
-            global $grupoRSValor; 
-            $grupoSETValor = $rowRV[0];
-            $grupoNEGValor = $rowRV[1];
-            $grupoCCValor = $rowRV[2];        
-            $grupoRSValor = $rowRV[3];        
-        }
-
-
-        $pdf->SetDrawColor(17, 122, 101);
-        $pdf->SetTextColor(39, 55, 70); 
-        $pdf->Cell(0,8,"PUNTAJES GLOBALES","BT",1,'C',0); 
-        $pdf->Ln(6); 
-
-
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
-        $pdf->SetTextColor(255,255,255); 
-        $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"SERVICIO Y ETIQUETA TELEFÓNICA [ $grupoSETValor% ]",0,1,'C',1); 
-
-        // Instancia a Generar PDF
-        $objetoGenerarPDFD = new generarPDFDao();
-
-        // Listar Resultados SET
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCSET($pdf->asesorConsulta,$pdf->mesReporte); 
-        foreach($resultadoNota as $rowResultadoNota){
-
-            $pdf->SetFillColor(235, 237, 239);
-            impresionAprobado($rowResultadoNota[0]);
-            $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetTextColor(39, 55, 70); 
-            $pdf->SetFillColor(214, 219, 223);
-            $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
-
-        }
-        $resultadoNota = null;
-        $pdf->Ln(5); 
-
-
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
-        $pdf->SetTextColor(255,255,255); 
-        $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"NEGOCIACION [ $grupoNEGValor% ]",0,1,'C',1); 
-        // Listar Resultados IT
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCNEG($pdf->asesorConsulta,$pdf->mesReporte); 
-        foreach($resultadoNota as $rowResultadoNota){
-            $pdf->SetFillColor(235, 237, 239);
-            impresionAprobado($rowResultadoNota[0]);
-            $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetTextColor(39, 55, 70); 
-            $pdf->SetFillColor(214, 219, 223);
-            $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
-
-        }
-        $resultadoNota = null;
-        $pdf->Ln(5); 
-
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
-        $pdf->SetTextColor(255,255,255); 
-        $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"CIERRE DE COMPROMISO [ $grupoCCValor% ]",0,1,'C',1); 
-
-        // Listar Resultados RS
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCC($pdf->asesorConsulta,$pdf->mesReporte); 
-        foreach($resultadoNota as $rowResultadoNota){
-            $pdf->SetFillColor(235, 237, 239);
-            impresionAprobado($rowResultadoNota[0]);
-            $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetTextColor(39, 55, 70); 
-            $pdf->SetFillColor(214, 219, 223);
-            $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
-
-        }
-        $resultadoNota = null;
-        $pdf->Ln(5); 
-
-
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
-        $pdf->SetTextColor(255,255,255); 
-        $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,"REGISTRO EN EL SISTEMA [ $grupoRSValor% ]",0,1,'C',1); 
-
-        // Listar Resultados RS
-        $resultadoNota = $objetoGenerarPDFD->listarNotaDetalladoDCRS($pdf->asesorConsulta,$pdf->mesReporte); 
-        foreach($resultadoNota as $rowResultadoNota){
-            $pdf->SetFillColor(235, 237, 239);
-            impresionAprobado($rowResultadoNota[0]);
-            $pdf->Cell(25,5," " . $rowResultadoNota[0],0,0,'C',1); 
-            $pdf->SetTextColor(39, 55, 70); 
-            $pdf->SetFillColor(214, 219, 223);
-            $pdf->MultiCell(0,5," " . $rowResultadoNota[1],0,'J',1);
-
-        }
-        $resultadoNota = null;
 
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-vd-detallado-negociacion-comercial-$pdf->mesReporte.pdf");   
+    $pdf->Output("I","retroalimentacion.pdf");
     }
     else{
-        header("location: retroalimentacionDao.php?mensaje=No hay resultado para la busqueda que esta realizando...");
+        header("location: retroalimentacion.php?mensaje=No hay resultado para la busqueda que esta realizando...");
     }
 ?>
