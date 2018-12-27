@@ -99,6 +99,25 @@
                             </ul>
                         </div>
                     </li>
+                    
+                    <?php
+                    if($_SESSION['rol']=="analista"){
+                    ?>
+                    <li>
+                        <a href="pdf/retroalimentacion.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/retroalimentacion.png" alt="icono de retroalimentación">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Retroalimentación</div>
+                        </a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+
                     <?php
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){
                     ?>                    
@@ -282,38 +301,8 @@
                     </li>
                     <?php
                     }
-                    ?>
-                    
-                    <!-- Visualización -->
-                    
-                    <?php
-                    if($_SESSION['rol']=="analista"){
-                    ?>
-                    <li>
-                        <a href="acceso_denegado.php" target="contenido">
-                            <!-- Icono -->
-                            <div class="cont-img">
-                                <img src="img/ojo.png" alt="icono de visualizacion">
-                            </div>
-                            
-                            <!-- Texto -->
-                            <div class="texto">Visualizar Gestión</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pdf/retroalimentacion.php" target="contenido">
-                            <!-- Icono -->
-                            <div class="cont-img">
-                                <img src="img/retroalimentacion.png" alt="icono de retroalimentación">
-                            </div>
-                            
-                            <!-- Texto -->
-                            <div class="texto">Retroalimentación</div>
-                        </a>
-                    </li>
-                    <?php
-                    }
-                    ?>
+                    ?>  
+
                     
                     
                     <?php
