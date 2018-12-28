@@ -7,11 +7,19 @@
     require_once ("../modelo/itemDao.php");
     require_once ("../modelo/ValSeccDao.php");
     require_once ("../controlador/sesiones.php");
+
     $sss = new sesiones();
     $sss->iniciar();
-    
-    if($_SESSION['rol'] == "administrador" || $_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider" || $_SESSION['rol'] == "asesor" || empty($_SESSION['autenticado'])){
+
+
+    if(empty($_SESSION['autenticado'])){
+        
         header("location:acceso_denegado.php");
+        
+    }else if($_SESSION['rol'] == "administrador" || $_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider" || $_SESSION['rol'] == "asesor"){
+        
+        header("location:acceso_denegado.php");
+        
     }
 ?>
         
@@ -389,12 +397,21 @@
                         </tr>
                     </table>
                     <hr>
-                    <div>
-                        <label for="observacion" class="font-weight-bold">Observaciones</label>
-                        <textarea name="observacion" placeholder="Ingrese un comentario u observación para indexarlo a la gestión..."  id="observacion" rows="4" class="form-control form-control-sm"></textarea>
+                    <div class="form-group">
+                        <label for="llamada" class="font-weight-bold">Llamada</label>
+                        <textarea name="llamada" placeholder="Ingrese el nombre de la respectiva llamada..."  id="llamada" rows="2" class="form-control form-control-sm"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fortalezas" class="font-weight-bold">Fortalezas</label>
+                        <textarea name="fortalezas" placeholder="Ingrese las fortalezas de la gestión..."  id="fortalezas" rows="2" class="form-control form-control-sm"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="oportunidades" class="font-weight-bold">Oportunidades</label>
+                        <textarea name="oportunidades" placeholder="Ingrese las oportunidades de mejora de la gestión..."  id="oportunidades" rows="5" class="form-control form-control-sm"></textarea>
                     </div>
                     <div>
                     <hr class="bg-white">
+                        <p class="text-info font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Tanto las fortalezas como las oportunidades deben ser separadas por asteriscos (*) como reemplazo de las viñetas</p>
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>

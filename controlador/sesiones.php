@@ -1,9 +1,5 @@
 <?php
     class sesiones{
-        // constructor vacío
-        public function __construct(){
-            
-        }
         
         // metodo habilitar manejo de sesiones
         public function iniciar(){

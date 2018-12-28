@@ -24,7 +24,10 @@
             $unidad = $_POST["unidad"];
             $asesor = $_POST["identificacion"];
             $analista = $_SESSION["idpersona"];
-            $observacion = $_POST["observacion"];
+            
+            $llamada = $_POST["llamada"];
+            $fortalezas = $_POST["fortalezas"];
+            $oportunidades = $_POST["oportunidades"];
             
             $totalItemsDPS = $_POST["totalItemsDPS"];
             $totalItemsDPN = $_POST["totalItemsDPN"]; 
@@ -119,7 +122,7 @@
             
             $mRPositivo = "¡Felicidades, el registro <strong> '" . $idGestion . "' </strong> fue todo un éxito!";
             
-            if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion)) {
+            if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$llamada,$fortalezas,$oportunidades)) {
                 
                 // Registrar al seccion
                 for($i = 1; $i < 5; $i++){

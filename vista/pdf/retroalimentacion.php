@@ -68,16 +68,14 @@
                     <label for="codigo" class="text-white font-weight-bold">Código</label>
                     <input type="text" placeholder="Digite el código de versionamiento a imprimir en el informe" value="GFFO-166" name="codigo" id="codigo" class="input-sm mb-3 form-control">
                 </div>
-
                 <div class="form-group col-4">
                     <label for="version" class="text-white font-weight-bold">Versión</label>
                     <input type="number" placeholder="Digite la versión a imprimir en el informe" value="0" name="version" id="version" class="input-sm mb-3 form-control">
                 </div>
-                
                 <div class="form-group col-4">
                     <label for="fechaVersion" class="text-white font-weight-bold">Fecha versión</label>
                     <input type="text" placeholder="Digite la fecha de la versión" value="27/12/2019" name="fechaVersion" id="fechaVersion" class="input-sm mb-3 form-control">
-                </div>
+                </div>                
             </div>
             
 

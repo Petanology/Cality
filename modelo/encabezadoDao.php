@@ -12,9 +12,9 @@
             $this->conexion = $objetoConexion->conn;
         }
         
-        public function registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion){
+        public function registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$llamada,$fortalezas,$oportunidades){
             try{
-                $query = $this->conexion->prepare("CALL registrarEncabezado('$idGestion',$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,'$fecha','$observacion');");
+                $query = $this->conexion->prepare("CALL registrarEncabezado('$idGestion',$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,'$fecha','$llamada','$fortalezas','$oportunidades');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

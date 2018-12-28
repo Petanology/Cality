@@ -81,11 +81,29 @@ function validarFormatoDC(){
                 confirmButtonText: 'Entendido'
         });
         
-    }else if($("#observacion").val().length == 0){
+    }else if($("#llamada").val().length == 0){
         
         swal({
         title: '¡Campo vacío!',
-        text: 'Es necesario que realice una OBSERVACIÓN para poder continuar...',
+        text: 'Es necesario que especifique la LLAMADA para poder continuar...',
+        type: 'info',
+        confirmButtonText: 'Entendido'
+        });
+        
+    }else if($("#fortalezas").val().length == 0){
+        
+        swal({
+        title: '¡Campo vacío!',
+        text: 'Es necesario que especifique las FORTALEZAS para poder continuar...',
+        type: 'info',
+        confirmButtonText: 'Entendido'
+        });
+        
+    }else if($("#oportunidades").val().length == 0){
+        
+        swal({
+        title: '¡Campo vacío!',
+        text: 'Es necesario que especifique las OPORTUNIDADES para poder continuar...',
         type: 'info',
         confirmButtonText: 'Entendido'
         });

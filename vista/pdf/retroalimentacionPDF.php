@@ -38,12 +38,32 @@
         $pdf->SetTextColor(20,20,20);
         $pdf->SetDrawColor(50,50,50);
         
+        $mes = array();
+        $mes[1] = "Enero";
+        $mes[2] = "Febrero";
+        $mes[3] = "Marzo";
+        $mes[4] = "Abril";
+        $mes[5] = "Mayo";
+        $mes[6] = "Junio";
+        $mes[7] = "Julio";
+        $mes[8] = "Agosto";
+        $mes[9] = "Septiembre";
+        $mes[10] = "Octubre";
+        $mes[11] = "Noviembre";
+        $mes[12] = "Diciembre";
         
+        $mesActual = $mes[date("n")];
+        
+        $pdf->Cell(0,5,"  FECHA: $mesActual" . date("d") . " del " . date("Y"),"LTR",0,'L',0); 
+        $pdf->Cell(0,5,"  CORTE: $pdf->corte","LTR",0,'L',0);
+        $pdf->Ln(2);
+        $pdf->WriteHTML('<p align="justify">Para  <b>GF COBRANZAS JURIDICAS</b> la calidad en la gestión  y el compromiso de la mejora continua  es pilar fundamental en nuestra labor diaria; Parte de esa labor diaria  es realizar  las gestiones bajo los parámetros  indicados, parámetros que queremos retroalimentar para su mejora continua.</p>');
+
+        /*
         foreach($resultadoORetroDao as $rowRORetroDao){
             $pdf->SetFillColor(240,240,240);
             $pdf->SetFont('Arial','B',8);
             $pdf->SetLeftMargin(10);
-            $pdf->Cell(98,5,"  FECHA:   $rowRORetroDao[0]","LTR",0,'L',1); 
             $pdf->Cell(98,5,"  NOMBRE:   $rowRORetroDao[2]","TR",1,'L',1);
             $pdf->Cell(98,5,"  UNIDAD:   $rowRORetroDao[1]","LBR",0,'L',1);
             $pdf->Cell(98,5,"  NOTA:   $rowRORetroDao[3]","BR",1,'L',1);    
@@ -53,16 +73,15 @@
             $pdf->Cell(0,5,"OPORTUNIDADES DE MEJORA:",0,1,"L",0);    
             $pdf->SetFont('Arial','',8);
             
-            $obsOportunidad = explode("OPORTUNIDADES:",$rowRORetroDao[4]);
-            $obsOportunidad[1] = preg_replace("/[\r\n|\n|\r]+/", PHP_EOL, $obsOportunidad[1]);
-
-            $pdf->MultiCell(0,5,$obsOportunidad[1],0,"J",0);
+            // observacion de oportunidades de mejora
+            $pdf->MultiCell(0,5,$rowRORetroDao[4],0,"J",0);
+            
+            //$obsOportunidad[1] = preg_replace("/[\r\n|\n|\r]+/", PHP_EOL, $obsOportunidad[1]);
             
             $pdf->Cell(0,1,"","B",1,0,0);    
             
             $pdf->Ln(2);
             
-            $pdf->WriteHTML('<p align="justify">Para  <b>GF COBRANZAS JURIDICAS</b> la calidad en la gestión  y el compromiso de la mejora continua  es pilar fundamental en nuestra labor diaria; Parte de esa labor diaria  es realizar  las gestiones bajo los parámetros  indicados, parámetros que queremos retroalimentar para su mejora continua.</p>');
             
             $pdf->ln(7);
             
@@ -81,6 +100,7 @@
             $pdf->SetLeftMargin(0);
             $pdf->Ln(20);
         }
+        */
 
     // Cerrar PDF 
     $pdf->Close();

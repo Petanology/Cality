@@ -24,7 +24,12 @@
             $unidad = $_POST["unidad"];
             $asesor = $_POST["identificacion"];
             $analista = $_SESSION["idpersona"];
-            $observacion = $_POST["observacion"];
+            
+            // observacacion
+            $llamada = $_POST["llamada"];
+            $fortalezas = $_POST["fortalezas"];
+            $oportunidades = $_POST["oportunidades"];
+            
             $totalItemsIBS = $_POST["totalItemsIBS"];
             $totalItemsIBO = $_POST["totalItemsIBO"]; 
             $totalItemsIBR = $_POST["totalItemsIBR"];
@@ -96,7 +101,7 @@
             
             $mRPositivo = "¡Felicidades, el registro <strong> '" . $idGestion . "' </strong> fue todo un éxito!";
             
-            if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$observacion)) {
+            if($encabezadoDao->registrarEncabezado($idGestion,$tipoMonitoreo,$errorCritico,$unidad,$asesor,$analista,$fecha,$llamada,$fortalezas,$oportunidades)) {
                 
                 for($i = 1; $i < 4; $i++){
                     $encabezadoDao->registrarValorSeccionEncabezado($idGestion,$i,$valor[$i]);                    
