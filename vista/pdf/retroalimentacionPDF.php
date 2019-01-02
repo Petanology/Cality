@@ -5,7 +5,36 @@
 
     $SHIR = null;
     $vResultado = new retroalimentacionDao();
-    $sihayInforme = $vResultado->validacionRetroalimentacion($_POST["tabla"] , $_POST["ultimosDias"] , $_POST["puntaje"]);
+
+    switch($_POST["tabla"]){
+        case "dc":
+            $sihayInforme = $vResultado->validacionRetroalimentacionDC($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "dp":
+            $sihayInforme = $vResultado->validacionRetroalimentacionDP($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "ie":
+            $sihayInforme = $vResultado->validacionRetroalimentacionIE($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "ib":
+            $sihayInforme = $vResultado->validacionRetroalimentacionIB($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "neg":
+            $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "men":
+            $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+
+        case "ibf":
+            $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_POST["ultimosDias"] , $_POST["puntaje"]);
+        break;
+    }
 
     foreach($sihayInforme as $rowSihayInforme){
         $SHIR = $rowSihayInforme;
@@ -15,7 +44,12 @@
         
         require_once("generalPDF-Retroalimentacion.php");
         require_once("funcionesColorFondoDetallado.php");
-        require_once("../../modelo/retroalimentacionDao.php");
+        require_once("mc_table.php");
+    require_once("../../modelo/retroalimentacionDao.php");
+        require_once("../../controlador/sesiones.php");
+        
+        $sss = new sesiones(); // instancia a clase de sesiones
+        $sss->iniciar();
 
         $pdf = new PDFRETROALIMENTACION('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
         // Varaibles generales
@@ -31,7 +65,36 @@
         $pdf->AddPage();
         
         $oRetroDao = new retroalimentacionDao();
-        $resultadoORetroDao = $oRetroDao->listarRetroalimentacion($pdf->tabla,$pdf->ultimosDias,$pdf->puntaje);
+        
+        switch($pdf->tabla){
+            case "dc":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDC($pdf->ultimosDias,$pdf->puntaje);
+            break;
+                
+            case "dp":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDP($pdf->ultimosDias,$pdf->puntaje);
+            break;
+
+            case "ie":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIE($pdf->ultimosDias,$pdf->puntaje);
+            break;
+         
+            case "ib":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIB($pdf->ultimosDias,$pdf->puntaje);
+            break;
+                
+            case "neg":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionNEG($pdf->ultimosDias,$pdf->puntaje);
+            break;
+                
+            case "men":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionMEN($pdf->ultimosDias,$pdf->puntaje);
+            break;
+                
+            case "ibf":
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIBF($pdf->ultimosDias,$pdf->puntaje);
+            break;
+        }
         
         // $this->SetTextColor(45,50,38);
         $pdf->SetFont('Arial','',8);
@@ -51,56 +114,59 @@
         $mes[10] = "Octubre";
         $mes[11] = "Noviembre";
         $mes[12] = "Diciembre";
-        
         $mesActual = $mes[date("n")];
         
-        $pdf->Cell(0,5,"  FECHA: $mesActual" . date("d") . " del " . date("Y"),"LTR",0,'L',0); 
-        $pdf->Cell(0,5,"  CORTE: $pdf->corte","LTR",0,'L',0);
-        $pdf->Ln(2);
+        $pdf->SetFillColor(230,230,230);
+        $pdf->SetDrawColor(150,150,150);
+        $pdf->SetFont('Arial','B',7);
+        $pdf->Cell(90,6,"  ANALISTA:   " . $_SESSION['nombres'],1,0,'L',1); 
+        $pdf->Cell(70,6,"  FECHA:   $mesActual " . date("d") . " del " . date("Y"),1,0,'L',1); 
+        $pdf->Cell(36,6,"  CORTE:   $pdf->corte",1,0,'L',1); 
+        $pdf->Ln(8);
+        
+        
+        $pdf->SetFont('Arial','',7);
         $pdf->WriteHTML('<p align="justify">Para  <b>GF COBRANZAS JURIDICAS</b> la calidad en la gestión  y el compromiso de la mejora continua  es pilar fundamental en nuestra labor diaria; Parte de esa labor diaria  es realizar  las gestiones bajo los parámetros  indicados, parámetros que queremos retroalimentar para su mejora continua.</p>');
 
-        /*
+        $pdf->SetFont('Arial','B',4);
+        $pdf->Ln(7);
+        
+        $pdf->Cell(19,4,"UNIDAD",1,0,'C',1);
+        $pdf->Cell(21,4,"GESTOR",1,0,'C',1);
+        $pdf->Cell(7,4,"NOTA",1,0,'C',1);
+        $pdf->Cell(60,4,"OPORTUNIDADES DE MEJORA",1,0,'C',1);
+        $pdf->Cell(55,4,"ACUERDO PACTADO",1,0,'C',1);
+        $pdf->Cell(35,4,"FIRMA",1,0,'C',1);
+        
+        $pdf->SetFont('Arial','',5);
+        $pdf->Ln(4);
+        
         foreach($resultadoORetroDao as $rowRORetroDao){
-            $pdf->SetFillColor(240,240,240);
-            $pdf->SetFont('Arial','B',8);
-            $pdf->SetLeftMargin(10);
-            $pdf->Cell(98,5,"  NOMBRE:   $rowRORetroDao[2]","TR",1,'L',1);
-            $pdf->Cell(98,5,"  UNIDAD:   $rowRORetroDao[1]","LBR",0,'L',1);
-            $pdf->Cell(98,5,"  NOTA:   $rowRORetroDao[3]","BR",1,'L',1);    
-            
-            $pdf->Ln(4);
-            
-            $pdf->Cell(0,5,"OPORTUNIDADES DE MEJORA:",0,1,"L",0);    
-            $pdf->SetFont('Arial','',8);
-            
-            // observacion de oportunidades de mejora
-            $pdf->MultiCell(0,5,$rowRORetroDao[4],0,"J",0);
-            
-            //$obsOportunidad[1] = preg_replace("/[\r\n|\n|\r]+/", PHP_EOL, $obsOportunidad[1]);
-            
-            $pdf->Cell(0,1,"","B",1,0,0);    
-            
-            $pdf->Ln(2);
-            
-            
-            $pdf->ln(7);
-            
-            $pdf->Cell(0,5," SÉ QUE DEBO: ","LTR",1,1);
-            $pdf->Cell(0,22,"","LBR",1,1);
-            
-            
-            
-            $pdf->Ln(10);
-            
-            $pdf->Cell(54,5,"FIRMA ASESOR","T",0,"C",0);
-            $pdf->SetLeftMargin(80);
-            $pdf->Cell(54,5,"FIRMA ANALISTA CALIDAD","T",0,"C",0);
-            $pdf->SetLeftMargin(150);
-            $pdf->Cell(54,5,"FIRMA ANALISTA DE CARTERA","T",0,"C",0);
-            $pdf->SetLeftMargin(0);
-            $pdf->Ln(20);
+
+            $pdf->SetWidths(array(19,21,7,60,55,35));
+            $pdf->SetAligns(array("C","C","C","J","C","C"));
+            srand(microtime()*1000000);
+            $pdf->Row(array(
+                "\n$rowRORetroDao[0]\n",
+                "\n$rowRORetroDao[1] - $rowRORetroDao[2]\n",
+                "\n$rowRORetroDao[3]\n",
+                "\n$rowRORetroDao[4]\n",
+                "",
+                ""
+            ));
         }
-        */
+        
+        $pdf->Ln(2);
+        $pdf->SetFont('Arial','',7);
+        $pdf->WriteHTML('<p align="justify"><b>PARÁGRAFO: </b> El reiterado  incumplimiento de los compromisos adquiridos en la presente acta conlleva a las sanciones correspondientes y se procederá a evaluar el caso por parte de Talento Humano.</p>');
+ 
+        $pdf->SetFont('Arial','B',7);
+        $pdf->Ln(18);
+        $pdf->Cell(60,5,"ANALISTA CALIDAD","T",0,"C",0);
+        $pdf->SetLeftMargin(150);
+        $pdf->Cell(60,5,"ANALISTA DE CARTERA","T",0,"C",0);
+        $pdf->SetLeftMargin(0);
+        $pdf->Ln(20);
 
     // Cerrar PDF 
     $pdf->Close();
