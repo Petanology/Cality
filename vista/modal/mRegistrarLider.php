@@ -16,7 +16,7 @@
 
                         <!-- Tipo de Documento -->
                         <div class="form-group">
-                            <label for="tipoDocumento">Tipo de documento</label>
+                            <label for="tipoDocumento" class="font-weight-bold">Tipo de documento</label>
                             <select name="tipoDocumento" id="tipoDocumento" class="mb-3 form-control" required>
                                 <option value="" selected disabled>Seleccione el tipo de documento...</option>
                                 <?php
@@ -32,7 +32,7 @@
 
                         <!-- Número de identificación -->
                         <div class="form-group">
-                            <label for="identificacion">Identificación</label>
+                            <label for="identificacion" class="font-weight-bold">Identificación</label>
                             <input 
                                 type="text" 
                                 class="mb-3 form-control" 
@@ -48,7 +48,7 @@
 
                         <!-- Nombres -->                  
                         <div class="form-group">
-                            <label for="nombres">Nombres</label>
+                            <label for="nombres" class="font-weight-bold">Nombres</label>
                             <input 
                                 type="text" 
                                 class="mb-3 form-control" 
@@ -64,7 +64,7 @@
 
                         <!-- Apellidos -->
                         <div class="form-group">
-                            <label for="apellidos">Apellidos</label>
+                            <label for="apellidos" class="font-weight-bold">Apellidos</label>
                             <input 
                                 type="text" 
                                 class="mb-3 form-control" 
@@ -77,9 +77,10 @@
                             >
                         </div>
 
-
+                        <hr>
+                        
                         <!-- Genero -->
-                        <label>Genero</label>
+                        <label class="font-weight-bold">Genero</label>
                         <div class="form-group">
                             <?php
                                 $objetoG = new generoDao();
@@ -93,10 +94,11 @@
                             <?php endforeach; ?>
                         </div>
 
-
+                        <hr>
+                        
                         <!-- Correo Electrónico -->
                         <div class="form-group">
-                            <label for="correo">Correo electrónico</label>
+                            <label for="correo" class="font-weight-bold">Correo electrónico</label>
                             <input 
                                 type="email" 
                                 class="mb-3 form-control" 
@@ -105,25 +107,32 @@
                                 placeholder="Digite el correo electrónico" 
                                 required
                             >
+                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; La dirección de correo electrónico se usará para la recuperación de la contraseña</small>
                         </div>
+                        
+                        <hr>
                         
                         <!-- Usuario -->
                         <div class="form-group">
-                            <label for="usuario">Usuario</label>
+                            <label for="usuario" class="font-weight-bold">Usuario</label>
                             <input 
                                 type="text" 
                                 class="mb-3 form-control"
                                 id="usuario" 
                                 name="usuario" 
                                 placeholder="Digite un usuario de sesión"
+                                title="Cadena de texto entre 4 y 35 carácteres"
                                 pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}"
                                 required
                             >
+                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; el nombre de usuario debe ser personal e intransferible</small>
                         </div>
+                        
+                        <hr>
 
                         <!-- Contraseña -->
                         <div class="form-group">
-                            <label for="contrasena">Contraseña</label>
+                            <label for="contrasena" class="font-weight-bold">Contraseña</label>
                             <input 
                                 type="password"    
                                 class="mb-3 form-control" 

@@ -6,9 +6,10 @@
     $sss = new sesiones();
     $sss->iniciar();
     
+    /*
     if(empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>
@@ -114,6 +115,17 @@
                             <div class="texto">Retroalimentación</div>
                         </a>
                     </li>
+                    <li>
+                        <a href="visualizacionGeneral.php" target="contenido">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/loupe.png" alt="icono de visualización">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Visualizar gestión</div>
+                        </a>
+                    </li>
                     <?php
                     }
                     ?>
@@ -130,7 +142,7 @@
                             </div>
                             
                             <!-- Texto -->
-                            <div class="texto">Perfiles</div>
+                            <div class="texto">Gestión de Perfiles</div>
                         </a>
                         <div class="submenu-item">
                             <ul>

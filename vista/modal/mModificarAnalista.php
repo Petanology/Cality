@@ -143,6 +143,8 @@
                             >
                             <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; el nombre de usuario debe ser personal e intransferible</small>
                         </div>
+                        
+                        <hr>
 
                         <!-- Estado -->
                         <div class="form-group">

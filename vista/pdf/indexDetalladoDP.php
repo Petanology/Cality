@@ -1,15 +1,19 @@
 <!-- importaciones requeridas -->
 <?php 
-    require_once ("encabezadoReportes.php"); 
-    require_once ("../../controlador/zonaHoraria.php");
     require_once ("../../controlador/sesiones.php");
-    require_once ("../../modelo/asesorDao.php");
     $sss = new sesiones();
     $sss->iniciar();
-    
-    if($_SESSION["rol"]=="asesor" || $_SESSION["rol"]=="lider" || $_SESSION["rol"]=="coord_financiera" || empty($_SESSION['autenticado'])){
+
+
+    if(empty($_SESSION['autenticado'])){
+        header("location:../acceso_denegado.php");
+    } else if($_SESSION["rol"]=="asesor" || $_SESSION["rol"]=="lider" || $_SESSION["rol"]=="coord_financiera"){
         header("location:../acceso_denegado.php");
     }
+
+    require_once ("encabezadoReportes.php"); 
+    require_once ("../../controlador/zonaHoraria.php");
+    require_once ("../../modelo/asesorDao.php");
 ?>
 
     <!-- Contenido -->  
@@ -17,8 +21,8 @@
         <form action="reporteDetalladoContactoPrejuridico.php" method="post">
             <div class="form-group input-group-sm">
                 <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">INFORME DETALLADO PARA NEGOCIACION PREJURIDICA VD</label>
-                <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control">
-                <input list="asesor" class="pl-3 pt-3 pb-3 form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea consultar">
+                <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control" required>
+                <input list="asesor" class="pl-3 pt-3 pb-3 form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea consultar" title="cadena de texto entre 4 y 35 carácteres" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}" required>
                 <datalist id="asesor">
                     <?php
                         $objetoAsesorListaActivos = new asesorDao();

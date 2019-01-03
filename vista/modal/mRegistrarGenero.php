@@ -15,7 +15,7 @@
                             id="nombre" 
                             name="nombre" 
                             pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,20}"
-                            title="Cadena de texto de máximo 20 carácteres"
+                            title="Cadena de texto de entre 4 y 20 carácteres"
                             placeholder="Digite el nuevo genero"
                             required
                         >

@@ -243,7 +243,7 @@
             $this->Cell(100,12,"FORMATO DE RETROALIMENTACION NOTAS",1,0,'C',1);
             
             
-            $this->SetFillColor(244, 246, 246);
+            $this->SetFillColor(255,255,255);
             $this->SetXY(160,11);
             $this->Cell(46,12,"",1,0,'C',1);
             

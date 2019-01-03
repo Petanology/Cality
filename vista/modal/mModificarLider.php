@@ -131,10 +131,13 @@
                                 name="usuario2" 
                                 value="<?php echo $rowA[8]; ?>"
                                 placeholder="Digite un usuario de sesión"
+                                title="Cadena de texto entre 4 y 35 carácteres"
                                 pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}"
                                 required
                             >
                         </div>
+                        
+                        <hr>
 
                         <!-- Estado -->
                         <div class="form-group">

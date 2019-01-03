@@ -44,8 +44,7 @@
         
         require_once("generalPDF-Retroalimentacion.php");
         require_once("funcionesColorFondoDetallado.php");
-        require_once("mc_table.php");
-    require_once("../../modelo/retroalimentacionDao.php");
+        require_once("../../modelo/retroalimentacionDao.php");
         require_once("../../controlador/sesiones.php");
         
         $sss = new sesiones(); // instancia a clase de sesiones
@@ -134,23 +133,23 @@
         $pdf->Cell(19,4,"UNIDAD",1,0,'C',1);
         $pdf->Cell(21,4,"GESTOR",1,0,'C',1);
         $pdf->Cell(7,4,"NOTA",1,0,'C',1);
-        $pdf->Cell(60,4,"OPORTUNIDADES DE MEJORA",1,0,'C',1);
-        $pdf->Cell(55,4,"ACUERDO PACTADO",1,0,'C',1);
-        $pdf->Cell(35,4,"FIRMA",1,0,'C',1);
+        $pdf->Cell(60,4,"OBSERVACIONES",1,0,'C',1);
+        $pdf->Cell(45,4,"ACUERDO PACTADO",1,0,'C',1);
+        $pdf->Cell(45,4,"FIRMAS (ASESOR - LÍDER)",1,0,'C',1);
         
         $pdf->SetFont('Arial','',5);
         $pdf->Ln(4);
         
         foreach($resultadoORetroDao as $rowRORetroDao){
 
-            $pdf->SetWidths(array(19,21,7,60,55,35));
+            $pdf->SetWidths(array(19,21,7,60,45,45));
             $pdf->SetAligns(array("C","C","C","J","C","C"));
             srand(microtime()*1000000);
             $pdf->Row(array(
                 "\n$rowRORetroDao[0]\n",
                 "\n$rowRORetroDao[1] - $rowRORetroDao[2]\n",
                 "\n$rowRORetroDao[3]\n",
-                "\n$rowRORetroDao[4]\n",
+                "\n>> Fortalezas:\n$rowRORetroDao[4]\n>> Oportunidades de mejora:\n$rowRORetroDao[5]\n",
                 "",
                 ""
             ));
@@ -162,9 +161,10 @@
  
         $pdf->SetFont('Arial','B',7);
         $pdf->Ln(18);
+        $pdf->SetLeftMargin(40);
         $pdf->Cell(60,5,"ANALISTA CALIDAD","T",0,"C",0);
-        $pdf->SetLeftMargin(150);
-        $pdf->Cell(60,5,"ANALISTA DE CARTERA","T",0,"C",0);
+        $pdf->SetLeftMargin(120);
+        $pdf->Cell(60,5,"COORDINADOR","T",0,"C",0);
         $pdf->SetLeftMargin(0);
         $pdf->Ln(20);
 
