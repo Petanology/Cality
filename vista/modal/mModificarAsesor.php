@@ -102,23 +102,6 @@
                         </div>
 
                         <hr>
-                        
-                        <!-- Correo Electrónico -->
-                        <div class="form-group">
-                            <label for="correo2" class="font-weight-bold">Correo electrónico</label>
-                            <input 
-                                type="email" 
-                                class="mb-3 form-control" 
-                                id="correo2" 
-                                name="correo2" 
-                                placeholder="Digite el correo electrónico" 
-                                value="<?php echo $rowA[7]; ?>" 
-                                required
-                            >
-                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; La dirección de correo electrónico se usará para la recuperación de la contraseña</small>
-                        </div>
-
-                        <hr>
                        
                         <!-- Líder correspondiente -->
                         <div class="form-group">
@@ -126,7 +109,7 @@
                             <select name="lider2" id="lider2" class="mb-3 form-control" required>
                                 <option value="" disabled>Seleccione el lider...</option>
                                 <optgroup label="Líder registrado">
-                                    <option value="<?php echo $rowA[8]; ?>" selected><?php echo $rowA[9];?></option>
+                                    <option value="<?php echo $rowA[7]; ?>" selected><?php echo $rowA[8];?></option>
                                 </optgroup>
                                 <optgroup label="Vigentes">
                                     <?php
@@ -151,7 +134,7 @@
                                 id="usuario2" 
                                 name="usuario2" 
                                 placeholder="Digite un usuario de sesión" 
-                                value="<?php echo $rowA[10]; ?>"
+                                value="<?php echo $rowA[9]; ?>"
                                 title="Cadena de texto entre 4 y 35 carácteres"
                                 pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ]{4,35}"
                                 required
@@ -166,8 +149,8 @@
                             <label for="estado2" class="font-weight-bold">Estado</label>
                             <select name="estado2" id="estado2" class="form-control" required>
                                 <option value="" disabled>Seleccione el estado</option>
-                                <option value="1" <?php if($rowA[11]==1){ echo "selected"; } ?>>Activo</option>
-                                <option value="0" <?php if($rowA[11]==0){ echo "selected"; } ?>>Inactivo</option>
+                                <option value="1" <?php if($rowA[10]==1){ echo "selected"; } ?>>Activo</option>
+                                <option value="0" <?php if($rowA[10]==0){ echo "selected"; } ?>>Inactivo</option>
                             </select>
                         </div>
             </div>

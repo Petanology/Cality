@@ -102,23 +102,7 @@
                         
                         <hr>
 
-                        <!-- Correo Electrónico -->
-                        <div class="form-group">
-                            <label for="correo" class="font-weight-bold">Correo electrónico</label>
-                            <input 
-                                type="email" 
-                                class="mb-3 form-control" 
-                                id="correo" 
-                                name="correo" 
-                                placeholder="Digite el correo electrónico"
-                                required
-                            >
-                            <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; La dirección de correo electrónico se usará para la recuperación de la contraseña</small>
-                        </div>
-                        
-                        <hr>
-
-                        <!-- Líder correspondiente -->
+                        <!-- Líder -->
                         <div class="form-group">
                             <label for="lider" class="font-weight-bold">Líder</label>
                             <select name="lider" id="lider" class="mb-3 form-control" required>
@@ -150,29 +134,22 @@
                             >
                             <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; el nombre de usuario debe ser personal e intransferible</small>
                         </div>
-                        
-                        <hr>
-
-                        <!-- Contraseña -->
-                        <div class="form-group">
-                            <label for="contrasena" class="font-weight-bold">Contraseña</label>
-                            <input 
-                                type="password"    
-                                class="mb-3 form-control" 
-                                id="contrasena" 
-                                name="contrasena" 
-                                title="Cadena de texto entre 4 y 35 carácteres"
-                                pattern=".{4,35}"
-                                placeholder="Digite la contraseña"
-                                required
-                            >
-                        </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" value="REGISTRAR" name="boton" class="btn btn-success">REGISTRAR</button>
+                    <button type="submit" value="REGISTRAR" name="boton" id="boton" class="btn btn-success">REGISTRAR</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+

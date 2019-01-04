@@ -26,7 +26,8 @@
     <link rel="shortcut icon" type="image/png" href="img/faviconx32.png">
     
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
     
     <!-- Titulo -->
     <title>Iniciar Sesión | Cality</title> 
@@ -71,13 +72,12 @@
                 <!-- Rol -->
                 <label for="rol">Rol Correspondiente</label>
                 <select name="rol" id="rol" required>
-                <option value="" disabled>Seleccione su rol</option>
-                <option value="analista" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="analista"){echo "selected";} ?>>Analista</option>
-                <option value="lider" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="lider"){echo "selected";} ?>>Líder</option>
-                <option value="administrador" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="administrador"){echo "selected";} ?>>Administrador</option>
-                <option value="coord_venta_directa" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_venta_directa"){echo "selected";} ?>>Coordinador Venta Directa</option>
-                <option value="coord_financiera" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_financiera"){echo "selected";} ?>>Coordinador Financiera</option>
-                <option value="asesor" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="asesor"){echo "selected";} ?>>Asesor</option>
+                    <option value="" disabled>Seleccione su rol</option>
+                    <option value="analista" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="analista"){echo "selected";} ?>>Analista</option>
+                    <option value="lider" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="lider"){echo "selected";} ?>>Líder</option>
+                    <option value="administrador" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="administrador"){echo "selected";} ?>>Administrador</option>
+                    <option value="coord_venta_directa" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_venta_directa"){echo "selected";} ?>>Coordinador Venta Directa</option>
+                    <option value="coord_financiera" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_financiera"){echo "selected";} ?>>Coordinador Financiera</option>
                 </select>
 
                 <!-- usuario -->
@@ -93,7 +93,6 @@
                     <label for="contrasena">Contraseña</label>
                     <input type="password" id="password" class="text" name="contrasena" id="contrasena" placeholder="Digite su contraseña" required>
                     <div class="ojo cerrar" title="Mostrar contraseña"></div>
-                    
                 </div>
 
                 <!-- submit -->

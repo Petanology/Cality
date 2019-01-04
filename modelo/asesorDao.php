@@ -13,9 +13,9 @@
         }
         
         
-        public function registrarAsesor($pIdPersona,$pLiderAsesor,$pUsuarioAsesor,$pContrasenaAsesor) {
+        public function registrarAsesor($pIdPersona,$pLiderAsesor,$pUsuarioAsesor) {
             try{
-                $query = $this->conexion->prepare("CALL registrarAsesor($pIdPersona,$pLiderAsesor,'$pUsuarioAsesor','$pContrasenaAsesor');");
+                $query = $this->conexion->prepare("CALL registrarAsesor($pIdPersona,$pLiderAsesor,'$pUsuarioAsesor');");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

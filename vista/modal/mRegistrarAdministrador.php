@@ -11,7 +11,7 @@
                 <h5 class="modal-title font-weight-bold">Registrar Administrador</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/administradorControlador.php" method="post">
+            <form id="formRegistro" name="formRegistro" action="../controlador/administradorControlador.php" method="post">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->
@@ -150,6 +150,22 @@
                                 placeholder="Digite la contraseña"
                                 required
                             >
+                        </div>
+                        
+                        <!-- Validación de contraseña -->
+                        <div class="form-group">
+                            <label for="contrasena2" class="font-weight-bold">Confirmar Contraseña</label>
+                            <input 
+                                type="password"    
+                                class="mb-3 form-control" 
+                                id="contrasena2" 
+                                name="contrasena2" 
+                                title="Cadena de texto entre 4 y 35 carácteres"
+                                pattern=".{4,35}"
+                                placeholder="Digite la contraseña"
+                                required
+                            >
+                            <small class="form-text text-muted" id="mensajeVerificacion"><i class="far fa-question-circle"></i>&nbsp; Las contraseñas deben coincidir</small>
                         </div>
                 </div>
                 <div class="modal-footer">
