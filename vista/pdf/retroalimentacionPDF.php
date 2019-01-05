@@ -144,7 +144,7 @@
 
             $pdf->SetWidths(array(19,21,7,60,45,45));
             $pdf->SetAligns(array("C","C","C","J","C","C"));
-            srand(microtime()*1000000);
+            //srand(microtime()*1000000);
             $pdf->Row(array(
                 "\n$rowRORetroDao[0]\n",
                 "\n$rowRORetroDao[1] - $rowRORetroDao[2]\n",

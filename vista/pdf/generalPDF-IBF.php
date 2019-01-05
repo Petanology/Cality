@@ -3,7 +3,7 @@
     // importación de la librería
     require_once("fpdf/fpdf.php");
 
-    class PDFMEN extends FPDF {
+    class PDFIBF extends FPDF {
         
         public $mes;
         

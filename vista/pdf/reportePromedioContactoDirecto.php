@@ -62,7 +62,7 @@
     $pdf->AddPage();
         
     function sort_by_orden($a, $b) {
-        return $b[4] - $a[4];
+        return $b[5] - $a[5];
     }
         
     require_once("funcionesColorFondo.php");
@@ -396,7 +396,7 @@
             $pdf->SetFillColor(214, 219, 223);
             $pdf->Cell(70,5,$rowAsesores[0],0,0,'C',1); 
             
-            // Servicio y etiqueta telefónica
+            // GESTION 1
             if(isset($rowAsesores[1])){
                 impresionColorRankingA($rowAsesores[1]);
                 $pdf->Cell(25,5,$rowAsesores[1],0,0,'C',1); 
@@ -408,7 +408,7 @@
                 $pdf->Cell(25,5,"",0,0,'C',1); 
             }
         
-            // Negociación    
+            // GESTIÓN 2    
             if(isset($rowAsesores[2])){
                 impresionColorRankingA($rowAsesores[2]);
                 $pdf->Cell(25,5,$rowAsesores[2],0,0,'C',1);
@@ -420,7 +420,7 @@
                 $pdf->Cell(25,5,"",0,0,'C',1);
             }
         
-            // Cierre de compromiso    
+            // GESTION 3    
             if(isset($rowAsesores[3])){
                 impresionColorRankingA($rowAsesores[3]);
                 $pdf->Cell(25,5,$rowAsesores[3],0,0,'C',1);
@@ -433,7 +433,7 @@
             }
             
         
-            // Registro en el sistema
+            // GESTION 4
             if(isset($rowAsesores[4])){
                 impresionColorRankingA($rowAsesores[4]);
                 $pdf->Cell(25,5,$rowAsesores[4],0,0,'C',1);
@@ -445,7 +445,7 @@
                 $pdf->Cell(25,5,"",0,0,'C',1);
             }
         
-            // Total
+            // TOTAL
             $pdf->SetTextColor(28, 40, 51);
             if(isset($rowAsesores[5])){
                 impresionColorOscuro($rowAsesores[5]);

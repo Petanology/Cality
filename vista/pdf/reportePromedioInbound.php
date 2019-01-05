@@ -59,7 +59,7 @@
     $pdf->AddPage();
         
     function sort_by_orden($a, $b) {
-        return $b[4] - $a[4];
+        return $b[5] - $a[5];
     }
         
     require_once("funcionesColorFondo.php");

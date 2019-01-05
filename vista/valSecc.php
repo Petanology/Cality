@@ -6,7 +6,7 @@
     
     if(empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
-    } else if($_SESSION['rol'] == "administrador" || $_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider" || $_SESSION['rol'] == "asesor"){
+    } else if($_SESSION['rol'] == "administrador" || $_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider"){
         header("location:acceso_denegado.php");
     }
 
