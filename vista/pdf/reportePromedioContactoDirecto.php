@@ -517,8 +517,8 @@
     $pdf->Ln(3);
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(46, 134, 193);
+    $pdf->SetDrawColor(46, 134, 193);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'LISTA DE ASESORES QUE INFRINGIERON',1,1,'C',1);
 
@@ -552,8 +552,8 @@
     // RANKING DE ERRORES CRITICOS
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(46, 134, 193);
+    $pdf->SetDrawColor(46, 134, 193);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING POR ERRORES CRÍTICOS INFRINGIDOS',1,1,'C',1);
 

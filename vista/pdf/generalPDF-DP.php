@@ -9,7 +9,7 @@
         
         function Header(){
             // Fondo Azul
-            $this->SetFillColor(231, 76, 60);
+            $this->SetFillColor(31,97,141);
             $this->SetXY(0,0);
             $this->Cell($this->GetPageWidth(),24,'',0,0,'C',1);
             
@@ -24,7 +24,7 @@
             $this->Image('../img/faviconx512-4.png',31,7,12);
             
             // Titulo principal
-            $this->SetFillColor(236, 112, 99);
+            $this->SetFillColor(41,128,185);
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;

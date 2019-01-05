@@ -22,8 +22,8 @@
                 <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control" required>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-dark btn-sm btn-block"
-                ><i class="fas fa-plus-circle"></i> GENERAR ARCHIVO PDF</button>
+                <button type="submit" class="btn btn-dark btn-sm btn-block font-weight-bold"
+                ><i class="fas fa-award"></i>&nbsp; GENERAR ARCHIVO PDF</button>
                 <small class="form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, para así generar sus respectivos informes generales.</small>
             </div>
         </form>

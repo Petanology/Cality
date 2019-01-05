@@ -89,8 +89,8 @@
         
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(39, 55, 70);
-    $pdf->SetDrawColor(39, 55, 70);
+    $pdf->SetFillColor(52,73,94);
+    $pdf->SetDrawColor(52,73,94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'PROMEDIO GRUPAL',1,1,'C',1);
     
@@ -143,7 +143,7 @@
         
         // Líderes de grupo
         $pdf->SetTextColor(255,255,255);
-        $pdf->SetFillColor(93, 109, 126);
+        $pdf->SetFillColor(50,62,75);
         $pdf->Cell(70,6,$rowRLiderDao[0],0,0,'C',1);
         $pdf->Cell(30,6,$rowRLiderDao[1],0,0,'C',1); 
         $pdf->Cell(30,6,$rowRLiderDao[2],0,0,'C',1);
@@ -217,12 +217,12 @@
 
     // Titulo encabezado Ranking unidades
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(39, 55, 70);
+    $pdf->SetFillColor(52,73,94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE UNIDADES',1,1,'C',1);
 
     // Subtitulos respectivos
-    $pdf->SetFillColor(52, 73, 94);
+    $pdf->SetFillColor(50,62,75);
     $pdf->SetFont('Arial','B',8);
     $pdf->Cell(70,6,'UNIDADES',0,0,'C',1); 
     $pdf->Cell(30,6,'SET',0,0,'C',1); 
@@ -298,12 +298,12 @@
 
     // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(39, 55, 70);
+    $pdf->SetFillColor(52,73,94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE ASESORES',1,1,'C',1);
 
     // Color de fondo y borde oscuro 
-    $pdf->SetFillColor(52, 73, 94);
+    $pdf->SetFillColor(50,62,75);
     $pdf->SetFont('Arial','B',8);
 
     // Titulos tabla
@@ -484,13 +484,13 @@
     $pdf->Ln(3);
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(52,73,94);
+    $pdf->SetDrawColor(52,73,94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'LISTA DE ASESORES QUE INFRINGIERON',1,1,'C',1);
 
     // Color de fondo y borde oscuro 
-    $pdf->SetFillColor(52, 73, 94);
+    $pdf->SetFillColor(50,62,75);
     $pdf->SetFont('Arial','B',8);
 
     // Titulos tabla
@@ -519,13 +519,13 @@
     // RANKING DE ERRORES CRITICOS
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(52,73,94);
+    $pdf->SetDrawColor(52,73,94);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING POR ERRORES CRÍTICOS INFRINGIDOS',1,1,'C',1);
 
     // Color de fondo y borde oscuro 
-    $pdf->SetFillColor(52, 73, 94);
+    $pdf->SetFillColor(50,62,75);
     $pdf->SetFont('Arial','B',8);
 
     // Titulos tabla

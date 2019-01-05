@@ -9,7 +9,7 @@
         
         function Header(){
             // Fondo Azul
-            $this->SetFillColor(29, 131, 72);
+            $this->SetFillColor(30,132,151);
             $this->SetXY(0,0);
             $this->Cell($this->GetPageWidth(),24,'',0,0,'C',1);
             
@@ -24,10 +24,10 @@
             $this->Image('../img/faviconx512-4.png',31,7,12);
             
             // Titulo principal
-            $this->SetFillColor(35, 155, 86);
+            $this->SetFillColor(46,152,172);
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
-            $this->SetXY(50,7);;
+            $this->SetXY(50,7);
             $this->Cell(0,13,"INFORME MENSAJE VENTA DIRECTA " . $this->ImprimirMes($this->mes),'LR',0,'C',1);
             
             // Salto de Línea para tabla

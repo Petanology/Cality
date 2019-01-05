@@ -35,7 +35,7 @@
                 </datalist>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-dark btn-sm btn-block"><i class="fas fa-plus-circle"></i> GENERAR ARCHIVO PDF</button>
+                <button type="submit" class="btn btn-dark font-weight-bold btn-sm btn-block"><i class="fas fa-award"></i>&nbsp; GENERAR ARCHIVO PDF</button>
                 <small class="form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, además recuerde que solo puede consultar un asesor que se encuentre activo para realizar sus informe detallado.</small>
             </div>
         </form>

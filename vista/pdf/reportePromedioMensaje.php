@@ -87,8 +87,8 @@
 
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(22, 160, 133);
-    $pdf->SetDrawColor(22, 160, 133);
+    $pdf->SetFillColor(84,153,199);
+    $pdf->SetDrawColor(84,153,199);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'PROMEDIO GRUPAL',1,1,'C',1);
     
@@ -215,7 +215,7 @@
 
     // Titulo encabezado Ranking unidades
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(22, 160, 133);
+    $pdf->SetFillColor(84,153,199);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE UNIDADES',1,1,'C',1);
 
@@ -295,7 +295,7 @@
 
     // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(22, 160, 133);
+    $pdf->SetFillColor(84,153,199);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE ASESORES',1,1,'C',1);
 
@@ -483,8 +483,8 @@
     $pdf->Ln(3);
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(84,153,199);
+    $pdf->SetDrawColor(84,153,199);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'LISTA DE ASESORES QUE INFRINGIERON',1,1,'C',1);
 
@@ -518,8 +518,8 @@
     // RANKING DE ERRORES CRITICOS
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(231, 76, 60);
-    $pdf->SetDrawColor(231, 76, 60);
+    $pdf->SetFillColor(84,153,199);
+    $pdf->SetDrawColor(84,153,199);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING POR ERRORES CRÍTICOS INFRINGIDOS',1,1,'C',1);
 
