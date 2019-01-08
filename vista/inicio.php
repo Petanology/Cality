@@ -147,6 +147,20 @@
                         <div class="submenu-item">
                             <ul>
                             <?php
+                            if($_SESSION['rol']=="analista"){
+                            ?>                       
+                               <li>
+                                   <a href="gestionFotosPerfil.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/portrait.png" alt="icono de gestión de imagenes de perfil">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Fotos de Perfil</div>
+                                   </a>
+                               </li> 
+                            <?php
+                            }
                             if($_SESSION['rol']=="administrador"){
                             ?>
                                <li>

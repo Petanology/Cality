@@ -10,7 +10,7 @@
                 <h5 class="modal-title font-weight-bold">Registrar Administrador</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form id="formRegistro" name="formRegistro" action="../controlador/administradorControlador.php" method="post">
+            <form id="formRegistro" name="formRegistro" action="../controlador/administradorControlador.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->
@@ -166,7 +166,20 @@
                             >
                             <small class="form-text text-muted" id="mensajeVerificacion"><i class="far fa-question-circle"></i>&nbsp; Las contraseñas deben coincidir</small>
                         </div>
-                </div>
+                        
+                        <hr>
+                                                
+                        <label for="imagen" class="font-weight-bold">Foto de Perfil</label>
+                        
+                        <!-- foto de perfil -->
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="imagen" name="imagen" accept="image/jpg" required>
+                                <label class="custom-file-label" for="imagen">Elegir imagen</label>
+                            </div>
+                        </div>                
+                        <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la imagen debe ser formato PNG y estar en escala 1:1 (cuadrada)</small>
+                   </div>
                 <div class="modal-footer">
                     <!-- boton de registrar -->
                     <input type="hidden" name="boton" value="REGISTRAR">
@@ -178,3 +191,35 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,12 +15,11 @@
             $personaDao = new personaDao();
             
             switch($boton){
-                    
+
                 case "REGISTRAR":
-                    
+
                     $mRPositivo = "¡Felicidades, el registro con la identificación <strong> '" . $_POST['identificacion'] . "' </strong> fue todo un éxito!";
-                    
-                    
+
                     // variables para tabla persona
                     $idPersona = $_POST['identificacion'];
                     $generoAdministrador = $_POST['genero'];
@@ -29,24 +28,28 @@
                     $apesAdministrador = $_POST['apellidos'];
                     $correoAdministrador = $_POST['correo'];
                     
-                    
+                    // traer archivo de la imagen
+                    $imagen = $_FILES['imagen']['tmp_name'];
+                    $ruta = "img/fotos_perfil/$idPersona.jpg";
+
                     // variables para administrador
                     $usuarioAdministrador = $_POST['usuario'];
                     $contrasenaAdministrador = $_POST['contrasena'];
-                    
-                    
-                    if($personaDao->registrarPersona($idPersona,$generoAdministrador,$tipoDocAdministrador,$nomsAdministrador,$apesAdministrador,$correoAdministrador)) {
+
+
+                    if($personaDao->registrarPersona($idPersona,$generoAdministrador,$tipoDocAdministrador,$nomsAdministrador,$apesAdministrador,$correoAdministrador,$ruta)) {
                         if($administradorDao->registrarAdministrador($idPersona,$usuarioAdministrador,$contrasenaAdministrador)){
+                            // mover archivo a la carpeta destino
+                            move_uploaded_file($imagen,$ruta);
                             $this->redireccion($mRPositivo);
                         }else{
                             $this->redireccion($mNegativo);
                         }
                     }else{
                         $this->redireccion($mNegativo);
+
                     }
-                    
-                    break;
-                    
+                break;
                     
                 
                 case "MODIFICAR":
@@ -70,7 +73,7 @@
                         $this->redireccion($mNegativo);
                     }
                     
-                    break;
+                break;
             }
         }
         
