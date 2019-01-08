@@ -46,7 +46,7 @@
         function ImprimirMes($mesACambiar){
             $fecha = explode("-" , $mesACambiar);
             $ano = $fecha[0]; // obtener el año, ejemplo : 2018
-            $mes = trim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
+            $mes = ltrim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
             
             $nomMes = array();
             $nomMes[1] = "ENERO";

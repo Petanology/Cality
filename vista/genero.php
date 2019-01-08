@@ -20,9 +20,7 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_genero1"><i class="fas fa-plus"></i> REGISTRAR GENERO</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_genero1"><i class="fas fa-plus"></i> REGISTRAR GENERO</button>
         
         <!-- Lista de generos -->
         <table class="table table-striped">
@@ -93,11 +91,6 @@
     <?php 
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_genero2').modal('show');</script>";
-        }
-
-        // Abrir modal Registrar si se dió clic en boton registrar
-        if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_genero1').modal('show');</script>";
         }
     ?>
 </body> 

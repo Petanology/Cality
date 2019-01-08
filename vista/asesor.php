@@ -20,9 +20,8 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_asesor1"><i class="fas fa-plus"></i> REGISTRAR ASESOR</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_asesor1"><i class="fas fa-plus"></i> REGISTRAR ASESOR</button>
+        
         <form name="formularioModificar" action="" method="post">
         <!-- Lista de asesores -->
         <table id="tablaDinamica" class="table table-striped table-responsive-xl scroll_modificado">
@@ -110,11 +109,6 @@
         // Abrir modal Modificar si se dió clic en boton modificar
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_asesor2').modal('show');</script>";
-        }
-
-        // Abrir modal Registrar si se dió clic en boton registrar
-        if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_asesor1').modal('show');</script>";
         }
     ?>    
     <script src="js/datatables.min.js"></script>

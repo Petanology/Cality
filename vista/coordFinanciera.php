@@ -21,9 +21,7 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_coordFinanciera1"><i class="fas fa-plus"></i> REGISTRAR COORDINADOR FINANCIERA</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_coordFinanciera1"><i class="fas fa-plus"></i> REGISTRAR COORDINADOR FINANCIERA</button>
         
         <!-- Lista de coordinadores financieros -->
         <form action="" method="post">
@@ -107,16 +105,12 @@
     <!-- Javascript Bootstrap -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/carga-pagina.js"></script>
+    <script src="js/validacionContrasenas.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <?php 
         // Abrir modal Modificar si se dió clic en boton modificar
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_coordFinanciera2').modal('show');</script>";
-        }
-
-        // Abrir modal Registrar si se dió clic en boton registrar
-        if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_coordFinanciera1').modal('show');</script>";
         }
     ?>
     <script src="js/datatables.min.js"></script>

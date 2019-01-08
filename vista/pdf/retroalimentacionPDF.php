@@ -170,7 +170,39 @@
 
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","retroalimentacion.pdf");
+    $fechaActual = date("Y\-m\-d");
+    switch($pdf->tabla){
+        case "dc":
+            $nomArchivo = "retroalimentacion-negociacion-comercial-$fechaActual.pdf";
+        break;
+
+        case "dp":
+            $nomArchivo = "retroalimentacion-negociacion-prejuridica-$fechaActual.pdf";
+        break;
+
+        case "ie":
+            $nomArchivo = "retroalimentacion-mensaje-vd-$fechaActual.pdf";
+        break;
+
+        case "ib":
+            $nomArchivo = "retroalimentacion-inbound-vd-$fechaActual.pdf";
+        break;
+
+        case "neg":
+            $nomArchivo = "retroalimentacion-negociacion-f-$fechaActual.pdf";
+        break;
+
+        case "men":
+            $nomArchivo = "retroalimentacion-mensaje-f-$fechaActual.pdf";
+        break;
+
+        case "ibf":
+            $nomArchivo = "retroalimentacion-inbound-f-$fechaActual.pdf";
+        break;
+    }
+        
+    $pdf->Output("I",$nomArchivo);
+        
     }
     else{
         header("location: retroalimentacion.php?mensaje=No hay resultado para la busqueda que esta realizando...");

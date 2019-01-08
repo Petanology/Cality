@@ -24,7 +24,7 @@
             $this->Image('../img/faviconx512-4.png',31,7,12);
             
             // Titulo principal
-            $this->SetFillColor(41,128,185);
+            $this->SetFillColor(45, 113, 159);
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
@@ -46,7 +46,7 @@
         function ImprimirMes($mesACambiar){
             $fecha = explode("-" , $mesACambiar);
             $ano = $fecha[0]; // obtener el año, ejemplo : 2018
-            $mes = trim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
+            $mes = ltrim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
             
             $nomMes = array();
             $nomMes[1] = "ENERO";

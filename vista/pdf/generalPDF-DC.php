@@ -9,7 +9,7 @@
         
         function Header(){
             // Fondo Azul
-            $this->SetFillColor(46,134,193);
+            $this->SetFillColor(0,139,186);
             $this->SetXY(0,0);
             $this->Cell($this->GetPageWidth(),24,'',0,0,'C',1);
             
@@ -24,7 +24,7 @@
             $this->Image('../img/faviconx512-4.png',31,7,12);
             
             // Titulo principal
-            $this->SetFillColor(52, 152, 219);
+            $this->SetFillColor(33, 162, 205);
             $this->SetTextColor(255, 255, 255);
             $this->SetFont('Arial','B',13);
             $this->SetXY(50,7);;
@@ -46,7 +46,7 @@
         function ImprimirMes($mesACambiar){
             $fecha = explode("-" , $mesACambiar);
             $ano = $fecha[0]; // obtener el año, ejemplo : 2018
-            $mes = trim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
+            $mes = ltrim($fecha[1] , '0'); // obtener el mes, ejemplo : 11
             
             $nomMes = array();
             $nomMes[1] = "ENERO";

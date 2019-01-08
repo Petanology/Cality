@@ -20,9 +20,7 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_unidad1"><i class="fas fa-plus"></i> REGISTRAR UNIDAD</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_unidad1"><i class="fas fa-plus"></i> REGISTRAR UNIDAD</button>
         
         <!-- Lista de unidades -->
         <form action="" method="post">
@@ -93,11 +91,6 @@
     <?php 
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_unidad2').modal('show');</script>";
-        }
-
-        // Abrir modal Registrar si se dió clic en boton registrar
-        if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_unidad1').modal('show');</script>";
         }
     ?>
     <script src="js/datatables.min.js"></script>

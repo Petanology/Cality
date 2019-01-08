@@ -18,7 +18,6 @@
    
     <!-- Contenido -->  
     <div class="container-fluid">
-
         <!-- botón registrar -->
         <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_administrador1"><i class="fas fa-plus"></i> REGISTRAR ADMINISTRADOR</button>
         
@@ -116,3 +115,15 @@
     <script src="js/ejecutarDataTable.js"></script>
 </body> 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

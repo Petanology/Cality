@@ -6,7 +6,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionDetalladoIB($_POST["asesorConsulta"] , $_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionDetalladoIB($_GET["asesorConsulta"] , $_GET["mesReporte"]);
     
     foreach($sihayInforme as $rowSihayInforme){
         $SHIR = $rowSihayInforme;
@@ -22,8 +22,8 @@
         $pdf = new PDFIB_D('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
 
         // Varaibles generales
-        $pdf->mesReporte = $_POST["mesReporte"]; 
-        $pdf->asesorConsulta = $_POST["asesorConsulta"];    
+        $pdf->mesReporte = $_GET["mesReporte"]; 
+        $pdf->asesorConsulta = $_GET["asesorConsulta"];    
 
         $pdf->AliasNbPages();
         $pdf->AddPage();
@@ -118,8 +118,8 @@
         $pdf->Ln(6); 
         
 
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
+        $pdf->SetFillColor(52,73,94);
+        $pdf->SetDrawColor(52,73,94);
         $pdf->SetTextColor(255,255,255); 
         $pdf->SetFont('Arial','B',9);
         $pdf->Cell(0,7,"SERVICIO Y ETIQUETA TELEFÓNICA [ $grupoSETValor% ]",0,1,'C',1); 
@@ -142,8 +142,8 @@
         $pdf->Ln(5); 
         
         
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
+        $pdf->SetFillColor(52,73,94);
+        $pdf->SetDrawColor(52,73,94);
         $pdf->SetTextColor(255,255,255); 
         $pdf->SetFont('Arial','B',9);
         $pdf->Cell(0,7,"OBJETO DE LA LLAMADA [ $grupoOLLValor% ]",0,1,'C',1); 
@@ -161,8 +161,8 @@
         $resultadoNota = null;
         $pdf->Ln(5); 
         
-        $pdf->SetFillColor(69, 179, 157);
-        $pdf->SetDrawColor(69, 179, 157);
+        $pdf->SetFillColor(52,73,94);
+        $pdf->SetDrawColor(52,73,94);
         $pdf->SetTextColor(255,255,255); 
         $pdf->SetFont('Arial','B',9);
         $pdf->Cell(0,7,"REGISTRO EN EL SISTEMA [ $grupoRSValor% ]",0,1,'C',1); 
@@ -182,7 +182,7 @@
 
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-vd-detallado-inbound-$pdf->mesReporte.pdf");
+    $pdf->Output("I","detallado-inbound-vd-$pdf->asesorConsulta-$pdf->mesReporte.pdf");
         
     }
     else{

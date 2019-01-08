@@ -432,13 +432,13 @@
                     
                     
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe general</h3>
                     
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -500,7 +500,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <li>
                         <a href="#">
@@ -555,7 +555,7 @@
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe Detallado</h3>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -617,7 +617,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <li>
                         <a href="#">

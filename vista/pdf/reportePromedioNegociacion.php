@@ -5,7 +5,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionParaInformeNEG($_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionParaInformeNEG($_GET["mesReporte"]);
     
 
     foreach($sihayInforme as $rowSihayInforme){
@@ -63,7 +63,7 @@
     $pdf = new PDFNEG('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
     // Varaibles generales
-    $pdf->mes = $_POST["mesReporte"];
+    $pdf->mes = $_GET["mesReporte"];
     $pdf->AliasNbPages();
     $pdf->AddPage();
         
@@ -104,8 +104,8 @@
         
     // Titulo de promedio contacto directo
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(84,153,199);
-    $pdf->SetDrawColor(84,153,199);
+    $pdf->SetFillColor(88, 140, 173);
+    $pdf->SetDrawColor(88, 140, 173);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'PROMEDIO GRUPAL',1,1,'C',1);
     
@@ -254,7 +254,7 @@
 
     // Titulo encabezado Ranking unidades
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(84,153,199);
+    $pdf->SetFillColor(88, 140, 173);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE UNIDADES',1,1,'C',1);
 
@@ -355,7 +355,7 @@
 
     // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(84,153,199);
+    $pdf->SetFillColor(88, 140, 173);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING DE ASESORES',1,1,'C',1);
 
@@ -545,8 +545,8 @@
     $pdf->Ln(3);
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(84,153,199);
-    $pdf->SetDrawColor(84,153,199);
+    $pdf->SetFillColor(88, 140, 173);
+    $pdf->SetDrawColor(88, 140, 173);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'LISTA DE ASESORES QUE INFRINGIERON',1,1,'C',1);
 
@@ -580,8 +580,8 @@
     // RANKING DE ERRORES CRITICOS
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->SetFillColor(84,153,199);
-    $pdf->SetDrawColor(84,153,199);
+    $pdf->SetFillColor(88, 140, 173);
+    $pdf->SetDrawColor(88, 140, 173);
     $pdf->SetTextColor(255,255,255);
     $pdf->Cell(0,8,'RANKING POR ERRORES CRÍTICOS INFRINGIDOS',1,1,'C',1);
 
@@ -622,7 +622,7 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-f-negociacion-$pdf->mes.pdf");
+    $pdf->Output("I","informe-negociacion-f-$pdf->mes.pdf");
         
     }
     else{

@@ -6,7 +6,7 @@
 
     if(empty($_SESSION['autenticado'])){
         header("location:../acceso_denegado.php");
-    } else if($_SESSION["rol"]=="lider" || $_SESSION["rol"]=="coord_venta_directa"){
+    } else if($_SESSION["rol"]=="coord_venta_directa"){
         header("location:../acceso_denegado.php");
     }
 
@@ -17,7 +17,7 @@
 
     <!-- Contenido -->  
     <div class="container-fluid pt-3">
-        <form action="reporteDetalladoInboundFinanciero.php" method="post">
+        <form action="reporteDetalladoInboundFinanciero.php" method="GET">
             <div class="form-group input-group-sm">
                 <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">INFORME DETALLADO PARA INBOUND FINANCIERO</label>
                 <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control" required>

@@ -20,9 +20,7 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_doc1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE DOCUMENTO</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_doc1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE DOCUMENTO</button>
         
         <!-- Lista de Tipos de Documentos -->
         <table class="table table-striped" id="tabla">
@@ -102,11 +100,6 @@
     <?php 
         if(isset($_POST['botonModificar'])){
             echo "<script>$('#form_tipo_doc2').modal('show');</script>";
-        }
-
-        // Abrir modal Registrar si se dió clic en boton registrar
-        if(isset($_POST['botonRegistrar'])){
-            echo "<script>$('#form_tipo_doc1').modal('show');</script>";
         }
     ?>
 </body> 

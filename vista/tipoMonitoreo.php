@@ -20,9 +20,7 @@
     <div class="container-fluid">
 
         <!-- botón registrar -->
-        <form action="" method="post">
-            <button type="submit" name="botonRegistrar" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_monitoreo1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE MONITOREO</button>
-        </form>
+        <button type="button" class="mt-3 mb-3 btn btn-primary font-weight-bold" data-toggle="modal" data-target="#form_tipo_monitoreo1"><i class="fas fa-plus"></i> REGISTRAR TIPO DE MONITOREO</button>
         
         
         <!-- Lista de Tipos de Monitoreos -->

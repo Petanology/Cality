@@ -12,9 +12,6 @@ $('#formRegistro').on('submit', function(e) {
         $('#contrasena').addClass('is-invalid');
         $('#contrasena2').addClass('is-invalid');
     } else {
-        alert(0);
-        $('#boton').click();
-        //$('#boton').trigger('click');
-        //$(this).submit();
+        $(this).submit();
     }
 });

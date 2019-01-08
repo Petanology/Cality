@@ -5,7 +5,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionParaInformeIB($_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionParaInformeIB($_GET["mesReporte"]);
     
 
     foreach($sihayInforme as $rowSihayInforme){
@@ -54,7 +54,7 @@
     $pdf = new PDFIB('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
     // Varaibles generales
-    $pdf->mes = $_POST["mesReporte"];
+    $pdf->mes = $_GET["mesReporte"];
     $pdf->AliasNbPages();
     $pdf->AddPage();
         
@@ -561,7 +561,7 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-vd-inbound-$pdf->mes.pdf");
+    $pdf->Output("I","informe-inbound-vd-$pdf->mes.pdf");
         
     }
     else{

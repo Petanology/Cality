@@ -5,7 +5,7 @@
     
     $vResultados = new gestionGeneralDao();
 
-    $sihayInforme = $vResultados->validacionParaInformeDP($_POST["mesReporte"]);
+    $sihayInforme = $vResultados->validacionParaInformeDP($_GET["mesReporte"]);
     
 
     foreach($sihayInforme as $rowSihayInforme){
@@ -57,7 +57,7 @@
     $pdf = new PDFDP('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
     
     // Varaibles generales
-    $pdf->mes = $_POST["mesReporte"];
+    $pdf->mes = $_GET["mesReporte"];
     $pdf->AliasNbPages();
     $pdf->AddPage();
         
@@ -599,7 +599,7 @@
      
     // Cerrar PDF 
     $pdf->Close();
-    $pdf->Output("I","informe-vd-directo-prejuridico-$pdf->mes.pdf");
+    $pdf->Output("I","informe-negociacion-prejuridica-$pdf->mes.pdf");
         
     }
     else{

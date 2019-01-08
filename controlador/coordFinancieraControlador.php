@@ -8,8 +8,8 @@
         public function __construct(){
             
             $mNegativo = "Lo sentimos, algo salió mal... intente nuevamente por favor";
-            
-            $boton =$_POST['boton']; // botón general
+                
+            $boton = $_POST['boton'];
             
             $coordFinancieraDao = new coordFinancieraDao();
             $personaDao = new personaDao();

@@ -80,7 +80,7 @@
                                 name="apellidos2" 
                                 placeholder="Digite los apellidos" 
                                 title="Cadena de texto entre 4 y 35 carácteres"
-                                pattern="[a-zA-ZáéíóúÁÉÍÓÚ ]{4,35}"
+                                pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}"
                                 required
                             >
                         </div>

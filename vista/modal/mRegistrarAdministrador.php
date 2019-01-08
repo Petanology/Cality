@@ -3,7 +3,6 @@
     require_once ("../modelo/tipoDocDao.php");
     require_once ("../modelo/generoDao.php");
 ?>
-
    <div class="modal fade" id="form_administrador1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -169,7 +168,10 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" value="REGISTRAR" name="boton" class="btn btn-success">REGISTRAR</button>
+                    <!-- boton de registrar -->
+                    <input type="hidden" name="boton" value="REGISTRAR">
+                    
+                    <button type="submit" class="btn btn-success">REGISTRAR</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
                 </div>
             </form>
