@@ -11,13 +11,15 @@
             $personaDao = new personaDao();
 
             $identificacion = $_POST['identificacion'];
-            $mPositivo = "¡Felicidades, la modificación de la foto de perfil <strong>'$identificacion.jpg'</strong> fue todo un éxito!";
+            $mPositivo = "¡Felicidades, la modificación de la foto de perfil para el usuario <strong>'$identificacion'</strong> fue todo un éxito!";
             $imagen = $_FILES['imagen']['tmp_name'];
             $ruta = "img/fotos_perfil/$identificacion.jpg";
 
             $objetoPersonaDao = new personaDao();
             if($objetoPersonaDao->actualizarRutaPersona($identificacion,$ruta)){
-                unlink("../vista/" . $ruta); // Eliminar del servidor img
+                if(is_file("../vista/" . $ruta)){
+                    unlink("../vista/" . $ruta); // Eliminar del servidor img
+                }
                 move_uploaded_file($imagen,"../vista/" . $ruta); // mover archivo a la carpeta destino
                 $this->redireccion($mPositivo);
             }else{

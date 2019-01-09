@@ -25,7 +25,7 @@
             <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Personas</h6>
             <div class="form-group">
                 <div class="input-group">
-                    <input list="asesores-consulta" class="pl-3 pt-3 pb-3 form-control form-control-sm bg-muted text-dark" name="personaConsulta" id="personaConsulta" placeholder="Seleccione o digite el asesor que desea gestionar" required>
+                    <input list="asesores-consulta" class="pl-3 pt-3 pb-3 form-control form-control-sm bg-muted text-dark" name="personaConsulta" id="personaConsulta" placeholder="Seleccione o digite el asesor que desea gestionar" title="Clave de nombre entre 3 y 45 carácteres" pattern=".{3,45}" required>
                     <datalist id="asesores-consulta">
                         <?php
                                     $objetoPersona = new personaDao();
@@ -57,32 +57,22 @@
         <div class="card-columns">
             <form action="" method="post">
                 <?php foreach($oPersona2 as $rowOPersona2){ ?>
-                <div class="card">
+                <div class="card border border-dark shadow-lg">
                     <?php
                     if($rowOPersona2[3] != "") {
                     ?>
                         <img src="<?php echo $rowOPersona2[3] ?>" class="card-img-top p-4" alt="Imagen de pefil">
                     <?php
                     }else {
-                        if($rowOPersona2[4] == 1){
                     ?>
-                        <img src="img/user-man.png" class="card-img-top p-5" alt="Imagen de pefil">          
-                    <?php      
-                        } else if ($rowOPersona2[4] == 2){
-                    ?>
-                        <img src="img/user-woman.png" class="card-img-top p-5" alt="Imagen de pefil">            
-                    <?php   
-                        } else {
-                    ?>
-                        <img src="img/photo-camera.png" class="card-img-top p-5" alt="Imagen de pefil">            
-                    <?php      
-                        }
+                        <img src="img/photo-camera.png" class="card-img-top p-5" alt="Imagen de pefil">          
+                    <?php
                     }
                     ?> 
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $rowOPersona2[0] ?></h5>
                     <p class="card-text">Miembro de GF Cobranzas jurídicas idetificado con <strong><?php echo $rowOPersona2[1] ?></strong> número <strong><?php echo $rowOPersona2[2] ?></strong></p>
-                    <button type="sumbit" class="btn btn-primary" name="botonActualizarImg" value="<?php echo $rowOPersona2[2] ?>">Renovar</button>
+                    <button type="sumbit" class="btn btn-primary" name="botonActualizarImg" value="<?php echo $rowOPersona2[2] ?>"><i class="fas fa-upload mr-1"></i> Actualizar</button>
                   </div>
                 </div>
 
@@ -96,8 +86,6 @@
         <h2 class="h3 text-white mt-2">Aquí visualizará la <kbd>foto de perfil</kbd> del usuario consultado</h2>
     </div>
     <?php }
-        
-        
         
         if(isset($_POST['botonActualizarImg'])){
             
@@ -118,6 +106,7 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/carga-pagina.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/customFile.js"></script>
 <?php 
     // Abrir modal Modificar si se dió clic en boton modificar
     if(isset($_POST['botonActualizarImg'])){

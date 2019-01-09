@@ -12,7 +12,7 @@
                 <h5 class="modal-title font-weight-bold">Registrar Asesor</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/asesorControlador.php" method="post">
+            <form action="../controlador/asesorControlador.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->
@@ -134,6 +134,35 @@
                             >
                             <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; el nombre de usuario debe ser personal e intransferible</small>
                         </div>
+                        
+                        
+                        <hr>
+                                      
+                        <label for="inputGroupFile02" class="font-weight-bold">Foto de Perfil</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" accept=".jpg" class="custom-file-input" id="inputGroupFile02" name="imagen" required>
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elegir imagen</label>
+                          </div>
+                        </div>
+                                                                                                            
+                        <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la imagen debe estar en formato JPG</small>
+                        
+                        <hr>
+                        
+                        <!-- Fecha de Ingreso -->
+                        <div class="form-group">
+                            <label for="fecha_ingreso" class="font-weight-bold">Fecha de ingreso</label>
+                            <input 
+                                type="date" 
+                                class="mb-3 form-control"
+                                id="fecha_ingreso" 
+                                name="fecha_ingreso" 
+                                placeholder="Ingrese la fecha de ingreso del gestor"
+                                required
+                            >
+                        </div>
+                        
                 </div>
                 <div class="modal-footer">
                     <button type="submit" value="REGISTRAR" name="boton" id="boton" class="btn btn-success">REGISTRAR</button>

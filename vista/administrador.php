@@ -111,6 +111,7 @@
             echo "<script>$('#form_administrador2').modal('show');</script>";
         }
     ?>
+    <script src="js/customFile.js"></script>
     <script src="js/datatables.min.js"></script>
     <script src="js/ejecutarDataTable.js"></script>
 </body> 

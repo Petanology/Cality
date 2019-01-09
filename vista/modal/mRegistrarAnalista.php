@@ -11,7 +11,7 @@
                 <h5 class="modal-title">Registrar Analista</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form id="formRegistro" name="formRegistro" action="../controlador/analistaControlador.php" method="post">
+            <form id="formRegistro" name="formRegistro" action="../controlador/analistaControlador.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->
@@ -167,6 +167,17 @@
                             >
                             <small class="form-text text-muted" id="mensajeVerificacion"><i class="far fa-question-circle"></i>&nbsp; Las contraseñas deben coincidir</small>
                         </div>
+                        
+                        <hr>
+                                      
+                        <label for="inputGroupFile02" class="font-weight-bold">Foto de Perfil</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" accept=".jpg" class="custom-file-input" id="inputGroupFile02" name="imagen" required>
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elegir imagen</label>
+                          </div>
+                        </div>
+                        <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la imagen debe estar en formato JPG</small>
                 </div>
                 <div class="modal-footer">
                     <!-- boton de registrar -->

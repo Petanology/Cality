@@ -57,16 +57,16 @@
                                 required
                                 >
                         </div>
-                                                                                         
-                        <label for="imagen" class="font-weight-bold">Foto de Perfil</label>
-                        <!-- foto de perfil -->
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="imagen" name="imagen" accept="image/jpg" required>
-                                <label class="custom-file-label" for="imagen">Elegir imagen</label>
-                            </div>
-                        </div>                
-                        <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la imagen debe ser formato PNG y estar en escala 1:1 (cuadrada)</small>
+                        
+                        <label for="inputGroupFile02" class="font-weight-bold">Foto de Perfil</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" accept=".jpg" class="custom-file-input" id="inputGroupFile02" name="imagen" required>
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elegir imagen</label>
+                          </div>
+                        </div>
+                                                                                                            
+                        <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; Recuerde que la imagen debe estar en formato JPG</small>
                     </div>
             </div>
                 <div class="modal-footer">

@@ -28,7 +28,7 @@
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
-                        <input list="asesores-consulta" class="pl-3 pt-3 pb-3 form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea gestionar">
+                        <input list="asesores-consulta" class="pl-3 pt-3 pb-3 form-control form-control-sm" name="asesorConsulta" id="asesorConsulta" placeholder="Seleccione o digite el asesor que desea gestionar" title="Nombre de usuario entre 4 y 8 carácteres" pattern=".{4,8}" required>
                             <datalist id="asesores-consulta">
                                 <?php
                                     $objetoAsesorListaActivos = new asesorDao();

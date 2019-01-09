@@ -29,14 +29,19 @@
                     $apesCoordFinanciera = $_POST['apellidos'];
                     $correoCoordFinanciera = $_POST['correo'];
                     
+                    // traer archivo de la imagen
+                    $imagen = $_FILES['imagen']['tmp_name'];
+                    $ruta = "img/fotos_perfil/$idPersona.jpg";
                     
                     // variables para coordinador financiera
                     $usuarioCoordFinanciera = $_POST['usuario'];
                     $contrasenaCoordFinanciera = $_POST['contrasena'];
                     
                     
-                    if($personaDao->registrarPersona($idPersona,$generoCoordFinanciera,$tipoDocCoordFinanciera,$nomsCoordFinanciera,$apesCoordFinanciera,$correoCoordFinanciera)) {
+                    if($personaDao->registrarPersona($idPersona,$generoCoordFinanciera,$tipoDocCoordFinanciera,$nomsCoordFinanciera,$apesCoordFinanciera,$correoCoordFinanciera,$ruta)) {
                         if($coordFinancieraDao->registrarCoordFinanciera($idPersona,$usuarioCoordFinanciera,$contrasenaCoordFinanciera)){
+                            // mover archivo a la carpeta destino
+                            move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
                         }else{
                             $this->redireccion($mNegativo);

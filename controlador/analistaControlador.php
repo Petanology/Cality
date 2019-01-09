@@ -29,14 +29,20 @@
                     $apesAnalista = $_POST['apellidos'];
                     $correoAnalista = $_POST['correo'];
                     
+// traer archivo de la imagen
+                    $imagen = $_FILES['imagen']['tmp_name'];
+                    $ruta = "img/fotos_perfil/$idPersona.jpg";
+                    
                     
                     // variables para analista
                     $usuarioAnalista = $_POST['usuario'];
                     $contrasenaAnalista = $_POST['contrasena'];
                     
                     
-                    if($personaDao->registrarPersona($idPersona,$generoAnalista,$tipoDocAnalista,$nomsAnalista,$apesAnalista,$correoAnalista)) {
+                    if($personaDao->registrarPersona($idPersona,$generoAnalista,$tipoDocAnalista,$nomsAnalista,$apesAnalista,$correoAnalista,$ruta)) {
                         if($analistaDao->registrarAnalista($idPersona,$usuarioAnalista,$contrasenaAnalista)){
+                            // mover archivo a la carpeta destino
+                            move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
                         }else{
                             $this->redireccion($mNegativo);

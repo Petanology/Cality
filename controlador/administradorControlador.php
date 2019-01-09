@@ -40,8 +40,9 @@
                     if($personaDao->registrarPersona($idPersona,$generoAdministrador,$tipoDocAdministrador,$nomsAdministrador,$apesAdministrador,$correoAdministrador,$ruta)) {
                         if($administradorDao->registrarAdministrador($idPersona,$usuarioAdministrador,$contrasenaAdministrador)){
                             // mover archivo a la carpeta destino
-                            move_uploaded_file($imagen,$ruta);
+                            move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
+                            
                         }else{
                             $this->redireccion($mNegativo);
                         }

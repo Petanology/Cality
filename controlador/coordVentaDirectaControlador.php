@@ -29,14 +29,19 @@
                     $apesCoordVentaDirecta = $_POST['apellidos'];
                     $correoCoordVentaDirecta = $_POST['correo'];
                     
+                    // traer archivo de la imagen
+                    $imagen = $_FILES['imagen']['tmp_name'];
+                    $ruta = "img/fotos_perfil/$idPersona.jpg";
                     
                     // variables para coordinador de venta directa
                     $usuarioCoordVentaDirecta = $_POST['usuario'];
                     $contrasenaCoordVentaDirecta = $_POST['contrasena'];
                     
                     
-                    if($personaDao->registrarPersona($idPersona,$generoCoordVentaDirecta,$tipoDocCoordVentaDirecta,$nomsCoordVentaDirecta,$apesCoordVentaDirecta,$correoCoordVentaDirecta)) {
+                    if($personaDao->registrarPersona($idPersona,$generoCoordVentaDirecta,$tipoDocCoordVentaDirecta,$nomsCoordVentaDirecta,$apesCoordVentaDirecta,$correoCoordVentaDirecta,$ruta)) {
                         if($coordVentaDirectaDao->registrarCoordVentaDirecta($idPersona,$usuarioCoordVentaDirecta,$contrasenaCoordVentaDirecta)){
+                            // mover archivo a la carpeta destino
+                            move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
                         }else{
                             $this->redireccion($mNegativo);

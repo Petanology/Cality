@@ -143,16 +143,33 @@
                         </div>
                         
                         <hr>
+                        
+                        <!-- Fecha de Ingreso -->
+                        <div class="form-group">
+                            <label for="fecha_ingreso2" class="font-weight-bold">Fecha de ingreso</label>
+                            <input 
+                                type="date" 
+                                class="mb-3 form-control"
+                                id="fecha_ingreso2" 
+                                value="<?php echo $rowA[10]; ?>"
+                                name="fecha_ingreso2" 
+                                placeholder="Ingrese la fecha de ingreso del gestor"
+                                required
+                            >
+                        </div>
+                        
+                        <hr>
 
                         <!-- Estado -->
                         <div class="form-group">
                             <label for="estado2" class="font-weight-bold">Estado</label>
                             <select name="estado2" id="estado2" class="form-control" required>
                                 <option value="" disabled>Seleccione el estado</option>
-                                <option value="1" <?php if($rowA[10]==1){ echo "selected"; } ?>>Activo</option>
-                                <option value="0" <?php if($rowA[10]==0){ echo "selected"; } ?>>Inactivo</option>
+                                <option value="1" <?php if($rowA[11]==1){ echo "selected"; } ?>>Activo</option>
+                                <option value="0" <?php if($rowA[11]==0){ echo "selected"; } ?>>Inactivo</option>
                             </select>
                         </div>
+                        
             </div>
                 <div class="modal-footer">
                     <button type="submit" value="MODIFICAR" name="boton" class="btn btn-success">MODIFICAR</button>

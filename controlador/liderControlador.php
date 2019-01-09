@@ -29,14 +29,19 @@
                     $apesLider = $_POST['apellidos'];
                     $correoLider = $_POST['correo'];
                     
+                    // traer archivo de la imagen
+                    $imagen = $_FILES['imagen']['tmp_name'];
+                    $ruta = "img/fotos_perfil/$idPersona.jpg";
                     
                     // variables para lider
                     $usuarioLider = $_POST['usuario'];
                     $contrasenaLider = $_POST['contrasena'];
                     
                     
-                    if($personaDao->registrarPersona($idPersona,$generoLider,$tipoDocLider,$nomsLider,$apesLider,$correoLider)) {
+                    if($personaDao->registrarPersona($idPersona,$generoLider,$tipoDocLider,$nomsLider,$apesLider,$correoLider,$ruta)) {
                         if($liderDao->registrarLider($idPersona,$usuarioLider,$contrasenaLider)){
+                            // mover archivo a la carpeta destino
+                            move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
                         }else{
                             $this->redireccion($mNegativo);
