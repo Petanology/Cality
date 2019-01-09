@@ -26,9 +26,32 @@
         }
         
         
+        public function actualizarRutaPersona($pIdPersona,$pImagen){
+            try{
+                $query = $this->conexion->prepare("CALL actualizarRutaPersona($pIdPersona,'$pImagen');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+                $this->modificacion = false;
+            }
+            return $this->modificacion;
+        }
+        
+        
         public function listarPersonasMixtos(){
             try{
                 $query = $this->conexion->prepare("CALL listarPersonasMixtos();");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
+        public function listarPACambiarItem($pIdentificacion){
+            try{
+                $query = $this->conexion->prepare("CALL listarPACambiarItem($pIdentificacion);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
