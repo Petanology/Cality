@@ -134,7 +134,7 @@
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <li>
-                        <a href="inicio">
+                        <a href="ejemplo1.html" target="contenido">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/clock.png" alt="icono de informe histórico">

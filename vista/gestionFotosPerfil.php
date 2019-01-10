@@ -21,7 +21,7 @@
 <!-- PRIMERA SECCION -->
 <div class="p-3">
     <div class="container-fluid rounded bg-dark border-primary text-white border border-secondary">
-        <form action="" method="post" name="formBusqueda">
+        <form action="" method="post" name="formBusqueda" autocomplete="off">
             <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Personas</h6>
             <div class="form-group">
                 <div class="input-group">
