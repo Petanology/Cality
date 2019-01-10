@@ -12,7 +12,7 @@
                 <h5 class="modal-title font-weight-bold">Registrar Asesor</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/asesorControlador.php" method="post" enctype="multipart/form-data">
+            <form action="../controlador/asesorControlador.php" method="post" enctype="multipart/form-data"  autocomplete="off">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->

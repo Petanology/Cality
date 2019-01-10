@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Modificar <?php echo $enunciado; ?></h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/itemControlador.php" method="post">
+            <form action="../controlador/itemControlador.php" method="post"  autocomplete="off">
             
             <input type="hidden" value="<?php echo $nomTabla; ?>" name="tabla">
             <div class="modal-body">

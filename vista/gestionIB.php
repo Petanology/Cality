@@ -24,7 +24,7 @@
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
         <div class="container-fluid rounded bg-dark text-white">
-            <form action="" method="post">
+            <form action="" method="post" autocomplete="off">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
@@ -63,7 +63,7 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form name="formGeneral" action="../controlador/gestionIBControlador.php" method="post">
+                <form name="formGeneral" action="../controlador/gestionIBControlador.php" method="post" autocomplete="off">
                 <p class="bg-secondary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Estándar In Bound</p>
                 <div class="container pb-2">
                     <?php
@@ -372,7 +372,7 @@
         <?php } else {?>
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
-                <img src="img/busqueda.png" width="250" class="border border-dark rounded-circle m-5 p-2" style="background-color:#2a2a2a;" alt="icono de búsqueda">
+                <img src="img/busqueda.png" width="250" class="border border-dark rounded-circle m-5 p-2" style="background-color:#333843;" alt="icono de búsqueda">
                 <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>estándar in bound</kbd></h2>
             </div>
         <?php } ?>

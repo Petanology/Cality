@@ -5,7 +5,7 @@
                 <p class="modal-title font-weight-bold">ACTUALIZAR FOTO DE PERFIL</p>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/imagenPerfilControlador.php" method="post" enctype="multipart/form-data">
+            <form action="../controlador/imagenPerfilControlador.php" method="post" enctype="multipart/form-data"  autocomplete="off">
             <div class="modal-body">
                     <div class="form-group">
                        

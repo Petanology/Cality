@@ -5,7 +5,7 @@
                 <h5 class="modal-title font-weight-bold">Modificar Asesor</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/asesorControlador.php" method="post">
+            <form action="../controlador/asesorControlador.php" method="post" autocomplete="off">
             <div class="modal-body">
                         <!-- Tipo de Documento -->
                         <div class="form-group">

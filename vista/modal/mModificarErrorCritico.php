@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Modificar Error Crítico</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/errorCriticoControlador.php" method="post">
+            <form action="../controlador/errorCriticoControlador.php" method="post"  autocomplete="off">
             <div class="modal-body">
                     <div class="form-group">
 

@@ -5,7 +5,7 @@
                 <h5 class="modal-title font-weight-bold">Modificar Coordinador de Venta Directa</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/coordVentaDirectaControlador.php" method="post">
+            <form action="../controlador/coordVentaDirectaControlador.php" method="post"  autocomplete="off">
             <div class="modal-body">
                         <!-- Tipo de Documento -->
                         <div class="form-group">

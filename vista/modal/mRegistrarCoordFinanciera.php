@@ -11,7 +11,7 @@
                 <h5 class="modal-title">Registrar Coordinador de Financiera</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form id="formRegistro" name="formRegistro" action="../controlador/coordFinancieraControlador.php" method="post" enctype="multipart/form-data">
+            <form id="formRegistro" name="formRegistro" action="../controlador/coordFinancieraControlador.php" method="post" enctype="multipart/form-data"  autocomplete="off">
                 <div class="modal-body">
 
                         <!-- Tipo de Documento -->

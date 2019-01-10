@@ -25,7 +25,7 @@
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
         <div class="container-fluid rounded bg-dark border-primary text-white">
-            <form action="" method="post" name="formBusqueda">
+            <form action="" method="post" name="formBusqueda" autocomplete="off">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
@@ -42,7 +42,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" name="boton-consultar" class="btn btn-sm btn-primary"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button type="submit" name="boton-consultar" class="btn btn-sm btn-secondary"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
@@ -64,8 +64,8 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form name="formGeneral" action="../controlador/gestionDCControlador.php" method="post">
-                <p class="bg-primary rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
+                <form name="formGeneral" action="../controlador/gestionDCControlador.php" method="post" autocomplete="off">
+                <p class="rounded-top font-weight-bold pt-3 text-white p-3" style="background-color:#0f6ecc;">Area de Calidad - Formato Calidad Etapas Comerciales Venta Directa</p>
                 <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
@@ -177,7 +177,7 @@
                     <!-- servicio y etiqueta telefonica -->
                     <table class="table table-borderless table-striped table-secondary mt-3">
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
+                            <th class="text-white text-center" style="background-color:#0f6ecc;" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
                             <?php 
                                 $objetoPorcentajeSeccion1 = new ValSeccDao();
                                 $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("dir_com_set");
@@ -230,7 +230,7 @@
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">NEGOCIACIÓN
+                            <th class="text-white text-center" style="background-color:#0f6ecc;" colspan="3">NEGOCIACIÓN
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
                                 $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("dir_com_n");
@@ -283,7 +283,7 @@
                         
                         <!-- CUARTO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">CIERRE DE COMPROMISO
+                            <th class="text-white text-center" style="background-color:#0f6ecc;" colspan="3">CIERRE DE COMPROMISO
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
                                 $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("dir_com_cc");
@@ -335,7 +335,7 @@
                         
                         <!-- CUARTO ITEM -->
                         <tr>
-                            <th class="text-white bg-primary text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white text-center" style="background-color:#0f6ecc;" colspan="3">REGISTRO EN EL SISTEMA
                             <?php 
                                 $objetoPorcentajeSeccion4 = new ValSeccDao();
                                 $porc4 = $objetoPorcentajeSeccion4->verPorcentajeSeccion("dir_com_rs");
@@ -410,7 +410,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button id="botonRegistrar" type="button" onclick="validarFormatoDC()" class="shadow btn btn-primary mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button id="botonRegistrar" type="button" onclick="validarFormatoDC()" class="shadow text-white btn mb-3 font-weight-bold" style="background-color:#0f6ecc;"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -428,7 +428,7 @@
         <?php } else {?>
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
-                <img src="img/busqueda.png" width="250" class="border border-primary rounded-circle m-5 p-2" style="background-color:#1976D2;" alt="icono de búsqueda">
+                <img src="img/busqueda.png" width="250" class="border border-primary rounded-circle m-5 p-2" style="background-color:#0f6ecc;" alt="icono de búsqueda">
                 <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>directa comercial</kbd></h2>
             </div>
         <?php } ?>

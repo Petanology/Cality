@@ -129,6 +129,24 @@
                     <?php
                     }
                     ?>
+                    
+                    <?php
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
+                    ?>
+                    <li>
+                        <a href="inicio">
+                            <!-- Icono -->
+                            <div class="cont-img">
+                                <img src="img/clock.png" alt="icono de informe histórico">
+                            </div>
+                            
+                            <!-- Texto -->
+                            <div class="texto">Histórico</div>
+                        </a>
+                    </li>
+                    <?php
+                    }
+                    ?>
 
                     <?php
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){

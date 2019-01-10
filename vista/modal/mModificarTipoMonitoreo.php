@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Modificar Tipo Monitoreo</h5>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form action="../controlador/tipoMonitoreoControlador.php" method="post">
+            <form action="../controlador/tipoMonitoreoControlador.php" method="post"  autocomplete="off">
             <div class="modal-body">
                     <div class="form-group">
 

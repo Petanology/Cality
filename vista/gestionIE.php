@@ -23,8 +23,8 @@
     <!-- Contenido -->
     <div class="conainer-fluid p-3">
         <!-- PRIMERA SECCION -->
-        <div class="container-fluid rounded bg-dark border-success text-white">
-            <form action="" method="post">
+        <div class="container-fluid rounded bg-dark text-white">
+            <form action="" method="post" autocomplete="off">
                 <h6 class="pt-3 pb-2 font-weight-bold">Búsqueda de Usuario</h6> 
                 <div class="form-group">  
                     <div class="input-group">
@@ -41,7 +41,7 @@
                                 ?>
                             </datalist>
                         <div class="input-group-append">
-                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-success"><i class="fas fa-search pl-4 pr-4"></i></button>
+                            <button type="submit" value="MODIFICAR" name="boton-consultar" class="btn btn-sm btn-secondary"><i class="fas fa-search pl-4 pr-4"></i></button>
                         </div>
                     </div>
                     <small class="pt-2 pb-3 form-text"><i class="far fa-question-circle"></i>&nbsp; Tenga en cuenta que puede buscar al asesor por medio del usuario o el nombre</small>
@@ -63,8 +63,8 @@
                 if(isset($ejemplo1)){
             ?>
                 <div class="rounded shadow-lg bg-white">
-                <form name="formGeneral" action="../controlador/gestionIEControlador.php" name="formBusqueda" method="post">
-                <p class="bg-success rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Estándar Contacto Indirecto</p>
+                <form name="formGeneral" action="../controlador/gestionIEControlador.php" name="formBusqueda" method="post" autocomplete="off">
+                <p class="bg-info rounded-top font-weight-bold pt-3 text-white p-3">Area de Calidad - Formato Estándar Contacto Indirecto</p>
                 <div class="container pb-2">
                     <?php
                         $asesorConsulta = $_POST['asesorConsulta'];
@@ -176,7 +176,7 @@
                     <!-- servicio y etiqueta telefonica -->
                     <table class="table table-borderless table-striped table-secondary mt-3">
                         <tr>
-                            <th class="text-white bg-success text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
+                            <th class="text-white bg-info text-center" colspan="3">SERVICIO Y ETIQUETA TELEFÓNICA 
                             <?php 
                                 $objetoPorcentajeSeccion1 = new ValSeccDao();
                                 $porc1 = $objetoPorcentajeSeccion1->verPorcentajeSeccion("indi_est_set");
@@ -206,7 +206,7 @@
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowIESA[1]; ?>
-                                <small><i class="far fa-question-circle text-success" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIESA[2]; ?>"></i></small>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIESA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -229,7 +229,7 @@
 
                         <!-- SEGUNDO ITEM -->
                         <tr>
-                            <th class="text-white bg-success text-center" colspan="3">INFORMACIÓN A TERCEROS
+                            <th class="text-white bg-info text-center" colspan="3">INFORMACIÓN A TERCEROS
                             <?php 
                                 $objetoPorcentajeSeccion2 = new ValSeccDao();
                                 $porc2 = $objetoPorcentajeSeccion2->verPorcentajeSeccion("indi_est_it");
@@ -258,7 +258,7 @@
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowIEIA[1]; ?>
-                                <small><i class="far fa-question-circle text-success" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIEIA[2]; ?>"></i></small>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIEIA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -279,7 +279,7 @@
                         <input type="hidden" id="totalItemsIEI" name="totalItemsIEI" value="<?php echo $acum2; ?>">
                         <!-- TERCER ITEM -->
                         <tr>
-                            <th class="text-white bg-success text-center" colspan="3">REGISTRO EN EL SISTEMA
+                            <th class="text-white bg-info text-center" colspan="3">REGISTRO EN EL SISTEMA
                             <?php 
                                 $objetoPorcentajeSeccion3 = new ValSeccDao();
                                 $porc3 = $objetoPorcentajeSeccion3->verPorcentajeSeccion("indi_est_rs");
@@ -308,7 +308,7 @@
                         ?>
                         <tr>
                             <td class="font-weight-bold"><?php echo $rowIERA[1]; ?>
-                                <small><i class="far fa-question-circle text-success" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIERA[2]; ?>"></i></small>
+                                <small><i class="far fa-question-circle text-info" data-toggle="tooltip" data-placement="bottom" title="<?php echo $rowIERA[2]; ?>"></i></small>
                             </td>
                             <td class="pl-0">
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -356,7 +356,7 @@
                         <p class="text-danger font-weight-bold"><i class="far fa-question-circle"></i>&nbsp;  Es importante que todos los campos estén diligenciados antes de registrar</p>
                     </div>
                     <hr>
-                    <button id="botonRegistrar" type="button" onclick="validarFormatoIE()" class="shadow btn btn-success mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
+                    <button id="botonRegistrar" type="button" onclick="validarFormatoIE()" class="shadow btn btn-info mb-3 font-weight-bold"><i class="fas fa-plus mr-1"></i> REGISTRAR GESTIÓN</button>
                 </div>
             </form>
             </div>
@@ -374,7 +374,7 @@
         <?php } else {?>
             <!-- SI NO SE HA BUSCADO NADA -->
             <div class="container-fluid w-75 text-center">
-                <img src="img/busqueda.png" width="250" class="border border-success rounded-circle m-5 p-2" style="background-color:#1e832f;" alt="icono de búsqueda">
+                <img src="img/busqueda.png" width="250" class="border border-info rounded-circle m-5 p-2" style="background-color:#3097b5;" alt="icono de búsqueda">
                 <h2 class="h3 text-white mt-2">una vez consultado el usuario se podrá realizar la gestión de calidad <kbd>estándar contacto indirecto</kbd></h2>
             </div>
         <?php } ?>
