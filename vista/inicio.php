@@ -115,17 +115,17 @@
                             <div class="texto">Retroalimentación</div>
                         </a>
                     </li>
+                    <!-- 
                     <li>
                         <a href="visualizacionGeneral.php" target="contenido">
-                            <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/loupe.png" alt="icono de visualización">
                             </div>
-                            
-                            <!-- Texto -->
                             <div class="texto">Visualizar gestión</div>
                         </a>
                     </li>
+                    -->
+                    
                     <?php
                     }
                     ?>
