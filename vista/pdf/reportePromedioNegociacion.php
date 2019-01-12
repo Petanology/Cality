@@ -621,8 +621,8 @@
     $pdf->Cell(0,8,'TOTAL DE ERRORES CRÍTICOS',0,0,'L',1); 
      
     // Cerrar PDF 
-    $pdf->Close();
-    $pdf->Output("I","informe-negociacion-f-$pdf->mes.pdf");
+    // $pdf->Close();
+    // $pdf->Output("I","informe-negociacion-f-$pdf->mes.pdf");
         
     }
     else{

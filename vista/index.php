@@ -6,7 +6,7 @@
 
     
     if(!empty($_SESSION['autenticado'])){
-         header("location: inicio");
+         header("location: inicio.php");
     }
 ?>
 

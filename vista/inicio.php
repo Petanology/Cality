@@ -53,7 +53,7 @@
                 <ul id="ul-menu" class="scroll_menu menu-tooltip"><!-- hay dos opciones que sea tooltip o normal -->
                     <!-- Link Inicio -->
                     <li>
-                        <a href="inicio">
+                        <a href="inicio.php">
                             <!-- Icono -->
                             <div class="cont-img">
                                 <img src="img/incio.png" alt="icono de inicio">

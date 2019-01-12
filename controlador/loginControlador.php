@@ -33,7 +33,7 @@
                 $sss->set('correo',$rlogin[4]);                
                 $sss->set('autenticado','1');
                 $sss->set('rol',$rolForm);
-                header("location: ../vista/inicio");
+                header("location: ../vista/inicio.php");
             }
         }
     }
