@@ -20,9 +20,9 @@
     require_once("../../modelo/generarPDFDao.php");
     require_once("../../modelo/unidadDao.php");
     require_once("generalPDF-NEG.php");
+    require_once("../../controlador/arrayColumns.php");
 
     // Declaración de acumuladores
-    
     $acumPromedioPEP = 0;
     $acumPromedioSC = 0;
     $acumPromedioN = 0;

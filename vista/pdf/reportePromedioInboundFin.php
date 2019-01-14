@@ -20,6 +20,7 @@
     require_once("../../modelo/generarPDFDao.php");
     require_once("../../modelo/unidadDao.php");
     require_once("generalPDF-IBF.php");
+    require_once("../../controlador/arrayColumns.php");
 
     // Declaración de acumuladores
     $acumPromedioSET = 0;
@@ -323,18 +324,9 @@
     foreach($rRankingAsesor as $ConsultaRA){
         $resultado = array_search($ConsultaRA[0] , array_column($asesores , 0));
         if(is_numeric($resultado)) {
-            array_push(
-                $asesores[$resultado],
-                $ConsultaRA[1]
-            );
+            $asesores[$resultado][] =  $ConsultaRA[1];
         } else {
-            array_push(
-                $asesores,
-                [
-                    0 => $ConsultaRA[0],
-                    1 => $ConsultaRA[1],
-                ]
-            );
+            $asesores[] = array(0 => $ConsultaRA[0] , 1 => $ConsultaRA[1]);
         }
     }
         
