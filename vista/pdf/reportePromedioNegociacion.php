@@ -382,18 +382,9 @@
     foreach($rRankingAsesor as $ConsultaRA){
         $resultado = array_search($ConsultaRA[0] , array_column($asesores , 0));
         if(is_numeric($resultado)) {
-            array_push(
-                $asesores[$resultado],
-                $ConsultaRA[1]
-            );
+            $asesores[$resultado][] =  $ConsultaRA[1];
         } else {
-            array_push(
-                $asesores,
-                [
-                    0 => $ConsultaRA[0],
-                    1 => $ConsultaRA[1],
-                ]
-            );
+            $asesores[] = array(0 => $ConsultaRA[0] , 1 => $ConsultaRA[1]);
         }
     }
         
@@ -536,7 +527,6 @@
     /* ************************************** */
 
 
-
     // Color de Encabezado de Tabla
     $pdf->SetFont('Arial','B',10);
     $pdf->SetFillColor(255,255,255);
@@ -623,7 +613,6 @@
     // Cerrar PDF 
     $pdf->Close();
     $pdf->Output("I","informe-negociacion-f-$pdf->mes.pdf");
-        
     }
     else{
         header("location: indexReporteNEG.php?mensaje=No hay resultado para la busqueda que esta realizando...");

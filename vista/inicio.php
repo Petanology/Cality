@@ -712,7 +712,7 @@
                         <a href="#">
                             <!-- Icono -->
                             <div class="cont-img">
-                                <img src="img/item_dc" alt="icono de informe">
+                                <img src="img/item_dc.png" alt="icono de informe">
                             </div>
                             
                             <!-- Texto -->

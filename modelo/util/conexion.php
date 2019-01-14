@@ -12,7 +12,7 @@
                 echo 'Nombre del error: '.$ex->getMessage();
             }
 
-            return $this->conn;
+            // return $this->conn;
         }
     }
 ?>
