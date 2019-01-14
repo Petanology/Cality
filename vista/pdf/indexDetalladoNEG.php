@@ -4,9 +4,16 @@
     $sss = new sesiones();
     $sss->iniciar();
 
+    $piso = 0;
+    if(isset($_SESSION['piso'])){
+        $piso = $_SESSION['piso'];
+    }
+
     if(empty($_SESSION['autenticado'])){
         header("location:../acceso_denegado.php");
     } else if($_SESSION["rol"]=="coord_venta_directa"){
+        header("location:../acceso_denegado.php");
+    } else if($piso == 1){
         header("location:../acceso_denegado.php");
     }
 

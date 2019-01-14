@@ -17,7 +17,7 @@
 
     <!-- Contenido -->  
     <div class="container-fluid pt-3">
-        <form action="retroalimentacionPDF.php" method="post">
+        <form action="retroalimentacionPDF.php" method="GET">
             <label for="tabla" class="mb-3 w-100 h6 text-white text-center font-weight-bold">RETROALIMENTACION GENERAL</label>
 
             <div class="form-row">
@@ -50,7 +50,7 @@
                     </select>
                 </div>
                
-                <div class="form-group col-3">
+                <div class="form-group col-2">
                     <label for="ultimosDias" class="text-white font-weight-bold">Ultimos días</label>
                     <input 
                         type="number" 
@@ -63,17 +63,31 @@
                         required
                     >
                 </div>
-
-                <div class="form-group col-3">
-                    <label for="puntaje" class="text-white font-weight-bold">Nota máxima</label>
+                
+                <div class="form-group col-2">
+                    <label for="minimo" class="text-white font-weight-bold">Nota mínima</label>
+                    <input 
+                        type="number" 
+                        placeholder="Digite la nota mínima a evaluar" 
+                        name="minimo" 
+                        id="minimo" 
+                        class="input-sm mb-3 form-control"
+                        min="0"
+                        max="100"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group col-2">
+                    <label for="maximo" class="text-white font-weight-bold">Nota máxima</label>
                     <input 
                         type="number" 
                         placeholder="Digite la nota máxima a evaluar" 
-                        name="puntaje" 
-                        id="puntaje" 
+                        name="maximo" 
+                        id="maximo" 
                         class="input-sm mb-3 form-control"
                         min="1"
-                        max="127"
+                        max="100"
                         required
                     >
                 </div>

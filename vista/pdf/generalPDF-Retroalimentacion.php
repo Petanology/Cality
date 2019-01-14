@@ -9,7 +9,8 @@
         public $codigo;
         public $version;
         public $ultimosDias;
-        public $puntaje;
+        public $minimo;
+        public $maximo;
         public $fechaVersion;
         public $corte;
         var $B=0;

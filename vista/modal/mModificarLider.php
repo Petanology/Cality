@@ -137,15 +137,27 @@
                             >
                         </div>
                         
+                        <!-- Número de piso -->
+                        <div class="form-group">
+                            <label for="piso2" class="font-weight-bold">Número de piso</label>
+                            <select name="piso2" id="piso2" class="form-control" required>
+                                <option value="" selected disabled>Seleccione el número de piso...</option>
+                                <option value="1" <?php if($rowA[9]==1){ echo "selected"; } ?>>Primer piso</option>
+                                <option value="3" <?php if($rowA[9]==3){ echo "selected"; } ?>>Tercer piso</option>                               
+                            </select>
+                        </div>
+
+
                         <hr>
 
+                        
                         <!-- Estado -->
                         <div class="form-group">
                             <label for="estado2" class="font-weight-bold">Estado</label>
                             <select name="estado2" id="estado2" class="form-control" required>
                                 <option value="" disabled>Seleccione el estado</option>
-                                <option value="1" <?php if($rowA[9]==1){ echo "selected"; } ?>>Activo</option>
-                                <option value="0" <?php if($rowA[9]==0){ echo "selected"; } ?>>Inactivo</option>
+                                <option value="1" <?php if($rowA[10]==1){ echo "selected"; } ?>>Activo</option>
+                                <option value="0" <?php if($rowA[10]==0){ echo "selected"; } ?>>Inactivo</option>
                             </select>
                         </div>
             </div>

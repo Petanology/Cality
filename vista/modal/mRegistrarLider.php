@@ -128,6 +128,16 @@
                             <small class="form-text text-muted"><i class="far fa-question-circle"></i>&nbsp; el nombre de usuario debe ser personal e intransferible</small>
                         </div>
                         
+                        <!-- Numero de piso -->
+                        <div class="form-group">
+                            <label for="piso" class="font-weight-bold">Número de piso</label>
+                            <select name="piso" id="piso" class="mb-3 form-control" required>
+                                <option value="" selected disabled>Seleccione el número de piso...</option>
+                                <option value="1">Primer piso</option>
+                                <option value="3">Tercer piso</option>
+                            </select>
+                        </div>
+                        
                         <hr>
 
                         <!-- Contraseña -->

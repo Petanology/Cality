@@ -70,6 +70,13 @@
                         echo "<strong>correo electronico: </strong>" . $_SESSION['correo'];
                     ?>
                 </li>
+                <?php
+                    echo '<li class="list-group-item">';
+                    if(isset($_SESSION['piso'])){
+                        echo "<strong>piso: </strong>" . $_SESSION['piso'];
+                    }
+                    echo '</li>';
+                ?>
             </ul>
         </div>
     </div>

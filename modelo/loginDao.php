@@ -21,6 +21,17 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        
+        
+        public function loginLider($pusuario,$pcontrasena){            
+            try{
+                $query = $this->conexion->prepare("call logearLider('$pusuario','$pcontrasena')");
+                $query->execute();
+                return $query->fetch();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+        }
     }
 
 ?>

@@ -52,6 +52,10 @@
                         <div class="mt-2">Usuario</div>
                     </th>
                     <th class="text-center">
+                        <img width="24" height="24" src="img/building.png" alt="icono empresa">
+                        <div class="mt-2">Piso</div>
+                    </th>
+                    <th class="text-center">
                         <img width="24" height="24" src="img/interruptor.png" alt="icono swicth">
                         <div class="mt-2">Estado</div>
                     </th>
@@ -76,7 +80,8 @@
                         <td class="text-center"><?php echo $rowA[3] ?></td>
                         <td><?php echo $rowA[4] ?></td>
                         <td><?php echo $rowA[5] ?></td>
-                        <td class="text-center"><?php if($rowA[6]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
+                        <td class="text-center"><?php echo $rowA[6] ?></td>
+                        <td class="text-center"><?php if($rowA[7]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>
                         <td class="text-center">
                             <button type="submit" name="botonModificar" class="btn btn-success" value="<?php echo $rowA[0]?>" data-toggle="modal" data-target="#form_lider2"><i class="fas fa-pencil-alt"></i></button>
                         </td>

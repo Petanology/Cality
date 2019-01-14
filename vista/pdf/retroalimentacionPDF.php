@@ -6,33 +6,33 @@
     $SHIR = null;
     $vResultado = new retroalimentacionDao();
 
-    switch($_POST["tabla"]){
+    switch($_GET["tabla"]){
         case "dc":
-            $sihayInforme = $vResultado->validacionRetroalimentacionDC($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionDC($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "dp":
-            $sihayInforme = $vResultado->validacionRetroalimentacionDP($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionDP($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "ie":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIE($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIE($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "ib":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIB($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIB($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "neg":
-            $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "men":
-            $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
 
         case "ibf":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_POST["ultimosDias"] , $_POST["puntaje"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
         break;
     }
 
@@ -52,13 +52,14 @@
 
         $pdf = new PDFRETROALIMENTACION('P','mm','letter'); // Página vertical, tamaño carta, medición en Milímetros 
         // Varaibles generales
-        $pdf->tabla = $_POST["tabla"]; 
-        $pdf->codigo = $_POST["codigo"]; 
-        $pdf->version = $_POST["version"]; 
-        $pdf->ultimosDias = $_POST["ultimosDias"];    
-        $pdf->puntaje = $_POST["puntaje"];    
-        $pdf->fechaVersion = $_POST["fechaVersion"];    
-        $pdf->corte = $_POST["corte"];    
+        $pdf->tabla = $_GET["tabla"]; 
+        $pdf->codigo = $_GET["codigo"]; 
+        $pdf->version = $_GET["version"]; 
+        $pdf->ultimosDias = $_GET["ultimosDias"];    
+        $pdf->minimo = $_GET["minimo"];    
+        $pdf->maximo = $_GET["maximo"];    
+        $pdf->fechaVersion = $_GET["fechaVersion"];    
+        $pdf->corte = $_GET["corte"];    
 
         $pdf->AliasNbPages();
         $pdf->AddPage();
@@ -67,31 +68,31 @@
         
         switch($pdf->tabla){
             case "dc":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDC($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDC($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
                 
             case "dp":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDP($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDP($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
 
             case "ie":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIE($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIE($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
          
             case "ib":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIB($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIB($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
                 
             case "neg":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionNEG($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionNEG($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
                 
             case "men":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionMEN($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionMEN($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
                 
             case "ibf":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIBF($pdf->ultimosDias,$pdf->puntaje);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIBF($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
             break;
         }
         

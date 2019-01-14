@@ -47,6 +47,94 @@
         }
         
         
+        /*
+        // Validacion para ver gestiones de usuario
+        public function saberGestionesUsuario($tabla,$nom_usuario){
+            try{
+                switch($tabla){
+                    case "dc":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioDC('$nom_usuario');");
+                    break;
+                    case "dp":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioDP('$nom_usuario');");
+                        $query->execute();
+                    break;
+                    case "ie":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIE('$nom_usuario');");
+                        $query->execute();
+                    break;
+                    case "ib":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIB('$nom_usuario');");
+                        $query->execute();
+                    break;
+                    case "neg":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioNEG('$nom_usuario');");
+                        $query->execute();
+                    break;
+                    case "men":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioMEN('$nom_usuario');");
+                        $query->execute();
+                    break;
+                    case "ibf":
+                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIBF('$nom_usuario');");
+                        $query->execute();
+                    break;
+                }
+            
+                
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        */
+        /*
+
+            switch($_GET["tabla"]){
+                case "dc":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionDC($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "dp":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionDP($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "ie":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionIE($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "ib":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionIB($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "neg":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "men":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+
+                case "ibf":
+                    $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+                break;
+            }
+        
+        */
+        
+
+        public function saberGestionesUsuario($nom_usuario){
+            try{
+                $query = $this->conexion->prepare("CALL saberExistenciaUsuario('$nom_usuario');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
         public function listarAsesorGestion($pUsuarioAsesor){
             try{
                 $query = $this->conexion->prepare("CALL listarAsesorGestion('$pUsuarioAsesor');");

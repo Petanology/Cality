@@ -77,8 +77,8 @@
                         <td class="text-center font-weight-bold"><?php echo $rowA[0] ?></td>
                         <td><?php echo $rowA[1] ?></td>
                         <td><?php echo $rowA[2] ?></td>
-                        <td><?php echo $rowA[3] ?></td>
-                        <td><?php echo $rowA[4] ?></td>
+                        <td style="text-transform:uppercase;"><?php echo $rowA[3] ?></td>
+                        <td style="text-transform:uppercase;"><?php echo $rowA[4] ?></td>
                         <td><?php echo $rowA[5] ?></td>
                         <td><?php echo $rowA[6] ?></td>
                         <td class="text-center"><?php if($rowA[7]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>

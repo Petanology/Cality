@@ -36,10 +36,11 @@
                     // variables para lider
                     $usuarioLider = $_POST['usuario'];
                     $contrasenaLider = $_POST['contrasena'];
+                    $piso = $_POST['piso'];
                     
                     
                     if($personaDao->registrarPersona($idPersona,$generoLider,$tipoDocLider,$nomsLider,$apesLider,$correoLider,$ruta)) {
-                        if($liderDao->registrarLider($idPersona,$usuarioLider,$contrasenaLider)){
+                        if($liderDao->registrarLider($idPersona,$usuarioLider,$contrasenaLider,$piso)){
                             // mover archivo a la carpeta destino
                             move_uploaded_file($imagen , "../vista/" . $ruta);
                             $this->redireccion($mRPositivo);
@@ -66,10 +67,11 @@
                     // variables para Lider
                     $usuarioLider2 = $_POST['usuario2'];
                     $estadoLider2 = $_POST['estado2'];
+                    $piso2 = $_POST['piso2'];
                     
                     $mMPositivo = "¡Felicidades, la modificación con la identificación <strong> '" . $_POST['identificacion2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($liderDao->actualizarItem($idPersona2,$generoLider2,$tipoDocLider2,$nomsLider2,$apesLider2,$correoLider2,$usuarioLider2,$estadoLider2)) {
+                    if($liderDao->actualizarItem($idPersona2,$generoLider2,$tipoDocLider2,$nomsLider2,$apesLider2,$correoLider2,$usuarioLider2,$piso2,$estadoLider2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);
@@ -88,3 +90,35 @@
 
     $liderC = new liderControlador(); 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -115,7 +115,7 @@
                             <div class="texto">Retroalimentación</div>
                         </a>
                     </li>
-                    <!-- 
+
                     <li>
                         <a href="visualizacionGeneral.php" target="contenido">
                             <div class="cont-img">
@@ -124,7 +124,6 @@
                             <div class="texto">Visualizar gestión</div>
                         </a>
                     </li>
-                    -->
                     
                     <?php
                     }
@@ -464,13 +463,20 @@
                     
                     
                     <?php
+                    
+                    $piso = 0;
+
+                    if(isset($_SESSION['piso'])){
+                        $piso = $_SESSION['piso'];
+                    }
+                    
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe general</h3>
                     
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -532,7 +538,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <li>
                         <a href="#">
@@ -587,7 +593,7 @@
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe Detallado</h3>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -633,7 +639,7 @@
                                    </a>
                                </li> 
                                <li>
-                                   <a href="pdf/indexDetalladoIB" target="contenido">
+                                   <a href="pdf/indexDetalladoIB.php" target="contenido">
                                        <!-- Icono -->
                                        <div class="cont-img">
                                            <img src="img/detallado-ib.png" alt="icono de informe sub listado">
@@ -649,7 +655,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera"){
                     ?>
                     <li>
                         <a href="#">

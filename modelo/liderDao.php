@@ -14,9 +14,9 @@
         }
         
         
-        public function registrarLider($pIdPersona,$pUsuarioLider,$pContrasenaLider) {
+        public function registrarLider($pIdPersona,$pUsuarioLider,$pContrasenaLider,$pPiso) {
             try{
-                $query = $this->conexion->prepare("CALL registrarLider($pIdPersona,'$pUsuarioLider','$pContrasenaLider');");
+                $query = $this->conexion->prepare("CALL registrarLider($pIdPersona,'$pUsuarioLider','$pContrasenaLider',$pPiso);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -63,9 +63,9 @@
         
         
         // Actualizar
-        public function actualizarItem($pIdPersona2,$pGeneroLider2,$pTipoDocLider2,$pNomsLider2,$pApesLider2,$pCorreoLider2,$pUsuarioLider2,$pEstadoLider2){
+        public function actualizarItem($pIdPersona2,$pGeneroLider2,$pTipoDocLider2,$pNomsLider2,$pApesLider2,$pCorreoLider2,$pUsuarioLider2,$pPiso,$pEstadoLider2){
             try{
-                $query = $this->conexion->prepare("call actualizarLider($pIdPersona2,$pGeneroLider2,$pTipoDocLider2,'$pNomsLider2','$pApesLider2','$pCorreoLider2','$pUsuarioLider2',$pEstadoLider2)"); 
+                $query = $this->conexion->prepare("call actualizarLider($pIdPersona2,$pGeneroLider2,$pTipoDocLider2,'$pNomsLider2','$pApesLider2','$pCorreoLider2','$pUsuarioLider2',$pPiso,$pEstadoLider2)"); 
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
