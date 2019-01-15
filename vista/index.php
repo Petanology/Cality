@@ -72,10 +72,11 @@
                 <!-- Rol -->
                 <label for="rol">Rol Correspondiente</label>
                 <select name="rol" id="rol" required>
-                    <option value="" disabled>Seleccione su rol</option>
+                    <option value="" disabled>Seleccion1e su rol</option>
                     <option value="analista" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="analista"){echo "selected";} ?>>Analista</option>
                     <option value="lider" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="lider"){echo "selected";} ?>>Líder</option>
                     <option value="administrador" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="administrador"){echo "selected";} ?>>Administrador</option>
+                    <option value="jefe_operaciones" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="jefe_operaciones"){echo "selected";} ?>>Jefe de operaciones</option>
                     <option value="coord_venta_directa" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_venta_directa"){echo "selected";} ?>>Coordinador Venta Directa</option>
                     <option value="coord_financiera" <?php if(!empty($_GET['rol']) AND $_GET['rol']=="coord_financiera"){echo "selected";} ?>>Coordinador Financiera</option>
                 </select>

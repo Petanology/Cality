@@ -190,6 +190,16 @@
                                        <div class="texto">Administrador</div>
                                    </a>
                                </li>
+                               <li>
+                                   <a href="jefeOperaciones.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-administrador.png" alt="icono de administrador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Administrador</div>
+                                   </a>
+                               </li>
                             <?php
                             }
                             ?>
@@ -283,16 +293,6 @@
                                <?php
                                    }
                                ?>
-                               <li>
-                                   <a href="genero.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/genero.png" alt="icono de genero">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Genero</div>
-                                   </a>
-                               </li>
                                <li>
                                    <a href="tipoDoc.php" target="contenido">
                                        <!-- Icono -->
@@ -1125,6 +1125,10 @@
                         <?php 
                             if($_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "coord_financiera"){
                                 echo "coordinador";
+                            }if($_SESSION['rol'] == "lider"){
+                                echo "líder";
+                            }if($_SESSION['rol'] == "jefe_operaciones"){
+                                echo "jefe de operaciones";
                             }else{
                                 echo $_SESSION['rol']; 
                             }

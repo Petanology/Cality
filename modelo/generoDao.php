@@ -12,30 +12,6 @@
             $objetoConexion = new Conexion();
             $this->conexion = $objetoConexion->conn;
         }
-        
-        
-        public function registrar($pRegistrar){
-            try{
-                $query = $this->conexion->prepare("CALL registrarGenero('$pRegistrar');");
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-                $this->registro = false;
-            }
-            return $this->registro;
-        }
-        
-        
-        // Listar Tabla
-        public function listarTabla(){
-            try{
-                $query = $this->conexion->prepare("CALL listarTablaGenero();");
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
-            return $query;
-        }
 
         
         // Listar Tabla
@@ -59,19 +35,6 @@
                 echo "Error: " . $e->getMessage();
             }
             return $query;
-        }
-        
-        
-        // Actualizar Genero
-        public function actualizarItem($pId,$pNombre,$pEstado){
-            try{
-                $query = $this->conexion->prepare("call actualizarGenero($pId,'$pNombre',$pEstado)"); 
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-                $this->modificacion = false;
-            }
-            return $this->modificacion;
         }
     }
 ?>

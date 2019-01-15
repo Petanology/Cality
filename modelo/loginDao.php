@@ -32,6 +32,18 @@
                 echo "Error: " . $e->getMessage();
             }
         }
+        
+        
+        public function loginJefeOperaciones($pusuario,$pcontrasena){            
+            try{
+                $query = $this->conexion->prepare("call logearJefeOperaciones('$pusuario','$pcontrasena')");
+                $query->execute();
+                return $query->fetch();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        
     }
 
 ?>

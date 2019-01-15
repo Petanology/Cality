@@ -46,12 +46,11 @@
             return $query;
         }
         
-        
         /*
         // Validacion para ver gestiones de usuario
         public function saberGestionesUsuario($tabla,$nom_usuario){
-            try{
                 switch($tabla){
+            //try{
                     case "dc":
                         $query = $this->conexion->prepare("CALL saberExistenciaUsuarioDC('$nom_usuario');");
                     break;
@@ -82,46 +81,11 @@
                 }
             
                 
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
+            //}catch(Exception $e){
+            //    echo "Error: " . $e->getMessage();
+            //}
             return $query;
-        }
-        
-        */
-        /*
-
-            switch($_GET["tabla"]){
-                case "dc":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionDC($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "dp":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionDP($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "ie":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionIE($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "ib":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionIB($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "neg":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "men":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-
-                case "ibf":
-                    $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
-                break;
-            }
-        
-        */
+        }*/
         
 
         public function saberGestionesUsuario($nom_usuario){

@@ -5,14 +5,16 @@ function validarItems(nSeccion){
 
     while(j <= totalItemsSeccion){
         
-        if($("input[name='" + nSeccion + "_" + y +"']").val().length != 0){
+        if($("input[name='" + nSeccion + "_" + y +"']").length){
            
+            // console.log($("input[name='" + nSeccion + "_" + y +"']"));
+            
             if(!$("input[name='" + nSeccion + "_" + y + "']").is(":checked")){
             
                 return true;
             
             }
-                        
+                      
             j++;
             
         }

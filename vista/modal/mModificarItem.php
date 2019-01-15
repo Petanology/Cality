@@ -53,7 +53,7 @@
                             <small class="form-text text-muted mb-2"><i class="fas fa-sort-numeric-up"></i>&nbsp; <b><span id="contenedorCaracteres2">0</span> carácteres actuales,</b> recuerde que la descripción tiene un límite de <b>1300 carácteres</b></small>
                         </div>                        
                         <?php
-                            if(date("j") >= 28 AND date("j") <= 31){
+                        //    if(date("j") >= 28 AND date("j") <= 31){
                         ?>
                             <!-- Estado -->
                             <div class="form-group">
@@ -64,9 +64,9 @@
                                     <option value="0" <?php if($rowLI[3]==0){ echo "selected"; } ?>>Inactivo</option>
                                 </select>
                             </div>
-                        <?php } else { ?>
-                            <input type="hidden" value="<?php echo $rowLI[3]; ?>" name="estado2">
-                        <?php } ?>
+                        <?php //} else { ?>
+                            <!--<input type="hidden" value="<?php // echo $rowLI[3]; ?>" name="estado2">-->
+                        <?php // } ?>
                     </div>
                     <hr>
                     <small class="form-text text-muted border-right"><i class="far fa-question-circle"></i>&nbsp; Recuerde que el estado del item sólo puede ser modificado finalizando mes, <strong>después de éste cambio no registre ninguna gestión con el determinado número de items dentro del mismo mes. Cada formato tomará estos valores por defecto y ésto podría afectar los informes de Cality.</strong></small>

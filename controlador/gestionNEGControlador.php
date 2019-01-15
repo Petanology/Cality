@@ -180,7 +180,6 @@
                 $this->redireccion($mRPositivo);
                 
             }else{
-                
                 $this->redireccion($mNegativo);
                 
             }

@@ -8,18 +8,22 @@ function calcular(sector){
     while(i <= totalItemsSeccion){
         
         itemPrueba = document.getElementsByName(sector + "_" + f);
+        
+        if(typeof itemPrueba[0] !== 'undefined'){
+            //if(itemPrueba[0].value == 1){
 
-        if(itemPrueba[0].value == 1){
-            
-            i++;
-            
-            if(itemPrueba[0].checked){
-                nAprobadosSeccion++;
-            }
+                if(itemPrueba[0].checked){
+                    nAprobadosSeccion++;
+                }
+
+                i++;
+            //}
         }
+           
         
         f++;
     }
+    
     var operacion = nAprobadosSeccion*porcentajeSeccion/totalItemsSeccion; 
     
     totalSeccion = operacion.toFixed(1);
