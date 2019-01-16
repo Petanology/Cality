@@ -69,7 +69,7 @@
                     
                     $mMPositivo = "¡Felicidades, la modificación con la identificación <strong> '" . $_POST['identificacion2'] . "' </strong> fue todo un éxito!";
                                     
-                    if($asesorDao->actualizarItem($idPersona2,$generoAsesor2,$tipoDocAsesor2,$nomsAsesor2,$apesAsesor2,"",$liderAsesor2,$usuarioAsesor2,$fecha_ingreso2,$estadoAsesor2)) {
+                    if($asesorDao->actualizarItem($idPersona2,$generoAsesor2,$tipoDocAsesor2,$nomsAsesor2,$apesAsesor2,"N/A",$liderAsesor2,$usuarioAsesor2,$fecha_ingreso2,$estadoAsesor2)) {
                         $this->redireccion($mMPositivo);
                     }else{
                         $this->redireccion($mNegativo);

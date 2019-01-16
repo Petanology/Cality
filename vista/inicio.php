@@ -1,8 +1,8 @@
 <?php
     // importaciones necesarias 
-    require_once ("../controlador/sesiones.php");
     require_once ("../controlador/zonaHoraria.php");
     require_once ("../controlador/fecha.php");
+    require_once ("../controlador/sesiones.php");
     $sss = new sesiones();
     $sss->iniciar();
     

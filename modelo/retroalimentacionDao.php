@@ -15,9 +15,9 @@
         
         // Validar Retroalimentacion
         // DC
-        public function validacionRetroalimentacionDC($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionDC($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionDC($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionDC($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -27,9 +27,9 @@
 
         
         // DP
-        public function validacionRetroalimentacionDP($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionDP($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionDP($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionDP($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -39,9 +39,9 @@
 
         
         // IE
-        public function validacionRetroalimentacionIE($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionIE($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIE($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIE($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -51,9 +51,9 @@
         
         
         // IB
-        public function validacionRetroalimentacionIB($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionIB($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIB($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIB($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -63,9 +63,9 @@
         
         
         // NEG
-        public function validacionRetroalimentacionNEG($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionNEG($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionNEG($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionNEG($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -75,9 +75,9 @@
 
 
         // MEN 
-        public function validacionRetroalimentacionMEN($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionMEN($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionMEN($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionMEN($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -87,9 +87,9 @@
         
         
         // IBF 
-        public function validacionRetroalimentacionIBF($ultimosDias,$minimo,$maximo){
+        public function validacionRetroalimentacionIBF($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIBF($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL validacionRetroalimentacionIBF($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -100,9 +100,9 @@
         
         // Listar Retroalimentaciones
         // DC
-        public function listarRetroalimentacionDC($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionDC($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionDC($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionDC($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -112,9 +112,9 @@
         
 
         // DP
-        public function listarRetroalimentacionDP($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionDP($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionDP($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionDP($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -124,9 +124,9 @@
         
         
         // IE
-        public function listarRetroalimentacionIE($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionIE($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionIE($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionIE($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -136,9 +136,9 @@
         
         
         // IB
-        public function listarRetroalimentacionIB($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionIB($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionIB($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionIB($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -148,9 +148,9 @@
         
         
         // NEG
-        public function listarRetroalimentacionNEG($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionNEG($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionNEG($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionNEG($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -160,9 +160,9 @@
         
         
         // MEN
-        public function listarRetroalimentacionMEN($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionMEN($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionMEN($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionMEN($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();
@@ -172,9 +172,9 @@
         
         
         // IBF
-        public function listarRetroalimentacionIBF($ultimosDias,$minimo,$maximo){
+        public function listarRetroalimentacionIBF($ultimosDias,$minimo,$maximo,$idanalista){
             try{
-                $query = $this->conexion->prepare("CALL listarRetroalimentacionIBF($ultimosDias,$minimo,$maximo);");
+                $query = $this->conexion->prepare("CALL listarRetroalimentacionIBF($ultimosDias,$minimo,$maximo,$idanalista);");
                 $query->execute();
             }catch(Exception $e){
                 echo "Error: " . $e->getMessage();

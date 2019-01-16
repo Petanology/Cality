@@ -2,37 +2,40 @@
 
     require_once("../../modelo/retroalimentacionDao.php");
     require_once("../../controlador/zonaHoraria.php");
+    require_once ("../controlador/sesiones.php");
+    $sss = new sesiones();
+    $sss->iniciar();
 
     $SHIR = null;
     $vResultado = new retroalimentacionDao();
 
     switch($_GET["tabla"]){
         case "dc":
-            $sihayInforme = $vResultado->validacionRetroalimentacionDC($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionDC($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "dp":
-            $sihayInforme = $vResultado->validacionRetroalimentacionDP($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionDP($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "ie":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIE($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIE($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "ib":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIB($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIB($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "neg":
-            $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionNEG($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "men":
-            $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionMEN($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
 
         case "ibf":
-            $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"]);
+            $sihayInforme = $vResultado->validacionRetroalimentacionIBF($_GET["ultimosDias"] , $_GET["minimo"] , $_GET["maximo"] , $_SESSION['idpersona']);
         break;
     }
 
@@ -68,31 +71,31 @@
         
         switch($pdf->tabla){
             case "dc":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDC($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDC($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
                 
             case "dp":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDP($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionDP($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
 
             case "ie":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIE($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIE($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
          
             case "ib":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIB($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIB($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
                 
             case "neg":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionNEG($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionNEG($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
                 
             case "men":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionMEN($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionMEN($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
                 
             case "ibf":
-                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIBF($pdf->ultimosDias,$pdf->minimo,$pdf->maximo);
+                $resultadoORetroDao = $oRetroDao->listarRetroalimentacionIBF($pdf->ultimosDias,$pdf->minimo,$pdf->maximo,$_SESSION['idpersona']);
             break;
         }
         

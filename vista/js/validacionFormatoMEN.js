@@ -4,7 +4,8 @@ window.onload = function() {
     calcular("mrs");
 };
 
-
+    var f = new Date();
+    var diaActual = f.getFullYear() + "-" + ("0" + (f.getMonth() + 1)).slice(-2) + "-" + f.getDate();
 
 function validarFormatoMEN(){
     
@@ -22,6 +23,15 @@ function validarFormatoMEN(){
         swal({
         title: '¡Campo vacío!',
         text: 'Es necesario que seleccione el TIPO DE MONITOREO para poder continuar...',
+        type: 'info',
+        confirmButtonText: 'Entendido'
+        });
+        
+    } else if($("#fecha").val() > diaActual){
+        
+        swal({
+        title: '¡Campo Incoherente!',
+        text: 'No se puede registrar una FECHA POSTERIOR a la actual...',
         type: 'info',
         confirmButtonText: 'Entendido'
         });

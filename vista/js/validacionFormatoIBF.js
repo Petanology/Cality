@@ -4,10 +4,12 @@ window.onload = function() {
     calcular("ibfr");
 };
 
-
+    var f = new Date();
+    var diaActual = f.getFullYear() + "-" + ("0" + (f.getMonth() + 1)).slice(-2) + "-" + f.getDate();
 
 function validarFormatoIBF(){
     
+ 
     if($("#unidad").val().length == 0){
         
         swal({
@@ -22,6 +24,15 @@ function validarFormatoIBF(){
         swal({
         title: '¡Campo vacío!',
         text: 'Es necesario que seleccione el TIPO DE MONITOREO para poder continuar...',
+        type: 'info',
+        confirmButtonText: 'Entendido'
+        });
+        
+    } else if($("#fecha").val() > diaActual){
+        
+        swal({
+        title: '¡Campo Incoherente!',
+        text: 'No se puede registrar una FECHA POSTERIOR a la actual...',
         type: 'info',
         confirmButtonText: 'Entendido'
         });
@@ -99,6 +110,7 @@ function validarFormatoIBF(){
         });
         
     }else{
+        
         $('#botonRegistrar').attr("disabled" , true);
         document.formGeneral.submit();
         
