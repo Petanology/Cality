@@ -6,7 +6,7 @@
 
     if(empty($_SESSION['autenticado'])){
         header("location:acceso_denegado.php");
-    }else if($_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "lider"){
+    }else if($_SESSION['rol'] == "coord_financiera" || $_SESSION['rol'] == "coord_venta_directa" || $_SESSION['rol'] == "jefe_operaciones" || $_SESSION['rol'] == "lider"){
         header("location:acceso_denegado.php");
     }
 
@@ -77,8 +77,8 @@
                         <td class="text-center font-weight-bold"><?php echo $rowA[0] ?></td>
                         <td><?php echo $rowA[1] ?></td>
                         <td><?php echo $rowA[2] ?></td>
-                        <td style="text-transform:uppercase;"><?php echo $rowA[3] ?></td>
-                        <td style="text-transform:uppercase;"><?php echo $rowA[4] ?></td>
+                        <td><?php echo $rowA[3] ?></td>
+                        <td><?php echo $rowA[4] ?></td>
                         <td><?php echo $rowA[5] ?></td>
                         <td><?php echo $rowA[6] ?></td>
                         <td class="text-center"><?php if($rowA[7]): echo "<h5><span class='p-2 badge badge-primary'>Activo</span></h5>"; else: echo "<h5><span class='p-2 badge badge-danger'>Inactivo</span></h5>"; endif; ?></td>

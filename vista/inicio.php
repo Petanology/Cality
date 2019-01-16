@@ -101,9 +101,7 @@
                         </div>
                     </li>
                     
-                    <?php
-                    if($_SESSION['rol']=="analista"){
-                    ?>
+                    <?php if($_SESSION['rol']=="analista"){ ?>
                     <li>
                         <a href="pdf/retroalimentacion.php" target="contenido">
                             <!-- Icono -->
@@ -116,6 +114,7 @@
                         </a>
                     </li>
 
+                   <!--
                     <li>
                         <a href="visualizacionGeneral.php" target="contenido">
                             <div class="cont-img">
@@ -123,14 +122,12 @@
                             </div>
                             <div class="texto">Visualizar gestión</div>
                         </a>
-                    </li>
+                    </li> -->
+                    
+                    <?php } ?>
                     
                     <?php
-                    }
-                    ?>
-                    
-                    <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <li>
                         <a href="ejemplo1.html" target="contenido">
@@ -148,7 +145,7 @@
                     ?>
 
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>                    
                     <!-- Perfiles -->
                     <li>
@@ -163,56 +160,7 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
-                            <?php
-                            if($_SESSION['rol']=="analista"){
-                            ?>                       
-                               <li>
-                                   <a href="gestionFotosPerfil.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/portrait.png" alt="icono de gestión de imagenes de perfil">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Fotos de Perfil</div>
-                                   </a>
-                               </li> 
-                            <?php
-                            }
-                            if($_SESSION['rol']=="administrador"){
-                            ?>
-                               <li>
-                                   <a href="administrador.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/user-administrador.png" alt="icono de administrador">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Administrador</div>
-                                   </a>
-                               </li>
-                               <li>
-                                   <a href="jefeOperaciones.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/user-administrador.png" alt="icono de administrador">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Administrador</div>
-                                   </a>
-                               </li>
-                            <?php
-                            }
-                            ?>
-                               <li>
-                                   <a href="analista.php" target="contenido">
-                                       <!-- Icono -->
-                                       <div class="cont-img">
-                                           <img src="img/user-analista.png" alt="icono de analista">
-                                       </div>
-                                       <!-- Texto -->
-                                       <div class="texto">Analista</div>
-                                   </a>
-                               </li>
+                               <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){ ?>
                                <li>
                                    <a href="asesor.php" target="contenido">
                                        <!-- Icono -->
@@ -223,6 +171,24 @@
                                        <div class="texto">Asesor</div>
                                    </a>
                                </li> 
+                               <?php } ?>
+                              
+                              
+                               <?php if($_SESSION['rol']=="administrador"){ ?>
+                               <li>
+                                   <a href="analista.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-analista.png" alt="icono de analista">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Analista</div>
+                                   </a>
+                               </li>
+                               <?php } ?>
+                               
+                               
+                               <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){ ?>
                                <li>
                                    <a href="lider.php" target="contenido">
                                        <!-- Icono -->
@@ -233,6 +199,22 @@
                                        <div class="texto">Líder</div>
                                    </a>
                                </li>
+                               <?php } ?>
+                               
+                               <?php if($_SESSION['rol']=="administrador"){ ?>
+                               <li>
+                                   <a href="administrador.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-administrador.png" alt="icono de administrador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Administrador</div>
+                                   </a>
+                               </li>
+                               <?php } ?>
+                               
+                               <?php if($_SESSION['rol']=="administrador"){ ?>
                                <li>
                                    <a href="coordVentaDirecta.php" target="contenido">
                                        <!-- Icono -->
@@ -243,6 +225,10 @@
                                        <div class="texto">Coordinador Venta Directa</div>
                                    </a>
                                </li>
+                               <?php } ?>
+                               
+                               
+                               <?php if($_SESSION['rol']=="administrador"){ ?>
                                <li>
                                    <a href="coordFinanciera.php" target="contenido">
                                        <!-- Icono -->
@@ -253,6 +239,35 @@
                                        <div class="texto">Coordinador Financiero</div>
                                    </a>
                                </li>
+                               <?php } ?>                               
+                               
+                               
+                               <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="jefe_operaciones"){ ?>
+                               <li>
+                                   <a href="jefeOperaciones.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/user-jefe-operaciones.png" alt="icono de administrador">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Jefe de Operaciones</div>
+                                   </a>
+                               </li>
+                               <?php } ?>
+                               
+                                                              
+                               <?php if($_SESSION['rol']=="analista" || $_SESSION['rol']=="administrador"){ ?>                       
+                               <li>
+                                   <a href="gestionFotosPerfil.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/portrait.png" alt="icono de gestión de imagenes de perfil">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Fotos de Perfil</div>
+                                   </a>
+                               </li> 
+                               <?php } ?>
                             </ul>
                         </div>
                     </li>
@@ -277,9 +292,8 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
-                               <?php
-                                   if($_SESSION['rol']=="analista"){
-                               ?>
+                              
+                               <?php if($_SESSION['rol']=="analista" || $_SESSION['rol']=="administrador"){ ?>
                                <li>
                                    <a href="errorCritico.php" target="contenido">
                                        <!-- Icono -->
@@ -290,9 +304,10 @@
                                        <div class="texto">Error crítico</div>
                                    </a>
                                </li>
-                               <?php
-                                   }
-                               ?>
+                               <?php } ?>
+                               
+                                  
+                               <?php if($_SESSION['rol']=="administrador"){ ?>
                                <li>
                                    <a href="tipoDoc.php" target="contenido">
                                        <!-- Icono -->
@@ -303,9 +318,11 @@
                                        <div class="texto">Tipo de documento</div>
                                    </a>
                                </li>
-                               <?php
-                                   if($_SESSION['rol']=="analista"){
-                               ?>
+                               <?php } ?>
+                               
+                               
+                               
+                               <?php if($_SESSION['rol']=="analista" || $_SESSION['rol']=="administrador"){ ?>
                                <li>
                                    <a href="tipoMonitoreo.php" target="contenido">
                                        <!-- Icono -->
@@ -316,6 +333,10 @@
                                        <div class="texto">Tipo de monitoreo</div>
                                    </a>
                                </li>
+                               <?php } ?>
+                               
+                               
+                               <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){ ?>
                                <li>
                                    <a href="unidad.php" target="contenido">
                                        <!-- Icono -->
@@ -326,6 +347,10 @@
                                        <div class="texto">Unidad</div>
                                    </a>
                                </li>
+                               <?php } ?>
+                               
+                               
+                               <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista"){ ?>
                                <li>
                                    <a href="valSecc.php" target="contenido">
                                        <!-- Icono -->
@@ -336,9 +361,7 @@
                                        <div class="texto">Valor de la sección</div>
                                    </a>
                                </li>
-                               <?php
-                                   }
-                               ?> 
+                               <?php } ?> 
                             </ul>
                         </div>
                     </li>
@@ -470,13 +493,13 @@
                         $piso = $_SESSION['piso'];
                     }
                     
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="lider" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe general</h3>
                     
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -538,7 +561,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <li>
                         <a href="#">
@@ -593,7 +616,7 @@
                     <!-- divisor menu -->
                     <h3 class="titulo-divisor-menu">informe Detallado</h3>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 1) || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <!-- Informe venta directa -->
                     <li>
@@ -655,7 +678,7 @@
                     }
                     ?>
                     <?php
-                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera"){
+                    if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || ($_SESSION['rol']=="lider" AND $piso == 3) || $_SESSION['rol']=="coord_financiera" || $_SESSION['rol']=="jefe_operaciones"){
                     ?>
                     <li>
                         <a href="#">
@@ -708,7 +731,7 @@
                     ?>
 
                     <?php
-                    if($_SESSION["rol"] == "analista"){
+                    if($_SESSION["rol"] == "analista" || $_SESSION['rol'] == "administrador"){
                     ?>
                     <!-- divisor menu -->
                     <h3 class="mega-titulo-divisor-menu">Items</h3>       

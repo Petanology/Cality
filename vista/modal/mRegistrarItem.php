@@ -8,11 +8,11 @@
             <form action="../controlador/itemControlador.php" method="post"  autocomplete="off">
                 <div class="modal-body">
                         <?php
-                            //if(date("j") < 28){
+                            if(date("j") < 28){
                         ?>
-                            <!--<i class="form-text text-muted">Sólo y exclusivamente <strong>cuando sea fin de mes, podrá registrar nuevos items,</strong>  ésto para el buen funcionamiento de los informes. Se recomienda esperar hasta hasta el respectivo rango de fecha, y una vez allí: crearlos y no realizar ninguna gestión hasta el siguiente mes.</i>-->
+                            <i class="form-text text-muted">Sólo y exclusivamente <strong>cuando sea fin de mes, podrá registrar nuevos items,</strong>  ésto para el buen funcionamiento de los informes. Se recomienda esperar hasta hasta el respectivo rango de fecha, y una vez allí: crearlos y no realizar ninguna gestión hasta el siguiente mes.</i>
                         <?php
-                            //}else {
+                            }else {
                         ?>
                         <input type="hidden" value="<?php echo $nomTabla; ?>" name="tabla">
                         <!-- Titulo -->
@@ -48,16 +48,16 @@
                             <small class="form-text text-muted mb-2"><i class="fas fa-sort-numeric-up"></i>&nbsp; <b><span id="contenedorCaracteres">0</span> carácteres actuales,</b> recuerde que la descripción tiene un límite de <b>1300 carácteres</b></small>
                         </div>
                         <?php    
-                          //}
+                        }
                         ?>
                 </div>
                 <div class="modal-footer">
                     <?php
-                        // if(date("j") >= 28 AND date("j") <= 31){
+                        if(date("j") >= 28 AND date("j") <= 31){
                     ?>
                         <button type="submit" value="REGISTRAR" name="boton" class="btn btn-success">REGISTRAR</button>
                     <?php
-                        //}
+                        }
                     ?>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
                 </div>

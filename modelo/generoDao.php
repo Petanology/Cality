@@ -24,17 +24,5 @@
             }
             return $query;
         }
-        
-
-        // listar item Genero
-        public function listarItem($pItem){
-            try{
-                $query = $this->conexion->prepare("call listarItemGenero($pItem)"); 
-                $query->execute();
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
-            return $query;
-        }
     }
 ?>
