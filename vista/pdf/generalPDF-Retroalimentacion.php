@@ -39,7 +39,7 @@
             $nb=0;
             for($i=0;$i<count($data);$i++)
                 $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
-            $h=2*$nb;
+            $h=2.8*$nb;
             //Issue a page break first if needed
             $this->CheckPageBreak($h);
             //Draw the cells of the row
@@ -53,7 +53,7 @@
                 //Draw the border
                 $this->Rect($x,$y,$w,$h);
                 //Print the text
-                $this->MultiCell($w,1.9,$data[$i],0,$a);
+                $this->MultiCell($w,2.6,$data[$i],0,$a);
                 //Put the position to the right of the cell
                 $this->SetXY($x+$w,$y);
             }

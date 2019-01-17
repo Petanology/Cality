@@ -62,10 +62,6 @@
     $pdf->AliasNbPages();
     $pdf->AddPage();
         
-    function sort_by_orden($a, $b) {
-        return $b[5] - $a[5];
-    }
-        
     require_once("funcionesColorFondo.php");
     
     // Convenciones
@@ -374,13 +370,20 @@
             $subtotal += $asesores[$x][$i];   
             
         }
-                 
-        $asesores[$x][5] = round($subtotal / $totalGestiones , 1);
+        
+        $porcAcum = round($subtotal / $totalGestiones, 1);        
+        $asesores[$x][5] = $porcAcum;
         
     }
         
-         
-    uasort($asesores, 'sort_by_orden');
+    $aux = array();
+    
+    foreach($asesores as $key => $rowFAsesor){
+        $aux[$key] = $rowFAsesor[5];
+    }
+        
+    array_multisort($aux, SORT_DESC, $asesores);
+    
             
     $pdf->SetTextColor(28, 40, 51);
     // Recorrido para impresion

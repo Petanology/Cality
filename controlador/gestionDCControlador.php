@@ -130,7 +130,11 @@
                 }
                 
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedio_dc($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcc_input,$acum_dcr_input);
+                if($errorCritico == 1) {
+                    $encabezadoDao->registrarPromedio_dc($idGestion,$acum_dcs_input,$acum_dcn_input,$acum_dcc_input,$acum_dcr_input);
+                }else {
+                    $encabezadoDao->registrarPromedio_dc($idGestion , 0 , 0 , 0 , 0);
+                }
                 
                 
                 foreach($seccion1 as $aprobadoItem){

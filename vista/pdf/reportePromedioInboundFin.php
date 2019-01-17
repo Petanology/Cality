@@ -57,10 +57,6 @@
     $pdf->AliasNbPages();
     $pdf->AddPage();
         
-    function sort_by_orden($a, $b) {
-        return $b[5] - $a[5];
-    }
-        
     require_once("funcionesColorFondo.php");
 
     // Convenciones
@@ -347,8 +343,13 @@
         
     }
         
-         
-    uasort($asesores, 'sort_by_orden');
+    $aux = array();
+    
+    foreach($asesores as $key => $rowFAsesor){
+        $aux[$key] = $rowFAsesor[5];
+    }
+        
+    array_multisort($aux, SORT_DESC, $asesores);
             
     // Recorrido para impresion
     foreach($asesores as $rowAsesores){

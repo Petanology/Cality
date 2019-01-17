@@ -109,7 +109,11 @@
 
                 
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedio_men($idGestion,$acum_mset_input,$acum_mit_input,$acum_mrs_input);
+                if($errorCritico == 1){
+                    $encabezadoDao->registrarPromedio_men($idGestion,$acum_mset_input,$acum_mit_input,$acum_mrs_input);
+                } else {
+                    $encabezadoDao->registrarPromedio_men($idGestion, 0 , 0 , 0);
+                }
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);

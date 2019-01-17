@@ -12,11 +12,11 @@
     // Calcular Promedio C-Directo
     function impresionColorOscuro($nResultado){
         global $pdf;
-        if($nResultado >= 0 && $nResultado <= 68){
+        if($nResultado > -1 && $nResultado < 69){
             $pdf->SetFillColor(231, 76, 60);
-        } else if($nResultado >= 69 && $nResultado <= 84){
+        } else if($nResultado > 68 && $nResultado < 85){
             $pdf->SetFillColor(247, 220, 111);
-        } else if($nResultado >= 85 && $nResultado <= 100){
+        } else if($nResultado > 84 && $nResultado < 101){
             $pdf->SetFillColor(88, 214, 141);
         } else {
             $pdf->SetFillColor(142, 68, 173);
@@ -27,11 +27,11 @@
     // Calcular Totales Claros
     function impresionColorRankingA($nResultado){
         global $pdf;
-        if($nResultado >= 0 && $nResultado <= 68){
+        if($nResultado > -1 && $nResultado < 69){
             $pdf->SetTextColor(231, 76, 60);
-        } else if($nResultado >= 69 && $nResultado <= 84){
+        } else if($nResultado > 68 && $nResultado < 85){
             $pdf->SetTextColor(202, 111, 30);
-        } else if($nResultado >= 85 && $nResultado <= 100){
+        } else if($nResultado > 84 && $nResultado < 101){
             $pdf->SetTextColor(17, 122, 101);
         } else {
             $pdf->SetTextColor(142, 68, 173);

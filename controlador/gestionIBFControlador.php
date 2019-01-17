@@ -109,7 +109,11 @@
                 
                 
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedio_ibf($idGestion,$acum_ibfs_input,$acum_ibfo_input,$acum_ibfr_input);
+                if($errorCritico == 1){
+                    $encabezadoDao->registrarPromedio_ibf($idGestion,$acum_ibfs_input,$acum_ibfo_input,$acum_ibfr_input);
+                } else {
+                    $encabezadoDao->registrarPromedio_ibf($idGestion, 0 , 0 , 0);
+                }
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);

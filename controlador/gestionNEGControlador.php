@@ -153,7 +153,11 @@
                 }
     
                 // Registrar promedio alcanzado por seccion
-                $encabezadoDao->registrarPromedio_neg($idGestion,$acum_npep_input,$acum_nsc_input,$acum_nn_input,$acum_nad_input,$acum_nrs_input);
+                if($errorCritico == 1){
+                    $encabezadoDao->registrarPromedio_neg($idGestion,$acum_npep_input,$acum_nsc_input,$acum_nn_input,$acum_nad_input,$acum_nrs_input);
+                } else {
+                    $encabezadoDao->registrarPromedio_neg($idGestion, 0 , 0 , 0 , 0 , 0);
+                }
 
                 foreach($seccion1 as $aprobadoItem){
                     $gestionGeneralDao->registrarCalificacion($primeraTabla,$primerCampo,$idGestion,$aprobadoItem[1],$aprobadoItem[0]);
