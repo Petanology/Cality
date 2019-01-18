@@ -114,15 +114,15 @@
                         </a>
                     </li>
 
-                   <!--
+                   
                     <li>
                         <a href="visualizacionGeneral.php" target="contenido">
                             <div class="cont-img">
                                 <img src="img/loupe.png" alt="icono de visualización">
                             </div>
-                            <div class="texto">Visualizar gestión</div>
+                            <div class="texto">Consultar gestiones</div>
                         </a>
-                    </li> -->
+                    </li>
                     
                     <?php } ?>
                     
