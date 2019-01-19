@@ -46,46 +46,41 @@
             return $query;
         }
         
-        /*
+
         // Validacion para ver gestiones de usuario
-        public function saberGestionesUsuario($tabla,$nom_usuario){
+        public function saberConsultaGestionesUsuario($mesConsulta,$asesorConsulta,$tabla){
+            try{
                 switch($tabla){
-            //try{
                     case "dc":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioDC('$nom_usuario');");
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioDC('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "dp":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioDP('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioDP('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "ie":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIE('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioIE('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "ib":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIB('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioIB('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "neg":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioNEG('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioNEG('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "men":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioMEN('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioMEN('$mesConsulta%','$asesorConsulta');");
                     break;
                     case "ibf":
-                        $query = $this->conexion->prepare("CALL saberExistenciaUsuarioIBF('$nom_usuario');");
-                        $query->execute();
+                        $query = $this->conexion->prepare("CALL saberConsultaGestionesUsuarioIBF('$mesConsulta%','$asesorConsulta');");
                     break;
                 }
             
+                $query->execute();
                 
-            //}catch(Exception $e){
-            //    echo "Error: " . $e->getMessage();
-            //}
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
             return $query;
-        }*/
+        }
         
 
         public function saberGestionesUsuario($nom_usuario){

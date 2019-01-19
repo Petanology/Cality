@@ -250,7 +250,7 @@
                                            <img src="img/user-jefe-operaciones.png" alt="icono de administrador">
                                        </div>
                                        <!-- Texto -->
-                                       <div class="texto">Jefe de Operaciones</div>
+                                       <div class="texto">Jefe</div>
                                    </a>
                                </li>
                                <?php } ?>

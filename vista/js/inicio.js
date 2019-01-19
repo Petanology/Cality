@@ -46,6 +46,27 @@ $(document).ready(function(){
         $(".item-seleccionado-actual").removeClass("item-seleccionado-actual");
         $(this).addClass("item-seleccionado-actual");
     });
+    
+    // Funcion al abrir la pagina
+    var pantalla;
+    anchoP = $(window).width();
+
+    if(anchoP > 1100){
+        
+        // animación icono
+        $(".primero").addClass("primero-activado");
+        $(".segundo").addClass("segundo-activado");
+        $(".tercero").addClass("tercero-activado");
+        $(".divisor-menu").addClass("divisor-activado");
+
+        // Agrandar / empequeñecer menú
+        $("#ul-menu").removeClass("menu-tooltip");
+        $("#ul-menu").addClass("menu-normal");
+        $("#menu").addClass("menu-activado");    
+        $(".fondo-toggle").addClass("fondo-toggle-activado");  
+        $("#contenedor-derecha").addClass("contenedor-derecha-activado");
+        
+    }
 });
 
 
