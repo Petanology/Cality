@@ -48,7 +48,7 @@
         
         if($mensaje == $mNegativo){
             echo "<div class='ml-3'>";
-            echo "<a class='badge badge-light p-2' href='javascript:history.back(1)'><i class='fas fa-angle-left'></i> Regresar a intento</a>";
+            echo "<a class='badge badge-light p-2' href='javascript:window.history.go(-1)'><i class='fas fa-angle-left'></i> Regresar a intento</a>";
             echo "</div>";
         }
     }

@@ -132,10 +132,7 @@
             <div class="form-group">
                 <button type="submit" name="boton-consultar" class="btn btn-primary font-weight-bold btn-sm btn-block"><i class="fas fa-search"></i>&nbsp; BUSCAR GESTIONES</button>
             </div>
-        </form>
-        
-        
-        
+        </form>        
         
         
         <!-- ------------------------- ----------------------------- -->

@@ -27,7 +27,6 @@
     
     <!-- Font awesome -->
     <link rel="stylesheet" href="fontawesome/css/all.css">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
     
     <title>Página de inicio | Cality</title>
     
@@ -1153,7 +1152,7 @@
                             }if($_SESSION['rol'] == "lider"){
                                 echo "líder";
                             }if($_SESSION['rol'] == "jefe_operaciones"){
-                                echo "jefe de operaciones";
+                                echo "Jefe";
                             }else{
                                 echo $_SESSION['rol']; 
                             }

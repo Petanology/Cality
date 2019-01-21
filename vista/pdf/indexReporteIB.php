@@ -23,15 +23,18 @@
 
     <!-- Contenido -->  
     <div class="container-fluid pt-3">
-        <form action="reportePromedioInbound.php" method="GET">
+        <form action="reportePromedioInbound.php" class="bg-dark p-3 rounded" method="GET">
             <div class="form-group input-group-sm">
                 <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">INFORME MENSUAL INBOUND - VENTA DIRECTA</label>
+                
+                <label for="mes" style="color:#DDD;" class="pt-1 pb-1 font-weight-bold">Seleccionar mes</label> 
+                
                 <input type="month" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>" name="mesReporte" id="mes" class="input-sm mb-3 form-control" required>
+                <small style="color:#AAA;" class="form-text font-weight-bold mt-2 mb-2"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, para así generar sus respectivos informes generales.</small>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-dark btn-sm btn-block font-weight-bold"
+                <button type="submit" class="btn btn-primary btn-sm btn-block font-weight-bold"
                 ><i class="fas fa-award"></i>&nbsp; GENERAR ARCHIVO PDF</button>
-                <small class="form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, para así generar sus respectivos informes generales.</small>
             </div>
         </form>
     </div>

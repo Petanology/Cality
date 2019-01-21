@@ -26,7 +26,7 @@
         <div class="p-2 bg-dark border border-secondary">
         <h1 class="pt-1 h6 text-center text-white font-weight-bold pb-2">GRUPO VENTA DIRECTA</h1>
         <table class="table table-primary table-striped table-borderless scroll_modificado">
-            <thead class="bg-primary">
+            <thead style="background:#3498DB;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO ETAPAS COMERCIALES VENTA DIRECTA</td>
                 </tr>
@@ -60,8 +60,8 @@
         <hr>
         
         <!-- DIRECTO PREJURIDICO -->        
-        <table class="table table-danger table-striped table-borderless scroll_modificado">
-            <thead class="bg-danger">
+        <table class="table table-primary table-striped table-borderless scroll_modificado">
+            <thead style="background:#1568CC;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO ETAPAS PREJURIDICAS VENTA DIRECTA</td>
                 </tr>
@@ -95,8 +95,8 @@
         <hr>
         
         <!-- DIRECTO ESTÁNDAR CONTACTO INDIRECTO -->
-        <table class="table table-success table-striped table-borderless scroll_modificado">
-            <thead class="bg-success">
+        <table class="table table-primary table-striped table-borderless scroll_modificado">
+            <thead style="background:#03BEA0;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO ESTÁNDAR CONTACTO INDIRECTO</td>
                 </tr>
@@ -168,7 +168,7 @@
         <div class="p-2 bg-dark border border-secondary mb-3">
         <h1 class="pt-1 h6 text-center text-white font-weight-bold pb-2">GRUPO FINANCIERO</h1>
         <table class="table table-secondary table-striped table-borderless scroll_modificado">
-            <thead class="bg-info">
+            <thead style="background:#74CFBC;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO NEGOCIACIÓN</td>
                 </tr>
@@ -203,7 +203,7 @@
         
         <!-- MENSAJE -->
         <table class="table table-secondary table-striped table-borderless scroll_modificado">
-            <thead class="bg-info">
+            <thead style="background:#74CFBC;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO MENSAJE</td>
                 </tr>
@@ -238,7 +238,7 @@
         
         <!-- FINANCIERO IN BOUND -->
         <table class="table table-secondary table-striped table-borderless scroll_modificado">
-            <thead class="bg-info">
+            <thead style="background:#74CFBC;">
                 <tr>
                     <td colspan="4" class="font-weight-bold text-center">FORMATO INBOUND</td>
                 </tr>

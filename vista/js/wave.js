@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 
   $('.wave').on('click', function(e){
     
@@ -27,4 +27,4 @@ $(function(){
       $(this).remove();
     });
   });
-});
+});*/

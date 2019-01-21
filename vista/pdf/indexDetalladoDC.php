@@ -24,9 +24,12 @@
 
     <!-- Contenido -->  
     <div class="container-fluid pt-3">
-        <form action="reporteDetalladoContactoDirecto.php" method="GET">
+        <form action="reporteDetalladoContactoDirecto.php" class="bg-dark p-3 rounded" method="GET">
             <div class="form-group input-group-sm">
-                <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">INFORME DETALLADO PARA NEGOCIACION COMERCIAL VD</label>
+                <label for="mes" class="mb-3 w-100 h6 text-white text-center font-weight-bold">INFORME DETALLADO PARA NEGOCIACION COMERCIAL - VD</label>
+                
+                <label for="mes" style="color:#DDD;" class="pt-1 pb-1 font-weight-bold">Seleccionar mes</label>
+
                 
                 <input 
                     type="month" 
@@ -36,6 +39,8 @@
                     class="input-sm mb-3 form-control"
                     required
                 >
+                
+                <label for="mes" style="color:#DDD;" class="pt-1 pb-1 font-weight-bold">Elegir asesor</label>
                 
                 <input 
                     list="asesor" 
@@ -58,10 +63,10 @@
                         }
                     ?>
                 </datalist>
+                <small style="color:#AAA;" class="form-text font-weight-bold mt-2 mb-2"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, además recuerde que solo puede consultar un asesor que se encuentre activo para realizar sus informe detallado.</small>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-dark font-weight-bold btn-sm btn-block"><i class="fas fa-award"></i>&nbsp; GENERAR ARCHIVO PDF</button>
-                <small class="form-text text-secondary font-weight-bold"><i class="far fa-question-circle"></i>&nbsp; por favor, seleccione un mes que contenga gestiones, además recuerde que solo puede consultar un asesor que se encuentre activo para realizar sus informe detallado.</small>
+                <button type="submit" class="btn btn-primary font-weight-bold btn-sm btn-block"><i class="fas fa-award"></i>&nbsp; GENERAR ARCHIVO PDF</button>
             </div>
         </form>
     </div>
