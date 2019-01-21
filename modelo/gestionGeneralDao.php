@@ -165,6 +165,18 @@
         }
         
         
+        // validacion para informe detallado NEG
+        public function eliminarGestion($usuarioAsesor){
+            try{
+                $query = $this->conexion->prepare("CALL eliminarGestion('$usuarioAsesor');");
+                $query->execute();
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
+        
+        
         // validacion para informe detallado MEN
         public function validacionDetalladoMEN($asesorId,$mes){
             try{

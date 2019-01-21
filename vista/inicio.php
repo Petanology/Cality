@@ -113,8 +113,10 @@
                             <div class="texto">Retroalimentación</div>
                         </a>
                     </li>
+                    <?php } ?>
 
                    
+                    <?php if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="jefe_operaciones"){ ?>
                     <li>
                         <a href="visualizacionGeneral.php" target="contenido">
                             <div class="cont-img">
@@ -123,8 +125,8 @@
                             <div class="texto">Consultar gestiones</div>
                         </a>
                     </li>
-                    
                     <?php } ?>
+                    
                     
                     <?php
                     if($_SESSION['rol']=="administrador" || $_SESSION['rol']=="analista" || $_SESSION['rol']=="coord_venta_directa" || $_SESSION['rol']=="coord_financiera" || $_SESSION['rol']=="jefe_operaciones"){

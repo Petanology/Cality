@@ -81,6 +81,41 @@
             }
             return $query;
         }
+
+        
+        public function verConsultaGestionesUsuario($mesConsulta,$asesorConsulta,$tabla){
+            try{
+                switch($tabla){
+                    case "dc":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioDC('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "dp":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioDP('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "ie":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioIE('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "ib":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioIB('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "neg":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioNEG('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "men":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioMEN('$mesConsulta%','$asesorConsulta');");
+                    break;
+                    case "ibf":
+                        $query = $this->conexion->prepare("CALL verConsultaGestionesUsuarioIBF('$mesConsulta%','$asesorConsulta');");
+                    break;
+                }
+            
+                $query->execute();
+                
+            }catch(Exception $e){
+                echo "Error: " . $e->getMessage();
+            }
+            return $query;
+        }
         
 
         public function saberGestionesUsuario($nom_usuario){
