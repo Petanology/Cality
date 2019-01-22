@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+body {
+    background-color: #FFF !important;
+}
+
+
+.contenedor-principal {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    height: 50vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+}
+
+
+.capa-oscura {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20,20,20,0.8);
+}
+
+
+.caja-flexible {
+    position: absolute;
+    
+    left: 50%;
+    top: 50%;
+    
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    
+    width: 100%;
+    height: auto;
+}
+
+
+.caja-flexible img {
+    display: block;
+    width: 200px;
+    margin: auto auto 30px auto;
+    border-radius: 50%;
+    box-shadow:  0px 0px 15px rgba(0,0,0,0.3);
+}
+
+
+.contenedor-parrafo-nombre {
+    display: block;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+    color:#FFF;
+    text-shadow: 0px 0px 10px rgba(0,0,0,.3), 0px 0px 2px rgba(0,0,0,.8);
+    margin: 0;
+}
+
+
+.contenedor-parrafo-rol {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(0,0,0,.3), 0px 0px 2px rgba(0,0,0,.8);
+    margin: 0;
+}
+
+
+.contenedor-parrafo-rol .rol {
+    text-transform: capitalize;
+}
+
+.fas {
+    margin-right: 10px;
+}
+
+
+.contenedor-secundario {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    height: 50vh;
+    font-size: 20px;
+    text-align: center;
+    background-color: #FFF;
+    background: url("../img/fondo%20mosaico.jpg");
+    background-position: center;
+}
+
+
+.contenedor-secundario ul {
+    list-style-type: none;  
+    text-transform: lowercase;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+.contenedor-secundario ul li {
+    padding: 10px;
+}
+
+
+hr.hr-modificado {
+    border: 0.5px solid rgba(0,0,0,0.3);
+    margin: 10px auto;
+    text-align: center;
+    width: 10%;
+    min-width: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
