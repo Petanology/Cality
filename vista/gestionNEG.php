@@ -444,11 +444,11 @@
                     </div>
                     <div class="form-group">
                         <label for="fortalezas" class="font-weight-bold">Fortalezas</label>
-                        <textarea name="fortalezas" placeholder="Ingrese las fortalezas de la gestión..."  id="fortalezas" rows="2" class="form-control form-control-sm"></textarea>
+                        <textarea name="fortalezas" placeholder="Ingrese las fortalezas de la gestión..."  id="fortalezas" rows="6" class="form-control form-control-sm"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="oportunidades" class="font-weight-bold">Oportunidades</label>
-                        <textarea name="oportunidades" placeholder="Ingrese las oportunidades de mejora de la gestión..."  id="oportunidades" rows="5" class="form-control form-control-sm"></textarea>
+                        <textarea name="oportunidades" placeholder="Ingrese las oportunidades de mejora de la gestión..."  id="oportunidades" rows="6" class="form-control form-control-sm"></textarea>
                     </div>
                     <div>
                     <hr class="bg-white">

@@ -515,6 +515,16 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
+                                <li>
+                                   <a href="pdf/indexRankingAsesoresVD.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/rank-vd.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Ranking general</div>
+                                   </a>
+                               </li>
                                <li>
                                    <a href="pdf/indexReporteDC.php" target="contenido">
                                        <!-- Icono -->
@@ -576,6 +586,16 @@
                         </a>
                         <div class="submenu-item">
                             <ul>
+                               <li>
+                                   <a href="pdf/indexRankingAsesoresF.php" target="contenido">
+                                       <!-- Icono -->
+                                       <div class="cont-img">
+                                           <img src="img/rank-f.png" alt="icono de informe">
+                                       </div>
+                                       <!-- Texto -->
+                                       <div class="texto">Ranking general</div>
+                                   </a>
+                               </li>
                                <li>
                                    <a href="pdf/indexReporteNEG.php" target="contenido">
                                        <!-- Icono -->

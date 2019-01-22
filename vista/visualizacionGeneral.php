@@ -166,10 +166,10 @@
                    
                 <div class="contenedor-gestion">
                     <div class="iconos">
-                        <button title="ver detalles de ésta gestión" class="btn btn-primary ml-1"><i class="far fa-eye"></i></button>
-                        <?php if($rowResultadoGestiones[10] == $_SESSION['idpersona']){ ?>
-                        <button title="modificar ésta gestión" class="btn btn-success ml-1"><i class="fas fa-pencil-alt"></i></button>
-                        <?php } ?> 
+                        <!--<button title="ver detalles de ésta gestión" class="btn btn-primary ml-1"><i class="far fa-eye"></i></button>-->
+                        <?php /* if($rowResultadoGestiones[10] == $_SESSION['idpersona']){ */ ?>
+                        <!--<button title="modificar ésta gestión" class="btn btn-success ml-1"><i class="fas fa-pencil-alt"></i></button>-->
+                        <?php /*}*/ ?> 
                         <?php if($_SESSION["rol"]=="administrador"){ ?>
                         <button title="eliminar ésta gestión" class="btn btn-danger ml-1" onclick="botonEliminarGestion('<?php echo $rowResultadoGestiones[0]; ?>')"><i class="fas fa-trash-alt"></i></button>
                         <?php } ?> 
